@@ -6,11 +6,12 @@
 #include <iostream>
 
 #include "variable.h"
+#include "container.h"
 
 
 class scope{
 public:
-	std::vector<variable *> lvariables;
+	vcontainer lvariables;
 	scope *parent,*root;
 
 	virtual variable *findVariable(const std::string &);

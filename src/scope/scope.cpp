@@ -10,7 +10,7 @@
 
 variable *scope::findVariable(const std::string &s){
 
-	for(variable *varit : lvariables ){
+	for(variable *varit = lvariables.begin(); varit != lvariables.end;varit++ ){
 		if(varit->name == s)
 			return varit;
 	}
@@ -23,12 +23,12 @@ variable *scope::findVariable(const std::string &s){
 
 variable *function::findVariable(const std::string &s){
 
-	for(variable *varit : pvariables ){
+	for(variable *varit = pvariables.begin(); varit != pvariables.end;varit++ ){
 		if(varit->name == s)
 			return varit;
 	}
 
-	for(variable *varit : lvariables ){
+	for(variable *varit = lvariables.begin(); varit != lvariables.end;varit++ ){
 		if(varit->name == s)
 			return varit;
 	}
@@ -40,16 +40,16 @@ variable *function::findVariable(const std::string &s){
 }
 
 void function::replace(const std::vector<variable *> &params){
-	if(params.size() != pvariables.size())
+	if(params.size() != pvariables.size)
 		return; /* throw exception */
 	
 	for(operation *opit = operations.begin(); opit != operations.end; opit++){
 
 		for(int varit = 0;varit < opit->variables.size(); varit++){
 
-			for(int pit = 0;pit < pvariables.size(); pit++){
+			for(unsigned int pit = 0;pit < pvariables.size; pit++){
 
-				if(opit->variables[varit] == pvariables[pit])
+				if(opit->variables[varit] == pvariables.get_pointer(pit))
 					opit->variables[varit] = params[pit];
 
 			}
@@ -62,9 +62,9 @@ void function::replace(const std::vector<variable *> &params){
 
 		for(int varit = 0;varit < opit->variables.size(); varit++){
 
-			for(int pit = 0;pit < pvariables.size(); pit++){
+			for(int pit = 0;pit < pvariables.size; pit++){
 
-				if(opit->variables[varit] == pvariables[pit])
+				if(opit->variables[varit] == pvariables.get_pointer(pit))
 					opit->variables[varit] = params[pit];
 
 			}
@@ -76,7 +76,7 @@ void function::replace(const std::vector<variable *> &params){
 }
 
 void function::replace_back(const std::vector<variable *> &params){
-	if(params.size() != pvariables.size())
+	if(params.size() != pvariables.size)
 		return; /* throw exception */
 	
 	for(operation *opit = operations.begin(); opit != operations.end; opit++){
@@ -86,7 +86,7 @@ void function::replace_back(const std::vector<variable *> &params){
 			for(int pit = 0;pit < params.size(); pit++){
 
 				if(opit->variables[varit] == params[pit])
-					opit->variables[varit] = pvariables[pit];
+					opit->variables[varit] = pvariables.get_pointer(pit);
 
 			}
 
@@ -101,7 +101,7 @@ void function::replace_back(const std::vector<variable *> &params){
 			for(int pit = 0;pit < params.size(); pit++){
 
 				if(opit->variables[varit] == params[pit])
-					opit->variables[varit] = pvariables[pit];
+					opit->variables[varit] = pvariables.get_pointer(pit);
 
 			}
 
@@ -112,13 +112,9 @@ void function::replace_back(const std::vector<variable *> &params){
 }
 
 scope::~scope(){
-	for(variable *varit : lvariables)
-		delete varit;
 }
 
 function::~function(){
-	for(variable *varit : pvariables)
-		delete varit;
 }
 
 

@@ -51,6 +51,12 @@ variable *vcontainer::new_last(){
 
 }
 
+variable *vcontainer::get_pointer(unsigned int position){
+	if(position >= size)
+		return NULL;
+	return (variable *)(buf + (position * sizeof(variable)));
+}
+
 
 void vcontainer::emplace_back(variable::Types type,double v){
 	variable *place = new_last();

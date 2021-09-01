@@ -12,6 +12,7 @@ public:
 	vcontainer();
 	~vcontainer();
 
+	variable *get_pointer(unsigned int );
 	variable *begin();
 	unsigned int new_capacity();
 	variable *new_last();

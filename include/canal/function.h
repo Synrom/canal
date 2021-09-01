@@ -10,13 +10,14 @@
 #include "operation.h"
 #include "root_operation.h"
 #include "file.h"
+#include "container.h"
 
 class operation;
 class file;
 
 class function: public scope{
 public:
-	std::vector<variable *> pvariables;
+	vcontainer pvariables;
 	std::string name;
 	file *_file;
 

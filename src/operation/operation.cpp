@@ -111,3 +111,40 @@ variable *Call::execute(){
 	return call->execute(variables);
 }
 
+variable *operation::execute(){
+	if(left){
+		variable *leftv = left->execute();
+		if(right){
+			variable *rightv = right->execute();
+			variable *result = executeOperation(leftv,rightv);
+			if(leftv->type == variable::rvalue)
+				delete leftv;
+			if(rightv->type == variable::rvalue)
+				delete rightv;
+			return result;
+		}
+		if(variables.size() >= 1){
+			variable *rightv = variables[0];
+			variable *result = executeOperation(leftv,rightv);
+			if(leftv->type == variable::rvalue)
+				delete leftv;
+			return result;
+		}
+		return NULL;
+
+	}else if(right){
+		if(variables.size() >= 1){
+			variable *rightv = right->execute();
+			variable *result = executeOperation(variables[0],rightv);
+			if(rightv->type == variable::rvalue)
+				delete rightv;
+			return result;
+		}
+		return NULL;
+	}
+
+	if(variables.size() < 2)
+		return NULL;
+	
+	return executeOperation(variables[0],variables[1]);
+}
