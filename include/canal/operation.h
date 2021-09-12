@@ -24,7 +24,8 @@ public:
 		Dec,
 		Inc,
 		Call,
-		Equal
+		Equal,
+		Ret
 	};
 
 	Types type;
@@ -53,6 +54,7 @@ private:
 
 class Add: public operation{
 	variable *executeOperation(variable *,variable *);
+public:
 	Add(operation *,operation *);
 	Add(variable *,operation *);
 	Add(operation *,variable *);
@@ -116,12 +118,17 @@ class Inc: public operation{
 class Call: public operation{
 	variable *executeOperation(variable *,variable *);
 	Call(function *,const std::vector<variable *> &);
-	virtual variable *execute();
+	variable *execute();
 };
 class Equal: public operation{
 	variable *executeOperation(variable *,variable *);
 	Equal(variable *,operation *);
 	Equal(variable *,variable *);
+};
+class Ret: public operation{
+	variable *executeOperation(variable *,variable *);
+	Ret(variable *);
+	variable *execute();
 };
 
 #endif

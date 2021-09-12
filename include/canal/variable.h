@@ -63,8 +63,6 @@ public:
 	variable(Types );
 	virtual ~variable();
 
-	/* hier muss noch die operation uebergeben werden */
-	variable *handleOperation(variable *);
 
 	virtual variable *Plus(variable *) = 0;
 	virtual variable *Minus(variable *) = 0;
@@ -76,7 +74,9 @@ public:
 	virtual variable *Neg() = 0;
 	virtual variable *Inc() = 0;
 	virtual variable *Dec() = 0;
-
+	
+	virtual bool operator > (variable *) = 0;
+	virtual void copy_to_pointer(variable *) = 0;
 };
 
 class signedint: public variable{
@@ -92,6 +92,8 @@ public:
 	variable *Neg();
 	variable *Inc();
 	variable *Dec();
+	bool operator > (variable *);
+	virtual void copy_to_pointer(variable *);
 };
 
 
@@ -108,6 +110,8 @@ public:
 	variable *Neg();
 	variable *Inc();
 	variable *Dec();
+	bool operator > (variable *);
+	virtual void copy_to_pointer(variable *);
 };
 
 
@@ -124,6 +128,8 @@ public:
 	variable *Neg();
 	variable *Inc();
 	variable *Dec();
+	bool operator > (variable *);
+	virtual void copy_to_pointer(variable *);
 };
 
 
@@ -140,6 +146,8 @@ public:
 	variable *Neg();
 	variable *Inc();
 	variable *Dec();
+	bool operator > (variable *);
+	virtual void copy_to_pointer(variable *);
 };
 
 class signedshort: public variable{
@@ -155,6 +163,8 @@ public:
 	variable *Neg();
 	variable *Inc();
 	variable *Dec();
+	bool operator > (variable *);
+	virtual void copy_to_pointer(variable *);
 };
 
 
@@ -171,6 +181,8 @@ public:
 	variable *Neg();
 	variable *Inc();
 	variable *Dec();
+	bool operator > (variable *);
+	virtual void copy_to_pointer(variable *);
 };
 
 
@@ -187,6 +199,8 @@ public:
 	variable *Neg();
 	variable *Inc();
 	variable *Dec();
+	bool operator > (variable *);
+	virtual void copy_to_pointer(variable *);
 };
 
 
@@ -203,6 +217,8 @@ public:
 	variable *Neg();
 	variable *Inc();
 	variable *Dec();
+	bool operator > (variable *);
+	virtual void copy_to_pointer(variable *);
 };
 
 
@@ -219,6 +235,8 @@ public:
 	variable *Neg();
 	variable *Inc();
 	variable *Dec();
+	bool operator > (variable *);
+	virtual void copy_to_pointer(variable *);
 };
 
 
@@ -235,6 +253,8 @@ public:
 	variable *Neg();
 	variable *Inc();
 	variable *Dec();
+	bool operator > (variable *);
+	virtual void copy_to_pointer(variable *);
 };
 
 class _float: public variable{
@@ -251,6 +271,8 @@ public:
 	variable *Neg();
 	variable *Inc();
 	variable *Dec();
+	bool operator > (variable *);
+	virtual void copy_to_pointer(variable *);
 };
 
 
@@ -268,6 +290,8 @@ public:
 	variable *Neg();
 	variable *Inc();
 	variable *Dec();
+	bool operator > (variable *);
+	virtual void copy_to_pointer(variable *);
 };
 
 
@@ -285,6 +309,8 @@ public:
 	variable *Neg();
 	variable *Inc();
 	variable *Dec();
+	bool operator > (variable *);
+	virtual void copy_to_pointer(variable *);
 };
 
 
@@ -301,6 +327,8 @@ public:
 	variable *Neg();
 	variable *Inc();
 	variable *Dec();
+	bool operator > (variable *);
+	virtual void copy_to_pointer(variable *);
 };
 
 #endif

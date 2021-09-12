@@ -1,4 +1,10 @@
-2. root_operations implementieren
 3. test mit cmake implementieren
 4. und viele Tests hinzufügen für die Container, aber auch alles Andere
 4. Gute Exceptions für später :(
+
+
+error sollte stacktrace ausprinten
+error sollte Programm beenden
+
+variable pointer und alle unsigned
+varibale vcontainer und variable

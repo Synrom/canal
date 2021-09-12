@@ -26,7 +26,12 @@ list(APPEND ScopeFiles
 
 list(APPEND OperationFiles
 	"operation/operation.cpp"
+	"operation/root_operation.cpp"
 )
 
-add_library(struct ${VarFiles} ${ScopeFiles} ${OperationFiles})
+list(APPEND DebuggerFiles
+	"debugger/debugger.cpp"
+)
+
+add_library(struct ${VarFiles} ${ScopeFiles} ${OperationFiles} ${DebuggerFiles})
 target_include_directories(struct PUBLIC ../include)

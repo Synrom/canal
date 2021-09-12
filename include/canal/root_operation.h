@@ -3,8 +3,6 @@
 
 #include <vector>
 
-#include "variable.h"
-#include "operation.h"
 
 class operation;
 
@@ -22,13 +20,14 @@ public:
 	root_operation();
 	~root_operation();
 
-	operation *append();
-	operation *rappend();
+	/* TODO wenn ich weiss wie sie benutzt werden */
+	operation *append(unsigned int);
+	operation *rappend(unsigned int);
 
 	operation *begin();
 	operation *rbegin();
-	operation *new_place();
-	operation *new_rplace();
+	operation *new_last();
+	operation *new_rlast();
 	unsigned int new_capacity();
 	unsigned int new_rcapacity();
 
