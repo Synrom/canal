@@ -81,6 +81,6 @@ bool _double::operator > (variable *v){
 
 void _double::copy_to_pointer(variable *place){
 	debug("> _double::copy_to_pointer");
-	error_conditional(!v,"place is NULL in _double::copy_to_pointer");
+	error_conditional(!place,"place is NULL in _double::copy_to_pointer");
 	new(place) _double(variable::rvalue,value._double);
 }

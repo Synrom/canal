@@ -1,41 +1,40 @@
-#ifndef FUNCTION_H
-#define FUNCTION_H
+#ifndef FUNCTION_STORE_H
+#define FUNCTION_STORE_H
 
 
-#include <vector>
-#include <iostream>
-#include <string>
 
-#include "scope.h"
-#include "operation.h"
-#include "root_operation.h"
-#include "file.h"
 #include "container.h"
+#include "operation_stack.h"
 
-class operation;
-class file;
 
-class function: public scope{
+#include <string>
+#include <vector>
+
+class function{
+
 public:
+
+
+	operation_stack operations;
+	vcontainer lvariables;
 	vcontainer pvariables;
 	std::string name;
-	file *_file;
+
+	vcontainer_vector vcontainers;
+	vstance_vector stances;
+	vstance *current_vstance;
 
 
-	root_operation operations;
 
+	/* noch nicht final */
+	variable *execute(std::vector<variable *> & );
+	function(const std::string &);
+	function(function &&);
 	~function();
+
 	variable *findVariable(const std::string &);
-
-	variable *execute(const std::vector<variable *> &);
-
-	/* replaces pvariables nur in operations with parameters */
-	/*  -> pvariables bleiben gleich nur in operations */
-	void replace(const std::vector<variable *> &);
-	void replace_back(const std::vector<variable *> &);
-
 	
 
-};
+};	
 
 #endif

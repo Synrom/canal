@@ -32,21 +32,19 @@ public:
 	
 
 	/* falls variable rvalue ist, ist sie ein wert und keine variable */
-	std::vector<variable *> variables;
-	function *call;
-	operation *left, *right;
+	std::vector<std::string> variables;
+	function *call, &freference;
+
+	std::string left,right;
 
 	virtual variable *execute();
 	virtual ~operation();
 
-	operation(Types ,operation *,operation *);
-	operation(Types ,variable *,operation *);
-	operation(Types ,operation *,variable *);
-	operation(Types ,variable *,variable *);
-	operation(Types ,function *, const std::vector<variable *> &);
+	operation(Types , const std::string &, const std::string &, function &);
+	operation(Types ,function *, const std::vector<std::string> &, function &);
 
 private:
-	virtual variable *executeOperation(variable *, variable *) = 0;
+	virtual variable *executeOperation(variable *,variable *) = 0;
 	
 	
 };

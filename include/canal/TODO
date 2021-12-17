@@ -1,0 +1,19 @@
+TODO:
+	- in function einen container für die ganzen vcontainer und einen für die ganzen vstances
+	- in function einen vstance &current;
+	- vstances, implementieren 
+		-> wenn neue Funktion gecallt wird, muessen Parameter mit lokalen gemappt werden auf vernuenftige Weise
+		std::vector<vcontainer *> -> container dieses Pfads
+		std::vector<vstances *> -> children Pfade
+		vstance &parent -> parent Pfad
+		void reset() -> um nach call alle Pfade wieder zu loeschen
+
+		void add_route() -> added Pfad und betretet ihn auch automatisch.
+		void back_route() -> geht wieder einen nach oben im Pfad
+
+		void merge_from(const vstance &, const mapping_arguments &) -> merged vor Function call
+		void merge_into(vstance &, const mapping_arguments &) -> merged nach Function call
+
+	- mapping_arguments -> ein Mapping fuer function calls.
+		-> im Grunde nur std::vector<std::string , std::string> 
+	- result_stack programmieren
