@@ -10,14 +10,17 @@
 #include <string>
 #include <vector>
 
+class vcontainer_vector;
+class vstance_vector;
+class vstance;
+
 class function{
 
 public:
 
 
 	operation_stack operations;
-	vcontainer lvariables;
-	vcontainer pvariables;
+	std::vector<std::string> pvariables;
 	std::string name;
 
 	vcontainer_vector vcontainers;
@@ -32,8 +35,7 @@ public:
 	function(function &&);
 	~function();
 
-	variable *findVariable(const std::string &);
-	
+		
 
 };	
 

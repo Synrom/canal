@@ -39,7 +39,7 @@ void vstance::add_existing_container(vcontainer *c){
 	container.push_back(c);
 }
 
-void vstance::copy_container(vcontainer *c){
+vcontainer* vstance::copy_container(vcontainer *c){
 	debug("copying container to stance");
 
 	vcontainer *new_container = vcontainer_space->add();
@@ -48,8 +48,87 @@ void vstance::copy_container(vcontainer *c){
 	container.push_back(new_container);
 
 	*new_container = *c;
+	return new_container;
 }
 
 
 
+
+void vstance::add_var(const std::string &s, signed char v){
+	debug("adding %s to vstance",s.c_str());
+	for(auto i = container.begin();i != container.end();i++)
+		(*i)->emplace_back(s,v);
+}
+
+void vstance::add_var(const std::string &s, unsigned char v){
+	debug("adding %s to vstance",s.c_str());
+	for(auto i = container.begin();i != container.end();i++)
+		(*i)->emplace_back(s,v);
+}
+
+void vstance::add_var(const std::string &s, signed short v){
+	debug("adding %s to vstance",s.c_str());
+	for(auto i = container.begin();i != container.end();i++)
+		(*i)->emplace_back(s,v);
+}
+
+void vstance::add_var(const std::string &s, unsigned short v){
+	debug("adding %s to vstance",s.c_str());
+	for(auto i = container.begin();i != container.end();i++)
+		(*i)->emplace_back(s,v);
+}
+
+void vstance::add_var(const std::string &s, signed int v){
+	debug("adding %s to vstance",s.c_str());
+	for(auto i = container.begin();i != container.end();i++)
+		(*i)->emplace_back(s,v);
+}
+
+void vstance::add_var(const std::string &s, unsigned int v){
+	debug("adding %s to vstance",s.c_str());
+	for(auto i = container.begin();i != container.end();i++)
+		(*i)->emplace_back(s,v);
+}
+
+void vstance::add_var(const std::string &s, signed long v){
+	debug("adding %s to vstance",s.c_str());
+	for(auto i = container.begin();i != container.end();i++)
+		(*i)->emplace_back(s,v);
+}
+
+void vstance::add_var(const std::string &s, unsigned long v){
+	debug("adding %s to vstance",s.c_str());
+	for(auto i = container.begin();i != container.end();i++)
+		(*i)->emplace_back(s,v);
+}
+
+void vstance::add_var(const std::string &s, signed long long v){
+	debug("adding %s to vstance",s.c_str());
+	for(auto i = container.begin();i != container.end();i++)
+		(*i)->emplace_back(s,v);
+}
+
+void vstance::add_var(const std::string &s, unsigned long long v){
+	debug("adding %s to vstance",s.c_str());
+	for(auto i = container.begin();i != container.end();i++)
+		(*i)->emplace_back(s,v);
+}
+
+void vstance::add_var(const std::string &s, float v){
+	debug("adding %s to vstance",s.c_str());
+	for(auto i = container.begin();i != container.end();i++)
+		(*i)->emplace_back(s,v);
+}
+
+void vstance::add_var(const std::string &s, double v){
+	debug("adding %s to vstance",s.c_str());
+	for(auto i = container.begin();i != container.end();i++)
+		(*i)->emplace_back(s,v);
+}
+
+void vstance::add_var(const std::string &s, long double v){
+	debug("adding %s to vstance",s.c_str());
+	for(auto i = container.begin();i != container.end();i++)
+		(*i)->emplace_back(s,v);
+}
 

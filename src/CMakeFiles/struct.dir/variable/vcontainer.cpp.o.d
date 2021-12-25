@@ -56,28 +56,8 @@ src/CMakeFiles/struct.dir/variable/vcontainer.cpp.o: \
  /usr/include/c++/10/typeinfo /usr/include/c++/10/bits/hash_bytes.h \
  /usr/include/c++/10/bits/nested_exception.h \
  /usr/include/c++/10/bits/move.h /usr/include/c++/10/type_traits \
- /usr/x86_64-linux-gnu/include/string.h \
- /usr/x86_64-linux-gnu/include/strings.h \
- /usr/x86_64-linux-gnu/include/unistd.h \
- /usr/x86_64-linux-gnu/include/bits/posix_opt.h \
- /usr/x86_64-linux-gnu/include/bits/environments.h \
- /usr/x86_64-linux-gnu/include/bits/confname.h \
- /usr/x86_64-linux-gnu/include/bits/getopt_posix.h \
- /usr/x86_64-linux-gnu/include/bits/getopt_core.h \
- /usr/x86_64-linux-gnu/include/bits/unistd_ext.h \
- /home/synrom/lego/canal/src/../include/canal/variable.h \
- /usr/include/c++/10/iostream /usr/include/c++/10/ostream \
- /usr/include/c++/10/ios /usr/include/c++/10/iosfwd \
- /usr/include/c++/10/bits/stringfwd.h \
- /usr/include/c++/10/bits/memoryfwd.h /usr/include/c++/10/bits/postypes.h \
- /usr/include/c++/10/cwchar /usr/x86_64-linux-gnu/include/wchar.h \
- /usr/lib/gcc/x86_64-linux-gnu/10/include/stdarg.h \
- /usr/x86_64-linux-gnu/include/bits/wchar.h \
- /usr/x86_64-linux-gnu/include/bits/types/wint_t.h \
- /usr/x86_64-linux-gnu/include/bits/types/mbstate_t.h \
- /usr/x86_64-linux-gnu/include/bits/types/__mbstate_t.h \
- /usr/x86_64-linux-gnu/include/bits/types/__FILE.h \
- /usr/x86_64-linux-gnu/include/bits/types/FILE.h \
+ /usr/include/c++/10/string /usr/include/c++/10/bits/stringfwd.h \
+ /usr/include/c++/10/bits/memoryfwd.h \
  /usr/include/c++/10/bits/char_traits.h \
  /usr/include/c++/10/bits/stl_algobase.h \
  /usr/include/c++/10/bits/functexcept.h \
@@ -91,16 +71,38 @@ src/CMakeFiles/struct.dir/variable/vcontainer.cpp.o: \
  /usr/include/c++/10/debug/assertions.h \
  /usr/include/c++/10/bits/stl_iterator.h \
  /usr/include/c++/10/bits/ptr_traits.h /usr/include/c++/10/debug/debug.h \
- /usr/include/c++/10/bits/predefined_ops.h /usr/include/c++/10/cstdint \
+ /usr/include/c++/10/bits/predefined_ops.h \
+ /usr/include/c++/10/bits/postypes.h /usr/include/c++/10/cwchar \
+ /usr/x86_64-linux-gnu/include/wchar.h \
+ /usr/lib/gcc/x86_64-linux-gnu/10/include/stdarg.h \
+ /usr/x86_64-linux-gnu/include/bits/wchar.h \
+ /usr/x86_64-linux-gnu/include/bits/types/wint_t.h \
+ /usr/x86_64-linux-gnu/include/bits/types/mbstate_t.h \
+ /usr/x86_64-linux-gnu/include/bits/types/__mbstate_t.h \
+ /usr/x86_64-linux-gnu/include/bits/types/__FILE.h \
+ /usr/x86_64-linux-gnu/include/bits/types/FILE.h \
+ /usr/include/c++/10/cstdint \
  /usr/lib/gcc/x86_64-linux-gnu/10/include/stdint.h \
  /usr/x86_64-linux-gnu/include/stdint.h \
  /usr/x86_64-linux-gnu/include/bits/stdint-uintn.h \
+ /usr/include/c++/10/bits/allocator.h \
+ /usr/include/x86_64-linux-gnu/c++/10/bits/c++allocator.h \
+ /usr/include/c++/10/ext/new_allocator.h \
  /usr/include/c++/10/bits/localefwd.h \
  /usr/include/x86_64-linux-gnu/c++/10/bits/c++locale.h \
  /usr/include/c++/10/clocale /usr/x86_64-linux-gnu/include/locale.h \
- /usr/x86_64-linux-gnu/include/bits/locale.h /usr/include/c++/10/cctype \
- /usr/x86_64-linux-gnu/include/ctype.h \
- /usr/include/c++/10/bits/ios_base.h /usr/include/c++/10/ext/atomicity.h \
+ /usr/x86_64-linux-gnu/include/bits/locale.h /usr/include/c++/10/iosfwd \
+ /usr/include/c++/10/cctype /usr/x86_64-linux-gnu/include/ctype.h \
+ /usr/include/c++/10/bits/ostream_insert.h \
+ /usr/include/c++/10/bits/cxxabi_forced.h \
+ /usr/include/c++/10/bits/stl_function.h \
+ /usr/include/c++/10/backward/binders.h \
+ /usr/include/c++/10/bits/range_access.h \
+ /usr/include/c++/10/initializer_list \
+ /usr/include/c++/10/bits/iterator_concepts.h \
+ /usr/include/c++/10/concepts /usr/include/c++/10/bits/range_cmp.h \
+ /usr/include/c++/10/bits/basic_string.h \
+ /usr/include/c++/10/ext/atomicity.h \
  /usr/include/x86_64-linux-gnu/c++/10/bits/gthr.h \
  /usr/include/x86_64-linux-gnu/c++/10/bits/gthr-default.h \
  /usr/x86_64-linux-gnu/include/pthread.h \
@@ -115,19 +117,6 @@ src/CMakeFiles/struct.dir/variable/vcontainer.cpp.o: \
  /usr/x86_64-linux-gnu/include/bits/types/struct_itimerspec.h \
  /usr/x86_64-linux-gnu/include/bits/setjmp.h \
  /usr/include/x86_64-linux-gnu/c++/10/bits/atomic_word.h \
- /usr/include/c++/10/bits/locale_classes.h /usr/include/c++/10/string \
- /usr/include/c++/10/bits/allocator.h \
- /usr/include/x86_64-linux-gnu/c++/10/bits/c++allocator.h \
- /usr/include/c++/10/ext/new_allocator.h \
- /usr/include/c++/10/bits/ostream_insert.h \
- /usr/include/c++/10/bits/cxxabi_forced.h \
- /usr/include/c++/10/bits/stl_function.h \
- /usr/include/c++/10/backward/binders.h \
- /usr/include/c++/10/bits/range_access.h \
- /usr/include/c++/10/initializer_list \
- /usr/include/c++/10/bits/iterator_concepts.h \
- /usr/include/c++/10/concepts /usr/include/c++/10/bits/range_cmp.h \
- /usr/include/c++/10/bits/basic_string.h \
  /usr/include/c++/10/ext/alloc_traits.h \
  /usr/include/c++/10/bits/alloc_traits.h \
  /usr/include/c++/10/bits/stl_construct.h \
@@ -148,6 +137,19 @@ src/CMakeFiles/struct.dir/variable/vcontainer.cpp.o: \
  /usr/include/c++/10/bits/charconv.h \
  /usr/include/c++/10/bits/functional_hash.h \
  /usr/include/c++/10/bits/basic_string.tcc \
+ /usr/x86_64-linux-gnu/include/string.h \
+ /usr/x86_64-linux-gnu/include/strings.h \
+ /usr/x86_64-linux-gnu/include/unistd.h \
+ /usr/x86_64-linux-gnu/include/bits/posix_opt.h \
+ /usr/x86_64-linux-gnu/include/bits/environments.h \
+ /usr/x86_64-linux-gnu/include/bits/confname.h \
+ /usr/x86_64-linux-gnu/include/bits/getopt_posix.h \
+ /usr/x86_64-linux-gnu/include/bits/getopt_core.h \
+ /usr/x86_64-linux-gnu/include/bits/unistd_ext.h \
+ /home/synrom/lego/canal/src/../include/canal/variable.h \
+ /usr/include/c++/10/iostream /usr/include/c++/10/ostream \
+ /usr/include/c++/10/ios /usr/include/c++/10/bits/ios_base.h \
+ /usr/include/c++/10/bits/locale_classes.h \
  /usr/include/c++/10/bits/locale_classes.tcc \
  /usr/include/c++/10/system_error \
  /usr/include/x86_64-linux-gnu/c++/10/bits/error_constants.h \

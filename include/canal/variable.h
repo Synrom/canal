@@ -14,10 +14,6 @@ public:
 	std::string name;
 	unsigned int size;
 
-	/* value is always the theOratically possible highest value */
-	/* bei pointern ist value die capacity */
-	// TODO: value sollte union sein
-
 	union Data{
 		signed char signedchar;
 		unsigned char unsignedchar;
@@ -39,28 +35,26 @@ public:
 
 
 	enum Types {
-		rvalue,
-		lvalue
+		signedchar,
+		unsignedchar,
+		signedshort,
+		unsignedshort,
+		signedint,
+		unsignedint,
+		signedlong,
+		unsignedlong,
+		signedlonglong,
+		unsignedlonglong,
+		_float,
+		_double,
+		longdouble,
+		pointer,
 	};
 
 	
 	Types type;
 
-	variable(std::string && , Types  );
-	variable(Types , signed char);
-	variable(Types , unsigned char);
-	variable(Types ,signed short );
-	variable(Types ,unsigned short);
-	variable(Types ,signed int );
-	variable(Types ,unsigned int );
-	variable(Types ,signed long );
-	variable(Types ,unsigned long );
-	variable(Types ,signed long long );
-	variable(Types ,unsigned long long );
-	variable(Types ,float );
-	variable(Types ,double );
-	variable(Types ,long double );
-	variable(Types );
+	variable(const std::string &);
 	virtual ~variable();
 
 
@@ -81,7 +75,8 @@ public:
 
 class signedint: public variable{
 public:
-	signedint(Types ,signed int );
+	signedint(const std::string &, signed int );
+	signedint(const variable *);
 	variable *Plus(variable *);
 	variable *Minus(variable *);
 	variable *Times(variable *);
@@ -99,7 +94,8 @@ public:
 
 class unsignedint: public variable{
 public:
-	unsignedint(Types ,unsigned int );
+	unsignedint(const std::string &, unsigned int );
+	unsignedint(const variable *);
 	variable *Plus(variable *);
 	variable *Minus(variable *);
 	variable *Times(variable *);
@@ -117,7 +113,8 @@ public:
 
 class signedchar: public variable{
 public:
-	signedchar(Types , signed char );
+	signedchar(const std::string &, signed char );
+	signedchar(const variable *);
 	variable *Plus(variable *);
 	variable *Minus(variable *);
 	variable *Times(variable *);
@@ -135,7 +132,8 @@ public:
 
 class unsignedchar: public variable{
 public:
-	unsignedchar(Types , unsigned char );
+	unsignedchar(const std::string &, unsigned char );
+	unsignedchar(const variable *);
 	variable *Plus(variable *);
 	variable *Minus(variable *);
 	variable *Times(variable *);
@@ -152,7 +150,8 @@ public:
 
 class signedshort: public variable{
 public:
-	signedshort(Types , signed short );
+	signedshort(const std::string &, signed short );
+	signedshort(const variable *);
 	variable *Plus(variable *);
 	variable *Minus(variable *);
 	variable *Times(variable *);
@@ -170,7 +169,8 @@ public:
 
 class unsignedshort: public variable{
 public:
-	unsignedshort(Types , unsigned short );
+	unsignedshort(const std::string &, unsigned short );
+	unsignedshort(const variable *);
 	variable *Plus(variable *);
 	variable *Minus(variable *);
 	variable *Times(variable *);
@@ -188,7 +188,8 @@ public:
 
 class signedlong: public variable{
 public:
-	signedlong(Types , signed long );
+	signedlong(const std::string &, signed long );
+	signedlong(const variable *);
 	variable *Plus(variable *);
 	variable *Minus(variable *);
 	variable *Times(variable *);
@@ -206,7 +207,8 @@ public:
 
 class unsignedlong: public variable{
 public:
-	unsignedlong(Types , unsigned long );
+	unsignedlong(const std::string &, unsigned long );
+	unsignedlong(const variable *);
 	variable *Plus(variable *);
 	variable *Minus(variable *);
 	variable *Times(variable *);
@@ -224,7 +226,8 @@ public:
 
 class unsignedlonglong: public variable{
 public:
-	unsignedlonglong(Types , unsigned long long );
+	unsignedlonglong(const std::string &, unsigned long long );
+	unsignedlonglong(const variable *);
 	variable *Plus(variable *);
 	variable *Minus(variable *);
 	variable *Times(variable *);
@@ -242,7 +245,8 @@ public:
 
 class signedlonglong: public variable{
 public:
-	signedlonglong(Types , signed long long );
+	signedlonglong(const std::string &, signed long long );
+	signedlonglong(const variable *);
 	variable *Plus(variable *);
 	variable *Minus(variable *);
 	variable *Times(variable *);
@@ -259,8 +263,8 @@ public:
 
 class _float: public variable{
 public:
-	_float(Types , float );
-	_float(Types , unsigned int );
+	_float(const std::string &, float );
+	_float(const variable *);
 	variable *Plus(variable *);
 	variable *Minus(variable *);
 	variable *Times(variable *);
@@ -278,8 +282,8 @@ public:
 
 class _double: public variable{
 public:
-	_double(Types , double );
-	_double(Types , unsigned int );
+	_double(const std::string &, double );
+	_double(const variable *);
 	variable *Plus(variable *);
 	variable *Minus(variable *);
 	variable *Times(variable *);
@@ -297,8 +301,8 @@ public:
 
 class longdouble: public variable{
 public:
-	longdouble(Types , long double);
-	longdouble(Types , unsigned int );
+	longdouble(const std::string &, long double );
+	longdouble(const variable *);
 	variable *Plus(variable *);
 	variable *Minus(variable *);
 	variable *Times(variable *);
@@ -316,7 +320,8 @@ public:
 
 class pointer: public variable{
 public:
-	pointer(Types , unsigned long long, unsigned int);
+	pointer(const std::string & , unsigned long long, unsigned int);
+	pointer(const variable *);
 	variable *Plus(variable *);
 	variable *Minus(variable *);
 	variable *Times(variable *);

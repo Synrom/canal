@@ -1,18 +1,18 @@
-classes = [
-	"signedchar",
-	"unsignedchar",
-	"signedshort",
-	"unsignedshort",
-	"signedint",
-	"unsignedint",
-	"signedlong",
-	"unsignedlong",
-	"signedlonglong",
-	"unsignedlonglong",
-	"_float",
-	"_double",
-	"longdouble"
-]
+classes = {
+        "signedchar":"signed char",
+        "unsignedchar":"unsigned char",
+        "signedshort":"signed short",
+        "unsignedshort":"unsigned short",
+        "signedint":"signed int",
+        "unsignedint":"unsigned int",
+        "signedlong":"signed long",
+        "unsignedlong":"unsigned long",
+        "signedlonglong":"signed long long",
+        "unsignedlonglong":"unsigned long long",
+        "_float":"float",
+        "_double":"double",
+        "longdouble":"long double",
+}
 
 methods = [
 	("Plus","+"),
@@ -26,22 +26,23 @@ methods = [
 
 
 for _class in classes:
-	with open("../src/variable/"+_class+".cpp","w") as f:
-		f.write("\n")
-		for method in methods:
-			f.write("variable *"+_class+"::"+method[0]+"(variable *v){\n")
-			f.write("\treturn new "+_class+"(rvalue, value."+_class+" "+method[1]+" v->value."+_class+");\n")
-			f.write("}\n")
-			f.write("\n")
-		for method in [("Inc","++"),("Dec","--")]:
-			f.write("variable *"+_class+"::"+method[0]+"(){\n")
-			f.write("\tvalue."+_class+method[1]+";\n")
-			f.write("\treturn this;\n")
-			f.write("}\n")
-			f.write("\n")
-		for method in [("Neg","~")]:
-			f.write("variable *"+_class+"::"+method[0]+"(){\n")
-			f.write("\treturn new "+_class+"(rvalue, ~(value."+_class+"));\n")
-			f.write("}\n")
-			f.write("\n")
-			
+    with open("../src/variable/"+_class+".cpp","w") as f:
+        f.write("#include <string>\n#include <canal/variable.h>\n#include <canal/debugger.h>\n")
+        f.write("\n")
+        f.write(_class+"::"+_class+"(const std::string &s,"+classes[_class]+" v) : variable(s){\n")
+        f.write("\ttype = variable::"+_class+";\n")
+        f.write("\tsize = sizeof("+classes[_class]+");\n")
+        f.write("\tvalue."+_class+" = v;\n")
+        f.write("\tdebug(\"creating an "+_class+"\");\n")
+        f.write("}\n")
+        f.write("\n")
+        f.write(_class+"::"+_class+"(const variable *v) : variable(v->name) {\n")
+        f.write("\tdebug(\"constructing "+_class+" from variable\");\n")
+        f.write("\tsize = sizeof("+classes[_class]+");\n")
+        f.write("\ttype = variable::"+_class+";\n")
+        f.write("\tvalue."+_class+" = v->value."+_class+";\n")
+        f.write("}\n")
+        f.write("\n")
+
+
+
