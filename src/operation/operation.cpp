@@ -22,6 +22,7 @@ operation::operation(Types _type, function *f, const std::vector<std::string> &v
 	type = _type;
 }
 
+/*
 variable *Add::executeOperation(variable *v1, variable *v2){
 	debug("> Add::executeOperation");
 	return v1->Plus(v2);
@@ -102,6 +103,6 @@ variable *Ret::execute(){
 	return NULL;
 }
 
-
+*/
 
 

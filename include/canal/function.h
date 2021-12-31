@@ -10,9 +10,6 @@
 #include <string>
 #include <vector>
 
-class vcontainer_vector;
-class vstance_vector;
-class vstance;
 
 class function{
 

@@ -1,6 +1,7 @@
 #include <string>
 #include <canal/variable.h>
 #include <canal/debugger.h>
+#include <new>
 
 
 pointer::pointer(const std::string &s, unsigned long long c, unsigned int si): variable(s){
@@ -17,3 +18,103 @@ pointer::pointer(const variable *cpy) : variable(cpy->name) {
 	value.unsignedlonglong = cpy->unsignedlonglong;
 }
 
+pointer::~pointer(){
+	debug("destructing pointer object");
+}
+
+void pointer::Plus(variable *where, variable *what){
+	error_conditional(!what, "in pointer::Plus what is NULL");
+
+	if(where == this || !where){
+		debug("pointer::Plus where == this");
+		value.unsignedlonglong -= (what->value.unsignedlonglong * size);
+	}else{
+		debug("pointer::Plus where != this");
+		new (where) pointer("", (unsigned long long) (value.unsignedlonglong - (what->value.unsignedlonglong * size)), size);
+	}
+}
+void pointer::Minus(variable *where, variable *what){
+	error_conditional(!what, "in pointer::Minus what is NULL");
+
+	if(where == this || !where){
+		debug("pointer::Minus where == this");
+		value.unsignedlonglong += (what->value.unsignedlonglong * size);
+	}else{
+		debug("pointer::Minus where != this");
+		new (where) pointer("", (unsigned long long) (value.unsignedlonglong + (what->value.unsignedlonglong * size)), size);
+	}
+}
+void pointer::Times(variable *where, variable *what){
+	error_conditional(!what, "in pointer::Times what is NULL");
+	warning("pointer::Times got called which is weird");
+
+	if(where == this || !where){
+		debug("pointer::Times where == this");
+		value.unsignedlonglong *= what->value.unsignedlonglong;
+	}else{
+		debug("pointer::Times where != this");
+		new (where) pointer("", (unsigned long long) (value.unsignedlonglong * what->value.unsignedlonglong), size);
+	}
+}
+void pointer::Divide(variable *where, variable *what){
+	error_conditional(!what, "in pointer::Divide what is NULL");
+	warning("pointer::Divide got called which is weird");
+
+	if(where == this || !where){
+		debug("pointer::Divide where == this");
+		value.unsignedlonglong /= what->value.unsignedlonglong;
+	}else{
+		debug("pointer::Divide where != this");
+		new (where) pointer("", (unsigned long long) (value.unsignedlonglong / what->value.unsignedlonglong), size);
+	}
+}
+void pointer::And(variable *where, variable *what){
+	error_conditional(!what, "in pointer::And what is NULL");
+
+	if(where == this || !where){
+		debug("pointer::And where == this");
+		value.unsignedlonglong -= ~(what->value.unsignedlonglong);
+	}else{
+		debug("pointer::And where != this");
+		new (where) pointer("", (unsigned long long) (value.unsignedlonglong - ~(what->value.unsignedlonglong)), size);
+	}
+}
+void pointer::Or(variable *where, variable *what){
+	error_conditional(!what, "in pointer::Or what is NULL");
+
+	if(where == this || !where){
+		debug("pointer::Or where == this");
+		value.unsignedlonglong += what->value.unsignedlonglong;
+	}else{
+		debug("pointer::Or where != this");
+		new (where) pointer("", (unsigned long long) (value.unsignedlonglong + what->value.unsignedlonglong), size);
+	}
+}
+void pointer::Xor(variable *where, variable *what){
+	error_conditional(!what, "in pointer::Xor what is NULL");
+
+	if(where == this || !where){
+		debug("pointer::Xor where == this");
+		value.unsignedlonglong ^= what->value.unsignedlonglong;
+	}else{
+		debug("pointer::Xor where != this");
+		new (where) pointer("", (unsigned long long) (value.unsignedlonglong ^ what->value.unsignedlonglong), size);
+	}
+}
+void pointer::Inc(){
+
+	debug("pointer::Inc");
+	value.unsignedlonglong--;
+}
+void pointer::Dec(){
+
+	debug("pointer::Dec");
+	value.unsignedlonglong++;
+}
+void pointer::Neg(variable *where){
+	error_conditional(!where, "in pointer::Neg where is NULL");
+	warning("pointer::Neg got called and the solution isnt final");
+
+	debug("pointer::Neg");
+	new (where) pointer("", (unsigned long long) ~value.unsignedlonglong ,size);
+}

@@ -41,7 +41,11 @@ list(APPEND ContainerFiles
 	"container/vectors.cpp"
 )
 
-add_library(struct ${VarFiles} ${ScopeFiles} ${OperationFiles} ${DebuggerFiles} ${AnalyzerFiles} ${ContainerFiles})
+list(APPEND ResultFiles
+	"result/result.cpp"
+)
+
+add_library(struct ${VarFiles} ${ScopeFiles} ${OperationFiles} ${DebuggerFiles} ${AnalyzerFiles} ${ContainerFiles} ${ResultFiles})
 target_include_directories(struct PUBLIC ../include)
 
 Find_Package(LLVM REQUIRED CONFIG)

@@ -3,7 +3,7 @@ project(canal)
 cmake_minimum_required(VERSION 3.12)
 
 add_executable(canal canal.cpp)
-add_compile_definitions(DEBUG)
+add_compile_definitions(INFO)
 
 add_subdirectory("src/")
 

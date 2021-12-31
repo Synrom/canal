@@ -11,6 +11,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/struct.dir/operation/operation.cpp.o.d"
   "CMakeFiles/struct.dir/operation/operation_stack.cpp.o"
   "CMakeFiles/struct.dir/operation/operation_stack.cpp.o.d"
+  "CMakeFiles/struct.dir/result/result.cpp.o"
+  "CMakeFiles/struct.dir/result/result.cpp.o.d"
   "CMakeFiles/struct.dir/scope/function.cpp.o"
   "CMakeFiles/struct.dir/scope/function.cpp.o.d"
   "CMakeFiles/struct.dir/scope/root_scope.cpp.o"

@@ -14,6 +14,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/synrom/lego/canal/src/debugger/debugger.cpp" "src/CMakeFiles/struct.dir/debugger/debugger.cpp.o" "gcc" "src/CMakeFiles/struct.dir/debugger/debugger.cpp.o.d"
   "/home/synrom/lego/canal/src/operation/operation.cpp" "src/CMakeFiles/struct.dir/operation/operation.cpp.o" "gcc" "src/CMakeFiles/struct.dir/operation/operation.cpp.o.d"
   "/home/synrom/lego/canal/src/operation/operation_stack.cpp" "src/CMakeFiles/struct.dir/operation/operation_stack.cpp.o" "gcc" "src/CMakeFiles/struct.dir/operation/operation_stack.cpp.o.d"
+  "/home/synrom/lego/canal/src/result/result.cpp" "src/CMakeFiles/struct.dir/result/result.cpp.o" "gcc" "src/CMakeFiles/struct.dir/result/result.cpp.o.d"
   "/home/synrom/lego/canal/src/scope/function.cpp" "src/CMakeFiles/struct.dir/scope/function.cpp.o" "gcc" "src/CMakeFiles/struct.dir/scope/function.cpp.o.d"
   "/home/synrom/lego/canal/src/scope/root_scope.cpp" "src/CMakeFiles/struct.dir/scope/root_scope.cpp.o" "gcc" "src/CMakeFiles/struct.dir/scope/root_scope.cpp.o.d"
   "/home/synrom/lego/canal/src/variable/_double.cpp" "src/CMakeFiles/struct.dir/variable/_double.cpp.o" "gcc" "src/CMakeFiles/struct.dir/variable/_double.cpp.o.d"

@@ -107,7 +107,7 @@ CMakeFiles/canal.dir/all: src/CMakeFiles/struct.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/canal.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/synrom/lego/canal/CMakeFiles 27
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/synrom/lego/canal/CMakeFiles 28
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/canal.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/synrom/lego/canal/CMakeFiles 0
 .PHONY : CMakeFiles/canal.dir/rule
@@ -180,12 +180,12 @@ src/CMakeFiles/omp_gen.dir/clean:
 src/CMakeFiles/struct.dir/all:
 	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/struct.dir/build.make src/CMakeFiles/struct.dir/depend
 	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/struct.dir/build.make src/CMakeFiles/struct.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/synrom/lego/canal/CMakeFiles --progress-num=3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27 "Built target struct"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/synrom/lego/canal/CMakeFiles --progress-num=3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28 "Built target struct"
 .PHONY : src/CMakeFiles/struct.dir/all
 
 # Build rule for subdir invocation for target.
 src/CMakeFiles/struct.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/synrom/lego/canal/CMakeFiles 25
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/synrom/lego/canal/CMakeFiles 26
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/CMakeFiles/struct.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/synrom/lego/canal/CMakeFiles 0
 .PHONY : src/CMakeFiles/struct.dir/rule

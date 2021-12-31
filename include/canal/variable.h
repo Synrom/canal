@@ -9,8 +9,11 @@
 #include <iostream>
 #include <string>
 
+
 class variable{
 public:
+
+
 	std::string name;
 	unsigned int size;
 
@@ -58,37 +61,36 @@ public:
 	virtual ~variable();
 
 
-	virtual variable *Plus(variable *) = 0;
-	virtual variable *Minus(variable *) = 0;
-	virtual variable *Times(variable *) = 0;
-	virtual variable *Divide(variable *) = 0;
-	virtual variable *And(variable *) = 0;
-	virtual variable *Or(variable *) = 0;
-	virtual variable *Xor(variable *) = 0;
-	virtual variable *Neg() = 0;
-	virtual variable *Inc() = 0;
-	virtual variable *Dec() = 0;
 	
-	virtual bool operator > (variable *) = 0;
-	virtual void copy_to_pointer(variable *) = 0;
+	virtual void Plus(variable *,variable *) = 0;
+	virtual void Minus(variable *,variable *) = 0;
+	virtual void Times(variable *,variable *) = 0;
+	virtual void Divide(variable *,variable *) = 0;
+	virtual void And(variable *,variable *) = 0;
+	virtual void Or(variable *,variable *) = 0;
+	virtual void Xor(variable *,variable *) = 0;
+	virtual void Neg(variable *) = 0;
+	virtual void Inc() = 0;
+	virtual void Dec() = 0;
+	
+	
 };
 
 class signedint: public variable{
 public:
 	signedint(const std::string &, signed int );
 	signedint(const variable *);
-	variable *Plus(variable *);
-	variable *Minus(variable *);
-	variable *Times(variable *);
-	variable *Divide(variable *);
-	variable *And(variable *);
-	variable *Or(variable *);
-	variable *Xor(variable *);
-	variable *Neg();
-	variable *Inc();
-	variable *Dec();
-	bool operator > (variable *);
-	virtual void copy_to_pointer(variable *);
+	~signedint();
+	void Plus(variable *,variable *);
+	void Minus(variable *,variable *);
+	void Times(variable *,variable *);
+	void Divide(variable *,variable *);
+	void And(variable *,variable *);
+	void Or(variable *,variable *);
+	void Xor(variable *,variable *);
+	void Neg(variable *);
+	void Inc();
+	void Dec();
 };
 
 
@@ -96,18 +98,17 @@ class unsignedint: public variable{
 public:
 	unsignedint(const std::string &, unsigned int );
 	unsignedint(const variable *);
-	variable *Plus(variable *);
-	variable *Minus(variable *);
-	variable *Times(variable *);
-	variable *Divide(variable *);
-	variable *And(variable *);
-	variable *Or(variable *);
-	variable *Xor(variable *);
-	variable *Neg();
-	variable *Inc();
-	variable *Dec();
-	bool operator > (variable *);
-	virtual void copy_to_pointer(variable *);
+	~unsignedint();
+	void Plus(variable *,variable *);
+	void Minus(variable *,variable *);
+	void Times(variable *,variable *);
+	void Divide(variable *,variable *);
+	void And(variable *,variable *);
+	void Or(variable *,variable *);
+	void Xor(variable *,variable *);
+	void Neg(variable *);
+	void Inc();
+	void Dec();
 };
 
 
@@ -115,18 +116,17 @@ class signedchar: public variable{
 public:
 	signedchar(const std::string &, signed char );
 	signedchar(const variable *);
-	variable *Plus(variable *);
-	variable *Minus(variable *);
-	variable *Times(variable *);
-	variable *Divide(variable *);
-	variable *And(variable *);
-	variable *Or(variable *);
-	variable *Xor(variable *);
-	variable *Neg();
-	variable *Inc();
-	variable *Dec();
-	bool operator > (variable *);
-	virtual void copy_to_pointer(variable *);
+	~signedchar();
+	void Plus(variable *,variable *);
+	void Minus(variable *,variable *);
+	void Times(variable *,variable *);
+	void Divide(variable *,variable *);
+	void And(variable *,variable *);
+	void Or(variable *,variable *);
+	void Xor(variable *,variable *);
+	void Neg(variable *);
+	void Inc();
+	void Dec();
 };
 
 
@@ -134,36 +134,34 @@ class unsignedchar: public variable{
 public:
 	unsignedchar(const std::string &, unsigned char );
 	unsignedchar(const variable *);
-	variable *Plus(variable *);
-	variable *Minus(variable *);
-	variable *Times(variable *);
-	variable *Divide(variable *);
-	variable *And(variable *);
-	variable *Or(variable *);
-	variable *Xor(variable *);
-	variable *Neg();
-	variable *Inc();
-	variable *Dec();
-	bool operator > (variable *);
-	virtual void copy_to_pointer(variable *);
+	~unsignedchar();
+	void Plus(variable *,variable *);
+	void Minus(variable *,variable *);
+	void Times(variable *,variable *);
+	void Divide(variable *,variable *);
+	void And(variable *,variable *);
+	void Or(variable *,variable *);
+	void Xor(variable *,variable *);
+	void Neg(variable *);
+	void Inc();
+	void Dec();
 };
 
 class signedshort: public variable{
 public:
 	signedshort(const std::string &, signed short );
 	signedshort(const variable *);
-	variable *Plus(variable *);
-	variable *Minus(variable *);
-	variable *Times(variable *);
-	variable *Divide(variable *);
-	variable *And(variable *);
-	variable *Or(variable *);
-	variable *Xor(variable *);
-	variable *Neg();
-	variable *Inc();
-	variable *Dec();
-	bool operator > (variable *);
-	virtual void copy_to_pointer(variable *);
+	~signedshort();
+	void Plus(variable *,variable *);
+	void Minus(variable *,variable *);
+	void Times(variable *,variable *);
+	void Divide(variable *,variable *);
+	void And(variable *,variable *);
+	void Or(variable *,variable *);
+	void Xor(variable *,variable *);
+	void Neg(variable *);
+	void Inc();
+	void Dec();
 };
 
 
@@ -171,18 +169,17 @@ class unsignedshort: public variable{
 public:
 	unsignedshort(const std::string &, unsigned short );
 	unsignedshort(const variable *);
-	variable *Plus(variable *);
-	variable *Minus(variable *);
-	variable *Times(variable *);
-	variable *Divide(variable *);
-	variable *And(variable *);
-	variable *Or(variable *);
-	variable *Xor(variable *);
-	variable *Neg();
-	variable *Inc();
-	variable *Dec();
-	bool operator > (variable *);
-	virtual void copy_to_pointer(variable *);
+	~unsignedshort();
+	void Plus(variable *,variable *);
+	void Minus(variable *,variable *);
+	void Times(variable *,variable *);
+	void Divide(variable *,variable *);
+	void And(variable *,variable *);
+	void Or(variable *,variable *);
+	void Xor(variable *,variable *);
+	void Neg(variable *);
+	void Inc();
+	void Dec();
 };
 
 
@@ -190,18 +187,17 @@ class signedlong: public variable{
 public:
 	signedlong(const std::string &, signed long );
 	signedlong(const variable *);
-	variable *Plus(variable *);
-	variable *Minus(variable *);
-	variable *Times(variable *);
-	variable *Divide(variable *);
-	variable *And(variable *);
-	variable *Or(variable *);
-	variable *Xor(variable *);
-	variable *Neg();
-	variable *Inc();
-	variable *Dec();
-	bool operator > (variable *);
-	virtual void copy_to_pointer(variable *);
+	~signedlong();
+	void Plus(variable *,variable *);
+	void Minus(variable *,variable *);
+	void Times(variable *,variable *);
+	void Divide(variable *,variable *);
+	void And(variable *,variable *);
+	void Or(variable *,variable *);
+	void Xor(variable *,variable *);
+	void Neg(variable *);
+	void Inc();
+	void Dec();
 };
 
 
@@ -209,18 +205,17 @@ class unsignedlong: public variable{
 public:
 	unsignedlong(const std::string &, unsigned long );
 	unsignedlong(const variable *);
-	variable *Plus(variable *);
-	variable *Minus(variable *);
-	variable *Times(variable *);
-	variable *Divide(variable *);
-	variable *And(variable *);
-	variable *Or(variable *);
-	variable *Xor(variable *);
-	variable *Neg();
-	variable *Inc();
-	variable *Dec();
-	bool operator > (variable *);
-	virtual void copy_to_pointer(variable *);
+	~unsignedlong();
+	void Plus(variable *,variable *);
+	void Minus(variable *,variable *);
+	void Times(variable *,variable *);
+	void Divide(variable *,variable *);
+	void And(variable *,variable *);
+	void Or(variable *,variable *);
+	void Xor(variable *,variable *);
+	void Neg(variable *);
+	void Inc();
+	void Dec();
 };
 
 
@@ -228,18 +223,17 @@ class unsignedlonglong: public variable{
 public:
 	unsignedlonglong(const std::string &, unsigned long long );
 	unsignedlonglong(const variable *);
-	variable *Plus(variable *);
-	variable *Minus(variable *);
-	variable *Times(variable *);
-	variable *Divide(variable *);
-	variable *And(variable *);
-	variable *Or(variable *);
-	variable *Xor(variable *);
-	variable *Neg();
-	variable *Inc();
-	variable *Dec();
-	bool operator > (variable *);
-	virtual void copy_to_pointer(variable *);
+	~unsignedlonglong();
+	void Plus(variable *,variable *);
+	void Minus(variable *,variable *);
+	void Times(variable *,variable *);
+	void Divide(variable *,variable *);
+	void And(variable *,variable *);
+	void Or(variable *,variable *);
+	void Xor(variable *,variable *);
+	void Neg(variable *);
+	void Inc();
+	void Dec();
 };
 
 
@@ -247,36 +241,34 @@ class signedlonglong: public variable{
 public:
 	signedlonglong(const std::string &, signed long long );
 	signedlonglong(const variable *);
-	variable *Plus(variable *);
-	variable *Minus(variable *);
-	variable *Times(variable *);
-	variable *Divide(variable *);
-	variable *And(variable *);
-	variable *Or(variable *);
-	variable *Xor(variable *);
-	variable *Neg();
-	variable *Inc();
-	variable *Dec();
-	bool operator > (variable *);
-	virtual void copy_to_pointer(variable *);
+	~signedlonglong();
+	void Plus(variable *,variable *);
+	void Minus(variable *,variable *);
+	void Times(variable *,variable *);
+	void Divide(variable *,variable *);
+	void And(variable *,variable *);
+	void Or(variable *,variable *);
+	void Xor(variable *,variable *);
+	void Neg(variable *);
+	void Inc();
+	void Dec();
 };
 
 class _float: public variable{
 public:
 	_float(const std::string &, float );
 	_float(const variable *);
-	variable *Plus(variable *);
-	variable *Minus(variable *);
-	variable *Times(variable *);
-	variable *Divide(variable *);
-	variable *And(variable *);
-	variable *Or(variable *);
-	variable *Xor(variable *);
-	variable *Neg();
-	variable *Inc();
-	variable *Dec();
-	bool operator > (variable *);
-	virtual void copy_to_pointer(variable *);
+	~_float();
+	void Plus(variable *,variable *);
+	void Minus(variable *,variable *);
+	void Times(variable *,variable *);
+	void Divide(variable *,variable *);
+	void And(variable *,variable *);
+	void Or(variable *,variable *);
+	void Xor(variable *,variable *);
+	void Neg(variable *);
+	void Inc();
+	void Dec();
 };
 
 
@@ -284,18 +276,17 @@ class _double: public variable{
 public:
 	_double(const std::string &, double );
 	_double(const variable *);
-	variable *Plus(variable *);
-	variable *Minus(variable *);
-	variable *Times(variable *);
-	variable *Divide(variable *);
-	variable *And(variable *);
-	variable *Or(variable *);
-	variable *Xor(variable *);
-	variable *Neg();
-	variable *Inc();
-	variable *Dec();
-	bool operator > (variable *);
-	virtual void copy_to_pointer(variable *);
+	~_double();
+	void Plus(variable *,variable *);
+	void Minus(variable *,variable *);
+	void Times(variable *,variable *);
+	void Divide(variable *,variable *);
+	void And(variable *,variable *);
+	void Or(variable *,variable *);
+	void Xor(variable *,variable *);
+	void Neg(variable *);
+	void Inc();
+	void Dec();
 };
 
 
@@ -303,18 +294,17 @@ class longdouble: public variable{
 public:
 	longdouble(const std::string &, long double );
 	longdouble(const variable *);
-	variable *Plus(variable *);
-	variable *Minus(variable *);
-	variable *Times(variable *);
-	variable *Divide(variable *);
-	variable *And(variable *);
-	variable *Or(variable *);
-	variable *Xor(variable *);
-	variable *Neg();
-	variable *Inc();
-	variable *Dec();
-	bool operator > (variable *);
-	virtual void copy_to_pointer(variable *);
+	~longdouble();
+	void Plus(variable *,variable *);
+	void Minus(variable *,variable *);
+	void Times(variable *,variable *);
+	void Divide(variable *,variable *);
+	void And(variable *,variable *);
+	void Or(variable *,variable *);
+	void Xor(variable *,variable *);
+	void Neg(variable *);
+	void Inc();
+	void Dec();
 };
 
 
@@ -322,18 +312,17 @@ class pointer: public variable{
 public:
 	pointer(const std::string & , unsigned long long, unsigned int);
 	pointer(const variable *);
-	variable *Plus(variable *);
-	variable *Minus(variable *);
-	variable *Times(variable *);
-	variable *Divide(variable *);
-	variable *And(variable *);
-	variable *Or(variable *);
-	variable *Xor(variable *);
-	variable *Neg();
-	variable *Inc();
-	variable *Dec();
-	bool operator > (variable *);
-	virtual void copy_to_pointer(variable *);
+	~pointer();
+	void Plus(variable *,variable *);
+	void Minus(variable *,variable *);
+	void Times(variable *,variable *);
+	void Divide(variable *,variable *);
+	void And(variable *,variable *);
+	void Or(variable *,variable *);
+	void Xor(variable *,variable *);
+	void Neg(variable *);
+	void Inc();
+	void Dec();
 };
 
 #endif

@@ -31,7 +31,6 @@ public:
 	Types type;
 	
 
-	/* falls variable rvalue ist, ist sie ein wert und keine variable */
 	std::vector<std::string> variables;
 	function *call, &freference;
 
@@ -44,89 +43,64 @@ public:
 	operation(Types ,function *, const std::vector<std::string> &, function &);
 
 private:
-	virtual variable *executeOperation(variable *,variable *) = 0;
+	virtual void executeOperation(variable *,variable *,variable *) = 0;
 	
 	
 };
 
 
 class Add: public operation{
-	variable *executeOperation(variable *,variable *);
-public:
-	Add(operation *,operation *);
-	Add(variable *,operation *);
-	Add(operation *,variable *);
-	Add(variable *,variable *);
+	void executeOperation(variable *,variable *,variable *);
+	Add(const std::string &, const std::string &, function &);
 };
 class Minus: public operation{
-	variable *executeOperation(variable *,variable *);
-	Minus(operation *,operation *);
-	Minus(variable *,operation *);
-	Minus(operation *,variable *);
-	Minus(variable *,variable *);
+	void executeOperation(variable *,variable *,variable *);
+	Minus(const std::string &, const std::string &, function &);
 };
 class Divide: public operation{
-	variable *executeOperation(variable *,variable *);
-	Divide(operation *,operation *);
-	Divide(variable *,operation *);
-	Divide(operation *,variable *);
-	Divide(variable *,variable *);
+	void executeOperation(variable *,variable *,variable *);
+	Divide(const std::string &, const std::string &, function &);
 };
 class Times: public operation{
-	variable *executeOperation(variable *,variable *);
-	Times(operation *,operation *);
-	Times(variable *,operation *);
-	Times(operation *,variable *);
-	Times(variable *,variable *);
+	void executeOperation(variable *,variable *,variable *);
+	Times(const std::string &, const std::string &, function &);
 };
 class Or: public operation{
-	variable *executeOperation(variable *,variable *);
-	Or(operation *,operation *);
-	Or(variable *,operation *);
-	Or(operation *,variable *);
-	Or(variable *,variable *);
+	void executeOperation(variable *,variable *,variable *);
+	Or(const std::string &, const std::string &, function &);
 };
 class And: public operation{
-	variable *executeOperation(variable *,variable *);
-	And(operation *,operation *);
-	And(variable *,operation *);
-	And(operation *,variable *);
-	And(variable *,variable *);
+	void executeOperation(variable *,variable *,variable *);
+	And(const std::string &, const std::string &, function &);
 };
 class Xor: public operation{
-	variable *executeOperation(variable *,variable *);
-	Xor(operation *,operation *);
-	Xor(variable *,operation *);
-	Xor(operation *,variable *);
-	Xor(variable *,variable *);
+	void executeOperation(variable *,variable *,variable *);
+	Xor(const std::string &, const std::string &, function &);
 };
 class Neg: public operation{
-	variable *executeOperation(variable *,variable *);
-	Neg(operation *);
-	Neg(variable *);
+	void executeOperation(variable *,variable *,variable *);
+	Neg(const std::string &, function &);
 };
 class Dec: public operation{
-	variable *executeOperation(variable *,variable *);
-	Dec(variable *);
+	void executeOperation(variable *,variable *,variable *);
+	Dec(const std::string &, function &);
 };
 class Inc: public operation{
-	variable *executeOperation(variable *,variable *);
-	Inc(variable *);
+	void executeOperation(variable *,variable *,variable *);
+	Inc(const std::string &, function &);
 };
 class Call: public operation{
-	variable *executeOperation(variable *,variable *);
-	Call(function *,const std::vector<variable *> &);
+	void executeOperation(variable *,variable *,variable *);
+	Call(function *,const std::vector<std::string> &, function &);
 	variable *execute();
 };
 class Equal: public operation{
-	variable *executeOperation(variable *,variable *);
-	Equal(variable *,operation *);
-	Equal(variable *,variable *);
+	void executeOperation(variable *,variable *,variable *);
+	Equal(const std::string &, const std::string &, function &);
 };
 class Ret: public operation{
-	variable *executeOperation(variable *,variable *);
-	Ret(variable *);
-	variable *execute();
+	void executeOperation(variable *,variable *,variable *);
+	Ret(const std::string &, function &);
 };
 
 #endif

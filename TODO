@@ -1,10 +1,5 @@
-3. test mit cmake implementieren
-4. und viele Tests hinzufügen für die Container, aber auch alles Andere
-4. Gute Exceptions für später :(
+operation_stack
 
 
-error sollte stacktrace ausprinten
-error sollte Programm beenden
-
-scope.c weiter fuer states
+stance -> finish (löscht die ganzen COntainer von diesem Stance vom parents Stance. Alle Konsequenzen einberechnen ist hier wichtig)
 

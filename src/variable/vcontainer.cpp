@@ -52,7 +52,7 @@ vcontainer::iterator vcontainer::end(){
 }
 
 variable *vcontainer::iterator::operator *(){
-	debug("getting variable * from vcontainer::iterator");
+	debug("getting variable %p from vcontainer::iterator",location);
 	return location;
 }
 
@@ -71,9 +71,12 @@ vcontainer::vcontainer(){
 vcontainer::~vcontainer(){
 	debug("destroying vcontainer %d",number);
 
-	for(auto i = begin(); i != end(); i.Inc())
+	for(auto i = begin(); i != end(); i.Inc()){
+		debug("vcontainer deconstructs %s",(*i)->name.c_str());
 		(*i)->~variable();
+	}
 
+	debug("freeing %p",buf);
 	free(buf);
 
 }
@@ -92,20 +95,85 @@ variable *vcontainer::get_new_location(){
 	if(capacity - (end_ - buf) > 0){
 
 		debug("vcontainer still got enough capacity");
-		return end_++;
+		variable *result = end_;
+		end_++;
+		debug("returning %p and end is %p",result,end_);
+		return result;
 
 	}
 
 	debug("vcontainer hasnt enough capacity");
-	debug("vcontainer has buf at %p with capacity %d and end at %p\n",buf,capacity,end_);
+	debug("vcontainer has buf at %p with capacity %d and end at %p",buf,capacity,end_);
 
-	unsigned int difference = end_ - buf;
 	capacity = (capacity + 1) * 2;
-	buf = (variable *)realloc(buf,capacity * sizeof(variable));
-	end_ = buf + difference;
+	
+	variable *new_buf = (variable *)malloc(capacity * sizeof(variable));
+	variable *new_buf_i = new_buf;
+	
+	for(auto i = cbegin();i != cend();i++, new_buf_i++){
+		switch(i->type){
+			case variable::signedchar:
+				new (new_buf_i) signedchar(i);
+				break;
+			case variable::unsignedchar:
+				new (new_buf_i) unsignedchar(i);
+				break;
+			case variable::signedshort:
+				new (new_buf_i) signedshort(i);
+				break;
+			case variable::unsignedshort:
+				new (new_buf_i) unsignedshort(i);
+				break;
+			case variable::signedint:
+				new (new_buf_i) signedint(i);
+				break;
+			case variable::unsignedint:
+				new (new_buf_i) unsignedint(i);
+				break;
+			case variable::signedlong:
+				new (new_buf_i) signedlong(i);
+				break;
+			case variable::unsignedlong:
+				new (new_buf_i) unsignedlong(i);
+				break;
+			case variable::signedlonglong:
+				new (new_buf_i) signedlonglong(i);
+				break;
+			case variable::unsignedlonglong:
+				new (new_buf_i) unsignedlonglong(i);
+				break;
+			case variable::_float:
+				new (new_buf_i) _float(i);
+				break;
+			case variable::_double:
+				new (new_buf_i) _double(i);
+				break;
+			case variable::longdouble:
+				new (new_buf_i) longdouble(i);
+				break;
+			case variable::pointer:
+				new (new_buf_i) pointer(i);
+				break;
+			default:
+				error("copying an variable witch matches no type");
+		}
 
-	debug("vcontainer has now new buffer at %p with capacity %d and end at %p\n",buf,capacity,end_);
-	return end_++;
+	}
+
+	for(auto i = begin();i != end();i.Inc()){
+		(*i)->~variable();
+	}
+	free(buf);
+
+	buf = new_buf;
+	end_ = new_buf_i;
+
+	variable *result = end_;
+	end_++;
+
+	debug("vcontainer has now new buffer at %p with capacity %d and end at %p",buf,capacity,end_);
+	debug("returning %p and end is %p",result,end_);
+	return result;
 
 
 }
@@ -234,7 +302,8 @@ vcontainer& vcontainer::operator=(const vcontainer &cpy){
 	}
 
 	debug("vcontainer is copied");
-
+	
+	return *this;
 };
 
 
@@ -325,4 +394,22 @@ void vcontainer::emplace_back(const std::string &s, unsigned long long si, unsig
 	debug("emplaceing pointer at the end of vcontaier");
 	variable *location = get_new_location();
 	new (location) pointer(s,si,v);
+}
+
+int vcontainer::find(const std::string &name){
+	debug("searching for %s in vcontainer",name.c_str());
+	int n = 0;
+	for(auto i = begin();i != end();i.Inc(),n++){
+		if((*i)->name == name){
+			debug("found %s in container",name.c_str());
+			return n;
+		}
+	}
+	warning("didnt found %s in container",name.c_str());
+	return -1;
+}
+
+variable *vcontainer::get_pointer(unsigned int i){
+	error_conditional(i > end_ - buf,"vcontainer::get_pointer asking for pointer out of range");
+	return buf + i;
 }

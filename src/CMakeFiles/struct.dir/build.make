@@ -405,6 +405,20 @@ src/CMakeFiles/struct.dir/container/vectors.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/struct.dir/container/vectors.cpp.s"
 	cd /home/synrom/lego/canal/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/synrom/lego/canal/src/container/vectors.cpp -o CMakeFiles/struct.dir/container/vectors.cpp.s
 
+src/CMakeFiles/struct.dir/result/result.cpp.o: src/CMakeFiles/struct.dir/flags.make
+src/CMakeFiles/struct.dir/result/result.cpp.o: src/result/result.cpp
+src/CMakeFiles/struct.dir/result/result.cpp.o: src/CMakeFiles/struct.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/synrom/lego/canal/CMakeFiles --progress-num=$(CMAKE_PROGRESS_25) "Building CXX object src/CMakeFiles/struct.dir/result/result.cpp.o"
+	cd /home/synrom/lego/canal/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/CMakeFiles/struct.dir/result/result.cpp.o -MF CMakeFiles/struct.dir/result/result.cpp.o.d -o CMakeFiles/struct.dir/result/result.cpp.o -c /home/synrom/lego/canal/src/result/result.cpp
+
+src/CMakeFiles/struct.dir/result/result.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/struct.dir/result/result.cpp.i"
+	cd /home/synrom/lego/canal/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/synrom/lego/canal/src/result/result.cpp > CMakeFiles/struct.dir/result/result.cpp.i
+
+src/CMakeFiles/struct.dir/result/result.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/struct.dir/result/result.cpp.s"
+	cd /home/synrom/lego/canal/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/synrom/lego/canal/src/result/result.cpp -o CMakeFiles/struct.dir/result/result.cpp.s
+
 # Object files for target struct
 struct_OBJECTS = \
 "CMakeFiles/struct.dir/variable/_double.cpp.o" \
@@ -430,7 +444,8 @@ struct_OBJECTS = \
 "CMakeFiles/struct.dir/debugger/debugger.cpp.o" \
 "CMakeFiles/struct.dir/analyzer/function_finder.cpp.o" \
 "CMakeFiles/struct.dir/analyzer/function_analyzer.cpp.o" \
-"CMakeFiles/struct.dir/container/vectors.cpp.o"
+"CMakeFiles/struct.dir/container/vectors.cpp.o" \
+"CMakeFiles/struct.dir/result/result.cpp.o"
 
 # External object files for target struct
 struct_EXTERNAL_OBJECTS =
@@ -459,9 +474,10 @@ src/libstruct.a: src/CMakeFiles/struct.dir/debugger/debugger.cpp.o
 src/libstruct.a: src/CMakeFiles/struct.dir/analyzer/function_finder.cpp.o
 src/libstruct.a: src/CMakeFiles/struct.dir/analyzer/function_analyzer.cpp.o
 src/libstruct.a: src/CMakeFiles/struct.dir/container/vectors.cpp.o
+src/libstruct.a: src/CMakeFiles/struct.dir/result/result.cpp.o
 src/libstruct.a: src/CMakeFiles/struct.dir/build.make
 src/libstruct.a: src/CMakeFiles/struct.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/synrom/lego/canal/CMakeFiles --progress-num=$(CMAKE_PROGRESS_25) "Linking CXX static library libstruct.a"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/synrom/lego/canal/CMakeFiles --progress-num=$(CMAKE_PROGRESS_26) "Linking CXX static library libstruct.a"
 	cd /home/synrom/lego/canal/src && $(CMAKE_COMMAND) -P CMakeFiles/struct.dir/cmake_clean_target.cmake
 	cd /home/synrom/lego/canal/src && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/struct.dir/link.txt --verbose=$(VERBOSE)
 

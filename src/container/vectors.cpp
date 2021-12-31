@@ -1,6 +1,10 @@
+#include <vector>
+#include <string>
+
 #include <canal/variable.h>
 #include <canal/container.h>
 #include <canal/debugger.h>
+#include <canal/function.h>
 
 vcontainer *vcontainer_vector::add(){
 	debug("adding vcontainer to vcontainer_vector");
@@ -10,7 +14,7 @@ vcontainer *vcontainer_vector::add(){
 
 vstance *vstance_vector::add(){
 	debug("adding vstance to vstance_vector");
-	vector.emplace_back(NULL, &(freference->vcontainers), &(freference->stances));
+	vector.emplace_back((vstance *)NULL, &(freference->vcontainers), &(freference->stances));
 	return &(vector.back());
 }
 
@@ -130,5 +134,26 @@ void vstance::add_var(const std::string &s, long double v){
 	debug("adding %s to vstance",s.c_str());
 	for(auto i = container.begin();i != container.end();i++)
 		(*i)->emplace_back(s,v);
+}
+
+std::vector<variable *> vstance::get_var(const std::string &name){
+
+	debug("finding %s in vstance",name.c_str());	
+
+	std::vector<variable *> result;
+
+	auto i = container.begin();
+	int position = (*i)->find(name);
+
+	error_conditional(position < 0,"vcontainer->find returned negative position");
+
+	for(i = container.begin();i != container.end();i++){
+
+		result.emplace_back((*i)->get_pointer(position));
+		error_conditional((result.back())->name != name,"vcontainer has the variable %s at the position for %s", (result.back())->name.c_str(), name.c_str() );
+
+	}
+
+	return result;
 }
 

@@ -5,7 +5,8 @@
 #include <deque>
 
 #include "variable.h"
-#include "function.h"
+
+class function;
 
 class vcontainer{
 public:
@@ -44,6 +45,7 @@ public:
 	iterator end();
 	const_iterator cbegin() const noexcept;
 	const_iterator cend() const noexcept;
+	int find(const std::string &);
 	void emplace_back(const std::string & ,double );
 	void emplace_back(const std::string & ,float );
 	void emplace_back(const std::string & ,long double );
@@ -63,7 +65,16 @@ private:
 
 };
 
-class vcontainer_vector;
+
+class vcontainer_vector{
+public:
+	vcontainer *add();
+	void pop();
+//private:
+	std::deque<vcontainer> vector;
+
+};
+
 class vstance_vector;
 
 class vstance{
@@ -100,17 +111,11 @@ public:
 	void add_var(const std::string & ,unsigned long );
 	void add_var(const std::string & ,unsigned long long );
 	void add_var(const std::string & ,unsigned short );
+	std::vector<variable *> get_var(const std::string &);
 
 };
 
-class vcontainer_vector{
-public:
-	vcontainer *add();
-	void pop();
-private:
-	std::deque<vcontainer> vector;
 
-};
 
 class vstance_vector{
 
@@ -125,33 +130,6 @@ public:
 	void pop();
 
 };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

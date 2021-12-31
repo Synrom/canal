@@ -375,6 +375,30 @@ operation/operation_stack.cpp.s:
 	cd /home/synrom/lego/canal && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/struct.dir/build.make src/CMakeFiles/struct.dir/operation/operation_stack.cpp.s
 .PHONY : operation/operation_stack.cpp.s
 
+result/result.o: result/result.cpp.o
+.PHONY : result/result.o
+
+# target to build an object file
+result/result.cpp.o:
+	cd /home/synrom/lego/canal && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/struct.dir/build.make src/CMakeFiles/struct.dir/result/result.cpp.o
+.PHONY : result/result.cpp.o
+
+result/result.i: result/result.cpp.i
+.PHONY : result/result.i
+
+# target to preprocess a source file
+result/result.cpp.i:
+	cd /home/synrom/lego/canal && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/struct.dir/build.make src/CMakeFiles/struct.dir/result/result.cpp.i
+.PHONY : result/result.cpp.i
+
+result/result.s: result/result.cpp.s
+.PHONY : result/result.s
+
+# target to generate assembly for a file
+result/result.cpp.s:
+	cd /home/synrom/lego/canal && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/struct.dir/build.make src/CMakeFiles/struct.dir/result/result.cpp.s
+.PHONY : result/result.cpp.s
+
 scope/function.o: scope/function.cpp.o
 .PHONY : scope/function.o
 
@@ -842,6 +866,9 @@ help:
 	@echo "... operation/operation_stack.o"
 	@echo "... operation/operation_stack.i"
 	@echo "... operation/operation_stack.s"
+	@echo "... result/result.o"
+	@echo "... result/result.i"
+	@echo "... result/result.s"
 	@echo "... scope/function.o"
 	@echo "... scope/function.i"
 	@echo "... scope/function.s"
