@@ -22,87 +22,117 @@ operation::operation(Types _type, function *f, const std::vector<std::string> &v
 	type = _type;
 }
 
-/*
-variable *Add::executeOperation(variable *v1, variable *v2){
-	debug("> Add::executeOperation");
-	return v1->Plus(v2);
+
+Add::Add(const std::string &left, const std::string &right, function &f) : operation(operation::Add,left,right,f) { 
+	debug("creating Add operation");
 }
 
-variable *Minus::executeOperation(variable *v1, variable *v2){
-	debug("> Minus::executeOperation");
-	return v1->Minus(v2);
+void Add::executeOperation(variable *left, variable *right, variable *where){
+	debug("calling Add operation");
+	left->Plus(where, right);
 }
 
-variable *Divide::executeOperation(variable *v1, variable *v2){
-	debug("> Divide::executeOperation");
-	return v1->Divide(v2);
+Minus::Minus(const std::string &left, const std::string &right, function &f) : operation(operation::Minus,left,right,f) { 
+	debug("creating Minus operation");
 }
 
-variable *Times::executeOperation(variable *v1, variable *v2){
-	debug("> Times::executeOperation");
-	return v1->Times(v2);
+void Minus::executeOperation(variable *left, variable *right, variable *where){
+	debug("calling Minus operation");
+	left->Minus(where, right);
 }
 
-variable *Or::executeOperation(variable *v1, variable *v2){
-	debug("> Or::executeOperation");
-	return v1->Or(v2);
+Times::Times(const std::string &left, const std::string &right, function &f) : operation(operation::Times,left,right,f) { 
+	debug("creating Times operation");
 }
 
-variable *And::executeOperation(variable *v1, variable *v2){
-	debug("> And::executeOperation");
-	return v1->And(v2);
+void Times::executeOperation(variable *left, variable *right, variable *where){
+	debug("calling Times operation");
+	left->Times(where, right);
 }
 
-variable *Xor::executeOperation(variable *v1, variable *v2){
-	debug("> Xor::executeOperation");
-	return v1->Xor(v2);
+Divide::Divide(const std::string &left, const std::string &right, function &f) : operation(operation::Divide,left,right,f) { 
+	debug("creating Divide operation");
 }
 
-variable *Neg::executeOperation(variable *v1, variable *v2){
-	debug("> Neg::executeOperation");
-	if(!v1)
-		return NULL;
-
-	return v1->Neg();
+void Divide::executeOperation(variable *left, variable *right, variable *where){
+	debug("calling Divide operation");
+	left->Divide(where, right);
 }
 
-variable *Dec::executeOperation(variable *v1, variable *v2){
-	debug("> Dec::executeOperation");
-	if(!v1)
-		return NULL;
-
-	return v1->Dec();
+And::And(const std::string &left, const std::string &right, function &f) : operation(operation::And,left,right,f) { 
+	debug("creating And operation");
 }
 
-variable *Inc::executeOperation(variable *v1, variable *v2){
-	debug("> Inc::executeOperation");
-	if(!v1)
-		return NULL;
-
-	return v1->Inc();
+void And::executeOperation(variable *left, variable *right, variable *where){
+	debug("calling And operation");
+	left->And(where, right);
 }
 
-variable *Call::executeOperation(variable *v1, variable *v2){
-	warning("> Call::executeOperation usually shouldnt get called");
-	return NULL;
+Or::Or(const std::string &left, const std::string &right, function &f) : operation(operation::Or,left,right,f) { 
+	debug("creating Or operation");
 }
 
-variable *Equal::executeOperation(variable *v1, variable *v2){
-	debug("> Equal::executeOperation");
-	v1->value.unsignedlonglong = v2->value.unsignedlonglong;
-	return v1;
+void Or::executeOperation(variable *left, variable *right, variable *where){
+	debug("calling Or operation");
+	left->Or(where, right);
 }
 
-variable *Ret::executeOperation(variable *v1,variable *v2){
-	warning("> Ret::executeOperation usually shouldnt get called");
-	return NULL;
+Xor::Xor(const std::string &left, const std::string &right, function &f) : operation(operation::Xor,left,right,f) { 
+	debug("creating Xor operation");
 }
 
-variable *Ret::execute(){
-	debug("> Ret::execute");
-	return NULL;
+void Xor::executeOperation(variable *left, variable *right, variable *where){
+	debug("calling Xor operation");
+	left->Xor(where, right);
 }
 
-*/
+Inc::Inc(const std::string &left, function &f) : operation(operation::Inc,left,"",f) { 
+	debug("creating Inc operation");
+}
+
+void Inc::executeOperation(variable *left, variable *right, variable *where){
+	warning("calling Inc executeOperation which is really weird");
+}
+
+Dec::Dec(const std::string &left, function &f) : operation(operation::Dec,left,"",f) { 
+	debug("creating Dec operation");
+}
+
+void Dec::executeOperation(variable *left, variable *right, variable *where){
+	warning("calling Dec executeOperation which is really weird");
+}
+
+Neg::Neg(const std::string &left, function &f) : operation(operation::Dec,left,"",f) { 
+	debug("creating Neg operation");
+}
+
+void Neg::executeOperation(variable *left, variable *right, variable *where){
+	warning("calling Neg executeOperation which is really weird");
+}
+
+
+Call::Call(function *c, const std::vector<std::string> &p, function &f) : operation(operation::Call, c, p ,f){
+	debug("creating a Call operator");
+}
+
+void Call::executeOperation(variable *left, variable *right, variable *where){
+	warning("calling Call executeOperation which is really weird");
+}
+
+Equal::Equal(const std::string &left, const std::string &right, function &f): operation(operation::Equal, left, right, f){
+	debug("creating an Equal operator");
+}
+
+void Equal::executeOperation(variable *left, variable *right, variable *where){
+	warning("calling Equal executeOperation which is really weird");
+}
+
+Ret::Ret(const std::string &left, function &f): operation(operation::Equal, left, "", f){
+	debug("creating a Ret operator");
+}
+
+void Ret::executeOperation(variable *left, variable *right, variable *where){
+	warning("calling Ret executeOperation which is really weird");
+}
 
 

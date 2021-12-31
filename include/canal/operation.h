@@ -25,7 +25,11 @@ public:
 		Inc,
 		Call,
 		Equal,
-		Ret
+		Ret,
+		Switch,
+		Next_Switch,
+		End_Switch,
+
 	};
 
 	Types type;
@@ -92,7 +96,6 @@ class Inc: public operation{
 class Call: public operation{
 	void executeOperation(variable *,variable *,variable *);
 	Call(function *,const std::vector<std::string> &, function &);
-	variable *execute();
 };
 class Equal: public operation{
 	void executeOperation(variable *,variable *,variable *);
