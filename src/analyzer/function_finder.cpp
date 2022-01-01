@@ -41,48 +41,35 @@ bool canal_Function_finder::VisitFunctionDecl(clang::FunctionDecl *clang_functio
 
 	function &freference = global_scope.addFunction(name);
 
-	result_stack stack;
-	
-	result &r1 = stack.push_result(10);
-	info("r1 is at %p",r1.begin());
-	info("r1 is the following");
-	for(auto i = r1.begin();i != r1.end();i++){
-		info("%p",i);
+	freference.operations.push_back(Add("a1","s1",freference));
+	operation *current = freference.operations.getNext();
+	info("current is %p with vars %s and %s",current, current->left.c_str(), current->right.c_str());
+
+	freference.operations.push_back(Minus("a2","s2",freference));
+	current = freference.operations.getNext();
+	info("current is %p with vars %s and %s",current, current->left.c_str(), current->right.c_str());
+
+	freference.operations.push_back(Divide("a3","s3",freference));
+	freference.operations.push_back(Times("a4","s4",freference));
+	freference.operations.push_back(Or("a5","s5",freference));
+	freference.operations.push_back(And("a6","s6",freference));
+	freference.operations.push_back(Xor("a7","s7",freference));
+	freference.operations.push_back(Neg("a8",freference));
+	freference.operations.push_back(Inc("a9",freference));
+	freference.operations.push_back(Dec("a10",freference));
+	std::vector<std::string> parameters_call;
+	parameters_call.emplace_back("a");
+	parameters_call.emplace_back("b");
+	freference.operations.push_back(Call(&freference,parameters_call,freference));
+	freference.operations.push_back(Equal("a11","s11",freference));
+	freference.operations.push_back(Ret("a12",freference));
+
+	info("no reset operation stack");
+
+	operation *i;
+	while((i = freference.operations.getNext()) != NULL){
+		info("current is %p with vars %s and %s",i, i->left.c_str(), i->right.c_str());
 	}
-	result &r2 = stack.push_result(20);
-	info("r2 is at %p",r2.begin());
-	info("r2 is the following");
-	for(auto i = r2.begin();i != r2.end();i++){
-		info("%p",i);
-	}
-
-
-	result r2_pop = stack.pop_result();
-	info("poped r2 and result is at %p",r2_pop.begin());
-	info("poped r2 is the following");
-	for(auto i = r2_pop.begin();i != r2_pop.end();i++){
-		info("%p",i);
-	}
-
-	result &r3 = stack.push_result(20);
-	info("r3 is at %p",r3.begin());
-	info("r3 is the following");
-	for(auto i = r3.begin();i != r3.end();i++){
-		info("%p",i);
-	}
-
-	info("getting 0 from top is at %p",stack.get_result(0).begin());
-	info("getting 1 from top is at %p",stack.get_result(1).begin());
-	
-	stack.delete_result();
-	result r1_pop = stack.pop_result();
-	info("poped r1 and result is at %p",r1_pop.begin());
-	info("poped r1 is the following");
-	for(auto i = r1_pop.begin();i != r1_pop.end();i++){
-		info("%p",i);
-	}
-
-
 
 	return true;
 }

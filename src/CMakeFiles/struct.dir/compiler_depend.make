@@ -568,10 +568,10 @@ src/CMakeFiles/struct.dir/analyzer/function_analyzer.cpp.o: src/analyzer/functio
   include/canal/function.h \
   include/canal/container.h \
   include/canal/operation_stack.h \
-  include/canal/operation.h \
   include/canal/operation_stack.h \
   include/canal/function.h \
   include/canal/analyzer.h \
+  include/canal/operation.h \
   include/canal/debugger.h \
   /usr/x86_64-linux-gnu/include/sys/time.h \
   include/canal/root_scope.h
@@ -1143,10 +1143,10 @@ src/CMakeFiles/struct.dir/analyzer/function_finder.cpp.o: src/analyzer/function_
   include/canal/function.h \
   include/canal/container.h \
   include/canal/operation_stack.h \
-  include/canal/operation.h \
   include/canal/operation_stack.h \
   include/canal/function.h \
   include/canal/analyzer.h \
+  include/canal/operation.h \
   include/canal/debugger.h \
   /usr/x86_64-linux-gnu/include/sys/time.h \
   include/canal/root_scope.h \
@@ -1343,9 +1343,7 @@ src/CMakeFiles/struct.dir/container/vectors.cpp.o: src/container/vectors.cpp \
   /usr/x86_64-linux-gnu/include/sys/time.h \
   include/canal/function.h \
   include/canal/container.h \
-  include/canal/operation_stack.h \
-  include/canal/operation.h \
-  include/canal/function.h
+  include/canal/operation_stack.h
 
 src/CMakeFiles/struct.dir/debugger/debugger.cpp.o: src/debugger/debugger.cpp \
   /usr/x86_64-linux-gnu/include/stdc-predef.h \
@@ -1574,7 +1572,6 @@ src/CMakeFiles/struct.dir/operation/operation.cpp.o: src/operation/operation.cpp
   /usr/include/c++/10/bits/stl_deque.h \
   /usr/include/c++/10/bits/deque.tcc \
   include/canal/operation_stack.h \
-  include/canal/operation.h \
   include/canal/debugger.h \
   /usr/x86_64-linux-gnu/include/sys/time.h
 
@@ -1766,7 +1763,6 @@ src/CMakeFiles/struct.dir/operation/operation_stack.cpp.o: src/operation/operati
   /usr/include/c++/10/bits/stl_deque.h \
   /usr/include/c++/10/bits/deque.tcc \
   include/canal/operation_stack.h \
-  include/canal/operation.h \
   include/canal/operation_stack.h \
   include/canal/debugger.h \
   /usr/x86_64-linux-gnu/include/sys/time.h
@@ -2149,8 +2145,6 @@ src/CMakeFiles/struct.dir/scope/function.cpp.o: src/scope/function.cpp \
   /usr/include/c++/10/istream \
   /usr/include/c++/10/bits/istream.tcc \
   include/canal/operation_stack.h \
-  include/canal/operation.h \
-  include/canal/function.h \
   include/canal/container.h \
   include/canal/debugger.h \
   /usr/x86_64-linux-gnu/include/sys/time.h
@@ -2354,9 +2348,8 @@ src/CMakeFiles/struct.dir/scope/root_scope.cpp.o: src/scope/root_scope.cpp \
   include/canal/variable.h \
   /usr/include/c++/10/iostream \
   include/canal/operation_stack.h \
-  include/canal/operation.h \
-  include/canal/function.h \
   include/canal/root_scope.h \
+  include/canal/function.h \
   include/canal/debugger.h \
   /usr/x86_64-linux-gnu/include/sys/time.h
 
