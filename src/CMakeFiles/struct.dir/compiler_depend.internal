@@ -1145,6 +1145,7 @@ src/CMakeFiles/struct.dir/analyzer/function_finder.cpp.o
  /home/synrom/lego/canal/include/canal/function.h
  /home/synrom/lego/canal/include/canal/container.h
  /home/synrom/lego/canal/include/canal/operation_stack.h
+ /home/synrom/lego/canal/include/canal/result.h
  /home/synrom/lego/canal/include/canal/operation_stack.h
  /home/synrom/lego/canal/include/canal/function.h
  /home/synrom/lego/canal/include/canal/analyzer.h
@@ -1577,6 +1578,7 @@ src/CMakeFiles/struct.dir/operation/operation.cpp.o
  /usr/include/c++/10/bits/stl_deque.h
  /usr/include/c++/10/bits/deque.tcc
  /home/synrom/lego/canal/include/canal/operation_stack.h
+ /home/synrom/lego/canal/include/canal/result.h
  /home/synrom/lego/canal/include/canal/debugger.h
  /usr/x86_64-linux-gnu/include/sys/time.h
 
@@ -1769,6 +1771,7 @@ src/CMakeFiles/struct.dir/operation/operation_stack.cpp.o
  /usr/include/c++/10/bits/stl_deque.h
  /usr/include/c++/10/bits/deque.tcc
  /home/synrom/lego/canal/include/canal/operation_stack.h
+ /home/synrom/lego/canal/include/canal/result.h
  /home/synrom/lego/canal/include/canal/operation_stack.h
  /home/synrom/lego/canal/include/canal/debugger.h
  /usr/x86_64-linux-gnu/include/sys/time.h
@@ -2153,6 +2156,7 @@ src/CMakeFiles/struct.dir/scope/function.cpp.o
  /usr/include/c++/10/istream
  /usr/include/c++/10/bits/istream.tcc
  /home/synrom/lego/canal/include/canal/operation_stack.h
+ /home/synrom/lego/canal/include/canal/result.h
  /home/synrom/lego/canal/include/canal/container.h
  /home/synrom/lego/canal/include/canal/debugger.h
  /usr/x86_64-linux-gnu/include/sys/time.h
@@ -2357,6 +2361,7 @@ src/CMakeFiles/struct.dir/scope/root_scope.cpp.o
  /home/synrom/lego/canal/include/canal/variable.h
  /usr/include/c++/10/iostream
  /home/synrom/lego/canal/include/canal/operation_stack.h
+ /home/synrom/lego/canal/include/canal/result.h
  /home/synrom/lego/canal/include/canal/root_scope.h
  /home/synrom/lego/canal/include/canal/function.h
  /home/synrom/lego/canal/include/canal/debugger.h

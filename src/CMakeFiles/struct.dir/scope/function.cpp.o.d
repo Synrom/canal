@@ -166,6 +166,7 @@ src/CMakeFiles/struct.dir/scope/function.cpp.o: \
  /usr/include/c++/10/bits/ostream.tcc /usr/include/c++/10/istream \
  /usr/include/c++/10/bits/istream.tcc \
  /home/synrom/lego/canal/src/../include/canal/operation_stack.h \
+ /home/synrom/lego/canal/src/../include/canal/result.h \
  /home/synrom/lego/canal/src/../include/canal/container.h \
  /home/synrom/lego/canal/src/../include/canal/debugger.h \
  /usr/x86_64-linux-gnu/include/sys/time.h

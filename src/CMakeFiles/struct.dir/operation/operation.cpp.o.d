@@ -165,5 +165,6 @@ src/CMakeFiles/struct.dir/operation/operation.cpp.o: \
  /usr/include/c++/10/deque /usr/include/c++/10/bits/stl_deque.h \
  /usr/include/c++/10/bits/deque.tcc \
  /home/synrom/lego/canal/src/../include/canal/operation_stack.h \
+ /home/synrom/lego/canal/src/../include/canal/result.h \
  /home/synrom/lego/canal/src/../include/canal/debugger.h \
  /usr/x86_64-linux-gnu/include/sys/time.h

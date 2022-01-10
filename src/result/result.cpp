@@ -31,6 +31,11 @@ result::result(result &&mv){
 	mv.buf = NULL;
 }
 
+unsigned int result::get_size(){
+	debug("getting size of result");
+	return size;
+}
+
 result &result::operator=(result &&mv){
 	debug("moving result %p operator",mv.buf);
 

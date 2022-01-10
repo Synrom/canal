@@ -519,6 +519,7 @@ src/CMakeFiles/struct.dir/analyzer/function_analyzer.cpp.o: \
  /home/synrom/lego/canal/src/../include/canal/function.h \
  /home/synrom/lego/canal/src/../include/canal/container.h \
  /home/synrom/lego/canal/src/../include/canal/operation_stack.h \
+ /home/synrom/lego/canal/src/../include/canal/result.h \
  /home/synrom/lego/canal/src/../include/canal/operation_stack.h \
  /home/synrom/lego/canal/src/../include/canal/function.h \
  /home/synrom/lego/canal/src/../include/canal/analyzer.h \

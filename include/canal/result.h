@@ -12,6 +12,8 @@ public:
 	using iterator = variable *;
 	iterator begin();
 	iterator end();
+
+	unsigned int get_size();
 	
 
 

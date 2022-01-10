@@ -240,3 +240,67 @@ void Ret::executeOperation(variable *left, variable *right, variable *where){
 }
 
 
+void operation::execute(){
+	debug("operation::execute");
+
+	if(right == ""){
+		debug("getting right from result stack in operation::execute");
+
+		if(left == ""){
+			debug("getting left also from result stack in operation::execute");
+
+			result right_result = freference.results.pop_result();
+			result &left_result = freference.results.get_result(0);
+
+			// here is left_result also the place where the results will be stored
+
+			error_conditional(right_result.get_size() != left_result.get_size(),
+					"the sizes (%d and %d) of the results are different in operation::execute",
+					right_result.get_size(),left_result.get_size());
+
+		}else{
+			debug("getting variable values for %s (left) in operation::execute",left.c_str());
+
+			result &right_result = freference.results.get_result(0);
+			std::vector<variable *> left_result = freference.current_vstance->get_var(left);
+			
+			// here is right_result also the place where the results will be stored
+
+			error_conditional(right_result.get_size() != left_result.size(),
+					"the sizes (%d and %ld) of the results are different in operation::execute",
+					right_result.get_size(),left_result.size());
+
+		}
+	}else{
+		debug("getting variable values for %s (right) in operation::execute",right.c_str());
+
+		if(left == ""){
+			debug("getting only left from result stack in operation::execute");
+
+			std::vector<variable *> right_result = freference.current_vstance->get_var(right);
+			result &left_result = freference.results.get_result(0);
+
+			// here is left_result also the place where the results will be stored
+
+			error_conditional(right_result.size() != left_result.get_size(),
+					"the sizes (%ld and %d) of the results are different in operation::execute",
+					right_result.size(),left_result.get_size());
+
+		}else{
+			debug("getting variable values for %s (left) in operation::execute",left.c_str());
+
+			std::vector<variable *> right_result = freference.current_vstance->get_var(right);
+			std::vector<variable *> left_result = freference.current_vstance->get_var(left);
+
+			// here we need to reserve a result on the result_stack, where the results will be stored
+
+			error_conditional(right_result.size() != left_result.size(),
+					"the sizes (%ld and %ld) of the results are different in operation::execute",
+					right_result.size(),left_result.size());
+
+			result &result_space = freference.results.push_result(right_result.size());
+
+		}
+	}
+
+}

@@ -45,8 +45,11 @@ public:
 	operation(Types , const std::string &, const std::string &, function &);
 	operation(Types ,function *, const std::vector<std::string> &, function &);
 
+	virtual void execute();
+
 private:
 	virtual void executeOperation(variable *,variable *,variable *) = 0;
+
 	
 	
 };

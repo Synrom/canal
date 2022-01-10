@@ -1,5 +1,10 @@
-operation_stack
+operation.exec implementieren und testen
 
 
+
+
+
+weite Zukunft:
+function.exec implementieren und testen
 stance -> finish (löscht die ganzen COntainer von diesem Stance vom parents Stance. Alle Konsequenzen einberechnen ist hier wichtig)
 

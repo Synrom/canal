@@ -17,7 +17,6 @@
 #include <canal/debugger.h>
 #include <canal/root_scope.h>
 #include <canal/variable.h>
-#include <canal/result.h>
 
 root_scope global_scope;
 
