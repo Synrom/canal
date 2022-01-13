@@ -568,6 +568,7 @@ src/CMakeFiles/struct.dir/analyzer/function_analyzer.cpp.o: src/analyzer/functio
   include/canal/function.h \
   include/canal/container.h \
   include/canal/operation_stack.h \
+  include/canal/result.h \
   include/canal/operation_stack.h \
   include/canal/function.h \
   include/canal/analyzer.h \
@@ -1151,8 +1152,7 @@ src/CMakeFiles/struct.dir/analyzer/function_finder.cpp.o: src/analyzer/function_
   include/canal/debugger.h \
   /usr/x86_64-linux-gnu/include/sys/time.h \
   include/canal/root_scope.h \
-  include/canal/variable.h \
-  include/canal/result.h
+  include/canal/variable.h
 
 src/CMakeFiles/struct.dir/container/vectors.cpp.o: src/container/vectors.cpp \
   /usr/x86_64-linux-gnu/include/stdc-predef.h \
@@ -1344,7 +1344,8 @@ src/CMakeFiles/struct.dir/container/vectors.cpp.o: src/container/vectors.cpp \
   /usr/x86_64-linux-gnu/include/sys/time.h \
   include/canal/function.h \
   include/canal/container.h \
-  include/canal/operation_stack.h
+  include/canal/operation_stack.h \
+  include/canal/result.h
 
 src/CMakeFiles/struct.dir/debugger/debugger.cpp.o: src/debugger/debugger.cpp \
   /usr/x86_64-linux-gnu/include/stdc-predef.h \
@@ -5273,8 +5274,6 @@ src/result/result.cpp:
 
 src/operation/operation.cpp:
 
-include/canal/result.h:
-
 src/analyzer/function_finder.cpp:
 
 include/canal/root_scope.h:
@@ -5284,6 +5283,8 @@ include/canal/root_scope.h:
 include/canal/debugger.h:
 
 include/canal/analyzer.h:
+
+include/canal/result.h:
 
 include/canal/operation_stack.h:
 

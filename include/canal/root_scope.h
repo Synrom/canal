@@ -17,7 +17,7 @@ public:
 	page_scope(page_scope &&);
 	page_scope& operator=(page_scope &&);
 
-	function &addFunction(const std::string &);
+	function *addFunction(const std::string &);
 
 	function *begin();
 	function *start,*end;
@@ -49,7 +49,7 @@ public:
 	~root_scope();
 	root_scope();
 	function &findFunction(const std::string &);
-	function &addFunction(const std::string &);
+	function *addFunction(const std::string &);
 };
 
 #endif

@@ -47,6 +47,8 @@ public:
 
 	virtual void execute();
 
+	void print();
+
 private:
 	virtual void executeOperation(variable *,variable *,variable *) = 0;
 

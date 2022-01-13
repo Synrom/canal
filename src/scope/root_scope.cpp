@@ -79,7 +79,7 @@ page_scope& page_scope::operator=(page_scope &&mv) noexcept {
 	return *this;
 }
 
-function &page_scope::addFunction(const std::string &name){
+function *page_scope::addFunction(const std::string &name){
 
 	debug("adding Function %s to page",name.c_str());
 
@@ -87,14 +87,14 @@ function &page_scope::addFunction(const std::string &name){
 
 	if( ((char *)end) + sizeof(function) >= ((char *)start) + pagesize){
 		debug("page is full");
-		return NULL_Function;
+		return NULL;
 	}
 
 	debug("page has enough capacity, placing object at %p",end);
 	new (end) function(name);
 
 	debug("accessing and then incrementing end of function page");
-	function &ret = *end;
+	function *ret = end;
 	end++;
 
 	return ret;
@@ -116,13 +116,13 @@ function &root_scope::findFunction(const std::string &s){
 }
 
 
-function &root_scope::addFunction(const std::string &name){
+function *root_scope::addFunction(const std::string &name){
 	debug("adding function %s to root scope",name.c_str());
 
-	function &ret = pages.back().addFunction(name);
+	function *ret = pages.back().addFunction(name);
 
 	
-	if(&ret == &NULL_Function){
+	if(ret == NULL){
 
 		debug("page was already completely full");
 

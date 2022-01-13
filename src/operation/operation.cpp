@@ -252,23 +252,56 @@ void operation::execute(){
 			result right_result = freference.results.pop_result();
 			result &left_result = freference.results.get_result(0);
 
-			// here is left_result also the place where the results will be stored
 
 			error_conditional(right_result.get_size() != left_result.get_size(),
 					"the sizes (%d and %d) of the results are different in operation::execute",
 					right_result.get_size(),left_result.get_size());
 
+			variable *right_iterator = right_result.begin();
+			variable *left_iterator = left_result.begin();
+
+			while(left_iterator != left_result.end()){
+
+				debug("%p = %p operation %p\n",left_iterator,left_iterator,right_iterator);
+				
+				executeOperation(/* left */ left_iterator,
+						 /* right */ right_iterator,
+						 /* where */ left_iterator);
+
+				right_iterator++;
+				left_iterator++;
+			}
+
 		}else{
 			debug("getting variable values for %s (left) in operation::execute",left.c_str());
 
-			result &right_result = freference.results.get_result(0);
+			result right_result = freference.results.pop_result();
 			std::vector<variable *> left_result = freference.current_vstance->get_var(left);
 			
-			// here is right_result also the place where the results will be stored
+			// here we have to reserve space on the result stack for the results
 
 			error_conditional(right_result.get_size() != left_result.size(),
 					"the sizes (%d and %ld) of the results are different in operation::execute",
 					right_result.get_size(),left_result.size());
+
+			result &result_space = freference.results.push_result(left_result.size());
+
+			auto left_iterator = left_result.begin();
+			variable *right_iterator = right_result.begin();
+			variable *result_iterator = result_space.begin();
+
+			while(left_iterator != left_result.end()){
+
+				debug("%p = %p operation %p\n",result_iterator,*left_iterator,right_iterator);
+
+				executeOperation(/* left */ *left_iterator,
+						 /* right */ right_iterator,
+						 /* where */ result_iterator);
+
+				left_iterator++;
+				right_iterator++;
+				result_iterator++;
+			}
 
 		}
 	}else{
@@ -286,6 +319,21 @@ void operation::execute(){
 					"the sizes (%ld and %d) of the results are different in operation::execute",
 					right_result.size(),left_result.get_size());
 
+			variable *left_iterator = left_result.begin();
+			auto right_iterator = right_result.begin();
+
+			while(right_iterator != right_result.end()){
+
+				debug("%p = %p operation %p\n",left_iterator,left_iterator,*right_iterator);
+
+				executeOperation(/* left */  left_iterator,
+						 /* right */ *right_iterator,
+						 /* where */ left_iterator);
+
+				left_iterator++;
+				right_iterator++;
+			}
+
 		}else{
 			debug("getting variable values for %s (left) in operation::execute",left.c_str());
 
@@ -300,7 +348,85 @@ void operation::execute(){
 
 			result &result_space = freference.results.push_result(right_result.size());
 
+			auto left_iterator = left_result.begin();
+			auto right_iterator = right_result.begin();
+			variable *result_iterator = result_space.begin();
+
+			while(left_iterator != left_result.end()){
+
+				debug("%p = %p operation %p\n",result_iterator,*left_iterator,*right_iterator);
+
+				executeOperation(/* left */  *left_iterator,
+						 /* right */ *right_iterator,
+						 /* where */ result_iterator);
+
+				left_iterator++;
+				right_iterator++;
+				result_iterator++;
+			}
+
 		}
 	}
 
+}
+
+void operation::print(){
+	if(type == operation::Call){
+		printf("call %s(",call->name.c_str());
+		for(auto i = variables.begin();i != variables.end();i++)
+			printf("%s ,",(*i).c_str());
+		printf(")");
+		return;
+	}
+	printf("%s",left.c_str());
+	switch(type){
+		case operation::Add:
+			printf(" + ");
+			break;
+		case operation::Minus:
+			printf(" - ");
+			break;
+		case operation::Divide:
+			printf(" / ");
+			break;
+		case operation::Times:
+			printf(" * ");
+			break;
+		case operation::Or:
+			printf(" | ");
+			break;
+		case operation::And:
+			printf(" & ");
+			break;
+		case operation::Xor:
+			printf(" ^ ");
+			break;
+		case operation::Neg:
+			printf(" ~ ");
+			break;
+		case operation::Dec:
+			printf("-- ");
+			break;
+		case operation::Inc:
+			printf("++ ");
+			break;
+		case operation::Equal:
+			printf(" = ");
+			break;
+		case operation::Ret:
+			printf(" return");
+			break;
+		case operation::Switch:
+			printf("switch");
+			break;
+		case operation::Next_Switch:
+			printf("next_switch");
+			break;
+		case operation::End_Switch:
+			printf("end_switch");
+			break;
+		default:
+			printf("operation isnt implemented in print operation");
+	}
+	printf("%s",right.c_str());
 }

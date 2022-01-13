@@ -14,20 +14,15 @@
 #include "function.h"
 
 
-class canal_Function_analyzer : public clang::RecursiveASTVisitor<canal_Function_analyzer>{
-public:
-	explicit canal_Function_analyzer(clang::ASTContext *, function &);
-private:
-	function &freference;
-	clang::ASTContext *context;
-};
 
-class canal_Function_finder : public clang::RecursiveASTVisitor<canal_Function_finder>{
+class canal_AST_analyzer : public clang::RecursiveASTVisitor<canal_AST_analyzer>{
 public:
-	explicit canal_Function_finder(clang::ASTContext* );
+	explicit canal_AST_analyzer(clang::ASTContext* );
 	bool VisitFunctionDecl(clang::FunctionDecl *);
+	bool VisitVarDecl(clang::VarDecl *);
 private:
 	clang::ASTContext *context;
+	function *current_function;
 };
 
 class canal_AST_consumer : public clang::ASTConsumer{
@@ -37,7 +32,7 @@ public:
 	virtual void HandleTranslationUnit(clang::ASTContext &);
 
 private:
-	canal_Function_finder visitor;
+	canal_AST_analyzer visitor;
 };
 
 class canal_AST_FrontendAction : public clang::ASTFrontendAction{

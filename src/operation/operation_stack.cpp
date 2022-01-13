@@ -206,3 +206,12 @@ void operation_stack::push_back(const Ret &cpy){
 	new (get_new_location()) Ret(cpy);
 }
 
+void operation_stack::print(){
+	printf(" ----------- printing operation_stack -----------\n\n");
+
+	for(operation *i = start_buf;i != end_buf;i++)
+		i->print();
+
+	printf(" ------------------------------------------------\n");
+
+}

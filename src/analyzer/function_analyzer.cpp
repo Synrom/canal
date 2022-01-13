@@ -13,6 +13,14 @@
 #include <canal/debugger.h>
 #include <canal/root_scope.h>
 
-canal_Function_analyzer::canal_Function_analyzer(clang::ASTContext *c, function &f) : context(c), freference(f){
-	debug("created analyzer for function");
+bool canal_AST_analyzer::VisitVarDecl(clang::VarDecl *var_decl){
+
+	std::string var_name = var_decl->getNameAsString();
+	info("found declination statement of %s",var_name.c_str());
+	
+	std::string var_type = var_decl->getType().getAsString();
+	info("type of that variable is %s",var_type.c_str());
+
+	return true;
 }
+

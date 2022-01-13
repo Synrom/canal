@@ -569,6 +569,7 @@ src/CMakeFiles/struct.dir/analyzer/function_analyzer.cpp.o
  /home/synrom/lego/canal/include/canal/function.h
  /home/synrom/lego/canal/include/canal/container.h
  /home/synrom/lego/canal/include/canal/operation_stack.h
+ /home/synrom/lego/canal/include/canal/result.h
  /home/synrom/lego/canal/include/canal/operation_stack.h
  /home/synrom/lego/canal/include/canal/function.h
  /home/synrom/lego/canal/include/canal/analyzer.h
@@ -1154,7 +1155,6 @@ src/CMakeFiles/struct.dir/analyzer/function_finder.cpp.o
  /usr/x86_64-linux-gnu/include/sys/time.h
  /home/synrom/lego/canal/include/canal/root_scope.h
  /home/synrom/lego/canal/include/canal/variable.h
- /home/synrom/lego/canal/include/canal/result.h
 
 src/CMakeFiles/struct.dir/container/vectors.cpp.o
  /home/synrom/lego/canal/src/container/vectors.cpp
@@ -1348,6 +1348,7 @@ src/CMakeFiles/struct.dir/container/vectors.cpp.o
  /home/synrom/lego/canal/include/canal/function.h
  /home/synrom/lego/canal/include/canal/container.h
  /home/synrom/lego/canal/include/canal/operation_stack.h
+ /home/synrom/lego/canal/include/canal/result.h
 
 src/CMakeFiles/struct.dir/debugger/debugger.cpp.o
  /home/synrom/lego/canal/src/debugger/debugger.cpp

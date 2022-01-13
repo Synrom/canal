@@ -28,6 +28,8 @@ public:
 
 	using iterator = operation *;
 
+	void print();
+
 	void push_back(const Add &);
 	void push_back(const Minus &);
 	void push_back(const Divide &);
