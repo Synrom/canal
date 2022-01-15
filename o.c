@@ -15,12 +15,15 @@ int main(){
 		b = 0;
 	}
 
+	unsigned int ui;
 	while(b > 0){
 		b--;
 		a++;
 	}
 
 	a = 14;
+
+	double d;
 
 	return 0;
 }

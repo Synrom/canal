@@ -247,6 +247,12 @@ void operation::execute(){
 		debug("getting right from result stack in operation::execute");
 
 		if(left == ""){
+			
+			debug("executing left and right in operation::execute");
+
+			freference.operations.getNext()->execute();
+			freference.operations.getNext()->execute();
+
 			debug("getting left also from result stack in operation::execute");
 
 			result right_result = freference.results.pop_result();
@@ -273,6 +279,11 @@ void operation::execute(){
 			}
 
 		}else{
+			
+			debug("executing right in operation::execute");
+			
+			freference.operations.getNext()->execute();
+
 			debug("getting variable values for %s (left) in operation::execute",left.c_str());
 
 			result right_result = freference.results.pop_result();
@@ -308,6 +319,10 @@ void operation::execute(){
 		debug("getting variable values for %s (right) in operation::execute",right.c_str());
 
 		if(left == ""){
+			debug("executing left in operation::execute");
+			
+			freference.operations.getNext()->execute();
+
 			debug("getting only left from result stack in operation::execute");
 
 			std::vector<variable *> right_result = freference.current_vstance->get_var(right);

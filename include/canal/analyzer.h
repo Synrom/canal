@@ -1,6 +1,8 @@
 #ifndef ANALYZER_H
 #define ANALYZER_H
 
+#include <string>
+
 #include "clang/AST/ASTConsumer.h"
 #include "clang/AST/RecursiveASTVisitor.h"
 #include "clang/Frontend/CompilerInstance.h"
@@ -12,6 +14,7 @@
 #include "operation.h"
 #include "operation_stack.h"
 #include "function.h"
+#include "variable.h"
 
 
 
@@ -23,6 +26,9 @@ public:
 private:
 	clang::ASTContext *context;
 	function *current_function;
+	variable::Types current_type;
+	void addVar(const std::string &,std::string &);
+	bool wasLastOperationVarDecl;
 };
 
 class canal_AST_consumer : public clang::ASTConsumer{

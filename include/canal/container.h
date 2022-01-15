@@ -96,7 +96,6 @@ public:
 	// TODO:
 	void add_switches(unsigned int); // number of switches to add
 
-	// TODO:
 	void add_var(const std::string & ,double );
 	void add_var(const std::string & ,float );
 	void add_var(const std::string & ,long double );
