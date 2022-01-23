@@ -23,12 +23,13 @@ public:
 	explicit canal_AST_analyzer(clang::ASTContext* );
 	bool VisitFunctionDecl(clang::FunctionDecl *);
 	bool VisitVarDecl(clang::VarDecl *);
+	bool VisitBinaryOperator(clang::BinaryOperator *);
 private:
+	bool thisIsFollowupForAVarDecl;
 	clang::ASTContext *context;
 	function *current_function;
 	variable::Types current_type;
 	void addVar(const std::string &,std::string &);
-	bool wasLastOperationVarDecl;
 };
 
 class canal_AST_consumer : public clang::ASTConsumer{

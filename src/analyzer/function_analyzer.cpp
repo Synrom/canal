@@ -23,10 +23,25 @@ bool canal_AST_analyzer::VisitVarDecl(clang::VarDecl *var_decl){
 
 	addVar(var_name, var_type);
 
-	wasLastOperationVarDecl = true;
+	thisIsFollowupForAVarDecl = true;	
 
 	return true;
 }
+
+bool canal_AST_analyzer::VisitBinaryOperator(clang::BinaryOperator *bn_op){
+	
+	info("analyzing binary operation");
+	
+	if(thisIsFollowupForAVarDecl){
+		info("this is follow up of VarDecl so we need to add an = operation first :)");
+		thisIsFollowupForAVarDecl = false;
+	}
+
+
+	return true;
+}
+
+
 
 void canal_AST_analyzer::addVar(const std::string &name, std::string &type){
 	if(type == "double"){
