@@ -26,6 +26,7 @@ list(APPEND ScopeFiles
 list(APPEND OperationFiles
 	"operation/operation.cpp"
 	"operation/operation_stack.cpp"
+	"operation/equal.cpp"
 )
 
 list(APPEND DebuggerFiles

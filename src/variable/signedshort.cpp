@@ -112,3 +112,10 @@ void signedshort::Neg(variable *where){
 
 	new (where) signedshort("", (signed short) (~value.signedshort));
 }
+
+void signedshort::Equal(variable *what){
+	debug("signedshort::Equal");
+	error_conditional(!what, "in signedshort::Equal what is NULL");
+
+	value.signedshort = what->value.signedshort;
+}

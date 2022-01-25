@@ -118,3 +118,10 @@ void pointer::Neg(variable *where){
 	debug("pointer::Neg");
 	new (where) pointer("", (unsigned long long) ~value.unsignedlonglong ,size);
 }
+
+void pointer::Equal(variable *what){
+	debug("pointer::Equal");
+	error_conditional(!what, "in pointer::Equal what is NULL");
+
+	value.unsignedlonglong = what->value.unsignedlonglong;
+}

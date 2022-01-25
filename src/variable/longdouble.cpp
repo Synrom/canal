@@ -113,3 +113,10 @@ void longdouble::Neg(variable *where){
 
 	new (where) longdouble("", (long double) (value.longdouble));
 }
+
+void longdouble::Equal(variable *what){
+	debug("longdouble::Equal");
+	error_conditional(!what, "in longdouble::Equal what is NULL");
+
+	value.longdouble = what->value.longdouble;
+}

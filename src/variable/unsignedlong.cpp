@@ -112,3 +112,10 @@ void unsignedlong::Neg(variable *where){
 
 	new (where) unsignedlong("", (unsigned long) (~value.unsignedlong));
 }
+
+void unsignedlong::Equal(variable *what){
+	debug("unsignedlong::Equal");
+	error_conditional(!what, "in unsignedlong::Equal what is NULL");
+
+	value.unsignedlong = what->value.unsignedlong;
+}

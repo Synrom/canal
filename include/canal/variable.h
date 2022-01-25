@@ -72,6 +72,7 @@ public:
 	virtual void Neg(variable *) = 0;
 	virtual void Inc() = 0;
 	virtual void Dec() = 0;
+	virtual void Equal(variable *) = 0;
 	
 	
 };
@@ -91,6 +92,7 @@ public:
 	void Neg(variable *);
 	void Inc();
 	void Dec();
+	virtual void Equal(variable *);
 };
 
 
@@ -109,6 +111,7 @@ public:
 	void Neg(variable *);
 	void Inc();
 	void Dec();
+	virtual void Equal(variable *);
 };
 
 
@@ -127,6 +130,7 @@ public:
 	void Neg(variable *);
 	void Inc();
 	void Dec();
+	virtual void Equal(variable *);
 };
 
 
@@ -145,6 +149,7 @@ public:
 	void Neg(variable *);
 	void Inc();
 	void Dec();
+	virtual void Equal(variable *);
 };
 
 class signedshort: public variable{
@@ -162,6 +167,7 @@ public:
 	void Neg(variable *);
 	void Inc();
 	void Dec();
+	virtual void Equal(variable *);
 };
 
 
@@ -180,6 +186,7 @@ public:
 	void Neg(variable *);
 	void Inc();
 	void Dec();
+	virtual void Equal(variable *);
 };
 
 
@@ -198,6 +205,7 @@ public:
 	void Neg(variable *);
 	void Inc();
 	void Dec();
+	virtual void Equal(variable *);
 };
 
 
@@ -216,6 +224,7 @@ public:
 	void Neg(variable *);
 	void Inc();
 	void Dec();
+	virtual void Equal(variable *);
 };
 
 
@@ -234,6 +243,7 @@ public:
 	void Neg(variable *);
 	void Inc();
 	void Dec();
+	virtual void Equal(variable *);
 };
 
 
@@ -252,6 +262,7 @@ public:
 	void Neg(variable *);
 	void Inc();
 	void Dec();
+	virtual void Equal(variable *);
 };
 
 class _float: public variable{
@@ -269,6 +280,7 @@ public:
 	void Neg(variable *);
 	void Inc();
 	void Dec();
+	virtual void Equal(variable *);
 };
 
 
@@ -287,6 +299,7 @@ public:
 	void Neg(variable *);
 	void Inc();
 	void Dec();
+	virtual void Equal(variable *);
 };
 
 
@@ -305,6 +318,7 @@ public:
 	void Neg(variable *);
 	void Inc();
 	void Dec();
+	virtual void Equal(variable *);
 };
 
 
@@ -323,6 +337,7 @@ public:
 	void Neg(variable *);
 	void Inc();
 	void Dec();
+	virtual void Equal(variable *);
 };
 
 #endif

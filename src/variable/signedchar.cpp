@@ -112,3 +112,10 @@ void signedchar::Neg(variable *where){
 
 	new (where) signedchar("", (signed char) (~value.signedchar));
 }
+
+void signedchar::Equal(variable *what){
+	debug("signedchar::Equal");
+	error_conditional(!what, "in signedchar::Equal what is NULL");
+
+	value.signedchar = what->value.signedchar;
+}

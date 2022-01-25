@@ -112,3 +112,10 @@ void unsignedshort::Neg(variable *where){
 
 	new (where) unsignedshort("", (unsigned short) (~value.unsignedshort));
 }
+
+void unsignedshort::Equal(variable *what){
+	debug("unsignedshort::Equal");
+	error_conditional(!what, "in unsignedshort::Equal what is NULL");
+
+	value.unsignedshort = what->value.unsignedshort;
+}

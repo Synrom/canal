@@ -113,3 +113,11 @@ void _double::Neg(variable *where){
 
 	new (where) _double("", (double) (value._double));
 }
+
+void _double::Equal(variable *what){
+	debug("_double::Equal");
+	error_conditional(!what, "in _double::Equal what is NULL");
+
+	value._double = what->value._double;
+}
+

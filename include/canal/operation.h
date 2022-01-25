@@ -136,6 +136,7 @@ public:
 };
 class Equal: public operation{
 	void executeOperation(variable *,variable *,variable *);
+	void execute();
 public:
 	Equal(const std::string &, const std::string &, function &);
 	Equal(operation *);

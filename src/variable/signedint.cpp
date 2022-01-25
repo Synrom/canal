@@ -112,3 +112,10 @@ void signedint::Neg(variable *where){
 
 	new (where) signedint("", (signed int) (~value.signedint));
 }
+
+void signedint::Equal(variable *what){
+	debug("signedint::Equal");
+	error_conditional(!what, "in signedint::Equal what is NULL");
+
+	value.signedint = what->value.signedint;
+}

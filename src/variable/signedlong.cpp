@@ -112,3 +112,10 @@ void signedlong::Neg(variable *where){
 
 	new (where) signedlong("", (signed long) (~value.signedlong));
 }
+
+void signedlong::Equal(variable *what){
+	debug("signedlong::Equal");
+	error_conditional(!what, "in signedlong::Equal what is NULL");
+
+	value.signedlong = what->value.signedlong;
+}

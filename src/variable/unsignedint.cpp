@@ -112,3 +112,10 @@ void unsignedint::Neg(variable *where){
 
 	new (where) unsignedint("", (unsigned int) (~value.unsignedint));
 }
+
+void unsignedint::Equal(variable *what){
+	debug("unsignedint::Equal");
+	error_conditional(!what, "in unsignedint::Equal what is NULL");
+
+	value.unsignedint = what->value.unsignedint;
+}

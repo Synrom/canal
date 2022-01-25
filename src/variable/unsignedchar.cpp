@@ -112,3 +112,10 @@ void unsignedchar::Neg(variable *where){
 
 	new (where) unsignedchar("", (unsigned char) (~value.unsignedchar));
 }
+
+void unsignedchar::Equal(variable *what){
+	debug("unsignedchar::Equal");
+	error_conditional(!what, "in unsignedchar::Equal what is NULL");
+
+	value.unsignedchar = what->value.unsignedchar;
+}

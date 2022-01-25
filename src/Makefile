@@ -327,6 +327,30 @@ debugger/debugger.cpp.s:
 	cd /home/synrom/lego/canal && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/struct.dir/build.make src/CMakeFiles/struct.dir/debugger/debugger.cpp.s
 .PHONY : debugger/debugger.cpp.s
 
+operation/equal.o: operation/equal.cpp.o
+.PHONY : operation/equal.o
+
+# target to build an object file
+operation/equal.cpp.o:
+	cd /home/synrom/lego/canal && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/struct.dir/build.make src/CMakeFiles/struct.dir/operation/equal.cpp.o
+.PHONY : operation/equal.cpp.o
+
+operation/equal.i: operation/equal.cpp.i
+.PHONY : operation/equal.i
+
+# target to preprocess a source file
+operation/equal.cpp.i:
+	cd /home/synrom/lego/canal && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/struct.dir/build.make src/CMakeFiles/struct.dir/operation/equal.cpp.i
+.PHONY : operation/equal.cpp.i
+
+operation/equal.s: operation/equal.cpp.s
+.PHONY : operation/equal.s
+
+# target to generate assembly for a file
+operation/equal.cpp.s:
+	cd /home/synrom/lego/canal && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/struct.dir/build.make src/CMakeFiles/struct.dir/operation/equal.cpp.s
+.PHONY : operation/equal.cpp.s
+
 operation/operation.o: operation/operation.cpp.o
 .PHONY : operation/operation.o
 
@@ -860,6 +884,9 @@ help:
 	@echo "... debugger/debugger.o"
 	@echo "... debugger/debugger.i"
 	@echo "... debugger/debugger.s"
+	@echo "... operation/equal.o"
+	@echo "... operation/equal.i"
+	@echo "... operation/equal.s"
 	@echo "... operation/operation.o"
 	@echo "... operation/operation.i"
 	@echo "... operation/operation.s"

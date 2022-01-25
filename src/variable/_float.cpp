@@ -113,3 +113,10 @@ void _float::Neg(variable *where){
 
 	new (where) _float("", (float) (value._float));
 }
+
+void _float::Equal(variable *what){
+	debug("_float::Equal");
+	error_conditional(!what, "in _float::Equal what is NULL");
+
+	value._float = what->value._float;
+}

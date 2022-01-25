@@ -12,6 +12,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/synrom/lego/canal/src/analyzer/function_finder.cpp" "src/CMakeFiles/struct.dir/analyzer/function_finder.cpp.o" "gcc" "src/CMakeFiles/struct.dir/analyzer/function_finder.cpp.o.d"
   "/home/synrom/lego/canal/src/container/vectors.cpp" "src/CMakeFiles/struct.dir/container/vectors.cpp.o" "gcc" "src/CMakeFiles/struct.dir/container/vectors.cpp.o.d"
   "/home/synrom/lego/canal/src/debugger/debugger.cpp" "src/CMakeFiles/struct.dir/debugger/debugger.cpp.o" "gcc" "src/CMakeFiles/struct.dir/debugger/debugger.cpp.o.d"
+  "/home/synrom/lego/canal/src/operation/equal.cpp" "src/CMakeFiles/struct.dir/operation/equal.cpp.o" "gcc" "src/CMakeFiles/struct.dir/operation/equal.cpp.o.d"
   "/home/synrom/lego/canal/src/operation/operation.cpp" "src/CMakeFiles/struct.dir/operation/operation.cpp.o" "gcc" "src/CMakeFiles/struct.dir/operation/operation.cpp.o.d"
   "/home/synrom/lego/canal/src/operation/operation_stack.cpp" "src/CMakeFiles/struct.dir/operation/operation_stack.cpp.o" "gcc" "src/CMakeFiles/struct.dir/operation/operation_stack.cpp.o.d"
   "/home/synrom/lego/canal/src/result/result.cpp" "src/CMakeFiles/struct.dir/result/result.cpp.o" "gcc" "src/CMakeFiles/struct.dir/result/result.cpp.o.d"
