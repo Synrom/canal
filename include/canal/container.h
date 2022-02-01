@@ -24,10 +24,6 @@ public:
 	};
 
 	using const_iterator = const variable *;
-	/* 
-	 * TODO: vcontainer =(const vcontainer &) 
-	 * TODO: vcontainer programmieren und kopierbar machen
-	 */
 
 	variable *buf, *end_;
 	unsigned int number;
@@ -43,8 +39,10 @@ public:
 	variable *get_pointer(unsigned int );
 	iterator begin();
 	iterator end();
+	iterator last();
 	const_iterator cbegin() const noexcept;
 	const_iterator cend() const noexcept;
+	const_iterator clast() const noexcept;
 	int find(const std::string &);
 	void emplace_back(const std::string & ,double );
 	void emplace_back(const std::string & ,float );
@@ -111,6 +109,7 @@ public:
 	void add_var(const std::string & ,unsigned long long );
 	void add_var(const std::string & ,unsigned short );
 	std::vector<variable *> get_var(const std::string &);
+	variable *get_latest_added_var();
 
 };
 

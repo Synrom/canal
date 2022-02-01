@@ -525,4 +525,5 @@ CMakeFiles/canal.dir/canal.cpp.o: /home/synrom/lego/canal/canal.cpp \
  /home/synrom/lego/canal/include/canal/operation_stack.h \
  /home/synrom/lego/canal/include/canal/result.h \
  /home/synrom/lego/canal/include/canal/debugger.h \
- /usr/x86_64-linux-gnu/include/sys/time.h
+ /usr/x86_64-linux-gnu/include/sys/time.h \
+ /home/synrom/lego/canal/include/canal/root_scope.h

@@ -163,3 +163,8 @@ std::vector<variable *> vstance::get_var(const std::string &name){
 	return result;
 }
 
+variable *vstance::get_latest_added_var(){
+	debug("getting latest added var from vstance");
+	auto ret = container.front()->last();
+	return *ret;
+}

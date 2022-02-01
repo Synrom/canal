@@ -47,8 +47,13 @@ vcontainer::iterator vcontainer::begin(){
 }
 
 vcontainer::iterator vcontainer::end(){
-	debug("creating vcontainer begin iterator");
+	debug("creating vcontainer end iterator");
 	return vcontainer::iterator(end_);
+}
+
+vcontainer::iterator vcontainer::last(){
+	debug("creating vcontainer last iterator");
+	return vcontainer::iterator(end_ - 1);
 }
 
 variable *vcontainer::iterator::operator *(){
@@ -87,6 +92,10 @@ vcontainer::const_iterator vcontainer::cbegin() const noexcept{
 
 vcontainer::const_iterator vcontainer::cend() const noexcept{
 	return end_;
+}
+
+vcontainer::const_iterator vcontainer::clast() const noexcept{
+	return end_ - 1;
 }
 
 variable *vcontainer::get_new_location(){

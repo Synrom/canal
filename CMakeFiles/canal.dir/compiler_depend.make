@@ -576,8 +576,11 @@ CMakeFiles/canal.dir/canal.cpp.o: canal.cpp \
   include/canal/operation_stack.h \
   include/canal/result.h \
   include/canal/debugger.h \
-  /usr/x86_64-linux-gnu/include/sys/time.h
+  /usr/x86_64-linux-gnu/include/sys/time.h \
+  include/canal/root_scope.h
 
+
+include/canal/root_scope.h:
 
 /usr/x86_64-linux-gnu/include/sys/time.h:
 

@@ -14,6 +14,9 @@
 
 #include <canal/analyzer.h>
 #include <canal/debugger.h>
+#include <canal/root_scope.h>
+
+extern root_scope global_scope;
 
 int main(int argc, char** argv)
 {
@@ -30,6 +33,13 @@ int main(int argc, char** argv)
 	    (std::istreambuf_iterator<char>()));
 
 	//printf("analyze %s\n",content.c_str());
-	return clang::tooling::runToolOnCode(std::make_unique<canal_AST_FrontendAction>(), content.c_str());
+	clang::tooling::runToolOnCode(std::make_unique<canal_AST_FrontendAction>(), content.c_str());
+
+	for(auto i = global_scope.function_begin(); i != global_scope.function_end(); i.increment()){
+		printf("printing function %s\n",(*i).name.c_str());
+		(*i).operations.print();
+	}
+
+	return 0;
 }
 

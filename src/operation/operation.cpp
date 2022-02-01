@@ -443,5 +443,5 @@ void operation::print(){
 		default:
 			printf("operation isnt implemented in print operation");
 	}
-	printf("%s",right.c_str());
+	printf("%s\n",right.c_str());
 }

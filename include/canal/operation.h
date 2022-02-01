@@ -20,15 +20,16 @@ public:
 		Or,
 		And,
 		Xor,
-		Neg,
-		Dec,
-		Inc,
+		Neg, // TODO in function_analyzer
+		Dec, // TODO in function_analyzer
+		Inc, // TODO in function_analyzer
 		Call,
 		Equal,
 		Ret,
 		Switch,
 		Next_Switch,
 		End_Switch,
+		// TODO add shift shfrt
 
 	};
 

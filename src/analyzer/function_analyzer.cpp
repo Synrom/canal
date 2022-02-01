@@ -15,6 +15,7 @@
 
 bool canal_AST_analyzer::VisitVarDecl(clang::VarDecl *var_decl){
 
+	
 	std::string var_name = var_decl->getNameAsString();
 	info("found declination statement of %s",var_name.c_str());
 	
@@ -23,6 +24,11 @@ bool canal_AST_analyzer::VisitVarDecl(clang::VarDecl *var_decl){
 
 	addVar(var_name, var_type);
 
+	if(!(var_decl->isLocalVarDecl())){
+		current_function->pvariables.emplace_back(var_name);
+		return true;
+	}
+
 	thisIsFollowupForAVarDecl = true;	
 
 	return true;
@@ -30,11 +36,56 @@ bool canal_AST_analyzer::VisitVarDecl(clang::VarDecl *var_decl){
 
 bool canal_AST_analyzer::VisitBinaryOperator(clang::BinaryOperator *bn_op){
 	
-	info("analyzing binary operation");
+	if(bn_op->isComparisonOp()){
+		// to be implemented in the future
+		return true;
+	}
 	
 	if(thisIsFollowupForAVarDecl){
 		info("this is follow up of VarDecl so we need to add an = operation first :)");
+
+		std::string var_name = current_function->current_vstance->get_latest_added_var()->name;
+		current_function->operations.push_back(Equal(var_name, "", *current_function));
+		
 		thisIsFollowupForAVarDecl = false;
+	}
+
+	switch(bn_op->getOpcode()){
+		case clang::BinaryOperatorKind::BO_Add:
+			debug("found Add operator");
+			current_function->operations.push_back(Add("","",*current_function));
+			break;
+		case clang::BinaryOperatorKind::BO_Sub:
+			debug("found Minus operator");
+			current_function->operations.push_back(Minus("","",*current_function));
+			break;
+		case clang::BinaryOperatorKind::BO_Div:
+			debug("found Divide operator");
+			current_function->operations.push_back(Divide("","",*current_function));
+			break;
+		case clang::BinaryOperatorKind::BO_Mul:
+			debug("found Times operator");
+			current_function->operations.push_back(Times("","",*current_function));
+			break;
+		case clang::BinaryOperatorKind::BO_Or:
+			debug("found Or operator");
+			current_function->operations.push_back(Or("","",*current_function));
+			break;
+		case clang::BinaryOperatorKind::BO_And:
+			debug("found And operator");
+			current_function->operations.push_back(And("","",*current_function));
+			break;
+		case clang::BinaryOperatorKind::BO_Xor:
+			debug("found Xor operator");
+			current_function->operations.push_back(Xor("","",*current_function));
+			break;
+		case clang::BinaryOperatorKind::BO_Assign:
+			debug("found Equal operator");
+			current_function->operations.push_back(Equal("","",*current_function));
+			break;
+		default:
+			info("%s is not yet implemented in VisitBinaryOperator",clang::BinaryOperator::getOpcodeStr(bn_op->getOpcode()).bytes_begin());
+			break;
 	}
 
 
