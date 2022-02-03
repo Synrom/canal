@@ -327,6 +327,30 @@ debugger/debugger.cpp.s:
 	cd /home/synrom/lego/canal && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/struct.dir/build.make src/CMakeFiles/struct.dir/debugger/debugger.cpp.s
 .PHONY : debugger/debugger.cpp.s
 
+operation/clone.o: operation/clone.cpp.o
+.PHONY : operation/clone.o
+
+# target to build an object file
+operation/clone.cpp.o:
+	cd /home/synrom/lego/canal && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/struct.dir/build.make src/CMakeFiles/struct.dir/operation/clone.cpp.o
+.PHONY : operation/clone.cpp.o
+
+operation/clone.i: operation/clone.cpp.i
+.PHONY : operation/clone.i
+
+# target to preprocess a source file
+operation/clone.cpp.i:
+	cd /home/synrom/lego/canal && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/struct.dir/build.make src/CMakeFiles/struct.dir/operation/clone.cpp.i
+.PHONY : operation/clone.cpp.i
+
+operation/clone.s: operation/clone.cpp.s
+.PHONY : operation/clone.s
+
+# target to generate assembly for a file
+operation/clone.cpp.s:
+	cd /home/synrom/lego/canal && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/struct.dir/build.make src/CMakeFiles/struct.dir/operation/clone.cpp.s
+.PHONY : operation/clone.cpp.s
+
 operation/equal.o: operation/equal.cpp.o
 .PHONY : operation/equal.o
 
@@ -350,6 +374,30 @@ operation/equal.s: operation/equal.cpp.s
 operation/equal.cpp.s:
 	cd /home/synrom/lego/canal && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/struct.dir/build.make src/CMakeFiles/struct.dir/operation/equal.cpp.s
 .PHONY : operation/equal.cpp.s
+
+operation/int_lit.o: operation/int_lit.cpp.o
+.PHONY : operation/int_lit.o
+
+# target to build an object file
+operation/int_lit.cpp.o:
+	cd /home/synrom/lego/canal && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/struct.dir/build.make src/CMakeFiles/struct.dir/operation/int_lit.cpp.o
+.PHONY : operation/int_lit.cpp.o
+
+operation/int_lit.i: operation/int_lit.cpp.i
+.PHONY : operation/int_lit.i
+
+# target to preprocess a source file
+operation/int_lit.cpp.i:
+	cd /home/synrom/lego/canal && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/struct.dir/build.make src/CMakeFiles/struct.dir/operation/int_lit.cpp.i
+.PHONY : operation/int_lit.cpp.i
+
+operation/int_lit.s: operation/int_lit.cpp.s
+.PHONY : operation/int_lit.s
+
+# target to generate assembly for a file
+operation/int_lit.cpp.s:
+	cd /home/synrom/lego/canal && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/struct.dir/build.make src/CMakeFiles/struct.dir/operation/int_lit.cpp.s
+.PHONY : operation/int_lit.cpp.s
 
 operation/operation.o: operation/operation.cpp.o
 .PHONY : operation/operation.o
@@ -398,6 +446,126 @@ operation/operation_stack.s: operation/operation_stack.cpp.s
 operation/operation_stack.cpp.s:
 	cd /home/synrom/lego/canal && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/struct.dir/build.make src/CMakeFiles/struct.dir/operation/operation_stack.cpp.s
 .PHONY : operation/operation_stack.cpp.s
+
+operation/print.o: operation/print.cpp.o
+.PHONY : operation/print.o
+
+# target to build an object file
+operation/print.cpp.o:
+	cd /home/synrom/lego/canal && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/struct.dir/build.make src/CMakeFiles/struct.dir/operation/print.cpp.o
+.PHONY : operation/print.cpp.o
+
+operation/print.i: operation/print.cpp.i
+.PHONY : operation/print.i
+
+# target to preprocess a source file
+operation/print.cpp.i:
+	cd /home/synrom/lego/canal && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/struct.dir/build.make src/CMakeFiles/struct.dir/operation/print.cpp.i
+.PHONY : operation/print.cpp.i
+
+operation/print.s: operation/print.cpp.s
+.PHONY : operation/print.s
+
+# target to generate assembly for a file
+operation/print.cpp.s:
+	cd /home/synrom/lego/canal && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/struct.dir/build.make src/CMakeFiles/struct.dir/operation/print.cpp.s
+.PHONY : operation/print.cpp.s
+
+operation/shl_shr.o: operation/shl_shr.cpp.o
+.PHONY : operation/shl_shr.o
+
+# target to build an object file
+operation/shl_shr.cpp.o:
+	cd /home/synrom/lego/canal && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/struct.dir/build.make src/CMakeFiles/struct.dir/operation/shl_shr.cpp.o
+.PHONY : operation/shl_shr.cpp.o
+
+operation/shl_shr.i: operation/shl_shr.cpp.i
+.PHONY : operation/shl_shr.i
+
+# target to preprocess a source file
+operation/shl_shr.cpp.i:
+	cd /home/synrom/lego/canal && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/struct.dir/build.make src/CMakeFiles/struct.dir/operation/shl_shr.cpp.i
+.PHONY : operation/shl_shr.cpp.i
+
+operation/shl_shr.s: operation/shl_shr.cpp.s
+.PHONY : operation/shl_shr.s
+
+# target to generate assembly for a file
+operation/shl_shr.cpp.s:
+	cd /home/synrom/lego/canal && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/struct.dir/build.make src/CMakeFiles/struct.dir/operation/shl_shr.cpp.s
+.PHONY : operation/shl_shr.cpp.s
+
+operation/var_push.o: operation/var_push.cpp.o
+.PHONY : operation/var_push.o
+
+# target to build an object file
+operation/var_push.cpp.o:
+	cd /home/synrom/lego/canal && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/struct.dir/build.make src/CMakeFiles/struct.dir/operation/var_push.cpp.o
+.PHONY : operation/var_push.cpp.o
+
+operation/var_push.i: operation/var_push.cpp.i
+.PHONY : operation/var_push.i
+
+# target to preprocess a source file
+operation/var_push.cpp.i:
+	cd /home/synrom/lego/canal && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/struct.dir/build.make src/CMakeFiles/struct.dir/operation/var_push.cpp.i
+.PHONY : operation/var_push.cpp.i
+
+operation/var_push.s: operation/var_push.cpp.s
+.PHONY : operation/var_push.s
+
+# target to generate assembly for a file
+operation/var_push.cpp.s:
+	cd /home/synrom/lego/canal && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/struct.dir/build.make src/CMakeFiles/struct.dir/operation/var_push.cpp.s
+.PHONY : operation/var_push.cpp.s
+
+result/identifiers.o: result/identifiers.cpp.o
+.PHONY : result/identifiers.o
+
+# target to build an object file
+result/identifiers.cpp.o:
+	cd /home/synrom/lego/canal && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/struct.dir/build.make src/CMakeFiles/struct.dir/result/identifiers.cpp.o
+.PHONY : result/identifiers.cpp.o
+
+result/identifiers.i: result/identifiers.cpp.i
+.PHONY : result/identifiers.i
+
+# target to preprocess a source file
+result/identifiers.cpp.i:
+	cd /home/synrom/lego/canal && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/struct.dir/build.make src/CMakeFiles/struct.dir/result/identifiers.cpp.i
+.PHONY : result/identifiers.cpp.i
+
+result/identifiers.s: result/identifiers.cpp.s
+.PHONY : result/identifiers.s
+
+# target to generate assembly for a file
+result/identifiers.cpp.s:
+	cd /home/synrom/lego/canal && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/struct.dir/build.make src/CMakeFiles/struct.dir/result/identifiers.cpp.s
+.PHONY : result/identifiers.cpp.s
+
+result/locals.o: result/locals.cpp.o
+.PHONY : result/locals.o
+
+# target to build an object file
+result/locals.cpp.o:
+	cd /home/synrom/lego/canal && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/struct.dir/build.make src/CMakeFiles/struct.dir/result/locals.cpp.o
+.PHONY : result/locals.cpp.o
+
+result/locals.i: result/locals.cpp.i
+.PHONY : result/locals.i
+
+# target to preprocess a source file
+result/locals.cpp.i:
+	cd /home/synrom/lego/canal && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/struct.dir/build.make src/CMakeFiles/struct.dir/result/locals.cpp.i
+.PHONY : result/locals.cpp.i
+
+result/locals.s: result/locals.cpp.s
+.PHONY : result/locals.s
+
+# target to generate assembly for a file
+result/locals.cpp.s:
+	cd /home/synrom/lego/canal && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/struct.dir/build.make src/CMakeFiles/struct.dir/result/locals.cpp.s
+.PHONY : result/locals.cpp.s
 
 result/result.o: result/result.cpp.o
 .PHONY : result/result.o
@@ -566,6 +734,30 @@ variable/pointer.s: variable/pointer.cpp.s
 variable/pointer.cpp.s:
 	cd /home/synrom/lego/canal && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/struct.dir/build.make src/CMakeFiles/struct.dir/variable/pointer.cpp.s
 .PHONY : variable/pointer.cpp.s
+
+variable/shl_shr.o: variable/shl_shr.cpp.o
+.PHONY : variable/shl_shr.o
+
+# target to build an object file
+variable/shl_shr.cpp.o:
+	cd /home/synrom/lego/canal && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/struct.dir/build.make src/CMakeFiles/struct.dir/variable/shl_shr.cpp.o
+.PHONY : variable/shl_shr.cpp.o
+
+variable/shl_shr.i: variable/shl_shr.cpp.i
+.PHONY : variable/shl_shr.i
+
+# target to preprocess a source file
+variable/shl_shr.cpp.i:
+	cd /home/synrom/lego/canal && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/struct.dir/build.make src/CMakeFiles/struct.dir/variable/shl_shr.cpp.i
+.PHONY : variable/shl_shr.cpp.i
+
+variable/shl_shr.s: variable/shl_shr.cpp.s
+.PHONY : variable/shl_shr.s
+
+# target to generate assembly for a file
+variable/shl_shr.cpp.s:
+	cd /home/synrom/lego/canal && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/struct.dir/build.make src/CMakeFiles/struct.dir/variable/shl_shr.cpp.s
+.PHONY : variable/shl_shr.cpp.s
 
 variable/signedchar.o: variable/signedchar.cpp.o
 .PHONY : variable/signedchar.o
@@ -884,15 +1076,36 @@ help:
 	@echo "... debugger/debugger.o"
 	@echo "... debugger/debugger.i"
 	@echo "... debugger/debugger.s"
+	@echo "... operation/clone.o"
+	@echo "... operation/clone.i"
+	@echo "... operation/clone.s"
 	@echo "... operation/equal.o"
 	@echo "... operation/equal.i"
 	@echo "... operation/equal.s"
+	@echo "... operation/int_lit.o"
+	@echo "... operation/int_lit.i"
+	@echo "... operation/int_lit.s"
 	@echo "... operation/operation.o"
 	@echo "... operation/operation.i"
 	@echo "... operation/operation.s"
 	@echo "... operation/operation_stack.o"
 	@echo "... operation/operation_stack.i"
 	@echo "... operation/operation_stack.s"
+	@echo "... operation/print.o"
+	@echo "... operation/print.i"
+	@echo "... operation/print.s"
+	@echo "... operation/shl_shr.o"
+	@echo "... operation/shl_shr.i"
+	@echo "... operation/shl_shr.s"
+	@echo "... operation/var_push.o"
+	@echo "... operation/var_push.i"
+	@echo "... operation/var_push.s"
+	@echo "... result/identifiers.o"
+	@echo "... result/identifiers.i"
+	@echo "... result/identifiers.s"
+	@echo "... result/locals.o"
+	@echo "... result/locals.i"
+	@echo "... result/locals.s"
 	@echo "... result/result.o"
 	@echo "... result/result.i"
 	@echo "... result/result.s"
@@ -914,6 +1127,9 @@ help:
 	@echo "... variable/pointer.o"
 	@echo "... variable/pointer.i"
 	@echo "... variable/pointer.s"
+	@echo "... variable/shl_shr.o"
+	@echo "... variable/shl_shr.i"
+	@echo "... variable/shl_shr.s"
 	@echo "... variable/signedchar.o"
 	@echo "... variable/signedchar.i"
 	@echo "... variable/signedchar.s"

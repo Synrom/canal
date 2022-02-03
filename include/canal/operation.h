@@ -20,6 +20,8 @@ public:
 		Or,
 		And,
 		Xor,
+		Shl,
+		Shr,
 		Neg, // TODO in function_analyzer
 		Dec, // TODO in function_analyzer
 		Inc, // TODO in function_analyzer
@@ -29,26 +31,28 @@ public:
 		Switch,
 		Next_Switch,
 		End_Switch,
-		// TODO add shift shfrt
-
+		IntLiteral,
+		VarPush
 	};
 
 	Types type;
 	
 
-	std::vector<std::string> variables;
-	function *call, &freference;
+	function *call{NULL}, &freference;
 
-	std::string left,right;
+	variable::Data literal;
+	std::string var_name{""};
 
 	virtual ~operation();
 
-	operation(Types , const std::string &, const std::string &, function &);
-	operation(Types ,function *, const std::vector<std::string> &, function &);
+	operation(Types, function &);
+	operation(Types ,function *, function &);
 
 	virtual void execute();
+	virtual void clone(operation *) = 0;
+	virtual void print();
+	virtual void print_simple();
 
-	void print();
 
 private:
 	virtual void executeOperation(variable *,variable *,variable *) = 0;
@@ -57,98 +61,153 @@ private:
 	
 };
 
+class VarPush: public operation{
+	void executeOperation(variable *,variable *,variable *);
+public:
+	VarPush(const std::string &, function &);
+	VarPush(operation *);
+	VarPush(const VarPush &);
+	void clone(operation *);
+	void execute();
+	void print();
+	void print_simple();
+};
+
+class IntLiteral: public operation{
+	void executeOperation(variable *,variable *,variable *);
+public:
+	IntLiteral(signed long long, function &);
+	IntLiteral(operation *);
+	IntLiteral(const IntLiteral &);
+	void clone(operation *);
+	void execute();
+	void print();
+	void print_simple();
+};
+
+class Shl: public operation{
+	void executeOperation(variable *,variable *,variable *);
+public:
+	Shl(function &);
+	Shl(operation *);
+	Shl(const Shl &);
+	void clone(operation *);
+};
+
+class Shr: public operation{
+	void executeOperation(variable *,variable *,variable *);
+public:
+	Shr(function &);
+	Shr(operation *);
+	Shr(const Shr &);
+	void clone(operation *);
+};
 
 class Add: public operation{
 	void executeOperation(variable *,variable *,variable *);
 public:
-	Add(const std::string &, const std::string &, function &);
+	Add(function &);
 	Add(operation *);
 	Add(const Add &);
+	void clone(operation *);
 };
 class Minus: public operation{
 	void executeOperation(variable *,variable *,variable *);
 public:
-	Minus(const std::string &, const std::string &, function &);
+	Minus(function &);
 	Minus(operation *);
 	Minus(const Minus &);
+	void clone(operation *);
 };
 class Divide: public operation{
 	void executeOperation(variable *,variable *,variable *);
 public:
-	Divide(const std::string &, const std::string &, function &);
+	Divide(function &);
 	Divide(operation *);
 	Divide(const Divide &);
+	void clone(operation *);
 };
 class Times: public operation{
 	void executeOperation(variable *,variable *,variable *);
 public:
-	Times(const std::string &, const std::string &, function &);
+	Times(function &);
 	Times(operation *);
 	Times(const Times &);
+	void clone(operation *);
 };
 class Or: public operation{
 	void executeOperation(variable *,variable *,variable *);
 public:
-	Or(const std::string &, const std::string &, function &);
+	Or(function &);
 	Or(operation *);
 	Or(const Or &);
+	void clone(operation *);
 };
 class And: public operation{
 	void executeOperation(variable *,variable *,variable *);
 public:
-	And(const std::string &, const std::string &, function &);
+	And(function &);
 	And(operation *);
 	And(const And &);
+	void clone(operation *);
 };
 class Xor: public operation{
 	void executeOperation(variable *,variable *,variable *);
 public:
-	Xor(const std::string &, const std::string &, function &);
+	Xor(function &);
 	Xor(operation *);
 	Xor(const Xor &);
+	void clone(operation *);
 };
 class Neg: public operation{
 	void executeOperation(variable *,variable *,variable *);
 public:
-	Neg(const std::string &, function &);
+	Neg(function &);
 	Neg(operation *);
 	Neg(const Neg &);
+	void clone(operation *);
 };
 class Dec: public operation{
 	void executeOperation(variable *,variable *,variable *);
 public:
-	Dec(const std::string &, function &);
+	Dec(function &);
 	Dec(operation *);
 	Dec(const Dec &);
+	void clone(operation *);
 };
 class Inc: public operation{
 	void executeOperation(variable *,variable *,variable *);
 public:
-	Inc(const std::string &, function &);
+	Inc(function &);
 	Inc(operation *);
 	Inc(const Inc &);
+	void clone(operation *);
 };
 class Call: public operation{
 	void executeOperation(variable *,variable *,variable *);
 public:
-	Call(function *,const std::vector<std::string> &, function &);
+	Call(function *, function &);
 	Call(operation *);
 	Call(const Call &);
+	void clone(operation *);
 };
 class Equal: public operation{
 	void executeOperation(variable *,variable *,variable *);
 	void execute();
 public:
-	Equal(const std::string &, const std::string &, function &);
+	Equal(function &);
 	Equal(operation *);
 	Equal(const Equal &);
+	void clone(operation *);
+	void print();
 };
 class Ret: public operation{
 	void executeOperation(variable *,variable *,variable *);
 public:
-	Ret(const std::string &, function &);
+	Ret(function &);
 	Ret(operation *);
 	Ret(const Ret &);
+	void clone(operation *);
 };
 
 #endif

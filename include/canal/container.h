@@ -86,6 +86,8 @@ private:
 	vstance_vector *stance_space;
 
 public:
+	unsigned int container_quantity();
+
 	vstance(vstance *,vcontainer_vector *, vstance_vector *);
 	void add_new_container();
 	void add_existing_container(vcontainer *);

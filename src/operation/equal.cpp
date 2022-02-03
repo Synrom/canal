@@ -7,15 +7,15 @@
 void Equal::execute(){
 	debug("Equal execute");
 
-	warning_conditional(left == "", "in equal::execute left=\"\" which is weird");
+	freference.operations.getNext()->execute();
+	error_conditional(freference.identifier.look() == result_identifier_stack::result, "in equal::execute left is a result which is weird");
 
-	debug("Equal execute gets %s from current_vstance",left.c_str());	
-	std::vector<variable *> left_var = freference.current_vstance->get_var(left);
+	std::vector<variable *> left_var = freference.locals.pop();
+	debug("Equal execute gets %s from current_vstance",left_var.front()->name.c_str());	
 
-	if(right == ""){
-		debug("Equal execute has to execute and then pop result from operation stack");
+	freference.operations.getNext()->execute();
+	if(freference.identifier.look() == result_identifier_stack::result){
 
-		freference.operations.getNext()->execute();
 		result right_result = freference.results.pop_result();
 
 		error_conditional(right_result.get_size() != left_var.size(), 
@@ -38,9 +38,10 @@ void Equal::execute(){
 
 
 	}else{
-		debug("Equal execute gets %s from current_vstance",right.c_str());	
 
-		std::vector<variable *> right_var = freference.current_vstance->get_var(right);
+		std::vector<variable *> right_var = freference.locals.pop();
+		debug("Equal execute gets %s from current_vstance",right_var.front()->name.c_str());	
+
 
 		error_conditional(right_var.size() != left_var.size(), 
 				"in equal::execute right_result size is %lu and left_var size is %lu",

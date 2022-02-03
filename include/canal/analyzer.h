@@ -24,10 +24,15 @@ public:
 	bool VisitFunctionDecl(clang::FunctionDecl *);
 	bool VisitVarDecl(clang::VarDecl *);
 	bool VisitBinaryOperator(clang::BinaryOperator *);
+	bool VisitUnaryOperator(clang::UnaryOperator *);
+	bool VisitIntegerLiteral(clang::IntegerLiteral *);
+	bool VisitDeclRefExpr(clang::DeclRefExpr *);
 private:
-	bool thisIsFollowupForAVarDecl;
-	clang::ASTContext *context;
-	function *current_function;
+	bool thisIsFollowupForAVarDecl { false };
+	bool thisIsFollowupOfUnaryOperator { false };
+	bool thisIsFollowupOfaMinus { false };
+	clang::ASTContext *context { NULL };
+	function *current_function { NULL };
 	variable::Types current_type;
 	void addVar(const std::string &,std::string &);
 };

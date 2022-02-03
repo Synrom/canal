@@ -55,7 +55,10 @@ vcontainer* vstance::copy_container(vcontainer *c){
 	return new_container;
 }
 
-
+unsigned int vstance::container_quantity(){
+	debug("getting container quantity %d from current vstance",container.size());
+	return container.size();
+}
 
 
 void vstance::add_var(const std::string &s, signed char v){

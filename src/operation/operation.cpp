@@ -7,31 +7,26 @@ operation::~operation(){
 	debug("deconstructing operation");
 }
 
-operation::operation(Types _type,const std::string &l,const std::string &r,function &func): freference(func) {
+operation::operation(Types _type,function &func): freference(func), type(_type) {
 	debug("constructing operation");
-	left = l;
-	right = r;
-	type = _type;
-	call = NULL;
 }
 
 
 
-operation::operation(Types _type, function *f, const std::vector<std::string> &v, function &func): call(f) , freference(func), variables(v) {
+operation::operation(Types _type, function *f, function &func): call(f) , freference(func), type(_type)  {
 	debug("constructing operation");
-	type = _type;
 }
 
 
-Add::Add(const std::string &left, const std::string &right, function &f) : operation(operation::Add,left,right,f) { 
+Add::Add(function &f) : operation(operation::Add,f) { 
 	debug("creating Add operation");
 }
 
-Add::Add(operation *cpy) : operation(operation::Add,cpy->left,cpy->right,cpy->freference) { 
+Add::Add(operation *cpy) : operation(operation::Add,cpy->freference) { 
 	debug("creating Add operation");
 }
 
-Add::Add(const Add &cpy) : operation(operation::Add,cpy.left,cpy.right,cpy.freference) { 
+Add::Add(const Add &cpy) : operation(operation::Add,cpy.freference) { 
 	debug("creating Add operation");
 }
 
@@ -40,15 +35,15 @@ void Add::executeOperation(variable *left, variable *right, variable *where){
 	left->Plus(where, right);
 }
 
-Minus::Minus(const std::string &left, const std::string &right, function &f) : operation(operation::Minus,left,right,f) { 
+Minus::Minus(function &f) : operation(operation::Minus,f) { 
 	debug("creating Minus operation");
 }
 
-Minus::Minus(const Minus &cpy) : operation(operation::Minus,cpy.left,cpy.right,cpy.freference) { 
+Minus::Minus(const Minus &cpy) : operation(operation::Minus,cpy.freference) { 
 	debug("creating Minus operation");
 }
 
-Minus::Minus(operation *cpy) : operation(operation::Minus,cpy->left,cpy->right,cpy->freference) { 
+Minus::Minus(operation *cpy) : operation(operation::Minus,cpy->freference) { 
 	debug("creating Minus operation");
 }
 
@@ -57,15 +52,15 @@ void Minus::executeOperation(variable *left, variable *right, variable *where){
 	left->Minus(where, right);
 }
 
-Times::Times(const std::string &left, const std::string &right, function &f) : operation(operation::Times,left,right,f) { 
+Times::Times(function &f) : operation(operation::Times,f) { 
 	debug("creating Times operation");
 }
 
-Times::Times(const Times &cpy) : operation(operation::Times,cpy.left,cpy.right,cpy.freference) { 
+Times::Times(const Times &cpy) : operation(operation::Times,cpy.freference) { 
 	debug("creating Times operation");
 }
 
-Times::Times(operation *cpy) : operation(operation::Times,cpy->left,cpy->right,cpy->freference) { 
+Times::Times(operation *cpy) : operation(operation::Times,cpy->freference) { 
 	debug("creating Times operation");
 }
 
@@ -74,15 +69,15 @@ void Times::executeOperation(variable *left, variable *right, variable *where){
 	left->Times(where, right);
 }
 
-Divide::Divide(const std::string &left, const std::string &right, function &f) : operation(operation::Divide,left,right,f) { 
+Divide::Divide(function &f) : operation(operation::Divide,f) { 
 	debug("creating Divide operation");
 }
 
-Divide::Divide(const Divide &cpy) : operation(operation::Divide,cpy.left,cpy.right,cpy.freference) { 
+Divide::Divide(const Divide &cpy) : operation(operation::Divide,cpy.freference) { 
 	debug("creating Times operation");
 }
 
-Divide::Divide(operation *cpy) : operation(operation::Divide,cpy->left,cpy->right,cpy->freference) { 
+Divide::Divide(operation *cpy) : operation(operation::Divide,cpy->freference) { 
 	debug("creating Divide operation");
 }
 
@@ -91,15 +86,15 @@ void Divide::executeOperation(variable *left, variable *right, variable *where){
 	left->Divide(where, right);
 }
 
-And::And(const std::string &left, const std::string &right, function &f) : operation(operation::And,left,right,f) { 
+And::And(function &f) : operation(operation::And,f) { 
 	debug("creating And operation");
 }
 
-And::And(const And &cpy) : operation(operation::And,cpy.left,cpy.right,cpy.freference) { 
+And::And(const And &cpy) : operation(operation::And,cpy.freference) { 
 	debug("creating And operation");
 }
 
-And::And(operation *cpy) : operation(operation::And,cpy->left,cpy->right,cpy->freference) { 
+And::And(operation *cpy) : operation(operation::And,cpy->freference) { 
 	debug("creating And operation");
 }
 
@@ -108,15 +103,15 @@ void And::executeOperation(variable *left, variable *right, variable *where){
 	left->And(where, right);
 }
 
-Or::Or(const std::string &left, const std::string &right, function &f) : operation(operation::Or,left,right,f) { 
+Or::Or(function &f) : operation(operation::Or,f) { 
 	debug("creating Or operation");
 }
 
-Or::Or(const Or &cpy) : operation(operation::Or,cpy.left,cpy.right,cpy.freference) { 
+Or::Or(const Or &cpy) : operation(operation::Or,cpy.freference) { 
 	debug("creating Or operation");
 }
 
-Or::Or(operation *cpy) : operation(operation::Or,cpy->left,cpy->right,cpy->freference) { 
+Or::Or(operation *cpy) : operation(operation::Or,cpy->freference) { 
 	debug("creating Or operation");
 }
 
@@ -125,14 +120,14 @@ void Or::executeOperation(variable *left, variable *right, variable *where){
 	left->Or(where, right);
 }
 
-Xor::Xor(const std::string &left, const std::string &right, function &f) : operation(operation::Xor,left,right,f) { 
+Xor::Xor(function &f) : operation(operation::Xor,f) { 
 	debug("creating Xor operation");
 }
 
-Xor::Xor(const Xor &cpy) : operation(operation::Xor,cpy.left,cpy.right,cpy.freference) { 
+Xor::Xor(const Xor &cpy) : operation(operation::Xor,cpy.freference) { 
 	debug("creating Xor operation");
 }
-Xor::Xor(operation *cpy) : operation(operation::Xor,cpy->left,cpy->right,cpy->freference) { 
+Xor::Xor(operation *cpy) : operation(operation::Xor,cpy->freference) { 
 	debug("creating Xor operation");
 }
 
@@ -141,15 +136,15 @@ void Xor::executeOperation(variable *left, variable *right, variable *where){
 	left->Xor(where, right);
 }
 
-Inc::Inc(const std::string &left, function &f) : operation(operation::Inc,left,"",f) { 
+Inc::Inc(function &f) : operation(operation::Inc,f) { 
 	debug("creating Inc operation");
 }
 
-Inc::Inc(const Inc &cpy) : operation(operation::Inc,cpy.left,cpy.right,cpy.freference) { 
+Inc::Inc(const Inc &cpy) : operation(operation::Inc,cpy.freference) { 
 	debug("creating Inc operation");
 }
 
-Inc::Inc(operation *cpy) : operation(operation::Inc,cpy->left,"",cpy->freference) { 
+Inc::Inc(operation *cpy) : operation(operation::Inc,cpy->freference) { 
 	debug("creating Inc operation");
 }
 
@@ -157,15 +152,15 @@ void Inc::executeOperation(variable *left, variable *right, variable *where){
 	warning("calling Inc executeOperation which is really weird");
 }
 
-Dec::Dec(const std::string &left, function &f) : operation(operation::Dec,left,"",f) { 
+Dec::Dec(function &f) : operation(operation::Dec,f) { 
 	debug("creating Dec operation");
 }
 
-Dec::Dec(const Dec &cpy) : operation(operation::Dec,cpy.left,cpy.right,cpy.freference) { 
+Dec::Dec(const Dec &cpy) : operation(operation::Dec,cpy.freference) { 
 	debug("creating Dec operation");
 }
 
-Dec::Dec(operation *cpy) : operation(operation::Dec,cpy->left,"",cpy->freference) { 
+Dec::Dec(operation *cpy) : operation(operation::Dec,cpy->freference) { 
 	debug("creating Dec operation");
 }
 
@@ -173,15 +168,15 @@ void Dec::executeOperation(variable *left, variable *right, variable *where){
 	warning("calling Dec executeOperation which is really weird");
 }
 
-Neg::Neg(const std::string &left, function &f) : operation(operation::Dec,left,"",f) { 
+Neg::Neg(function &f) : operation(operation::Dec,f) { 
 	debug("creating Neg operation");
 }
 
-Neg::Neg(const Neg &cpy) : operation(operation::Neg,cpy.left,cpy.right,cpy.freference) { 
+Neg::Neg(const Neg &cpy) : operation(operation::Neg,cpy.freference) { 
 	debug("creating Neg operation");
 }
 
-Neg::Neg(operation *cpy) : operation(operation::Neg,cpy->left,"",cpy->freference) { 
+Neg::Neg(operation *cpy) : operation(operation::Neg,cpy->freference) { 
 	debug("creating Neg operation");
 }
 
@@ -190,15 +185,15 @@ void Neg::executeOperation(variable *left, variable *right, variable *where){
 }
 
 
-Call::Call(function *c, const std::vector<std::string> &p, function &f) : operation(operation::Call, c, p ,f){
+Call::Call(function *c, function &f) : operation(operation::Call, c, f){
 	debug("creating a Call operator");
 }
 
-Call::Call(operation *cpy) : operation(operation::Call, cpy->call , cpy->variables, cpy->freference){
+Call::Call(operation *cpy) : operation(operation::Call, cpy->call ,cpy->freference){
 	debug("creating a Call operator");
 }
 
-Call::Call(const Call &cpy) : operation(operation::Call,cpy.call,cpy.variables,cpy.freference) { 
+Call::Call(const Call &cpy) : operation(operation::Call,cpy.call,cpy.freference) { 
 	debug("creating Call operation");
 }
 
@@ -207,15 +202,15 @@ void Call::executeOperation(variable *left, variable *right, variable *where){
 	warning("calling Call executeOperation which is really weird");
 }
 
-Equal::Equal(const std::string &left, const std::string &right, function &f): operation(operation::Equal, left, right, f){
+Equal::Equal(function &f): operation(operation::Equal, f){
 	debug("creating an Equal operator");
 }
 
-Equal::Equal(operation *cpy) : operation(operation::Equal,cpy->left,cpy->right,cpy->freference) { 
+Equal::Equal(operation *cpy) : operation(operation::Equal,cpy->freference) { 
 	debug("creating Equal operation");
 }
 
-Equal::Equal(const Equal &cpy) : operation(operation::Equal,cpy.left,cpy.right,cpy.freference) { 
+Equal::Equal(const Equal &cpy) : operation(operation::Equal,cpy.freference) { 
 	debug("creating Equal operation");
 }
 
@@ -223,15 +218,15 @@ void Equal::executeOperation(variable *left, variable *right, variable *where){
 	warning("calling Equal executeOperation which is really weird");
 }
 
-Ret::Ret(const std::string &left, function &f): operation(operation::Equal, left, "", f){
+Ret::Ret(function &f): operation(operation::Ret, f){
 	debug("creating a Ret operator");
 }
 
-Ret::Ret(const Ret &cpy) : operation(operation::Ret,cpy.left,cpy.right,cpy.freference) { 
+Ret::Ret(const Ret &cpy) : operation(operation::Ret,cpy.freference) { 
 	debug("creating Ret operation");
 }
 
-Ret::Ret(operation *cpy) : operation(operation::Equal,cpy->left,"",cpy->freference) { 
+Ret::Ret(operation *cpy) : operation(operation::Ret,cpy->freference) { 
 	debug("creating Ret operation");
 }
 
@@ -243,17 +238,14 @@ void Ret::executeOperation(variable *left, variable *right, variable *where){
 void operation::execute(){
 	debug("operation::execute");
 
-	if(right == ""){
-		debug("getting right from result stack in operation::execute");
+	freference.operations.getNext()->execute();
+	if(freference.identifier.look() == result_identifier_stack::result){
+		
+		debug("left is a result");
+		freference.operations.getNext()->execute();
 
-		if(left == ""){
-			
-			debug("executing left and right in operation::execute");
-
-			freference.operations.getNext()->execute();
-			freference.operations.getNext()->execute();
-
-			debug("getting left also from result stack in operation::execute");
+		if(freference.identifier.look() == result_identifier_stack::result){
+			debug("right is result");
 
 			result right_result = freference.results.pop_result();
 			result &left_result = freference.results.get_result(0);
@@ -279,17 +271,45 @@ void operation::execute(){
 			}
 
 		}else{
+			debug("right is a variable");	
 			
-			debug("executing right in operation::execute");
-			
-			freference.operations.getNext()->execute();
 
-			debug("getting variable values for %s (left) in operation::execute",left.c_str());
+			std::vector<variable *> right_result = freference.locals.pop();
+			result &left_result = freference.results.get_result(0);
+			
+
+			error_conditional(right_result.size() != left_result.get_size(),
+					"the sizes (%ld and %d) of the results are different in operation::execute",
+					right_result.size(),left_result.get_size());
+
+
+			auto left_iterator = left_result.begin();
+			auto right_iterator = right_result.begin();
+
+			while(right_iterator != right_result.end()){
+
+				debug("%p = %p operation %p\n",left_iterator,left_iterator,*right_iterator);
+
+				executeOperation(/* left */ left_iterator,
+						 /* right */ *right_iterator,
+						 /* where */ left_iterator);
+
+				left_iterator++;
+				right_iterator++;
+			}
+
+		}
+	}else{
+		debug("left is a variable");
+		freference.operations.getNext()->execute();
+
+		if(freference.identifier.look() == result_identifier_stack::result){
+			
+			debug("right is a result");
 
 			result right_result = freference.results.pop_result();
-			std::vector<variable *> left_result = freference.current_vstance->get_var(left);
-			
-			// here we have to reserve space on the result stack for the results
+			std::vector<variable *> left_result = freference.locals.pop();
+
 
 			error_conditional(right_result.get_size() != left_result.size(),
 					"the sizes (%d and %ld) of the results are different in operation::execute",
@@ -297,15 +317,16 @@ void operation::execute(){
 
 			result &result_space = freference.results.push_result(left_result.size());
 
-			auto left_iterator = left_result.begin();
-			variable *right_iterator = right_result.begin();
-			variable *result_iterator = result_space.begin();
 
-			while(left_iterator != left_result.end()){
+			auto left_iterator = left_result.begin();
+			auto right_iterator = right_result.begin();
+			auto result_iterator = result_space.begin();
+
+			while(right_iterator != right_result.end()){
 
 				debug("%p = %p operation %p\n",result_iterator,*left_iterator,right_iterator);
 
-				executeOperation(/* left */ *left_iterator,
+				executeOperation(/* left */  *left_iterator,
 						 /* right */ right_iterator,
 						 /* where */ result_iterator);
 
@@ -314,48 +335,12 @@ void operation::execute(){
 				result_iterator++;
 			}
 
-		}
-	}else{
-		debug("getting variable values for %s (right) in operation::execute",right.c_str());
-
-		if(left == ""){
-			debug("executing left in operation::execute");
-			
-			freference.operations.getNext()->execute();
-
-			debug("getting only left from result stack in operation::execute");
-
-			std::vector<variable *> right_result = freference.current_vstance->get_var(right);
-			result &left_result = freference.results.get_result(0);
-
-			// here is left_result also the place where the results will be stored
-
-			error_conditional(right_result.size() != left_result.get_size(),
-					"the sizes (%ld and %d) of the results are different in operation::execute",
-					right_result.size(),left_result.get_size());
-
-			variable *left_iterator = left_result.begin();
-			auto right_iterator = right_result.begin();
-
-			while(right_iterator != right_result.end()){
-
-				debug("%p = %p operation %p\n",left_iterator,left_iterator,*right_iterator);
-
-				executeOperation(/* left */  left_iterator,
-						 /* right */ *right_iterator,
-						 /* where */ left_iterator);
-
-				left_iterator++;
-				right_iterator++;
-			}
-
 		}else{
-			debug("getting variable values for %s (left) in operation::execute",left.c_str());
+			debug("right is a variable");
 
-			std::vector<variable *> right_result = freference.current_vstance->get_var(right);
-			std::vector<variable *> left_result = freference.current_vstance->get_var(left);
+			std::vector<variable *> right_result = freference.locals.pop();
+			std::vector<variable *> left_result = freference.locals.pop();
 
-			// here we need to reserve a result on the result_stack, where the results will be stored
 
 			error_conditional(right_result.size() != left_result.size(),
 					"the sizes (%ld and %ld) of the results are different in operation::execute",
@@ -385,63 +370,4 @@ void operation::execute(){
 
 }
 
-void operation::print(){
-	if(type == operation::Call){
-		printf("call %s(",call->name.c_str());
-		for(auto i = variables.begin();i != variables.end();i++)
-			printf("%s ,",(*i).c_str());
-		printf(")");
-		return;
-	}
-	printf("%s",left.c_str());
-	switch(type){
-		case operation::Add:
-			printf(" + ");
-			break;
-		case operation::Minus:
-			printf(" - ");
-			break;
-		case operation::Divide:
-			printf(" / ");
-			break;
-		case operation::Times:
-			printf(" * ");
-			break;
-		case operation::Or:
-			printf(" | ");
-			break;
-		case operation::And:
-			printf(" & ");
-			break;
-		case operation::Xor:
-			printf(" ^ ");
-			break;
-		case operation::Neg:
-			printf(" ~ ");
-			break;
-		case operation::Dec:
-			printf("-- ");
-			break;
-		case operation::Inc:
-			printf("++ ");
-			break;
-		case operation::Equal:
-			printf(" = ");
-			break;
-		case operation::Ret:
-			printf(" return");
-			break;
-		case operation::Switch:
-			printf("switch");
-			break;
-		case operation::Next_Switch:
-			printf("next_switch");
-			break;
-		case operation::End_Switch:
-			printf("end_switch");
-			break;
-		default:
-			printf("operation isnt implemented in print operation");
-	}
-	printf("%s\n",right.c_str());
-}
+

@@ -23,6 +23,9 @@ public:
 	std::vector<std::string> pvariables;
 	std::string name;
 	result_stack results;
+	local_stack locals;
+	result_identifier_stack identifier;
+
 
 	vcontainer_vector vcontainers;
 	vstance_vector stances;
@@ -35,6 +38,9 @@ public:
 	function(const std::string &);
 	function(function &&);
 	~function();
+
+	void print();
+	void print_simple();
 
 		
 

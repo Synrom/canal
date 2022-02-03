@@ -15,6 +15,7 @@ list(APPEND VarFiles
 	"variable/variable.cpp"
 	"variable/pointer.cpp"
 	"variable/vcontainer.cpp"
+	"variable/shl_shr.cpp"
 )
 
 
@@ -27,6 +28,11 @@ list(APPEND OperationFiles
 	"operation/operation.cpp"
 	"operation/operation_stack.cpp"
 	"operation/equal.cpp"
+	"operation/clone.cpp"
+	"operation/shl_shr.cpp"
+	"operation/int_lit.cpp"
+	"operation/print.cpp"
+	"operation/var_push.cpp"
 )
 
 list(APPEND DebuggerFiles
@@ -44,6 +50,8 @@ list(APPEND ContainerFiles
 
 list(APPEND ResultFiles
 	"result/result.cpp"
+	"result/locals.cpp"
+	"result/identifiers.cpp"
 )
 
 add_library(struct ${VarFiles} ${ScopeFiles} ${OperationFiles} ${DebuggerFiles} ${AnalyzerFiles} ${ContainerFiles} ${ResultFiles})

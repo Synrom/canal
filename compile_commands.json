@@ -86,6 +86,11 @@
 },
 {
   "directory": "/home/synrom/lego/canal/src",
+  "command": "/usr/bin/c++ -DINFO -I/home/synrom/lego/canal/src/../include -I/home/synrom/lego/canal/src  -fno-exceptions -fno-rtti -std=gnu++14 -o CMakeFiles/struct.dir/variable/shl_shr.cpp.o -c /home/synrom/lego/canal/src/variable/shl_shr.cpp",
+  "file": "/home/synrom/lego/canal/src/variable/shl_shr.cpp"
+},
+{
+  "directory": "/home/synrom/lego/canal/src",
   "command": "/usr/bin/c++ -DINFO -I/home/synrom/lego/canal/src/../include -I/home/synrom/lego/canal/src  -fno-exceptions -fno-rtti -std=gnu++14 -o CMakeFiles/struct.dir/scope/root_scope.cpp.o -c /home/synrom/lego/canal/src/scope/root_scope.cpp",
   "file": "/home/synrom/lego/canal/src/scope/root_scope.cpp"
 },
@@ -111,6 +116,31 @@
 },
 {
   "directory": "/home/synrom/lego/canal/src",
+  "command": "/usr/bin/c++ -DINFO -I/home/synrom/lego/canal/src/../include -I/home/synrom/lego/canal/src  -fno-exceptions -fno-rtti -std=gnu++14 -o CMakeFiles/struct.dir/operation/clone.cpp.o -c /home/synrom/lego/canal/src/operation/clone.cpp",
+  "file": "/home/synrom/lego/canal/src/operation/clone.cpp"
+},
+{
+  "directory": "/home/synrom/lego/canal/src",
+  "command": "/usr/bin/c++ -DINFO -I/home/synrom/lego/canal/src/../include -I/home/synrom/lego/canal/src  -fno-exceptions -fno-rtti -std=gnu++14 -o CMakeFiles/struct.dir/operation/shl_shr.cpp.o -c /home/synrom/lego/canal/src/operation/shl_shr.cpp",
+  "file": "/home/synrom/lego/canal/src/operation/shl_shr.cpp"
+},
+{
+  "directory": "/home/synrom/lego/canal/src",
+  "command": "/usr/bin/c++ -DINFO -I/home/synrom/lego/canal/src/../include -I/home/synrom/lego/canal/src  -fno-exceptions -fno-rtti -std=gnu++14 -o CMakeFiles/struct.dir/operation/int_lit.cpp.o -c /home/synrom/lego/canal/src/operation/int_lit.cpp",
+  "file": "/home/synrom/lego/canal/src/operation/int_lit.cpp"
+},
+{
+  "directory": "/home/synrom/lego/canal/src",
+  "command": "/usr/bin/c++ -DINFO -I/home/synrom/lego/canal/src/../include -I/home/synrom/lego/canal/src  -fno-exceptions -fno-rtti -std=gnu++14 -o CMakeFiles/struct.dir/operation/print.cpp.o -c /home/synrom/lego/canal/src/operation/print.cpp",
+  "file": "/home/synrom/lego/canal/src/operation/print.cpp"
+},
+{
+  "directory": "/home/synrom/lego/canal/src",
+  "command": "/usr/bin/c++ -DINFO -I/home/synrom/lego/canal/src/../include -I/home/synrom/lego/canal/src  -fno-exceptions -fno-rtti -std=gnu++14 -o CMakeFiles/struct.dir/operation/var_push.cpp.o -c /home/synrom/lego/canal/src/operation/var_push.cpp",
+  "file": "/home/synrom/lego/canal/src/operation/var_push.cpp"
+},
+{
+  "directory": "/home/synrom/lego/canal/src",
   "command": "/usr/bin/c++ -DINFO -I/home/synrom/lego/canal/src/../include -I/home/synrom/lego/canal/src  -fno-exceptions -fno-rtti -std=gnu++14 -o CMakeFiles/struct.dir/debugger/debugger.cpp.o -c /home/synrom/lego/canal/src/debugger/debugger.cpp",
   "file": "/home/synrom/lego/canal/src/debugger/debugger.cpp"
 },
@@ -133,5 +163,15 @@
   "directory": "/home/synrom/lego/canal/src",
   "command": "/usr/bin/c++ -DINFO -I/home/synrom/lego/canal/src/../include -I/home/synrom/lego/canal/src  -fno-exceptions -fno-rtti -std=gnu++14 -o CMakeFiles/struct.dir/result/result.cpp.o -c /home/synrom/lego/canal/src/result/result.cpp",
   "file": "/home/synrom/lego/canal/src/result/result.cpp"
+},
+{
+  "directory": "/home/synrom/lego/canal/src",
+  "command": "/usr/bin/c++ -DINFO -I/home/synrom/lego/canal/src/../include -I/home/synrom/lego/canal/src  -fno-exceptions -fno-rtti -std=gnu++14 -o CMakeFiles/struct.dir/result/locals.cpp.o -c /home/synrom/lego/canal/src/result/locals.cpp",
+  "file": "/home/synrom/lego/canal/src/result/locals.cpp"
+},
+{
+  "directory": "/home/synrom/lego/canal/src",
+  "command": "/usr/bin/c++ -DINFO -I/home/synrom/lego/canal/src/../include -I/home/synrom/lego/canal/src  -fno-exceptions -fno-rtti -std=gnu++14 -o CMakeFiles/struct.dir/result/identifiers.cpp.o -c /home/synrom/lego/canal/src/result/identifiers.cpp",
+  "file": "/home/synrom/lego/canal/src/result/identifiers.cpp"
 }
 ]

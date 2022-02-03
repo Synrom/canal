@@ -57,56 +57,10 @@ operation *operation_stack::get_new_location(){
 	operation *new_buf_i = new_buf;
 	
 	for(auto i = begin();i != end();i++, new_buf_i++){
-		
-		switch(i->type){
-			case operation::Add:
-				new (new_buf_i) Add(i);
-				break;
-			case operation::Minus:
-				new (new_buf_i) Minus(i);
-				break;
-			case operation::Divide:
-				new (new_buf_i) Divide(i);
-				break;
-			case operation::Times:
-				new (new_buf_i) Times(i);
-				break;
-			case operation::Or:
-				new (new_buf_i) Or(i);
-				break;
-			case operation::And:
-				new (new_buf_i) And(i);
-				break;
-			case operation::Xor:
-				new (new_buf_i) Xor(i);
-				break;
-			case operation::Neg:
-				new (new_buf_i) Neg(i);
-				break;
-			case operation::Dec:
-				new (new_buf_i) Dec(i);
-				break;
-			case operation::Inc:
-				new (new_buf_i) Inc(i);
-				break;
-			case operation::Call:
-				new (new_buf_i) Call(i);
-				break;
-			case operation::Equal:
-				new (new_buf_i) Equal(i);
-				break;
-			case operation::Ret:
-				new (new_buf_i) Ret(i);
-				break;
-			default:
-				error("copying an operation which matches no type");
-		}
-
-	}
-
-	for(auto i = begin();i != end();i++){
+		i->clone(new_buf_i);
 		i->~operation();
 	}
+
 
 	unsigned int difference = current - start_buf;
 	
@@ -127,17 +81,23 @@ operation *operation_stack::get_new_location(){
 operation_stack::iterator operation_stack::getNext(){
 	debug("getting next element of operation_stack");
 
-	if(current >= end_buf){
-		info("current iterator of operation_stack is out of range");
+	operation *ret = current;
+	current++;
+	
+	if(ret >= end_buf){
+		if(ret > end_buf)
+			debug("current iterator of operation_stack is out of range");
+		debug("current is out");
 		return NULL;
 	}
 	
-	debug("current of operation_stack is %p",current);
-	return current++;
+	debug("current of operation_stack is %p with start %p and end %p",current,start_buf,end_buf);
+	debug("returning %p",ret);
+	return ret;
 }
 
 void operation_stack::reset(){
-	debug("resetting current of operation_stack");
+	debug("resetting current of to %p with start %p and end %p",current,start_buf,end_buf);
 	current = start_buf;
 }
 
@@ -166,6 +126,11 @@ void operation_stack::push_back(const And &cpy){
 	new (get_new_location()) And(cpy);
 }
 
+void operation_stack::push_back(const IntLiteral &cpy){
+	debug("adding IntLiteral to operation_stack");
+	new (get_new_location()) IntLiteral(cpy);
+}
+
 void operation_stack::push_back(const Or &cpy){
 	debug("adding Or to operation_stack");
 	new (get_new_location()) Or(cpy);
@@ -174,6 +139,16 @@ void operation_stack::push_back(const Or &cpy){
 void operation_stack::push_back(const Xor &cpy){
 	debug("adding Xor to operation_stack");
 	new (get_new_location()) Xor(cpy);
+}
+
+void operation_stack::push_back(const Shl &cpy){
+	debug("adding Shl to operation_stack");
+	new (get_new_location()) Shl(cpy);
+}
+
+void operation_stack::push_back(const Shr &cpy){
+	debug("adding Shr to operation_stack");
+	new (get_new_location()) Shr(cpy);
 }
 
 void operation_stack::push_back(const Inc &cpy){
@@ -206,12 +181,28 @@ void operation_stack::push_back(const Ret &cpy){
 	new (get_new_location()) Ret(cpy);
 }
 
+void operation_stack::push_back(const VarPush &cpy){
+	debug("adding VarPush to operation_stack");
+	new (get_new_location()) VarPush(cpy);
+}
+
 void operation_stack::print(){
-	printf(" ----------- printing operation_stack -----------\n\n");
 
 	for(operation *i = start_buf;i != end_buf;i++)
 		i->print();
 
-	printf(" ------------------------------------------------\n");
 
+}
+
+void operation_stack::print_simple(){
+
+	for(operation *i = start_buf;i != end_buf;i++)
+		i->print_simple();
+
+
+}
+
+operation *operation_stack::get_latest_added_operation(){
+	debug("returning latest added operation");
+	return end_buf - 1;
 }

@@ -36,8 +36,7 @@ int main(int argc, char** argv)
 	clang::tooling::runToolOnCode(std::make_unique<canal_AST_FrontendAction>(), content.c_str());
 
 	for(auto i = global_scope.function_begin(); i != global_scope.function_end(); i.increment()){
-		printf("printing function %s\n",(*i).name.c_str());
-		(*i).operations.print();
+		(*i).print();
 	}
 
 	return 0;

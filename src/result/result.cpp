@@ -69,6 +69,7 @@ result_stack::~result_stack(){
 result &result_stack::push_result(unsigned int size){
 	debug("push %d results to result stack",size);
 	results.emplace_back(size);
+	identifiers->push(result_identifier_stack::result);
 	
 	return results.back();
 }
@@ -78,6 +79,7 @@ result result_stack::pop_result(){
 
 	result ret(std::move(results.back()));
 	results.pop_back();
+	identifiers->pop();
 
 	return ret;
 }
@@ -92,5 +94,11 @@ result &result_stack::get_result(unsigned int position){
 void result_stack::delete_result(){
 	debug("deleting result from result_stack at top");
 	results.pop_back();
+	identifiers->pop();
+}
+
+void result_stack::set_identifier(result_identifier_stack *identifier_stack){
+	debug("setting identifier_stack in result_stack to %p",identifier_stack);
+	identifiers = identifier_stack;
 }
 

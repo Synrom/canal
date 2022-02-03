@@ -31,8 +31,6 @@ void canal_AST_consumer::HandleTranslationUnit(clang::ASTContext &c){
 
 canal_AST_analyzer::canal_AST_analyzer(clang::ASTContext *c) : context(c) {
 	info("created AST analyzer");
-	current_function = NULL;
-	thisIsFollowupForAVarDecl = false;
 }
 
 bool canal_AST_analyzer::VisitFunctionDecl(clang::FunctionDecl *clang_function){

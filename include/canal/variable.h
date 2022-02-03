@@ -69,6 +69,8 @@ public:
 	virtual void And(variable *,variable *) = 0;
 	virtual void Or(variable *,variable *) = 0;
 	virtual void Xor(variable *,variable *) = 0;
+	virtual void Shl(variable *,variable *) = 0;
+	virtual void Shr(variable *,variable *) = 0;
 	virtual void Neg(variable *) = 0;
 	virtual void Inc() = 0;
 	virtual void Dec() = 0;
@@ -89,10 +91,12 @@ public:
 	void And(variable *,variable *);
 	void Or(variable *,variable *);
 	void Xor(variable *,variable *);
+	void Shl(variable *,variable *);
+	void Shr(variable *,variable *);
 	void Neg(variable *);
 	void Inc();
 	void Dec();
-	virtual void Equal(variable *);
+	void Equal(variable *);
 };
 
 
@@ -108,10 +112,12 @@ public:
 	void And(variable *,variable *);
 	void Or(variable *,variable *);
 	void Xor(variable *,variable *);
+	void Shl(variable *,variable *);
+	void Shr(variable *,variable *);
 	void Neg(variable *);
 	void Inc();
 	void Dec();
-	virtual void Equal(variable *);
+	void Equal(variable *);
 };
 
 
@@ -127,10 +133,12 @@ public:
 	void And(variable *,variable *);
 	void Or(variable *,variable *);
 	void Xor(variable *,variable *);
+	void Shl(variable *,variable *);
+	void Shr(variable *,variable *);
 	void Neg(variable *);
 	void Inc();
 	void Dec();
-	virtual void Equal(variable *);
+	void Equal(variable *);
 };
 
 
@@ -146,6 +154,8 @@ public:
 	void And(variable *,variable *);
 	void Or(variable *,variable *);
 	void Xor(variable *,variable *);
+	void Shl(variable *,variable *);
+	void Shr(variable *,variable *);
 	void Neg(variable *);
 	void Inc();
 	void Dec();
@@ -164,6 +174,8 @@ public:
 	void And(variable *,variable *);
 	void Or(variable *,variable *);
 	void Xor(variable *,variable *);
+	void Shl(variable *,variable *);
+	void Shr(variable *,variable *);
 	void Neg(variable *);
 	void Inc();
 	void Dec();
@@ -183,6 +195,8 @@ public:
 	void And(variable *,variable *);
 	void Or(variable *,variable *);
 	void Xor(variable *,variable *);
+	void Shl(variable *,variable *);
+	void Shr(variable *,variable *);
 	void Neg(variable *);
 	void Inc();
 	void Dec();
@@ -202,6 +216,8 @@ public:
 	void And(variable *,variable *);
 	void Or(variable *,variable *);
 	void Xor(variable *,variable *);
+	void Shl(variable *,variable *);
+	void Shr(variable *,variable *);
 	void Neg(variable *);
 	void Inc();
 	void Dec();
@@ -221,6 +237,8 @@ public:
 	void And(variable *,variable *);
 	void Or(variable *,variable *);
 	void Xor(variable *,variable *);
+	void Shl(variable *,variable *);
+	void Shr(variable *,variable *);
 	void Neg(variable *);
 	void Inc();
 	void Dec();
@@ -240,6 +258,8 @@ public:
 	void And(variable *,variable *);
 	void Or(variable *,variable *);
 	void Xor(variable *,variable *);
+	void Shl(variable *,variable *);
+	void Shr(variable *,variable *);
 	void Neg(variable *);
 	void Inc();
 	void Dec();
@@ -259,6 +279,8 @@ public:
 	void And(variable *,variable *);
 	void Or(variable *,variable *);
 	void Xor(variable *,variable *);
+	void Shl(variable *,variable *);
+	void Shr(variable *,variable *);
 	void Neg(variable *);
 	void Inc();
 	void Dec();
@@ -277,6 +299,8 @@ public:
 	void And(variable *,variable *);
 	void Or(variable *,variable *);
 	void Xor(variable *,variable *);
+	void Shl(variable *,variable *);
+	void Shr(variable *,variable *);
 	void Neg(variable *);
 	void Inc();
 	void Dec();
@@ -296,6 +320,8 @@ public:
 	void And(variable *,variable *);
 	void Or(variable *,variable *);
 	void Xor(variable *,variable *);
+	void Shl(variable *,variable *);
+	void Shr(variable *,variable *);
 	void Neg(variable *);
 	void Inc();
 	void Dec();
@@ -315,6 +341,8 @@ public:
 	void And(variable *,variable *);
 	void Or(variable *,variable *);
 	void Xor(variable *,variable *);
+	void Shl(variable *,variable *);
+	void Shr(variable *,variable *);
 	void Neg(variable *);
 	void Inc();
 	void Dec();
@@ -334,6 +362,8 @@ public:
 	void And(variable *,variable *);
 	void Or(variable *,variable *);
 	void Xor(variable *,variable *);
+	void Shl(variable *,variable *);
+	void Shr(variable *,variable *);
 	void Neg(variable *);
 	void Inc();
 	void Dec();

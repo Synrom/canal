@@ -1,6 +1,5 @@
->> und << zu Operationen hinzufügen
-Literals implementieren
-
+implement vstance.add_switch(unsigned int)
+implement Call analyzer (Parameter Anzahl)
 
 
 weite Zukunft:
