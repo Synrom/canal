@@ -102,3 +102,10 @@ void result_stack::set_identifier(result_identifier_stack *identifier_stack){
 	identifiers = identifier_stack;
 }
 
+void result_stack::reset(){
+	debug("resetting result_stack");
+
+	while(results.size() > 0)
+		results.pop_back();
+
+}

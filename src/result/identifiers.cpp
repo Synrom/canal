@@ -16,3 +16,9 @@ void result_identifier_stack::pop(){
 	stack.pop_back();
 }
 
+void result_identifier_stack::reset(){
+	debug("resetting result_identifier_stack");
+
+	while(stack.size() > 0)
+		stack.pop_back();
+}

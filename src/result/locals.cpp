@@ -23,3 +23,10 @@ std::vector<variable *> local_stack::pop(){
 
 	return ret;
 }
+
+void local_stack::reset(){
+	debug("resetting local_stack");
+
+	while(stack.size() > 0)
+		stack.pop_back();
+}

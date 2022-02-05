@@ -32,6 +32,7 @@ public:
 	result_identifier look();
 	void push(result_identifier );
 	void pop();
+	void reset();
 	
 private:
 	std::vector<result_identifier> stack;
@@ -46,6 +47,9 @@ public:
 
 	result &get_result(unsigned int);
 	void delete_result();
+
+	void reset();
+	
 	result_stack();
 	~result_stack();
 	result_stack(result_stack &&) = default;
@@ -62,6 +66,9 @@ public:
 
 	std::vector<variable *> pop();
 	void push(const std::vector<variable *> &);
+
+	void reset();
+
 	void set_identifier(result_identifier_stack *);
 private:
 	std::vector<std::vector<variable *>> stack;

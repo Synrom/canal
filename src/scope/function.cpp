@@ -96,6 +96,9 @@ void function::reset(){
 		current_vstance = current_vstance->get_parent();
 
 	current_vstance->reset();
+	results.reset();
+	locals.reset();
+	identifier.reset();
 
 }
 
