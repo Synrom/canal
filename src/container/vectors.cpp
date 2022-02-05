@@ -29,13 +29,28 @@ vstance_vector::vstance_vector(function *f){
 	freference = f;
 }
 
+void vstance_vector::pop(){
+	debug("poping last element of vstance_vector");
+	vector.pop_back();
+}
+
 vstance::vstance(vstance *p, vcontainer_vector *c, vstance_vector *s): parent(p) , vcontainer_space(c) , stance_space(s){
 	debug("creating vstance");
 }
 
 void vstance::add_new_container(){
 	debug("add new container to stance");
-	container.push_back(vcontainer_space->add());
+	if(container.size() != 0){
+		debug("creating copy of first container");
+		vcontainer *first_container = container.front();
+		copy_container(first_container);
+	}else{
+		vcontainer *new_container = vcontainer_space->add();
+		error_conditional(!new_container, "vcontainer_vector returned NULL for add");
+	
+		container.push_back(new_container);
+	}
+
 }
 
 void vstance::add_existing_container(vcontainer *c){
@@ -56,8 +71,13 @@ vcontainer* vstance::copy_container(vcontainer *c){
 }
 
 unsigned int vstance::container_quantity(){
-	debug("getting container quantity %d from current vstance",container.size());
+	debug("getting container quantity %ld from current vstance",container.size());
 	return container.size();
+}
+
+vstance *vstance::get_parent(){
+	debug("getting parent %p of vstance",parent);
+	return parent;
 }
 
 
@@ -170,4 +190,36 @@ variable *vstance::get_latest_added_var(){
 	debug("getting latest added var from vstance");
 	auto ret = container.front()->last();
 	return *ret;
+}
+
+void vstance::reset(){
+	debug("resetting vstance");
+	
+	debug("deleting all the stances except mine");
+	while(&(stance_space->vector.back()) != this)
+		stance_space->pop();
+
+	warning_conditional(stance_space->vector.size() > 1, "stance_space of function after reset is bigger then 1");
+
+	while(children.size() >= 1)
+		children.pop_back();
+
+
+	debug("deleting all containers except the first");
+	while(&(vcontainer_space->vector.back()) != container.front())
+		vcontainer_space->vector.pop_back();
+
+	while(container.size() > 1)
+		container.pop_back();
+	
+	warning_conditional(vcontainer_space->vector.size() > 1, "stance_space of function after reset is bigger then 1");
+	error_conditional(container.front() != &(vcontainer_space->vector.front()), "container.front != &vcontainer.front in stance after reset");
+}
+
+void vstance::print(){
+	printf("\nVSTANCE:\n\n");
+	for(auto i = container.begin();i != container.end();i++){
+		(*i)->print();
+		printf("\n");
+	}
 }

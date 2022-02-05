@@ -33,6 +33,7 @@ public:
 	vcontainer(const vcontainer &);
 	~vcontainer();
 
+	void print();
 
 	vcontainer& operator=(const vcontainer &);
 
@@ -92,10 +93,14 @@ public:
 	void add_new_container();
 	void add_existing_container(vcontainer *);
 	vcontainer *copy_container(vcontainer *);
+	void reset();
+	vstance *get_parent();
 
 	// TODO:
 	void add_switches(unsigned int); // number of switches to add
 
+	void print();
+	
 	void add_var(const std::string & ,double );
 	void add_var(const std::string & ,float );
 	void add_var(const std::string & ,long double );
@@ -120,7 +125,6 @@ public:
 class vstance_vector{
 
 private:
-	std::deque<vstance> vector;
 	function *freference;
 
 public:
@@ -128,6 +132,7 @@ public:
 	vstance *add();
 	vstance *add(vstance *);
 	void pop();
+	std::deque<vstance> vector;
 
 };
 

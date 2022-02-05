@@ -422,3 +422,11 @@ variable *vcontainer::get_pointer(unsigned int i){
 	error_conditional(i > end_ - buf,"vcontainer::get_pointer asking for pointer out of range");
 	return buf + i;
 }
+
+void vcontainer::print(){
+
+	printf("CONTAINER:\n");
+	for(auto i = begin();i != end();i.Inc())
+		(*i)->print();
+
+}

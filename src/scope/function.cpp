@@ -39,6 +39,9 @@ function::function(function &&mv) : operations(std::move(mv.operations)),
 	locals.set_identifier(&identifier);
 	results.set_identifier(&identifier);
 
+	original_caller_quantity = mv.original_caller_quantity;
+	caller = mv.caller;
+
 }
 
 function::~function(){
@@ -72,3 +75,54 @@ void function::print_simple(){
 	printf("}\n\n");
 	
 }
+
+void function::execute(){
+	debug("executing function %s",name.c_str());
+	
+	operation *op_it;
+
+	while((op_it = operations.getNext()) != NULL)
+		op_it->execute();
+
+}
+
+void function::reset(){
+	debug("reseting function %s",name.c_str());
+
+	original_caller_quantity = 0;
+	caller = NULL;
+	
+	while(current_vstance->get_parent() != NULL)
+		current_vstance = current_vstance->get_parent();
+
+	current_vstance->reset();
+
+}
+
+void function::print_vars(){
+	printf("\nFUNCTION %s:",name.c_str());
+	current_vstance->print();
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

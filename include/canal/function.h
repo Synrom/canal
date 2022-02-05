@@ -31,6 +31,8 @@ public:
 	vstance_vector stances;
 	vstance *current_vstance;
 
+	unsigned int original_caller_quantity {0};
+	function *caller {0};
 
 
 	/* noch nicht final */
@@ -39,8 +41,13 @@ public:
 	function(function &&);
 	~function();
 
+	void execute();
+	void reset();
+	
 	void print();
 	void print_simple();
+	void print_vars();
+
 
 		
 

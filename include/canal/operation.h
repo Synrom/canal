@@ -190,6 +190,9 @@ public:
 	Call(operation *);
 	Call(const Call &);
 	void clone(operation *);
+	void print();
+	void print_simple();
+	void execute();
 };
 class Equal: public operation{
 	void executeOperation(variable *,variable *,variable *);

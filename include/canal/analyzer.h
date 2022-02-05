@@ -27,10 +27,12 @@ public:
 	bool VisitUnaryOperator(clang::UnaryOperator *);
 	bool VisitIntegerLiteral(clang::IntegerLiteral *);
 	bool VisitDeclRefExpr(clang::DeclRefExpr *);
+	bool VisitCallExpr(clang::CallExpr *);
 private:
 	bool thisIsFollowupForAVarDecl { false };
 	bool thisIsFollowupOfUnaryOperator { false };
 	bool thisIsFollowupOfaMinus { false };
+	bool thisIsFollowupOfaCall { false };
 	clang::ASTContext *context { NULL };
 	function *current_function { NULL };
 	variable::Types current_type;

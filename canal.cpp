@@ -32,12 +32,19 @@ int main(int argc, char** argv)
 	std::string content((std::istreambuf_iterator<char>(ifs)),
 	    (std::istreambuf_iterator<char>()));
 
-	//printf("analyze %s\n",content.c_str());
+	printf("analyze %s\n",content.c_str());
 	clang::tooling::runToolOnCode(std::make_unique<canal_AST_FrontendAction>(), content.c_str());
 
 	for(auto i = global_scope.function_begin(); i != global_scope.function_end(); i.increment()){
 		(*i).print();
+		if((*i).name == "main"){
+			printf("found main function");
+			(*i).execute();
+			(*i).print_vars();
+		}
 	}
+
+	
 
 	return 0;
 }

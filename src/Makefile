@@ -327,6 +327,30 @@ debugger/debugger.cpp.s:
 	cd /home/synrom/lego/canal && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/struct.dir/build.make src/CMakeFiles/struct.dir/debugger/debugger.cpp.s
 .PHONY : debugger/debugger.cpp.s
 
+operation/call.o: operation/call.cpp.o
+.PHONY : operation/call.o
+
+# target to build an object file
+operation/call.cpp.o:
+	cd /home/synrom/lego/canal && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/struct.dir/build.make src/CMakeFiles/struct.dir/operation/call.cpp.o
+.PHONY : operation/call.cpp.o
+
+operation/call.i: operation/call.cpp.i
+.PHONY : operation/call.i
+
+# target to preprocess a source file
+operation/call.cpp.i:
+	cd /home/synrom/lego/canal && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/struct.dir/build.make src/CMakeFiles/struct.dir/operation/call.cpp.i
+.PHONY : operation/call.cpp.i
+
+operation/call.s: operation/call.cpp.s
+.PHONY : operation/call.s
+
+# target to generate assembly for a file
+operation/call.cpp.s:
+	cd /home/synrom/lego/canal && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/struct.dir/build.make src/CMakeFiles/struct.dir/operation/call.cpp.s
+.PHONY : operation/call.cpp.s
+
 operation/clone.o: operation/clone.cpp.o
 .PHONY : operation/clone.o
 
@@ -735,6 +759,30 @@ variable/pointer.cpp.s:
 	cd /home/synrom/lego/canal && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/struct.dir/build.make src/CMakeFiles/struct.dir/variable/pointer.cpp.s
 .PHONY : variable/pointer.cpp.s
 
+variable/print.o: variable/print.cpp.o
+.PHONY : variable/print.o
+
+# target to build an object file
+variable/print.cpp.o:
+	cd /home/synrom/lego/canal && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/struct.dir/build.make src/CMakeFiles/struct.dir/variable/print.cpp.o
+.PHONY : variable/print.cpp.o
+
+variable/print.i: variable/print.cpp.i
+.PHONY : variable/print.i
+
+# target to preprocess a source file
+variable/print.cpp.i:
+	cd /home/synrom/lego/canal && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/struct.dir/build.make src/CMakeFiles/struct.dir/variable/print.cpp.i
+.PHONY : variable/print.cpp.i
+
+variable/print.s: variable/print.cpp.s
+.PHONY : variable/print.s
+
+# target to generate assembly for a file
+variable/print.cpp.s:
+	cd /home/synrom/lego/canal && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/struct.dir/build.make src/CMakeFiles/struct.dir/variable/print.cpp.s
+.PHONY : variable/print.cpp.s
+
 variable/shl_shr.o: variable/shl_shr.cpp.o
 .PHONY : variable/shl_shr.o
 
@@ -1076,6 +1124,9 @@ help:
 	@echo "... debugger/debugger.o"
 	@echo "... debugger/debugger.i"
 	@echo "... debugger/debugger.s"
+	@echo "... operation/call.o"
+	@echo "... operation/call.i"
+	@echo "... operation/call.s"
 	@echo "... operation/clone.o"
 	@echo "... operation/clone.i"
 	@echo "... operation/clone.s"
@@ -1127,6 +1178,9 @@ help:
 	@echo "... variable/pointer.o"
 	@echo "... variable/pointer.i"
 	@echo "... variable/pointer.s"
+	@echo "... variable/print.o"
+	@echo "... variable/print.i"
+	@echo "... variable/print.s"
 	@echo "... variable/shl_shr.o"
 	@echo "... variable/shl_shr.i"
 	@echo "... variable/shl_shr.s"

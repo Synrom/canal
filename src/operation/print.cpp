@@ -109,6 +109,29 @@ void VarPush::print_simple(){
 	printf("\n");
 }
 
+void Call::print_simple(){
+	printf("%s()\n",call->name.c_str());
+}
+
+void Call::print(){
+	printf("%s(",call->name.c_str());
+	for(int i = 0;i < call->pvariables.size() - 1;i++){
+		operation *next = freference.operations.getNext();
+		if(next)
+			next->print();
+		else
+			printf("NULL");
+		printf(", ");
+	}
+	operation *next = freference.operations.getNext();
+	if(next)
+		next->print();
+	else
+		printf("NULL");
+	printf(")");
+
+}
+
 void Equal::print(){
 
 	operation *next = freference.operations.getNext();

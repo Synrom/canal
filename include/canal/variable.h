@@ -16,6 +16,7 @@ public:
 
 	std::string name;
 	unsigned int size;
+	unsigned int capacity;
 
 	union Data{
 		signed char signedchar;
@@ -34,6 +35,7 @@ public:
 	};
 
 		
+	// fuer pointer position
 	union Data value;
 
 
@@ -59,7 +61,8 @@ public:
 
 	variable(const std::string &);
 	virtual ~variable();
-
+	
+	void print();
 
 	
 	virtual void Plus(variable *,variable *) = 0;

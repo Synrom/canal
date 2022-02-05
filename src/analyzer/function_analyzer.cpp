@@ -14,6 +14,8 @@
 #include <canal/root_scope.h>
 #include <clang/AST/OperationKinds.h>
 
+extern root_scope global_scope;
+
 bool canal_AST_analyzer::VisitVarDecl(clang::VarDecl *var_decl){
 
 	
@@ -51,12 +53,34 @@ bool canal_AST_analyzer::VisitUnaryOperator(clang::UnaryOperator *un_op){
 	return true;
 }
 
+bool canal_AST_analyzer::VisitCallExpr(clang::CallExpr *call_expr){
+	info("Visiting Call Expr");
+
+	current_function->operations.push_back(Call(NULL, *current_function));
+	thisIsFollowupOfaCall = true;
+
+	return true;
+}
+
 bool canal_AST_analyzer::VisitDeclRefExpr(clang::DeclRefExpr *decl_ref){
 	info("visting DeclRefExpr");
 	
 	std::string var_name = decl_ref->getFoundDecl()->getNameAsString();
 
 	info("DeclRefExpr var_name = %s",var_name.c_str());
+
+	if(thisIsFollowupOfaCall){
+
+		function *call = &(global_scope.findFunction(var_name));
+		error_conditional(!call, "in VisitDeclRefExpr couldnt find function %s in global_scope",var_name.c_str());
+
+		info("found function DeclRefExpr %s at %p",var_name.c_str(),call);
+		
+		current_function->operations.get_latest_added_operation()->call = call;
+
+		thisIsFollowupOfaCall = false;
+		return true;
+	}
 
 	current_function->operations.push_back(VarPush(var_name,*current_function));
 

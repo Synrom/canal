@@ -16,6 +16,7 @@ list(APPEND VarFiles
 	"variable/pointer.cpp"
 	"variable/vcontainer.cpp"
 	"variable/shl_shr.cpp"
+	"variable/print.cpp"
 )
 
 
@@ -33,6 +34,7 @@ list(APPEND OperationFiles
 	"operation/int_lit.cpp"
 	"operation/print.cpp"
 	"operation/var_push.cpp"
+	"operation/call.cpp"
 )
 
 list(APPEND DebuggerFiles

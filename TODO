@@ -1,8 +1,17 @@
-implement vstance.add_switch(unsigned int)
-implement Call analyzer (Parameter Anzahl)
+implement result_stack.reset, local_stack.reset & identifier_stack.reset
 
 
 weite Zukunft:
 function.exec implementieren und testen
 stance -> finish (löscht die ganzen COntainer von diesem Stance vom parents Stance. Alle Konsequenzen einberechnen ist hier wichtig)
+
+Notes für call.execute:
+	-an gecallte function muss pointer auf jetzige Function uebergeben werden
+	-gecallte function muss size des ursprünglichen var_vectors speichern
+	-Am Ende muss stance der gecallten Function wieder reseted werden und result und locals stack auch
+
+Notes für ret.execute:
+	- ermittle maximum von freference.current_vstance->get_Var(name)
+	- dann ret = caller->result.add(ursprünglich)
+	- dann ret.add[freference.current_vstance->getVar(name)[maximum - (maximum % ursprünglich): (maximum - (maximum % ursprünglich)) + ursprünglich]]
 
