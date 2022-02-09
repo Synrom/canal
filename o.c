@@ -1,7 +1,12 @@
 
 
-void add(int i1,int i2){
-	unsigned int l = i1 + i2;
+int add(int i1,int i2){
+	return i1 + i2;
+}
+
+int getvar(){
+	int i = 5;
+	return i;
 }
 
 int main(){
@@ -23,8 +28,24 @@ int main(){
 	signed long long signedlonglong = -0xffffffffffffffff;
 	unsigned long long unsignedlonglong = 0xffffffffffffffff;
 
-	add(14,b);
-	add(-14,b + 12 / 14);
+
+	// test return
+	int c = add(14,12);
+	c = getvar();
+	
+
+	// test execute
+	a = b + c;
+	a = b + 15;
+	a = 15 + b;
+	
+	// test equal
+	a = c;
+	a = 16;
+
+	// test call
+	//int d = add(5,getvar());
+	
 
 	return 0;
 }

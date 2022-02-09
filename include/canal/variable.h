@@ -78,6 +78,10 @@ public:
 	virtual void Inc() = 0;
 	virtual void Dec() = 0;
 	virtual void Equal(variable *) = 0;
+	virtual bool isSmaller(variable *) = 0;
+	virtual bool isBigger(variable *) = 0;
+	virtual bool isEqual(variable *) = 0;
+	virtual void clone(variable *) = 0;
 	
 	
 };
@@ -100,6 +104,10 @@ public:
 	void Inc();
 	void Dec();
 	void Equal(variable *);
+	bool isSmaller(variable *);
+	bool isBigger(variable *);
+	bool isEqual(variable *);
+	void clone(variable *);
 };
 
 
@@ -121,6 +129,10 @@ public:
 	void Inc();
 	void Dec();
 	void Equal(variable *);
+	bool isSmaller(variable *);
+	bool isBigger(variable *);
+	bool isEqual(variable *);
+	void clone(variable *);
 };
 
 
@@ -142,6 +154,10 @@ public:
 	void Inc();
 	void Dec();
 	void Equal(variable *);
+	bool isSmaller(variable *);
+	bool isBigger(variable *);
+	bool isEqual(variable *);
+	void clone(variable *);
 };
 
 
@@ -162,7 +178,11 @@ public:
 	void Neg(variable *);
 	void Inc();
 	void Dec();
-	virtual void Equal(variable *);
+	void Equal(variable *);
+	bool isSmaller(variable *);
+	bool isBigger(variable *);
+	bool isEqual(variable *);
+	void clone(variable *);
 };
 
 class signedshort: public variable{
@@ -182,7 +202,11 @@ public:
 	void Neg(variable *);
 	void Inc();
 	void Dec();
-	virtual void Equal(variable *);
+	void Equal(variable *);
+	bool isSmaller(variable *);
+	bool isBigger(variable *);
+	bool isEqual(variable *);
+	void clone(variable *);
 };
 
 
@@ -203,7 +227,11 @@ public:
 	void Neg(variable *);
 	void Inc();
 	void Dec();
-	virtual void Equal(variable *);
+	void Equal(variable *);
+	bool isSmaller(variable *);
+	bool isBigger(variable *);
+	bool isEqual(variable *);
+	void clone(variable *);
 };
 
 
@@ -224,7 +252,11 @@ public:
 	void Neg(variable *);
 	void Inc();
 	void Dec();
-	virtual void Equal(variable *);
+	void Equal(variable *);
+	bool isSmaller(variable *);
+	bool isBigger(variable *);
+	bool isEqual(variable *);
+	void clone(variable *);
 };
 
 
@@ -245,7 +277,11 @@ public:
 	void Neg(variable *);
 	void Inc();
 	void Dec();
-	virtual void Equal(variable *);
+	void Equal(variable *);
+	bool isSmaller(variable *);
+	bool isBigger(variable *);
+	bool isEqual(variable *);
+	void clone(variable *);
 };
 
 
@@ -266,7 +302,11 @@ public:
 	void Neg(variable *);
 	void Inc();
 	void Dec();
-	virtual void Equal(variable *);
+	void Equal(variable *);
+	bool isSmaller(variable *);
+	bool isBigger(variable *);
+	bool isEqual(variable *);
+	void clone(variable *);
 };
 
 
@@ -287,7 +327,11 @@ public:
 	void Neg(variable *);
 	void Inc();
 	void Dec();
-	virtual void Equal(variable *);
+	void Equal(variable *);
+	bool isSmaller(variable *);
+	bool isBigger(variable *);
+	bool isEqual(variable *);
+	void clone(variable *);
 };
 
 class _float: public variable{
@@ -307,7 +351,11 @@ public:
 	void Neg(variable *);
 	void Inc();
 	void Dec();
-	virtual void Equal(variable *);
+	void Equal(variable *);
+	bool isSmaller(variable *);
+	bool isBigger(variable *);
+	bool isEqual(variable *);
+	void clone(variable *);
 };
 
 
@@ -328,7 +376,11 @@ public:
 	void Neg(variable *);
 	void Inc();
 	void Dec();
-	virtual void Equal(variable *);
+	void Equal(variable *);
+	bool isSmaller(variable *);
+	bool isBigger(variable *);
+	bool isEqual(variable *);
+	void clone(variable *);
 };
 
 
@@ -349,7 +401,11 @@ public:
 	void Neg(variable *);
 	void Inc();
 	void Dec();
-	virtual void Equal(variable *);
+	void Equal(variable *);
+	bool isSmaller(variable *);
+	bool isBigger(variable *);
+	bool isEqual(variable *);
+	void clone(variable *);
 };
 
 
@@ -370,7 +426,11 @@ public:
 	void Neg(variable *);
 	void Inc();
 	void Dec();
-	virtual void Equal(variable *);
+	void Equal(variable *);
+	bool isSmaller(variable *);
+	bool isBigger(variable *);
+	bool isEqual(variable *);
+	void clone(variable *);
 };
 
 #endif

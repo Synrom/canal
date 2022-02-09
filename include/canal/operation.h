@@ -211,6 +211,9 @@ public:
 	Ret(operation *);
 	Ret(const Ret &);
 	void clone(operation *);
+	void print();
+	void print_simple();
+	void execute();
 };
 
 #endif

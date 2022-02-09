@@ -42,6 +42,5 @@ void VarPush::execute(){
 			);
 
 	freference.locals.push(var_vector);
-	freference.identifier.push(result_identifier_stack::local);
 
 }

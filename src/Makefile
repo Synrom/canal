@@ -495,6 +495,30 @@ operation/print.cpp.s:
 	cd /home/synrom/lego/canal && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/struct.dir/build.make src/CMakeFiles/struct.dir/operation/print.cpp.s
 .PHONY : operation/print.cpp.s
 
+operation/ret.o: operation/ret.cpp.o
+.PHONY : operation/ret.o
+
+# target to build an object file
+operation/ret.cpp.o:
+	cd /home/synrom/lego/canal && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/struct.dir/build.make src/CMakeFiles/struct.dir/operation/ret.cpp.o
+.PHONY : operation/ret.cpp.o
+
+operation/ret.i: operation/ret.cpp.i
+.PHONY : operation/ret.i
+
+# target to preprocess a source file
+operation/ret.cpp.i:
+	cd /home/synrom/lego/canal && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/struct.dir/build.make src/CMakeFiles/struct.dir/operation/ret.cpp.i
+.PHONY : operation/ret.cpp.i
+
+operation/ret.s: operation/ret.cpp.s
+.PHONY : operation/ret.s
+
+# target to generate assembly for a file
+operation/ret.cpp.s:
+	cd /home/synrom/lego/canal && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/struct.dir/build.make src/CMakeFiles/struct.dir/operation/ret.cpp.s
+.PHONY : operation/ret.cpp.s
+
 operation/shl_shr.o: operation/shl_shr.cpp.o
 .PHONY : operation/shl_shr.o
 
@@ -710,6 +734,54 @@ variable/_float.s: variable/_float.cpp.s
 variable/_float.cpp.s:
 	cd /home/synrom/lego/canal && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/struct.dir/build.make src/CMakeFiles/struct.dir/variable/_float.cpp.s
 .PHONY : variable/_float.cpp.s
+
+variable/clone.o: variable/clone.cpp.o
+.PHONY : variable/clone.o
+
+# target to build an object file
+variable/clone.cpp.o:
+	cd /home/synrom/lego/canal && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/struct.dir/build.make src/CMakeFiles/struct.dir/variable/clone.cpp.o
+.PHONY : variable/clone.cpp.o
+
+variable/clone.i: variable/clone.cpp.i
+.PHONY : variable/clone.i
+
+# target to preprocess a source file
+variable/clone.cpp.i:
+	cd /home/synrom/lego/canal && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/struct.dir/build.make src/CMakeFiles/struct.dir/variable/clone.cpp.i
+.PHONY : variable/clone.cpp.i
+
+variable/clone.s: variable/clone.cpp.s
+.PHONY : variable/clone.s
+
+# target to generate assembly for a file
+variable/clone.cpp.s:
+	cd /home/synrom/lego/canal && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/struct.dir/build.make src/CMakeFiles/struct.dir/variable/clone.cpp.s
+.PHONY : variable/clone.cpp.s
+
+variable/comperator.o: variable/comperator.cpp.o
+.PHONY : variable/comperator.o
+
+# target to build an object file
+variable/comperator.cpp.o:
+	cd /home/synrom/lego/canal && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/struct.dir/build.make src/CMakeFiles/struct.dir/variable/comperator.cpp.o
+.PHONY : variable/comperator.cpp.o
+
+variable/comperator.i: variable/comperator.cpp.i
+.PHONY : variable/comperator.i
+
+# target to preprocess a source file
+variable/comperator.cpp.i:
+	cd /home/synrom/lego/canal && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/struct.dir/build.make src/CMakeFiles/struct.dir/variable/comperator.cpp.i
+.PHONY : variable/comperator.cpp.i
+
+variable/comperator.s: variable/comperator.cpp.s
+.PHONY : variable/comperator.s
+
+# target to generate assembly for a file
+variable/comperator.cpp.s:
+	cd /home/synrom/lego/canal && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/struct.dir/build.make src/CMakeFiles/struct.dir/variable/comperator.cpp.s
+.PHONY : variable/comperator.cpp.s
 
 variable/longdouble.o: variable/longdouble.cpp.o
 .PHONY : variable/longdouble.o
@@ -1145,6 +1217,9 @@ help:
 	@echo "... operation/print.o"
 	@echo "... operation/print.i"
 	@echo "... operation/print.s"
+	@echo "... operation/ret.o"
+	@echo "... operation/ret.i"
+	@echo "... operation/ret.s"
 	@echo "... operation/shl_shr.o"
 	@echo "... operation/shl_shr.i"
 	@echo "... operation/shl_shr.s"
@@ -1172,6 +1247,12 @@ help:
 	@echo "... variable/_float.o"
 	@echo "... variable/_float.i"
 	@echo "... variable/_float.s"
+	@echo "... variable/clone.o"
+	@echo "... variable/clone.i"
+	@echo "... variable/clone.s"
+	@echo "... variable/comperator.o"
+	@echo "... variable/comperator.i"
+	@echo "... variable/comperator.s"
 	@echo "... variable/longdouble.o"
 	@echo "... variable/longdouble.i"
 	@echo "... variable/longdouble.s"

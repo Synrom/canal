@@ -22,6 +22,9 @@ private:
 	unsigned int size;
 };
 
+class local_stack;
+class result_stack;
+
 class result_identifier_stack{
 public:
 	enum result_identifier{
@@ -30,12 +33,16 @@ public:
 	};
 
 	result_identifier look();
+	void print();
+	void reset();
+private:
 	void push(result_identifier );
 	void pop();
-	void reset();
 	
-private:
 	std::vector<result_identifier> stack;
+	friend class local_stack;
+	friend class result_stack;
+
 
 };
 

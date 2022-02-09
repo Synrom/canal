@@ -80,6 +80,7 @@ void Call::execute(){
 
 	call->original_caller_quantity = freference.current_vstance->container_quantity();
 	call->caller = &freference;
+	call->hasAlreadyReturnedSomething = false;
 	call->execute();
 
 	call->reset();

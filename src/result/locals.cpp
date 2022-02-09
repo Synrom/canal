@@ -15,10 +15,14 @@ void local_stack::push(const std::vector<variable *> &v){
 }
 
 std::vector<variable *> local_stack::pop(){
+
+	error_conditional(stack.size() <= 0, "poping variable from empty local stack");
 	debug("poping variable vector of %s from local_stack",stack.back().front()->name.c_str());
 
 	std::vector<variable *> ret(std::move(stack.back()));
 	stack.pop_back();
+
+	error_conditional(identifiers->look() != result_identifier_stack::local,"poping local while head of identifier_stack is a result");
 	identifiers->pop();
 
 	return ret;

@@ -1,5 +1,4 @@
-implement Ret operation and analyzer of return
-
+fix bug (equal maybe execute) -> vielleicht result::print implementieren aber ka
 
 weite Zukunft:
 function.exec implementieren und testen

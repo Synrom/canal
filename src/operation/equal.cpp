@@ -13,8 +13,14 @@ void Equal::execute(){
 	std::vector<variable *> left_var = freference.locals.pop();
 	debug("Equal execute gets %s from current_vstance",left_var.front()->name.c_str());	
 
-	freference.operations.getNext()->execute();
+	operation *op = freference.operations.getNext();
+	error_conditional(!op,"right operation in equal is NULL");
+
+	op->execute();
+
 	if(freference.identifier.look() == result_identifier_stack::result){
+
+		debug("equal assigns a result");
 
 		result right_result = freference.results.pop_result();
 
@@ -39,7 +45,10 @@ void Equal::execute(){
 
 	}else{
 
+		debug("equal assigns a local");
+
 		std::vector<variable *> right_var = freference.locals.pop();
+		debug("poping local got %lu",right_var.size());
 		debug("Equal execute gets %s from current_vstance",right_var.front()->name.c_str());	
 
 

@@ -37,6 +37,14 @@ bool canal_AST_analyzer::VisitVarDecl(clang::VarDecl *var_decl){
 	return true;
 }
 
+bool canal_AST_analyzer::VisitReturnStmt(clang::ReturnStmt *ret){
+	info("visiting return statement");
+
+	current_function->operations.push_back(Ret(*current_function));
+
+	return true;
+}
+
 bool canal_AST_analyzer::VisitUnaryOperator(clang::UnaryOperator *un_op){
 	info("visiting Unary Operator");
 
@@ -55,6 +63,17 @@ bool canal_AST_analyzer::VisitUnaryOperator(clang::UnaryOperator *un_op){
 
 bool canal_AST_analyzer::VisitCallExpr(clang::CallExpr *call_expr){
 	info("Visiting Call Expr");
+
+	if(thisIsFollowupForAVarDecl){
+		info("this is follow up of VarDecl so we need to add an = operation first :)");
+
+		std::string var_name = current_function->current_vstance->get_latest_added_var()->name;
+
+		current_function->operations.push_back(Equal(*current_function));
+		current_function->operations.push_back(VarPush(var_name,*current_function));
+		
+		thisIsFollowupForAVarDecl = false;
+	}
 
 	current_function->operations.push_back(Call(NULL, *current_function));
 	thisIsFollowupOfaCall = true;

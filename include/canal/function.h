@@ -33,6 +33,7 @@ public:
 
 	unsigned int original_caller_quantity {0};
 	function *caller {0};
+	bool hasAlreadyReturnedSomething{false};
 
 
 	/* noch nicht final */

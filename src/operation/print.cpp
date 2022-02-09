@@ -115,12 +115,19 @@ void Call::print_simple(){
 
 void Call::print(){
 	printf("%s(",call->name.c_str());
-	for(int i = 0;i < call->pvariables.size() - 1;i++){
+	if(call->pvariables.size() == 0){
+		printf(")");
+		return;
+	}
+	for(signed int i = 0;i < call->pvariables.size() - 1;i++){
 		operation *next = freference.operations.getNext();
 		if(next)
 			next->print();
-		else
+		else{
 			printf("NULL");
+			printf("size of pvariables of %s is %lu",call->name.c_str(),call->pvariables.size());
+			break;
+		}
 		printf(", ");
 	}
 	operation *next = freference.operations.getNext();
@@ -150,4 +157,19 @@ void Equal::print(){
 
 	printf(";\n");
 
+}
+
+void Ret::print(){
+	printf("return ");
+	operation *next = freference.operations.getNext();
+	if(next)
+		next->print();
+	else
+		printf("NULL");
+	printf(";\n");
+	
+}
+
+void Ret::print_simple(){
+	printf("return\n");
 }

@@ -238,11 +238,15 @@ void Ret::executeOperation(variable *left, variable *right, variable *where){
 void operation::execute(){
 	debug("operation::execute");
 
-	freference.operations.getNext()->execute();
+	operation *op = freference.operations.getNext();
+	error_conditional(!op, "left operation in operation::execute is NULL");
+	op->execute();
 	if(freference.identifier.look() == result_identifier_stack::result){
 		
 		debug("left is a result");
-		freference.operations.getNext()->execute();
+		op = freference.operations.getNext();
+		error_conditional(!op, "right operation in operation::execute is NULL");
+		op->execute();
 
 		if(freference.identifier.look() == result_identifier_stack::result){
 			debug("right is result");
@@ -296,12 +300,17 @@ void operation::execute(){
 
 				left_iterator++;
 				right_iterator++;
+
 			}
+
+			debug("out of right_iterator iteration");
 
 		}
 	}else{
 		debug("left is a variable");
-		freference.operations.getNext()->execute();
+		op = freference.operations.getNext();
+		error_conditional(!op, "right operation in operation::execute is NULL");
+		op->execute();
 
 		if(freference.identifier.look() == result_identifier_stack::result){
 			

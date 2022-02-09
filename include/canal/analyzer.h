@@ -28,6 +28,7 @@ public:
 	bool VisitIntegerLiteral(clang::IntegerLiteral *);
 	bool VisitDeclRefExpr(clang::DeclRefExpr *);
 	bool VisitCallExpr(clang::CallExpr *);
+	bool VisitReturnStmt(clang::ReturnStmt *);
 private:
 	bool thisIsFollowupForAVarDecl { false };
 	bool thisIsFollowupOfUnaryOperator { false };

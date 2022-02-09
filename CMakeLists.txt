@@ -10,6 +10,7 @@ add_subdirectory("src/")
 target_include_directories(canal PUBLIC "include/")
 
 target_link_libraries(canal PRIVATE struct)
+target_link_options(canal PUBLIC -rdynamic)
 
 Find_Package(LLVM REQUIRED CONFIG)
 message(STATUS "Found LLVM ${LLVM_PACKAGE_VERSION} in ${LLVM_INSTALL_PREFIX}")

@@ -41,6 +41,7 @@ function::function(function &&mv) : operations(std::move(mv.operations)),
 
 	original_caller_quantity = mv.original_caller_quantity;
 	caller = mv.caller;
+	hasAlreadyReturnedSomething = mv.hasAlreadyReturnedSomething;
 
 }
 
@@ -99,6 +100,7 @@ void function::reset(){
 	results.reset();
 	locals.reset();
 	identifier.reset();
+	hasAlreadyReturnedSomething = false;
 
 }
 

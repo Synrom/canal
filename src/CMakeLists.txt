@@ -17,6 +17,8 @@ list(APPEND VarFiles
 	"variable/vcontainer.cpp"
 	"variable/shl_shr.cpp"
 	"variable/print.cpp"
+	"variable/comperator.cpp"
+	"variable/clone.cpp"
 )
 
 
@@ -35,6 +37,7 @@ list(APPEND OperationFiles
 	"operation/print.cpp"
 	"operation/var_push.cpp"
 	"operation/call.cpp"
+	"operation/ret.cpp"
 )
 
 list(APPEND DebuggerFiles
@@ -57,6 +60,7 @@ list(APPEND ResultFiles
 )
 
 add_library(struct ${VarFiles} ${ScopeFiles} ${OperationFiles} ${DebuggerFiles} ${AnalyzerFiles} ${ContainerFiles} ${ResultFiles})
+target_link_options(struct PUBLIC -rdynamic)
 target_include_directories(struct PUBLIC ../include)
 
 Find_Package(LLVM REQUIRED CONFIG)

@@ -79,6 +79,7 @@ result result_stack::pop_result(){
 
 	result ret(std::move(results.back()));
 	results.pop_back();
+	error_conditional(identifiers->look() != result_identifier_stack::result,"poping result while head of identifier_stack is a local");
 	identifiers->pop();
 
 	return ret;
@@ -94,6 +95,7 @@ result &result_stack::get_result(unsigned int position){
 void result_stack::delete_result(){
 	debug("deleting result from result_stack at top");
 	results.pop_back();
+	error_conditional(identifiers->look() != result_identifier_stack::result,"poping result while head of identifier_stack is a local");
 	identifiers->pop();
 }
 

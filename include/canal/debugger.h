@@ -9,6 +9,7 @@ public:
 	static void warning_print(const char *, const int);
 	static void error_print(const char *, const int);
 	static void init_debugger();
+	static void error_backtrace_dump();
 private:
 	static struct timeval start_time;
 	static void print_timestamp();
@@ -17,26 +18,26 @@ private:
 
 #ifdef DEBUG
 
-#define debug_conditional(condition,...) if(condition){debug(__VA_ARGS__);}
 #define debug(...) debugger::debug_print( __FILE__ , __LINE__); printf(__VA_ARGS__); printf("\n")
-#define info_conditional(condition,...) if(condition){info(__VA_ARGS__);}
+#define debug_conditional(condition,...) if(condition){debug(__VA_ARGS__);}
 #define info(...) debugger::info_print( __FILE__ , __LINE__); printf(__VA_ARGS__); printf("\n")
-#define warning_conditional(condition,...) if(condition){warning(__VA_ARGS__);}
+#define info_conditional(condition,...) if(condition){info(__VA_ARGS__);}
 #define warning(...) debugger::warning_print(__FILE__,__LINE__); printf(__VA_ARGS__); printf("\n")
+#define warning_conditional(condition,...) if(condition){warning(__VA_ARGS__);}
+#define error(...) debugger::error_print(__FILE__,__LINE__); printf(__VA_ARGS__); printf("\n"); debugger::error_backtrace_dump(); exit(0);
 #define error_conditional(condition,...) if(condition){error(__VA_ARGS__);}
-#define error(...) debugger::error_print(__FILE__,__LINE__); printf(__VA_ARGS__); printf("\n")
 #define INIT_DEBUGGER debugger::init_debugger();
 
 #elif INFO
 
 #define debug_conditional(condition,...) 
 #define debug(...) 
-#define info_conditional(condition,...) if(condition){info(__VA_ARGS__);}
 #define info(...) debugger::info_print( __FILE__ , __LINE__); printf(__VA_ARGS__); printf("\n")
-#define warning_conditional(condition,...) if(condition){warning(__VA_ARGS__);}
+#define info_conditional(condition,...) if(condition){info(__VA_ARGS__);}
 #define warning(...) debugger::warning_print(__FILE__,__LINE__); printf(__VA_ARGS__); printf("\n")
+#define warning_conditional(condition,...) if(condition){warning(__VA_ARGS__);}
+#define error(...) debugger::error_print(__FILE__,__LINE__); printf(__VA_ARGS__); printf("\n"); debugger::error_backtrace_dump(); exit(0);
 #define error_conditional(condition,...) if(condition){error(__VA_ARGS__);}
-#define error(...) debugger::error_print(__FILE__,__LINE__); printf(__VA_ARGS__); printf("\n")
 #define INIT_DEBUGGER debugger::init_debugger();
 
 #elif WARNING
@@ -45,10 +46,10 @@ private:
 #define debug(...) 
 #define info_conditional(condition,...) 
 #define info(...) 
-#define warning_conditional(condition,...) if(condition){warning(__VA_ARGS__);}
 #define warning(...) debugger::warning_print(__FILE__,__LINE__); printf(__VA_ARGS__); printf("\n")
+#define warning_conditional(condition,...) if(condition){warning(__VA_ARGS__);}
+#define error(...) debugger::error_print(__FILE__,__LINE__); printf(__VA_ARGS__); printf("\n"); debugger::error_backtrace_dump(); exit(0);
 #define error_conditional(condition,...) if(condition){error(__VA_ARGS__);}
-#define error(...) debugger::error_print(__FILE__,__LINE__); printf(__VA_ARGS__); printf("\n")
 #define INIT_DEBUGGER debugger::init_debugger();
 
 #elif ERROR
@@ -59,8 +60,8 @@ private:
 #define info(...) 
 #define warning_conditional(condition,...)
 #define warning(...) 
+#define error(...) debugger::error_print(__FILE__,__LINE__); printf(__VA_ARGS__); printf("\n"); debugger::error_backtrace_dump(); exit(0);
 #define error_conditional(condition,...) if(condition){error(__VA_ARGS__);}
-#define error(...) debugger::error_print(__FILE__,__LINE__); printf(__VA_ARGS__); printf("\n")
 #define INIT_DEBUGGER debugger::init_debugger();
 
 #else

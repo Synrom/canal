@@ -3,6 +3,7 @@
 
 result_identifier_stack::result_identifier result_identifier_stack::look(){
 	debug("looking up the result identifier from result_identifier_stack");
+	error_conditional(stack.size() == 0, "trying to look into empty result_identifier_stack");
 	return stack.back();
 }
 
@@ -21,4 +22,18 @@ void result_identifier_stack::reset(){
 
 	while(stack.size() > 0)
 		stack.pop_back();
+}
+
+void result_identifier_stack::print(){
+	for(auto i = stack.begin();i < stack.end();i++){
+		switch(*i){
+			case result_identifier_stack::local:
+				printf("local ");
+				break;
+			case result_identifier_stack::result:
+				printf("result ");
+				break;
+		}
+	}
+	printf("\n");
 }
