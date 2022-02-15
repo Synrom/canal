@@ -105,6 +105,7 @@ src/CMakeFiles/struct.dir/analyzer/function_analyzer.cpp.o: \
  /usr/x86_64-linux-gnu/include/bits/struct_rwlock.h \
  /usr/x86_64-linux-gnu/include/bits/setjmp.h \
  /usr/x86_64-linux-gnu/include/bits/types/__sigset_t.h \
+ /usr/x86_64-linux-gnu/include/bits/types/struct___jmp_buf_tag.h \
  /usr/include/x86_64-linux-gnu/c++/10/bits/atomic_word.h \
  /usr/include/c++/10/ext/concurrence.h \
  /usr/include/c++/10/bits/stl_function.h \
@@ -524,6 +525,7 @@ src/CMakeFiles/struct.dir/analyzer/function_analyzer.cpp.o: \
  /home/synrom/lego/canal/src/../include/canal/function.h \
  /home/synrom/lego/canal/src/../include/canal/analyzer.h \
  /home/synrom/lego/canal/src/../include/canal/operation.h \
+ /home/synrom/lego/canal/src/../include/canal/scheduler.h \
  /home/synrom/lego/canal/src/../include/canal/debugger.h \
  /usr/x86_64-linux-gnu/include/sys/time.h \
  /home/synrom/lego/canal/src/../include/canal/root_scope.h

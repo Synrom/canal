@@ -58,7 +58,6 @@ private:
 	scheduler Schedule;
 	bool visitedDecreasingOp{false};
 	bool isElseNeutral{true};
-	CodeClassifier elseConditionType{onlyDecrease};
 };
 
 class canal_AST_analyzer : public clang::RecursiveASTVisitor<canal_AST_analyzer>{
@@ -72,6 +71,7 @@ public:
 	bool VisitDeclRefExpr(clang::DeclRefExpr *);
 	bool VisitCallExpr(clang::CallExpr *);
 	bool VisitReturnStmt(clang::ReturnStmt *);
+	bool VisitIfStmt(clang::IfStmt *);
 private:
 	bool thisIsFollowupForAVarDecl { false };
 	bool thisIsFollowupOfUnaryOperator { false };

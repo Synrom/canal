@@ -231,6 +231,30 @@ clang-tablegen-targets/fast:
 	cd /home/synrom/lego/canal && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/clang-tablegen-targets.dir/build.make src/CMakeFiles/clang-tablegen-targets.dir/build
 .PHONY : clang-tablegen-targets/fast
 
+analyzer/classifiers.o: analyzer/classifiers.cpp.o
+.PHONY : analyzer/classifiers.o
+
+# target to build an object file
+analyzer/classifiers.cpp.o:
+	cd /home/synrom/lego/canal && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/struct.dir/build.make src/CMakeFiles/struct.dir/analyzer/classifiers.cpp.o
+.PHONY : analyzer/classifiers.cpp.o
+
+analyzer/classifiers.i: analyzer/classifiers.cpp.i
+.PHONY : analyzer/classifiers.i
+
+# target to preprocess a source file
+analyzer/classifiers.cpp.i:
+	cd /home/synrom/lego/canal && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/struct.dir/build.make src/CMakeFiles/struct.dir/analyzer/classifiers.cpp.i
+.PHONY : analyzer/classifiers.cpp.i
+
+analyzer/classifiers.s: analyzer/classifiers.cpp.s
+.PHONY : analyzer/classifiers.s
+
+# target to generate assembly for a file
+analyzer/classifiers.cpp.s:
+	cd /home/synrom/lego/canal && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/struct.dir/build.make src/CMakeFiles/struct.dir/analyzer/classifiers.cpp.s
+.PHONY : analyzer/classifiers.cpp.s
+
 analyzer/function_analyzer.o: analyzer/function_analyzer.cpp.o
 .PHONY : analyzer/function_analyzer.o
 
@@ -638,6 +662,30 @@ result/result.s: result/result.cpp.s
 result/result.cpp.s:
 	cd /home/synrom/lego/canal && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/struct.dir/build.make src/CMakeFiles/struct.dir/result/result.cpp.s
 .PHONY : result/result.cpp.s
+
+scheduler/scheduler.o: scheduler/scheduler.cpp.o
+.PHONY : scheduler/scheduler.o
+
+# target to build an object file
+scheduler/scheduler.cpp.o:
+	cd /home/synrom/lego/canal && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/struct.dir/build.make src/CMakeFiles/struct.dir/scheduler/scheduler.cpp.o
+.PHONY : scheduler/scheduler.cpp.o
+
+scheduler/scheduler.i: scheduler/scheduler.cpp.i
+.PHONY : scheduler/scheduler.i
+
+# target to preprocess a source file
+scheduler/scheduler.cpp.i:
+	cd /home/synrom/lego/canal && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/struct.dir/build.make src/CMakeFiles/struct.dir/scheduler/scheduler.cpp.i
+.PHONY : scheduler/scheduler.cpp.i
+
+scheduler/scheduler.s: scheduler/scheduler.cpp.s
+.PHONY : scheduler/scheduler.s
+
+# target to generate assembly for a file
+scheduler/scheduler.cpp.s:
+	cd /home/synrom/lego/canal && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/struct.dir/build.make src/CMakeFiles/struct.dir/scheduler/scheduler.cpp.s
+.PHONY : scheduler/scheduler.cpp.s
 
 scope/function.o: scope/function.cpp.o
 .PHONY : scope/function.o
@@ -1184,6 +1232,9 @@ help:
 	@echo "... intrinsics_gen"
 	@echo "... omp_gen"
 	@echo "... struct"
+	@echo "... analyzer/classifiers.o"
+	@echo "... analyzer/classifiers.i"
+	@echo "... analyzer/classifiers.s"
 	@echo "... analyzer/function_analyzer.o"
 	@echo "... analyzer/function_analyzer.i"
 	@echo "... analyzer/function_analyzer.s"
@@ -1235,6 +1286,9 @@ help:
 	@echo "... result/result.o"
 	@echo "... result/result.i"
 	@echo "... result/result.s"
+	@echo "... scheduler/scheduler.o"
+	@echo "... scheduler/scheduler.i"
+	@echo "... scheduler/scheduler.s"
 	@echo "... scope/function.o"
 	@echo "... scope/function.i"
 	@echo "... scope/function.s"

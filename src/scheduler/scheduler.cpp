@@ -6,6 +6,12 @@ void scheduler::decrease(){
 	count--;
 }
 
+void scheduler::increase_child(){
+	debug("increasing child schedulers");
+	if(child)
+		child->increase();
+}
+
 void scheduler::increase(){
 	debug("increasing scheduler");
 	count++;

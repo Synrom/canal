@@ -1,4 +1,6 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/struct.dir/analyzer/classifiers.cpp.o"
+  "CMakeFiles/struct.dir/analyzer/classifiers.cpp.o.d"
   "CMakeFiles/struct.dir/analyzer/function_analyzer.cpp.o"
   "CMakeFiles/struct.dir/analyzer/function_analyzer.cpp.o.d"
   "CMakeFiles/struct.dir/analyzer/function_finder.cpp.o"
@@ -33,6 +35,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/struct.dir/result/locals.cpp.o.d"
   "CMakeFiles/struct.dir/result/result.cpp.o"
   "CMakeFiles/struct.dir/result/result.cpp.o.d"
+  "CMakeFiles/struct.dir/scheduler/scheduler.cpp.o"
+  "CMakeFiles/struct.dir/scheduler/scheduler.cpp.o.d"
   "CMakeFiles/struct.dir/scope/function.cpp.o"
   "CMakeFiles/struct.dir/scope/function.cpp.o.d"
   "CMakeFiles/struct.dir/scope/root_scope.cpp.o"

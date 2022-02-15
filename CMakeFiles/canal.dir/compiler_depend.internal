@@ -119,6 +119,7 @@ CMakeFiles/canal.dir/canal.cpp.o
  /usr/x86_64-linux-gnu/include/bits/struct_rwlock.h
  /usr/x86_64-linux-gnu/include/bits/setjmp.h
  /usr/x86_64-linux-gnu/include/bits/types/__sigset_t.h
+ /usr/x86_64-linux-gnu/include/bits/types/struct___jmp_buf_tag.h
  /usr/include/x86_64-linux-gnu/c++/10/bits/atomic_word.h
  /usr/include/c++/10/ext/concurrence.h
  /usr/include/c++/10/bits/stl_function.h
@@ -576,6 +577,7 @@ CMakeFiles/canal.dir/canal.cpp.o
  /home/synrom/lego/canal/include/canal/container.h
  /home/synrom/lego/canal/include/canal/operation_stack.h
  /home/synrom/lego/canal/include/canal/result.h
+ /home/synrom/lego/canal/include/canal/scheduler.h
  /home/synrom/lego/canal/include/canal/debugger.h
  /usr/x86_64-linux-gnu/include/sys/time.h
  /home/synrom/lego/canal/include/canal/root_scope.h

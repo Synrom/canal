@@ -1,13 +1,8 @@
--Visit IfStmt in function_analyzer hinzufügen (bis jetzt nur mit classifier)
--IfStmnt und CompoundStmnt Classifier implementieren
+- IfSmnt classifier VisitIfStmnt und VisitCompoundStmnt implementieren (vllt noch Function Calls hinzufügen)
+- Compound Stmnt classifier VisitIfStmnt und VisitCompoundStmnt implementieren
 
 
 weite Zukunft:
-function.exec implementieren und testen
 stance -> finish (löscht die ganzen COntainer von diesem Stance vom parents Stance. Alle Konsequenzen einberechnen ist hier wichtig)
 
-Notes für ret.execute:
-	- ermittle maximum von freference.current_vstance->get_Var(name)
-	- dann ret = caller->result.add(ursprünglich)
-	- dann ret.add[freference.current_vstance->getVar(name)[maximum - (maximum % ursprünglich): (maximum - (maximum % ursprünglich)) + ursprünglich]]
 

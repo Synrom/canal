@@ -47,6 +47,7 @@ list(APPEND DebuggerFiles
 list(APPEND AnalyzerFiles
 	"analyzer/function_finder.cpp"
 	"analyzer/function_analyzer.cpp"
+	"analyzer/classifiers.cpp"
 )
 
 list(APPEND ContainerFiles

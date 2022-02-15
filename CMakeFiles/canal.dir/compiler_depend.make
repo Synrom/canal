@@ -118,6 +118,7 @@ CMakeFiles/canal.dir/canal.cpp.o: canal.cpp \
   /usr/x86_64-linux-gnu/include/bits/struct_rwlock.h \
   /usr/x86_64-linux-gnu/include/bits/setjmp.h \
   /usr/x86_64-linux-gnu/include/bits/types/__sigset_t.h \
+  /usr/x86_64-linux-gnu/include/bits/types/struct___jmp_buf_tag.h \
   /usr/include/x86_64-linux-gnu/c++/10/bits/atomic_word.h \
   /usr/include/c++/10/ext/concurrence.h \
   /usr/include/c++/10/bits/stl_function.h \
@@ -575,6 +576,7 @@ CMakeFiles/canal.dir/canal.cpp.o: canal.cpp \
   include/canal/container.h \
   include/canal/operation_stack.h \
   include/canal/result.h \
+  include/canal/scheduler.h \
   include/canal/debugger.h \
   /usr/x86_64-linux-gnu/include/sys/time.h \
   include/canal/root_scope.h
@@ -752,8 +754,6 @@ include/canal/analyzer.h:
 
 /usr/local/include/clang/Basic/DirectoryEntry.h:
 
-/usr/local/include/clang/Frontend/CompilerInstance.h:
-
 /usr/local/include/clang/AST/AttrVisitor.inc:
 
 /usr/local/include/clang/AST/StmtOpenMP.h:
@@ -924,6 +924,12 @@ include/canal/analyzer.h:
 
 /usr/include/x86_64-linux-gnu/c++/10/bits/gthr-default.h:
 
+/usr/local/include/clang/Frontend/CompilerInstance.h:
+
+/usr/x86_64-linux-gnu/include/bits/types/struct___jmp_buf_tag.h:
+
+/usr/x86_64-linux-gnu/include/sched.h:
+
 /usr/x86_64-linux-gnu/include/bits/struct_rwlock.h:
 
 /usr/local/include/clang/Frontend/ASTUnit.h:
@@ -1091,8 +1097,6 @@ include/canal/analyzer.h:
 /usr/include/c++/10/bits/std_abs.h:
 
 canal.cpp:
-
-/usr/x86_64-linux-gnu/include/sched.h:
 
 /usr/local/include/clang/AST/RecursiveASTVisitor.h:
 
@@ -1262,14 +1266,6 @@ canal.cpp:
 
 /usr/local/include/llvm/ADT/DenseMap.h:
 
-/usr/x86_64-linux-gnu/include/string.h:
-
-/usr/include/c++/10/bits/stl_heap.h:
-
-/usr/x86_64-linux-gnu/include/bits/long-double.h:
-
-/usr/include/c++/10/bits/uniform_int_dist.h:
-
 /usr/x86_64-linux-gnu/include/bits/time.h:
 
 /usr/include/c++/10/bits/ptr_traits.h:
@@ -1359,6 +1355,14 @@ include/canal/container.h:
 /usr/x86_64-linux-gnu/include/bits/locale.h:
 
 /usr/local/include/llvm/MC/MCTargetOptions.h:
+
+/usr/x86_64-linux-gnu/include/string.h:
+
+/usr/include/c++/10/bits/stl_heap.h:
+
+/usr/x86_64-linux-gnu/include/bits/long-double.h:
+
+/usr/include/c++/10/bits/uniform_int_dist.h:
 
 /usr/include/c++/10/bits/algorithmfwd.h:
 
@@ -1539,6 +1543,8 @@ include/canal/container.h:
 /usr/include/c++/10/bits/basic_string.h:
 
 /usr/local/include/clang/AST/ASTDumperUtils.h:
+
+include/canal/scheduler.h:
 
 /usr/local/include/llvm/Support/FormatVariadicDetails.h:
 

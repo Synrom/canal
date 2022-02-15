@@ -5,6 +5,7 @@
 class scheduler{
 public:
 	void increase();
+	void increase_child();
 	bool look_up();
 
 	// scheduler & is the child -> increases with increase, but doesnt decrease with look_up

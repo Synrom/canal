@@ -17,6 +17,13 @@
 
 extern root_scope global_scope;
 
+bool canal_AST_analyzer::VisitIfStmt(clang::IfStmt *if_stmnt){
+	if(!Schedule.look_up())
+		return true;
+	info("found IfStmnt");
+	return true;
+}
+
 bool canal_AST_analyzer::VisitVarDecl(clang::VarDecl *var_decl){
 	if(!Schedule.look_up())
 		return true;
