@@ -15,8 +15,51 @@
 #include "operation_stack.h"
 #include "function.h"
 #include "variable.h"
+#include "scheduler.h"
 
 
+enum CodeClassifier{
+	onlyDecrease,
+	onlyIncrease,
+	mixed,
+};
+
+class canal_Compound_classifier : public clang::RecursiveASTVisitor<canal_Compound_classifier>{
+public:
+
+	explicit canal_Compound_classifier(clang::ASTContext*, scheduler *);
+	CodeClassifier getType();
+
+	bool VisitBinaryOperator(clang::BinaryOperator *);
+	// TODO visit Compound Statement -> only for the scheduler
+	// TODO visit IfStatement -> only for the scheduler
+private:
+	CodeClassifier type{onlyDecrease};
+	clang::ASTContext *context{NULL};
+	scheduler Schedule;
+	bool visitedDecreasingOp{false};
+};
+
+class canal_IfStmnt_classifier : public clang::RecursiveASTVisitor<canal_IfStmnt_classifier>{
+public:
+
+	explicit canal_IfStmnt_classifier(clang::ASTContext*);
+	CodeClassifier getType(unsigned int);
+	unsigned int getCount();
+
+	bool VisitBinaryOperator(clang::BinaryOperator *);
+	// TODO visit Compound Statement
+	// TODO visit IfStatement
+	
+	
+private:
+	std::vector<CodeClassifier> type;
+	clang::ASTContext *context{NULL};
+	scheduler Schedule;
+	bool visitedDecreasingOp{false};
+	bool isElseNeutral{true};
+	CodeClassifier elseConditionType{onlyDecrease};
+};
 
 class canal_AST_analyzer : public clang::RecursiveASTVisitor<canal_AST_analyzer>{
 public:
@@ -38,6 +81,7 @@ private:
 	function *current_function { NULL };
 	variable::Types current_type;
 	void addVar(const std::string &,std::string &);
+	scheduler Schedule;
 };
 
 class canal_AST_consumer : public clang::ASTConsumer{

@@ -46,6 +46,16 @@ int main(){
 	// test call
 	//int d = add(5,getvar());
 	
+	if(a > 12 && 1 == 1 || 0 != 0){
+		c = add(14,12);
+	}else if(true){
+		a = 14;
+		if(14){
+			printf("adsf");
+		}
+	}else{
+		getvar();
+	}
 
 	return 0;
 }

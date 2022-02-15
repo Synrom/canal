@@ -34,6 +34,8 @@ canal_AST_analyzer::canal_AST_analyzer(clang::ASTContext *c) : context(c) {
 }
 
 bool canal_AST_analyzer::VisitFunctionDecl(clang::FunctionDecl *clang_function){
+	if(!Schedule.look_up())
+		return true;
 	std::string name = clang_function->getNameInfo().getName().getAsString();
 	info("found function %s",name.c_str());
 

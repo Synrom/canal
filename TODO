@@ -1,4 +1,6 @@
-fix bug (equal maybe execute) -> vielleicht result::print implementieren aber ka
+-Visit IfStmt in function_analyzer hinzufügen (bis jetzt nur mit classifier)
+-IfStmnt und CompoundStmnt Classifier implementieren
+
 
 weite Zukunft:
 function.exec implementieren und testen

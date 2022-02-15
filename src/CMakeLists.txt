@@ -59,7 +59,11 @@ list(APPEND ResultFiles
 	"result/identifiers.cpp"
 )
 
-add_library(struct ${VarFiles} ${ScopeFiles} ${OperationFiles} ${DebuggerFiles} ${AnalyzerFiles} ${ContainerFiles} ${ResultFiles})
+list(APPEND SchedulerFiles
+	"scheduler/scheduler.cpp"
+)
+
+add_library(struct ${VarFiles} ${ScopeFiles} ${OperationFiles} ${DebuggerFiles} ${AnalyzerFiles} ${ContainerFiles} ${ResultFiles} ${SchedulerFiles})
 target_link_options(struct PUBLIC -rdynamic)
 target_include_directories(struct PUBLIC ../include)
 

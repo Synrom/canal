@@ -14,10 +14,12 @@
 #include <canal/root_scope.h>
 #include <clang/AST/OperationKinds.h>
 
+
 extern root_scope global_scope;
 
 bool canal_AST_analyzer::VisitVarDecl(clang::VarDecl *var_decl){
-
+	if(!Schedule.look_up())
+		return true;
 	
 	std::string var_name = var_decl->getNameAsString();
 	info("found declination statement of %s",var_name.c_str());
@@ -38,6 +40,8 @@ bool canal_AST_analyzer::VisitVarDecl(clang::VarDecl *var_decl){
 }
 
 bool canal_AST_analyzer::VisitReturnStmt(clang::ReturnStmt *ret){
+	if(!Schedule.look_up())
+		return true;
 	info("visiting return statement");
 
 	current_function->operations.push_back(Ret(*current_function));
@@ -46,6 +50,8 @@ bool canal_AST_analyzer::VisitReturnStmt(clang::ReturnStmt *ret){
 }
 
 bool canal_AST_analyzer::VisitUnaryOperator(clang::UnaryOperator *un_op){
+	if(!Schedule.look_up())
+		return true;
 	info("visiting Unary Operator");
 
 	switch(un_op->getOpcode()){
@@ -62,6 +68,8 @@ bool canal_AST_analyzer::VisitUnaryOperator(clang::UnaryOperator *un_op){
 }
 
 bool canal_AST_analyzer::VisitCallExpr(clang::CallExpr *call_expr){
+	if(!Schedule.look_up())
+		return true;
 	info("Visiting Call Expr");
 
 	if(thisIsFollowupForAVarDecl){
@@ -82,6 +90,8 @@ bool canal_AST_analyzer::VisitCallExpr(clang::CallExpr *call_expr){
 }
 
 bool canal_AST_analyzer::VisitDeclRefExpr(clang::DeclRefExpr *decl_ref){
+	if(!Schedule.look_up())
+		return true;
 	info("visting DeclRefExpr");
 	
 	std::string var_name = decl_ref->getFoundDecl()->getNameAsString();
@@ -107,6 +117,8 @@ bool canal_AST_analyzer::VisitDeclRefExpr(clang::DeclRefExpr *decl_ref){
 }
 
 bool canal_AST_analyzer::VisitIntegerLiteral(clang::IntegerLiteral *in_lt){
+	if(!Schedule.look_up())
+		return true;
 	info("visiting integer literal");
 	
 	signed long long literal = in_lt->getValue().getLimitedValue();
@@ -136,6 +148,8 @@ bool canal_AST_analyzer::VisitIntegerLiteral(clang::IntegerLiteral *in_lt){
 
 
 bool canal_AST_analyzer::VisitBinaryOperator(clang::BinaryOperator *bn_op){
+	if(!Schedule.look_up())
+		return true;
 	
 	if(bn_op->isComparisonOp()){
 		// to be implemented in the future
