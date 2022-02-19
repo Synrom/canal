@@ -16,6 +16,90 @@
 #include <clang/AST/OperationKinds.h>
 #include <llvm/Support/Casting.h>
 
+CodeClassifier canal_Compound_classifier::getType(){
+	return type;
+}
+
+unsigned int canal_IfStmnt_classifier::getCount(){
+	return type.size();
+}
+
+CodeClassifier canal_IfStmnt_classifier::getType(unsigned int i){
+	return type.at(i);
+}
+
+bool canal_Compound_classifier::VisitCompoundStmt(clang::CompoundStmt *com_stmnt){
+	if(!Schedule.look_up())
+		return true;
+	Schedule.increase_child();
+	return true;
+}
+
+void canal_Compound_classifier::setVisitedDecreasingOp(bool b){
+	visitedDecreasingOp = b;
+}
+
+bool canal_Compound_classifier::VisitCallExpr(clang::CallExpr *call_expr){
+	if(!Schedule.look_up())
+		return true;
+	Schedule.increase_child();
+	type = CodeClassifier::mixed;	
+	return true;
+}
+
+bool canal_IfStmnt_classifier::VisitCallExpr(clang::CallExpr *call_expr){
+	if(!Schedule.look_up())
+		return true;
+	type.back() = CodeClassifier::mixed;	
+	return true;
+}
+
+bool canal_IfStmnt_classifier::VisitCompoundStmt(clang::CompoundStmt *com_stmnt){
+	if(!Schedule.look_up())
+		return true;
+	if(visitedIfBeforeCompound)
+		visitedIfBeforeCompound = false;
+	else{
+		info("found last Compound -> else");
+		type.push_back(CodeClassifier::onlyDecrease);
+		if(!isElseNeutral)
+			visitedDecreasingOp = true;
+		else
+			visitedDecreasingOp = false;
+	}
+	info("found Compound Stmnt in IfStmnt");
+	CompoundClassifier.setVisitedDecreasingOp(visitedDecreasingOp);
+	CompoundClassifier.setType(type.back());
+	CompoundClassifier.TraverseStmt(com_stmnt);
+	type.back() = CompoundClassifier.getType();
+	return true;
+}
+
+bool canal_Compound_classifier::VisitIfStmt(clang::IfStmt *if_stmnt){
+	if(!Schedule.look_up())
+		return true;
+	Schedule.increase_child();
+	return true;
+}
+
+bool canal_IfStmnt_classifier::VisitIfStmt(clang::IfStmt *if_stmnt){
+	if(!Schedule.look_up())
+		return true;
+	info("found IfStmnt and set values acordingly");
+	visitedIfBeforeCompound = true;
+	type.push_back(CodeClassifier::onlyDecrease);
+	if(!isElseNeutral)
+		visitedDecreasingOp = true;
+	else
+		visitedDecreasingOp = false;
+	return true;
+
+}
+
+void canal_Compound_classifier::setType(CodeClassifier c){
+	type = c;
+}
+
 bool isVarinExpr(clang::Expr *expr){
 	if(llvm::dyn_cast<clang::ImplicitCastExpr>(expr))
 		return true;
@@ -59,13 +143,14 @@ bool canal_Compound_classifier::VisitBinaryOperator(clang::BinaryOperator *bn_op
 		case clang::BinaryOperatorKind::BO_Sub:
 		case clang::BinaryOperatorKind::BO_Div:
 		case clang::BinaryOperatorKind::BO_And:
-		case clang::BinaryOperatorKind::BO_Assign:
 		case clang::BinaryOperatorKind::BO_Shr:
 			visitedDecreasingOp = true;
 			if(type == CodeClassifier::onlyIncrease)
 				type = CodeClassifier::mixed;
 			break;
-
+		case clang::BinaryOperatorKind::BO_Assign:
+			type = CodeClassifier::mixed;
+			break;
 		default:
 			info("%s is not yet implemented in canal_Compound_classifier::VisitBinaryOperator",clang::BinaryOperator::getOpcodeStr(bn_op->getOpcode()).bytes_begin());
 			break;
@@ -121,7 +206,11 @@ bool canal_IfStmnt_classifier::VisitBinaryOperator(clang::BinaryOperator *bn_op)
 }
 
 
-canal_IfStmnt_classifier::canal_IfStmnt_classifier(clang::ASTContext *c) : context(c) {
+canal_IfStmnt_classifier::canal_IfStmnt_classifier(clang::ASTContext *c) : context(c), Schedule(), CompoundClassifier(context,&Schedule) {
+	debug("creating IfStmnt classifier");
+}
+
+canal_IfStmnt_classifier::canal_IfStmnt_classifier() : context(NULL), Schedule(), CompoundClassifier(context,&Schedule) {
 	debug("creating IfStmnt classifier");
 }
 

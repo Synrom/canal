@@ -1,5 +1,6 @@
-- IfSmnt classifier VisitIfStmnt und VisitCompoundStmnt implementieren (vllt noch Function Calls hinzufügen)
-- Compound Stmnt classifier VisitIfStmnt und VisitCompoundStmnt implementieren
+- Compound und IfStmnt Classfifier UnaryOperators hinzufügen
+- operation_stack::rope implementieren
+- isVarinStmnt UnaryOperations detector implementieren
 
 
 weite Zukunft:

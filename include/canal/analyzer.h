@@ -28,11 +28,15 @@ class canal_Compound_classifier : public clang::RecursiveASTVisitor<canal_Compou
 public:
 
 	explicit canal_Compound_classifier(clang::ASTContext*, scheduler *);
+	void setType(CodeClassifier );
 	CodeClassifier getType();
+	void setVisitedDecreasingOp(bool );
 
 	bool VisitBinaryOperator(clang::BinaryOperator *);
-	// TODO visit Compound Statement -> only for the scheduler
-	// TODO visit IfStatement -> only for the scheduler
+	bool VisitIfStmt(clang::IfStmt *);
+	bool VisitCompoundStmt(clang::CompoundStmt *);
+	bool VisitCallExpr(clang::CallExpr *);
+	
 private:
 	CodeClassifier type{onlyDecrease};
 	clang::ASTContext *context{NULL};
@@ -44,12 +48,14 @@ class canal_IfStmnt_classifier : public clang::RecursiveASTVisitor<canal_IfStmnt
 public:
 
 	explicit canal_IfStmnt_classifier(clang::ASTContext*);
+	explicit canal_IfStmnt_classifier();
 	CodeClassifier getType(unsigned int);
 	unsigned int getCount();
 
 	bool VisitBinaryOperator(clang::BinaryOperator *);
-	// TODO visit Compound Statement
-	// TODO visit IfStatement
+	bool VisitIfStmt(clang::IfStmt *);
+	bool VisitCompoundStmt(clang::CompoundStmt *);
+	bool VisitCallExpr(clang::CallExpr *);
 	
 	
 private:
@@ -58,6 +64,8 @@ private:
 	scheduler Schedule;
 	bool visitedDecreasingOp{false};
 	bool isElseNeutral{true};
+	bool visitedIfBeforeCompound{false};
+	canal_Compound_classifier CompoundClassifier;
 };
 
 class canal_AST_analyzer : public clang::RecursiveASTVisitor<canal_AST_analyzer>{

@@ -21,6 +21,23 @@ bool canal_AST_analyzer::VisitIfStmt(clang::IfStmt *if_stmnt){
 	if(!Schedule.look_up())
 		return true;
 	info("found IfStmnt");
+	canal_IfStmnt_classifier IfStmntClassifier(context);
+	IfStmntClassifier.TraverseStmt(if_stmnt);
+	for(unsigned int i = 0;i < IfStmntClassifier.getCount();i++){
+		printf("IfStmntClassifier classifies on position %d ",i);
+		switch(IfStmntClassifier.getType(i)){
+			case CodeClassifier::mixed:
+				printf("mixed\n");
+				break;
+			case CodeClassifier::onlyDecrease:
+				printf("decrease\n");
+				break;
+			case CodeClassifier::onlyIncrease:
+				printf("increase\n");
+				break;
+		}
+	}
+
 	return true;
 }
 
