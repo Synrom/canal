@@ -1,6 +1,9 @@
 #ifndef ROOT_OPERATION_H
 #define ROOT_OPERATION_H
 
+#include <vector>
+#include <type_traits>
+
 
 class function;
 class operation;
@@ -31,6 +34,7 @@ public:
 	~operation_stack();
 
 	using iterator = operation *;
+	using rope = unsigned int;
 
 	void print();
 	void print_simple();
@@ -52,14 +56,28 @@ public:
 	void push_back(const Ret &);
 	void push_back(const IntLiteral &);
 	void push_back(const VarPush &);
+	
+	
+	template<typename T>
+	void insert_last_rope(const T &);
+
+	template<typename T>
+	void insert_all_ropes(const T &);
+
+	void add_rope();
 
 	operation *get_latest_added_operation();
 
 
 private:
+
+	template<typename T>
+	void insert(const T &,rope *);
+
 	operation *start_buf, *end_buf;
 	unsigned int capacity;
 	operation *current;
+	std::vector<rope> ropes;
 
 	iterator begin();
 	iterator end();

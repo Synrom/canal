@@ -36,7 +36,6 @@ public:
 	bool hasAlreadyReturnedSomething{false};
 
 
-	/* noch nicht final */
 	variable *execute(std::vector<variable *> & );
 	function(const std::string &);
 	function(function &&);

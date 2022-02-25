@@ -20,7 +20,7 @@ void Shl::executeOperation(variable *left, variable *right, variable *where){
 	left->Shl(where, right);
 }
 
-void Shl::clone(operation *location){
+void Shl::clone(operation *location) const {
 	debug("cloning Shl operation to %p",location);
 	new (location) Shl(freference);
 }
@@ -42,7 +42,7 @@ void Shr::executeOperation(variable *left, variable *right, variable *where){
 	left->Shr(where, right);
 }
 
-void Shr::clone(operation *location){
+void Shr::clone(operation *location) const {
 	debug("cloning Shr operation to %p",location);
 	new (location) Shr(freference);
 }

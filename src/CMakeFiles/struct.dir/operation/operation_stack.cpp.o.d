@@ -1,8 +1,7 @@
 src/CMakeFiles/struct.dir/operation/operation_stack.cpp.o: \
  /home/synrom/lego/canal/src/operation/operation_stack.cpp \
- /usr/x86_64-linux-gnu/include/stdc-predef.h \
- /home/synrom/lego/canal/src/../include/canal/operation.h \
- /usr/include/c++/10/iostream \
+ /usr/x86_64-linux-gnu/include/stdc-predef.h /usr/include/c++/10/vector \
+ /usr/include/c++/10/bits/stl_algobase.h \
  /usr/include/x86_64-linux-gnu/c++/10/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/10/bits/os_defines.h \
  /usr/x86_64-linux-gnu/include/features.h \
@@ -12,14 +11,50 @@ src/CMakeFiles/struct.dir/operation/operation_stack.cpp.o: \
  /usr/x86_64-linux-gnu/include/gnu/stubs.h \
  /usr/x86_64-linux-gnu/include/gnu/stubs-64.h \
  /usr/include/x86_64-linux-gnu/c++/10/bits/cpu_defines.h \
- /usr/include/c++/10/ostream /usr/include/c++/10/ios \
- /usr/include/c++/10/iosfwd /usr/include/c++/10/bits/stringfwd.h \
- /usr/include/c++/10/bits/memoryfwd.h /usr/include/c++/10/bits/postypes.h \
+ /usr/include/c++/10/bits/functexcept.h \
+ /usr/include/c++/10/bits/exception_defines.h \
+ /usr/include/c++/10/bits/cpp_type_traits.h \
+ /usr/include/c++/10/ext/type_traits.h \
+ /usr/include/c++/10/ext/numeric_traits.h \
+ /usr/include/c++/10/bits/stl_pair.h /usr/include/c++/10/bits/move.h \
+ /usr/include/c++/10/type_traits \
+ /usr/include/c++/10/bits/stl_iterator_base_types.h \
+ /usr/include/c++/10/bits/stl_iterator_base_funcs.h \
+ /usr/include/c++/10/bits/concept_check.h \
+ /usr/include/c++/10/debug/assertions.h \
+ /usr/include/c++/10/bits/stl_iterator.h \
+ /usr/include/c++/10/bits/ptr_traits.h /usr/include/c++/10/debug/debug.h \
+ /usr/include/c++/10/bits/predefined_ops.h \
+ /usr/include/c++/10/bits/allocator.h \
+ /usr/include/x86_64-linux-gnu/c++/10/bits/c++allocator.h \
+ /usr/include/c++/10/ext/new_allocator.h /usr/include/c++/10/new \
+ /usr/include/c++/10/exception /usr/include/c++/10/bits/exception.h \
+ /usr/include/c++/10/bits/exception_ptr.h \
+ /usr/include/c++/10/bits/cxxabi_init_exception.h \
+ /usr/lib/gcc/x86_64-linux-gnu/10/include/stddef.h \
+ /usr/include/c++/10/typeinfo /usr/include/c++/10/bits/hash_bytes.h \
+ /usr/include/c++/10/bits/nested_exception.h \
+ /usr/include/c++/10/bits/memoryfwd.h \
+ /usr/include/c++/10/bits/stl_construct.h \
+ /usr/include/c++/10/bits/stl_uninitialized.h \
+ /usr/include/c++/10/ext/alloc_traits.h \
+ /usr/include/c++/10/bits/alloc_traits.h \
+ /usr/include/c++/10/bits/stl_vector.h \
+ /usr/include/c++/10/initializer_list \
+ /usr/include/c++/10/bits/stl_bvector.h \
+ /usr/include/c++/10/bits/functional_hash.h \
+ /usr/include/c++/10/bits/range_access.h \
+ /usr/include/c++/10/bits/iterator_concepts.h \
+ /usr/include/c++/10/concepts /usr/include/c++/10/bits/range_cmp.h \
+ /usr/include/c++/10/bits/vector.tcc \
+ /home/synrom/lego/canal/src/../include/canal/operation.h \
+ /usr/include/c++/10/iostream /usr/include/c++/10/ostream \
+ /usr/include/c++/10/ios /usr/include/c++/10/iosfwd \
+ /usr/include/c++/10/bits/stringfwd.h /usr/include/c++/10/bits/postypes.h \
  /usr/include/c++/10/cwchar /usr/x86_64-linux-gnu/include/wchar.h \
  /usr/x86_64-linux-gnu/include/bits/libc-header-start.h \
  /usr/x86_64-linux-gnu/include/bits/floatn.h \
  /usr/x86_64-linux-gnu/include/bits/floatn-common.h \
- /usr/lib/gcc/x86_64-linux-gnu/10/include/stddef.h \
  /usr/lib/gcc/x86_64-linux-gnu/10/include/stdarg.h \
  /usr/x86_64-linux-gnu/include/bits/wchar.h \
  /usr/x86_64-linux-gnu/include/bits/types/wint_t.h \
@@ -29,27 +64,7 @@ src/CMakeFiles/struct.dir/operation/operation_stack.cpp.o: \
  /usr/x86_64-linux-gnu/include/bits/types/FILE.h \
  /usr/x86_64-linux-gnu/include/bits/types/locale_t.h \
  /usr/x86_64-linux-gnu/include/bits/types/__locale_t.h \
- /usr/include/c++/10/exception /usr/include/c++/10/bits/exception.h \
- /usr/include/c++/10/bits/exception_ptr.h \
- /usr/include/c++/10/bits/exception_defines.h \
- /usr/include/c++/10/bits/cxxabi_init_exception.h \
- /usr/include/c++/10/typeinfo /usr/include/c++/10/bits/hash_bytes.h \
- /usr/include/c++/10/new /usr/include/c++/10/bits/nested_exception.h \
- /usr/include/c++/10/bits/move.h /usr/include/c++/10/type_traits \
- /usr/include/c++/10/bits/char_traits.h \
- /usr/include/c++/10/bits/stl_algobase.h \
- /usr/include/c++/10/bits/functexcept.h \
- /usr/include/c++/10/bits/cpp_type_traits.h \
- /usr/include/c++/10/ext/type_traits.h \
- /usr/include/c++/10/ext/numeric_traits.h \
- /usr/include/c++/10/bits/stl_pair.h \
- /usr/include/c++/10/bits/stl_iterator_base_types.h \
- /usr/include/c++/10/bits/stl_iterator_base_funcs.h \
- /usr/include/c++/10/bits/concept_check.h \
- /usr/include/c++/10/debug/assertions.h \
- /usr/include/c++/10/bits/stl_iterator.h \
- /usr/include/c++/10/bits/ptr_traits.h /usr/include/c++/10/debug/debug.h \
- /usr/include/c++/10/bits/predefined_ops.h /usr/include/c++/10/cstdint \
+ /usr/include/c++/10/bits/char_traits.h /usr/include/c++/10/cstdint \
  /usr/lib/gcc/x86_64-linux-gnu/10/include/stdint.h \
  /usr/x86_64-linux-gnu/include/stdint.h \
  /usr/x86_64-linux-gnu/include/bits/types.h \
@@ -91,23 +106,14 @@ src/CMakeFiles/struct.dir/operation/operation_stack.cpp.o: \
  /usr/x86_64-linux-gnu/include/bits/struct_rwlock.h \
  /usr/x86_64-linux-gnu/include/bits/setjmp.h \
  /usr/x86_64-linux-gnu/include/bits/types/__sigset_t.h \
+ /usr/x86_64-linux-gnu/include/bits/types/struct___jmp_buf_tag.h \
  /usr/include/x86_64-linux-gnu/c++/10/bits/atomic_word.h \
  /usr/include/c++/10/bits/locale_classes.h /usr/include/c++/10/string \
- /usr/include/c++/10/bits/allocator.h \
- /usr/include/x86_64-linux-gnu/c++/10/bits/c++allocator.h \
- /usr/include/c++/10/ext/new_allocator.h \
  /usr/include/c++/10/bits/ostream_insert.h \
  /usr/include/c++/10/bits/cxxabi_forced.h \
  /usr/include/c++/10/bits/stl_function.h \
  /usr/include/c++/10/backward/binders.h \
- /usr/include/c++/10/bits/range_access.h \
- /usr/include/c++/10/initializer_list \
- /usr/include/c++/10/bits/iterator_concepts.h \
- /usr/include/c++/10/concepts /usr/include/c++/10/bits/range_cmp.h \
  /usr/include/c++/10/bits/basic_string.h \
- /usr/include/c++/10/ext/alloc_traits.h \
- /usr/include/c++/10/bits/alloc_traits.h \
- /usr/include/c++/10/bits/stl_construct.h \
  /usr/include/c++/10/ext/string_conversions.h /usr/include/c++/10/cstdlib \
  /usr/x86_64-linux-gnu/include/stdlib.h \
  /usr/x86_64-linux-gnu/include/bits/waitflags.h \
@@ -136,7 +142,6 @@ src/CMakeFiles/struct.dir/operation/operation_stack.cpp.o: \
  /usr/x86_64-linux-gnu/include/asm-generic/errno-base.h \
  /usr/x86_64-linux-gnu/include/bits/types/error_t.h \
  /usr/include/c++/10/bits/charconv.h \
- /usr/include/c++/10/bits/functional_hash.h \
  /usr/include/c++/10/bits/basic_string.tcc \
  /usr/include/c++/10/bits/locale_classes.tcc \
  /usr/include/c++/10/system_error \
@@ -153,11 +158,7 @@ src/CMakeFiles/struct.dir/operation/operation_stack.cpp.o: \
  /usr/include/c++/10/bits/locale_facets.tcc \
  /usr/include/c++/10/bits/basic_ios.tcc \
  /usr/include/c++/10/bits/ostream.tcc /usr/include/c++/10/istream \
- /usr/include/c++/10/bits/istream.tcc /usr/include/c++/10/vector \
- /usr/include/c++/10/bits/stl_uninitialized.h \
- /usr/include/c++/10/bits/stl_vector.h \
- /usr/include/c++/10/bits/stl_bvector.h \
- /usr/include/c++/10/bits/vector.tcc \
+ /usr/include/c++/10/bits/istream.tcc \
  /home/synrom/lego/canal/src/../include/canal/variable.h \
  /home/synrom/lego/canal/src/../include/canal/function.h \
  /home/synrom/lego/canal/src/../include/canal/container.h \

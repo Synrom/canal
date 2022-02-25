@@ -21,6 +21,45 @@ extern root_scope global_scope;
 int main(int argc, char** argv)
 {
 
+	// TEST OPERATION_STACK ROPE
+	{
+		printf("TESTING THE OPERATION_STACK ROPE SYSTEM\n");
+		function imag("imaginary");
+		imag.operations.add_rope();
+		imag.operations.push_back(Equal(imag));
+		imag.operations.push_back(VarPush("v1",imag));
+		imag.operations.push_back(IntLiteral(150,imag));
+		imag.operations.insert_last_rope(Equal(imag));
+		imag.operations.insert_last_rope(VarPush("first",imag));
+		imag.operations.insert_last_rope(VarPush("works",imag));
+
+
+		imag.operations.add_rope();
+		imag.operations.push_back(Equal(imag));
+		imag.operations.push_back(VarPush("v2",imag));
+		imag.operations.push_back(Add(imag));
+		imag.operations.push_back(IntLiteral(1,imag));
+		imag.operations.push_back(IntLiteral(2,imag));
+		imag.operations.insert_last_rope(Equal(imag));
+		imag.operations.insert_last_rope(VarPush("middle",imag));
+		imag.operations.insert_last_rope(VarPush("works",imag));
+
+
+		imag.operations.add_rope();
+		imag.operations.insert_last_rope(Equal(imag));
+		imag.operations.insert_last_rope(VarPush("last",imag));
+		imag.operations.insert_last_rope(VarPush("works",imag));
+
+		imag.operations.insert_all_ropes(Equal(imag));
+		imag.operations.insert_all_ropes(VarPush("both",imag));
+		imag.operations.insert_all_ropes(VarPush("works",imag));
+
+		printf("after last and both rope");
+		imag.operations.print_simple();
+
+		info("TEST ENDED");
+	}
+	/*
 	if (argc < 2) {
 		return 1;
 	}
@@ -43,6 +82,7 @@ int main(int argc, char** argv)
 			(*i).print_vars();
 		}
 	}
+	*/
 
 	
 

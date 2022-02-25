@@ -1,8 +1,66 @@
+#include <vector>
+
 #include <canal/operation.h>
 #include <canal/operation_stack.h>
 #include <canal/debugger.h>
 
 
+template<typename T> 
+void operation_stack::insert(const T &value, rope *r){
+	debug("inserting operation in operation_stack at %u",*r);
+	unsigned int difference = current - start_buf;
+
+	debug("operation_stack before new location %p-%p",start_buf,end_buf);
+	operation *i = get_new_location();
+	debug("operation_stack after new location %p-%p",start_buf,end_buf);
+
+
+	while(start_buf + *r < i){
+
+		error_conditional(i < start_buf, "operation_stack::insert with rope %u is out of bounds start: %p iterator: %p",*r,start_buf,i);
+
+
+		debug("cloning %p to %p",i-1,i);
+		(i - 1)->clone(i);
+
+		debug("destructing %p",i-1);
+		(i - 1)->~operation();
+
+		i--;
+	}
+
+operation_stack_insert_value:
+	error_conditional(start_buf + *r != i, "start_buf %p plus %u (times size of operation) isnt equal to %p",start_buf,*r,i);
+	debug("final clone of value to %p",i);
+	value.clone(i);
+
+	for(auto adjuster = ropes.begin();adjuster != ropes.end();adjuster++){
+		if(*adjuster > *r)
+			(*adjuster)++;
+	}
+
+	current = start_buf + difference;
+	(*r)++;
+}
+
+
+template<typename T>
+void operation_stack::insert_all_ropes(const T &value){
+	for(auto i = ropes.begin();i != ropes.end();i++){
+		insert(value,&(*i));
+	}
+}
+
+template<typename T>
+void operation_stack::insert_last_rope(const T &value){
+	debug("inserting into last rope");
+	insert(value,&ropes.back());
+}
+
+void operation_stack::add_rope(){
+	debug("returning rope %u with start: %p and end: %p",end_buf-start_buf,start_buf,end_buf);
+	ropes.emplace_back(end_buf-start_buf);
+}
 
 
 operation_stack::operation_stack(){
@@ -206,3 +264,54 @@ operation *operation_stack::get_latest_added_operation(){
 	debug("returning latest added operation");
 	return end_buf - 1;
 }
+
+template void operation_stack::insert<Add>(const Add &value,rope *r);
+template void operation_stack::insert<Minus>(const Minus &value,rope *r);
+template void operation_stack::insert<Divide>(const Divide &value,rope *r);
+template void operation_stack::insert<Times>(const Times &value,rope *r);
+template void operation_stack::insert<Or>(const Or &value,rope *r);
+template void operation_stack::insert<And>(const And &value,rope *r);
+template void operation_stack::insert<Xor>(const Xor &value,rope *r);
+template void operation_stack::insert<Shl>(const Shl &value,rope *r);
+template void operation_stack::insert<Shr>(const Shr &value,rope *r);
+template void operation_stack::insert<Neg>(const Neg &value,rope *r);
+template void operation_stack::insert<Dec>(const Dec &value,rope *r);
+template void operation_stack::insert<Inc>(const Inc &value,rope *r);
+template void operation_stack::insert<Call>(const Call &value,rope *r);
+template void operation_stack::insert<Equal>(const Equal &value,rope *r);
+template void operation_stack::insert<Ret>(const Ret &value,rope *r);
+template void operation_stack::insert<VarPush>(const VarPush &value,rope *r);
+
+template void operation_stack::insert_all_ropes<Add>(const Add &value);
+template void operation_stack::insert_all_ropes<Minus>(const Minus &value);
+template void operation_stack::insert_all_ropes<Divide>(const Divide &value);
+template void operation_stack::insert_all_ropes<Times>(const Times &value);
+template void operation_stack::insert_all_ropes<Or>(const Or &value);
+template void operation_stack::insert_all_ropes<And>(const And &value);
+template void operation_stack::insert_all_ropes<Xor>(const Xor &value);
+template void operation_stack::insert_all_ropes<Shl>(const Shl &value);
+template void operation_stack::insert_all_ropes<Shr>(const Shr &value);
+template void operation_stack::insert_all_ropes<Neg>(const Neg &value);
+template void operation_stack::insert_all_ropes<Dec>(const Dec &value);
+template void operation_stack::insert_all_ropes<Inc>(const Inc &value);
+template void operation_stack::insert_all_ropes<Call>(const Call &value);
+template void operation_stack::insert_all_ropes<Equal>(const Equal &value);
+template void operation_stack::insert_all_ropes<Ret>(const Ret &value);
+template void operation_stack::insert_all_ropes<VarPush>(const VarPush &value);
+
+template void operation_stack::insert_last_rope<Add>(const Add &value);
+template void operation_stack::insert_last_rope<Minus>(const Minus &value);
+template void operation_stack::insert_last_rope<Divide>(const Divide &value);
+template void operation_stack::insert_last_rope<Times>(const Times &value);
+template void operation_stack::insert_last_rope<Or>(const Or &value);
+template void operation_stack::insert_last_rope<And>(const And &value);
+template void operation_stack::insert_last_rope<Xor>(const Xor &value);
+template void operation_stack::insert_last_rope<Shl>(const Shl &value);
+template void operation_stack::insert_last_rope<Shr>(const Shr &value);
+template void operation_stack::insert_last_rope<Neg>(const Neg &value);
+template void operation_stack::insert_last_rope<Dec>(const Dec &value);
+template void operation_stack::insert_last_rope<Inc>(const Inc &value);
+template void operation_stack::insert_last_rope<Call>(const Call &value);
+template void operation_stack::insert_last_rope<Equal>(const Equal &value);
+template void operation_stack::insert_last_rope<Ret>(const Ret &value);
+template void operation_stack::insert_last_rope<VarPush>(const VarPush &value);

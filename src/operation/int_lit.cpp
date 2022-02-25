@@ -24,7 +24,7 @@ void IntLiteral::executeOperation(variable *left, variable *right, variable *whe
 	warning("calling IntLiteral executeOperation which is really weird");
 }
 
-void IntLiteral::clone(operation *location){
+void IntLiteral::clone(operation *location) const {
 	debug("cloning IntLiteral operation to %p",location);
 	new (location) IntLiteral(literal.signedlonglong,freference);
 }

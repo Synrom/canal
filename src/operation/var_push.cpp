@@ -26,7 +26,7 @@ void VarPush::executeOperation(variable *left, variable *right, variable *where)
 	warning("calling VarPush executeOperation which is really weird");
 }
 
-void VarPush::clone(operation *location){
+void VarPush::clone(operation *location) const {
 	debug("cloning VarPush operation to %p",location);
 	new (location) VarPush(var_name,freference);
 }
