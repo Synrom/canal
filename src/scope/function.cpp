@@ -109,7 +109,29 @@ void function::print_vars(){
 	current_vstance->print();
 }
 
+void function::add_switches(unsigned int count){
+	current_vstance->add_switches(count);
+	
+	debug("setting current to firstly added stance");
+	
+	unsigned int position = current_vstance->children_size() - count;
+	
+	current_vstance = current_vstance->get_child(position);
+}
 
+void function::next_switch(){
+	current_vstance = current_vstance->get_following_neighbor();
+}
+
+void function::end_switch(){
+	debug("ending switch of function and setting current_vstance to parent of current_vstance");
+
+	error_conditional(!current_vstance->get_parent(),"trying to end_switch on root vstance");
+
+	current_vstance = current_vstance->get_parent();
+}
+
+	
 
 
 

@@ -90,16 +90,22 @@ public:
 	unsigned int container_quantity();
 
 	vstance(vstance *,vcontainer_vector *, vstance_vector *);
+	
+	// primitive functions, that dont care about parents etc.
 	void add_new_container();
-	void add_existing_container(vcontainer *);
 	vcontainer *copy_container(vcontainer *);
-	void reset();
 	vstance *get_parent();
+	vstance *get_child(unsigned int);
+	vstance *get_following_neighbor();
+	unsigned int children_size();
 
-	// TODO:
-	void add_switches(unsigned int); // number of switches to add
+	// all of these functions care about parents 
+	void add_switches(unsigned int); 
+	void add_existing_container(vcontainer *);
+	void reset();
 
 	void print();
+	void print_structure();
 	
 	void add_var(const std::string & ,double );
 	void add_var(const std::string & ,float );
@@ -129,8 +135,8 @@ private:
 
 public:
 	vstance_vector(function *);
-	vstance *add();
-	vstance *add(vstance *);
+	vstance *add(); // adding vstance root
+	vstance *add(vstance *); // adding vstance with parent
 	void pop();
 	std::deque<vstance> vector;
 

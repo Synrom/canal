@@ -1,6 +1,4 @@
-- Compound und IfStmnt Classfifier UnaryOperators hinzufügen
-- operation_stack::rope implementieren
-- isVarinStmnt UnaryOperations detector implementieren
+- vstance::add_switch(unsigned int) implementieren
 
 
 weite Zukunft:

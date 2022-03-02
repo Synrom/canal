@@ -50,9 +50,6 @@ int main(){
 		c = add(14,12);
 	}else if(true){
 		a = 14;
-		if(14){
-			printf("adsf");
-		}
 	}else{
 		getvar();
 	}

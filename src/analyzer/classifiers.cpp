@@ -16,6 +16,55 @@
 #include <clang/AST/OperationKinds.h>
 #include <llvm/Support/Casting.h>
 
+unsigned int canal_IfStmnt_classifier::getSwitchCount(){
+	return switch_count;
+}
+
+bool canal_Compound_classifier::VisitUnaryOperator(clang::UnaryOperator *un_op){
+	if(!Schedule.look_up())
+		return true;
+	Schedule.increase_child();
+	if(type == CodeClassifier::mixed)
+		return true;
+	switch(un_op->getOpcode()){
+		case clang::UnaryOperatorKind::UO_PostDec:
+		case clang::UnaryOperatorKind::UO_PreDec:
+			visitedDecreasingOp = true;
+			break;
+		case clang::UnaryOperatorKind::UO_PostInc:
+		case clang::UnaryOperatorKind::UO_PreInc:
+			if(visitedDecreasingOp)
+				type = CodeClassifier::mixed;
+			else
+				type = CodeClassifier::onlyIncrease;
+		default:
+			break;
+	}
+	return true;
+}
+
+bool canal_IfStmnt_classifier::VisitUnaryOperator(clang::UnaryOperator *un_op){
+	if(!Schedule.look_up())
+		return true;
+	if(type.back() == CodeClassifier::mixed)
+		return true;
+	switch(un_op->getOpcode()){
+		case clang::UnaryOperatorKind::UO_PostDec:
+		case clang::UnaryOperatorKind::UO_PreDec:
+			visitedDecreasingOp = true;
+			break;
+		case clang::UnaryOperatorKind::UO_PostInc:
+		case clang::UnaryOperatorKind::UO_PreInc:
+			if(visitedDecreasingOp)
+				type.back() = CodeClassifier::mixed;
+			else
+				type.back() = CodeClassifier::onlyIncrease;
+		default:
+			break;
+	}
+	return true;
+}
+
 CodeClassifier canal_Compound_classifier::getType(){
 	return type;
 }
@@ -62,6 +111,7 @@ bool canal_IfStmnt_classifier::VisitCompoundStmt(clang::CompoundStmt *com_stmnt)
 	else{
 		info("found last Compound -> else");
 		type.push_back(CodeClassifier::onlyDecrease);
+		switch_count++;
 		if(!isElseNeutral)
 			visitedDecreasingOp = true;
 		else
@@ -88,6 +138,7 @@ bool canal_IfStmnt_classifier::VisitIfStmt(clang::IfStmt *if_stmnt){
 	info("found IfStmnt and set values acordingly");
 	visitedIfBeforeCompound = true;
 	type.push_back(CodeClassifier::onlyDecrease);
+	switch_count++;
 	if(!isElseNeutral)
 		visitedDecreasingOp = true;
 	else
@@ -98,6 +149,25 @@ bool canal_IfStmnt_classifier::VisitIfStmt(clang::IfStmt *if_stmnt){
 
 void canal_Compound_classifier::setType(CodeClassifier c){
 	type = c;
+}
+
+bool isVarinExpr(clang::Expr *expr);
+
+bool isVarSigned(clang::Expr *expr){
+	if(llvm::dyn_cast<clang::BinaryOperator>(expr)){
+		clang::BinaryOperator *bn_op = llvm::dyn_cast<clang::BinaryOperator>(expr);
+		return isVarSigned(bn_op->getLHS()) || isVarSigned(bn_op->getRHS());
+	}
+	if(llvm::dyn_cast<clang::UnaryOperator>(expr)){
+		clang::UnaryOperator *un_op = llvm::dyn_cast<clang::UnaryOperator>(expr);
+		if(isVarinExpr(un_op->getSubExpr())){
+			if(un_op->getOpcode() == clang::UnaryOperatorKind::UO_Minus)
+				return true;
+			else
+				return isVarSigned(un_op->getSubExpr());
+		}
+	}
+	return false;
 }
 
 bool isVarinExpr(clang::Expr *expr){
@@ -197,6 +267,9 @@ bool canal_IfStmnt_classifier::VisitBinaryOperator(clang::BinaryOperator *bn_op)
 				if(type.back() == CodeClassifier::onlyIncrease)
 					type.back() = CodeClassifier::mixed;
 			}
+			break;
+		case clang::BinaryOperatorKind::BO_LOr:
+			switch_count++;
 			break;
 		default:
 			info("%s is not yet implemented in canal_IfStmnt_classifier::VisitBinaryOperator",clang::BinaryOperator::getOpcodeStr(bn_op->getOpcode()).bytes_begin());

@@ -36,6 +36,7 @@ public:
 	bool VisitIfStmt(clang::IfStmt *);
 	bool VisitCompoundStmt(clang::CompoundStmt *);
 	bool VisitCallExpr(clang::CallExpr *);
+	bool VisitUnaryOperator(clang::UnaryOperator *);
 	
 private:
 	CodeClassifier type{onlyDecrease};
@@ -51,11 +52,13 @@ public:
 	explicit canal_IfStmnt_classifier();
 	CodeClassifier getType(unsigned int);
 	unsigned int getCount();
+	unsigned int getSwitchCount();
 
 	bool VisitBinaryOperator(clang::BinaryOperator *);
 	bool VisitIfStmt(clang::IfStmt *);
 	bool VisitCompoundStmt(clang::CompoundStmt *);
 	bool VisitCallExpr(clang::CallExpr *);
+	bool VisitUnaryOperator(clang::UnaryOperator *);
 	
 	
 private:
@@ -66,6 +69,7 @@ private:
 	bool isElseNeutral{true};
 	bool visitedIfBeforeCompound{false};
 	canal_Compound_classifier CompoundClassifier;
+	unsigned int switch_count{0};
 };
 
 class canal_AST_analyzer : public clang::RecursiveASTVisitor<canal_AST_analyzer>{

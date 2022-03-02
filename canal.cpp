@@ -21,7 +21,7 @@ extern root_scope global_scope;
 int main(int argc, char** argv)
 {
 
-	// TEST OPERATION_STACK ROPE
+	/* TEST OPERATION_STACK ROPE
 	{
 		printf("TESTING THE OPERATION_STACK ROPE SYSTEM\n");
 		function imag("imaginary");
@@ -58,6 +58,31 @@ int main(int argc, char** argv)
 		imag.operations.print_simple();
 
 		info("TEST ENDED");
+	}
+	*/
+
+	// TEST VSTANCE SWITCHES
+	{
+		printf("TESTING THE OPERATION_STACK ROPE SYSTEM\n");
+		function imag("imaginary");
+		imag.current_vstance->add_var("Var1",1);
+		imag.current_vstance->add_var("Var2",2);
+		imag.current_vstance->add_var("Var3",3);
+		imag.current_vstance->add_var("Var4",4);
+		imag.add_switches(4);
+		imag.next_switch();
+		imag.next_switch();
+		imag.add_switches(5);
+		imag.next_switch();
+		imag.next_switch();
+		imag.next_switch();
+		imag.next_switch();
+		imag.end_switch();
+		imag.current_vstance->print();
+		imag.next_switch();
+		imag.end_switch();
+		imag.current_vstance->print();
+
 	}
 	/*
 	if (argc < 2) {

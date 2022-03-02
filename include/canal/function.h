@@ -43,6 +43,11 @@ public:
 
 	void execute();
 	void reset();
+
+	void add_switches(unsigned int);
+	void next_switch();
+	void end_switch();
+
 	
 	void print();
 	void print_simple();

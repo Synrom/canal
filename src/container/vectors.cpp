@@ -56,6 +56,8 @@ void vstance::add_new_container(){
 void vstance::add_existing_container(vcontainer *c){
 	debug("add existing container %p to stance",c);
 	container.push_back(c);
+	if(parent)
+		parent->add_existing_container(c);
 }
 
 vcontainer* vstance::copy_container(vcontainer *c){
@@ -217,9 +219,80 @@ void vstance::reset(){
 }
 
 void vstance::print(){
-	printf("\nVSTANCE:\n\n");
+	printf("\nVSTANCE STRUCTURE:\n\n");
+	print_structure();
+	printf("\n");
 	for(auto i = container.begin();i != container.end();i++){
 		(*i)->print();
 		printf("\n");
 	}
+
 }
+
+void vstance::print_structure(){
+	printf("{%lu,[",container.size());
+	for(auto i = children.begin();i != children.end();i++){
+		(*i)->print_structure();
+		printf(",");
+	}
+	if(children.size() > 0)
+		printf("\b");
+	printf("]}");
+}
+
+void vstance::add_switches(unsigned int count){
+	debug("adding %u switches to vstance",count);
+
+	debug("adding the switches");
+	for(int i = 0;i < count;i++){
+		children.push_back(stance_space->add(this));
+		for(auto ci = container.begin();ci != container.end();ci++)
+			children.back()->copy_container(*ci);
+	}
+
+	debug("adding container pointers to parent stances");
+	auto si = children.rbegin();
+	for(int i = 0;i < count;i++,si++){
+		for(auto ci = (*si)->container.begin();ci != (*si)->container.end();ci++)
+			add_existing_container(*ci);
+	}
+}
+
+unsigned int vstance::children_size(){
+	debug("returning children size %u",children.size());
+	return children.size();
+}
+
+vstance *vstance::get_child(unsigned int p){
+	debug("returning child %p at position %u",children[p],p);
+	return children[p];
+}
+
+vstance *vstance::get_following_neighbor(){
+	debug("getting following neighbor of %p",this);
+
+	error_conditional(!parent, "trying to get neighbor of root vstance");
+
+	unsigned int this_position = 0;
+	while(parent->get_child(this_position) != this && this_position <= parent->children_size())
+		this_position++;
+
+	error_conditional(this_position >= parent->children_size(), "couldnt find this in parent->children");
+	error_conditional(this_position == parent->children_size() - 1, "trying to get neighbor of latest added children of vstance");
+
+	return parent->get_child(this_position + 1);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

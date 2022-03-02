@@ -23,6 +23,7 @@ bool canal_AST_analyzer::VisitIfStmt(clang::IfStmt *if_stmnt){
 	info("found IfStmnt");
 	canal_IfStmnt_classifier IfStmntClassifier(context);
 	IfStmntClassifier.TraverseStmt(if_stmnt);
+	info("switch count of ifstmnt classifier is %u",IfStmntClassifier.getSwitchCount());
 	for(unsigned int i = 0;i < IfStmntClassifier.getCount();i++){
 		printf("IfStmntClassifier classifies on position %d ",i);
 		switch(IfStmntClassifier.getType(i)){
