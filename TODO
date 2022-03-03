@@ -1,7 +1,19 @@
-- vstance::add_switch(unsigned int) implementieren
+- Sub Ropes implementieren
+- Switch Operations implementieren
+- Inc/Dec Operation implementieren (einfach auch auf result stack pushen -> wird eh nach Aufruf der Funktion gecleared)
+	-> und zu analyzer hinzufügen
+- Access Operation implementieren
+
+
+
 
 
 weite Zukunft:
-stance -> finish (löscht die ganzen COntainer von diesem Stance vom parents Stance. Alle Konsequenzen einberechnen ist hier wichtig)
+IfStmntConditionHandler:
+	> rechts nur variable wird zu = (umkehren hier schwer), ansonsten dump_handler
+	< link nur variable wird zu = (ohne umkehren zum Glück haha), ansonsten dump_handler
+	== wird zu =
+	!= ignorieren
+	
 
 

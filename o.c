@@ -48,10 +48,13 @@ int main(){
 	
 	if(a + 1> 12 && 1 == 1 || 0 != 0){
 		c = add(14,12);
+		a = 14;
 	}else if(true){
 		a = 14;
+		a = 14;
 	}else{
-		getvar();
+		c = getvar();
+		a = 14;
 	}
 
 	return 0;

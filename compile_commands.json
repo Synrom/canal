@@ -186,6 +186,11 @@
 },
 {
   "directory": "/home/synrom/lego/canal/src",
+  "command": "/usr/bin/c++ -DINFO -I/home/synrom/lego/canal/src/../include -I/home/synrom/lego/canal/src  -fno-exceptions -fno-rtti -std=gnu++14 -o CMakeFiles/struct.dir/analyzer/dump_handler.cpp.o -c /home/synrom/lego/canal/src/analyzer/dump_handler.cpp",
+  "file": "/home/synrom/lego/canal/src/analyzer/dump_handler.cpp"
+},
+{
+  "directory": "/home/synrom/lego/canal/src",
   "command": "/usr/bin/c++ -DINFO -I/home/synrom/lego/canal/src/../include -I/home/synrom/lego/canal/src  -fno-exceptions -fno-rtti -std=gnu++14 -o CMakeFiles/struct.dir/container/vectors.cpp.o -c /home/synrom/lego/canal/src/container/vectors.cpp",
   "file": "/home/synrom/lego/canal/src/container/vectors.cpp"
 },

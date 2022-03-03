@@ -255,6 +255,30 @@ analyzer/classifiers.cpp.s:
 	cd /home/synrom/lego/canal && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/struct.dir/build.make src/CMakeFiles/struct.dir/analyzer/classifiers.cpp.s
 .PHONY : analyzer/classifiers.cpp.s
 
+analyzer/dump_handler.o: analyzer/dump_handler.cpp.o
+.PHONY : analyzer/dump_handler.o
+
+# target to build an object file
+analyzer/dump_handler.cpp.o:
+	cd /home/synrom/lego/canal && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/struct.dir/build.make src/CMakeFiles/struct.dir/analyzer/dump_handler.cpp.o
+.PHONY : analyzer/dump_handler.cpp.o
+
+analyzer/dump_handler.i: analyzer/dump_handler.cpp.i
+.PHONY : analyzer/dump_handler.i
+
+# target to preprocess a source file
+analyzer/dump_handler.cpp.i:
+	cd /home/synrom/lego/canal && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/struct.dir/build.make src/CMakeFiles/struct.dir/analyzer/dump_handler.cpp.i
+.PHONY : analyzer/dump_handler.cpp.i
+
+analyzer/dump_handler.s: analyzer/dump_handler.cpp.s
+.PHONY : analyzer/dump_handler.s
+
+# target to generate assembly for a file
+analyzer/dump_handler.cpp.s:
+	cd /home/synrom/lego/canal && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/struct.dir/build.make src/CMakeFiles/struct.dir/analyzer/dump_handler.cpp.s
+.PHONY : analyzer/dump_handler.cpp.s
+
 analyzer/function_analyzer.o: analyzer/function_analyzer.cpp.o
 .PHONY : analyzer/function_analyzer.o
 
@@ -1235,6 +1259,9 @@ help:
 	@echo "... analyzer/classifiers.o"
 	@echo "... analyzer/classifiers.i"
 	@echo "... analyzer/classifiers.s"
+	@echo "... analyzer/dump_handler.o"
+	@echo "... analyzer/dump_handler.i"
+	@echo "... analyzer/dump_handler.s"
 	@echo "... analyzer/function_analyzer.o"
 	@echo "... analyzer/function_analyzer.i"
 	@echo "... analyzer/function_analyzer.s"

@@ -1,6 +1,8 @@
 file(REMOVE_RECURSE
   "CMakeFiles/struct.dir/analyzer/classifiers.cpp.o"
   "CMakeFiles/struct.dir/analyzer/classifiers.cpp.o.d"
+  "CMakeFiles/struct.dir/analyzer/dump_handler.cpp.o"
+  "CMakeFiles/struct.dir/analyzer/dump_handler.cpp.o.d"
   "CMakeFiles/struct.dir/analyzer/function_analyzer.cpp.o"
   "CMakeFiles/struct.dir/analyzer/function_analyzer.cpp.o.d"
   "CMakeFiles/struct.dir/analyzer/function_finder.cpp.o"

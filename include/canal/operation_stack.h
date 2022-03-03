@@ -39,6 +39,22 @@ public:
 	void print();
 	void print_simple();
 
+	
+	
+	template<typename T>
+	void insert_last_rope(const T &);
+
+	template<typename T>
+	void insert_all_ropes(const T &);
+
+	void add_rope();
+	void clear_ropes();
+
+	operation *get_latest_added_operation();
+
+
+private:
+
 	void push_back(const Add &);
 	void push_back(const Minus &);
 	void push_back(const Divide &);
@@ -56,20 +72,6 @@ public:
 	void push_back(const Ret &);
 	void push_back(const IntLiteral &);
 	void push_back(const VarPush &);
-	
-	
-	template<typename T>
-	void insert_last_rope(const T &);
-
-	template<typename T>
-	void insert_all_ropes(const T &);
-
-	void add_rope();
-
-	operation *get_latest_added_operation();
-
-
-private:
 
 	template<typename T>
 	void insert(const T &,rope *);

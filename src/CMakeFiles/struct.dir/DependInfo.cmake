@@ -9,6 +9,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/synrom/lego/canal/src/analyzer/classifiers.cpp" "src/CMakeFiles/struct.dir/analyzer/classifiers.cpp.o" "gcc" "src/CMakeFiles/struct.dir/analyzer/classifiers.cpp.o.d"
+  "/home/synrom/lego/canal/src/analyzer/dump_handler.cpp" "src/CMakeFiles/struct.dir/analyzer/dump_handler.cpp.o" "gcc" "src/CMakeFiles/struct.dir/analyzer/dump_handler.cpp.o.d"
   "/home/synrom/lego/canal/src/analyzer/function_analyzer.cpp" "src/CMakeFiles/struct.dir/analyzer/function_analyzer.cpp.o" "gcc" "src/CMakeFiles/struct.dir/analyzer/function_analyzer.cpp.o.d"
   "/home/synrom/lego/canal/src/analyzer/function_finder.cpp" "src/CMakeFiles/struct.dir/analyzer/function_finder.cpp.o" "gcc" "src/CMakeFiles/struct.dir/analyzer/function_finder.cpp.o.d"
   "/home/synrom/lego/canal/src/container/vectors.cpp" "src/CMakeFiles/struct.dir/container/vectors.cpp.o" "gcc" "src/CMakeFiles/struct.dir/container/vectors.cpp.o.d"

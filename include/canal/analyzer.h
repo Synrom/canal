@@ -24,6 +24,26 @@ enum CodeClassifier{
 	mixed,
 };
 
+class canal_dump_AST_Handler: public clang::RecursiveASTVisitor<canal_dump_AST_Handler>{
+public:
+	explicit canal_dump_AST_Handler(clang::ASTContext *, scheduler *);
+	void handle();
+	
+	bool VisitFunctionDecl(clang::FunctionDecl *);
+	bool VisitVarDecl(clang::VarDecl *);
+	bool VisitBinaryOperator(clang::BinaryOperator *);
+	bool VisitUnaryOperator(clang::UnaryOperator *);
+	bool VisitIntegerLiteral(clang::IntegerLiteral *);
+	bool VisitDeclRefExpr(clang::DeclRefExpr *);
+	bool VisitCallExpr(clang::CallExpr *);
+	bool VisitReturnStmt(clang::ReturnStmt *);
+	bool VisitIfStmt(clang::IfStmt *);
+
+private:
+	clang::ASTContext *context{NULL};
+	scheduler Schedule;
+};
+
 class canal_Compound_classifier : public clang::RecursiveASTVisitor<canal_Compound_classifier>{
 public:
 

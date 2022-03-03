@@ -20,6 +20,8 @@ extern root_scope global_scope;
 bool canal_AST_analyzer::VisitIfStmt(clang::IfStmt *if_stmnt){
 	if(!Schedule.look_up())
 		return true;
+	Schedule.increase_child();
+
 	info("found IfStmnt");
 	canal_IfStmnt_classifier IfStmntClassifier(context);
 	IfStmntClassifier.TraverseStmt(if_stmnt);
@@ -39,12 +41,18 @@ bool canal_AST_analyzer::VisitIfStmt(clang::IfStmt *if_stmnt){
 		}
 	}
 
+	canal_dump_AST_Handler dumpHandler(context,&Schedule);
+	dumpHandler.TraverseStmt(if_stmnt);
+
+
+
 	return true;
 }
 
 bool canal_AST_analyzer::VisitVarDecl(clang::VarDecl *var_decl){
 	if(!Schedule.look_up())
 		return true;
+	Schedule.increase_child();
 	
 	std::string var_name = var_decl->getNameAsString();
 	info("found declination statement of %s",var_name.c_str());
@@ -67,9 +75,11 @@ bool canal_AST_analyzer::VisitVarDecl(clang::VarDecl *var_decl){
 bool canal_AST_analyzer::VisitReturnStmt(clang::ReturnStmt *ret){
 	if(!Schedule.look_up())
 		return true;
+	Schedule.increase_child();
+
 	info("visiting return statement");
 
-	current_function->operations.push_back(Ret(*current_function));
+	current_function->operations.insert_all_ropes(Ret(*current_function));
 
 	return true;
 }
@@ -77,6 +87,7 @@ bool canal_AST_analyzer::VisitReturnStmt(clang::ReturnStmt *ret){
 bool canal_AST_analyzer::VisitUnaryOperator(clang::UnaryOperator *un_op){
 	if(!Schedule.look_up())
 		return true;
+	Schedule.increase_child();
 	info("visiting Unary Operator");
 
 	switch(un_op->getOpcode()){
@@ -95,6 +106,7 @@ bool canal_AST_analyzer::VisitUnaryOperator(clang::UnaryOperator *un_op){
 bool canal_AST_analyzer::VisitCallExpr(clang::CallExpr *call_expr){
 	if(!Schedule.look_up())
 		return true;
+	Schedule.increase_child();
 	info("Visiting Call Expr");
 
 	if(thisIsFollowupForAVarDecl){
@@ -102,13 +114,13 @@ bool canal_AST_analyzer::VisitCallExpr(clang::CallExpr *call_expr){
 
 		std::string var_name = current_function->current_vstance->get_latest_added_var()->name;
 
-		current_function->operations.push_back(Equal(*current_function));
-		current_function->operations.push_back(VarPush(var_name,*current_function));
+		current_function->operations.insert_all_ropes(Equal(*current_function));
+		current_function->operations.insert_all_ropes(VarPush(var_name,*current_function));
 		
 		thisIsFollowupForAVarDecl = false;
 	}
 
-	current_function->operations.push_back(Call(NULL, *current_function));
+	current_function->operations.insert_all_ropes(Call(NULL, *current_function));
 	thisIsFollowupOfaCall = true;
 
 	return true;
@@ -117,6 +129,7 @@ bool canal_AST_analyzer::VisitCallExpr(clang::CallExpr *call_expr){
 bool canal_AST_analyzer::VisitDeclRefExpr(clang::DeclRefExpr *decl_ref){
 	if(!Schedule.look_up())
 		return true;
+	Schedule.increase_child();
 	info("visting DeclRefExpr");
 	
 	std::string var_name = decl_ref->getFoundDecl()->getNameAsString();
@@ -136,7 +149,7 @@ bool canal_AST_analyzer::VisitDeclRefExpr(clang::DeclRefExpr *decl_ref){
 		return true;
 	}
 
-	current_function->operations.push_back(VarPush(var_name,*current_function));
+	current_function->operations.insert_all_ropes(VarPush(var_name,*current_function));
 
 	return true;
 }
@@ -144,6 +157,7 @@ bool canal_AST_analyzer::VisitDeclRefExpr(clang::DeclRefExpr *decl_ref){
 bool canal_AST_analyzer::VisitIntegerLiteral(clang::IntegerLiteral *in_lt){
 	if(!Schedule.look_up())
 		return true;
+	Schedule.increase_child();
 	info("visiting integer literal");
 	
 	signed long long literal = in_lt->getValue().getLimitedValue();
@@ -153,8 +167,8 @@ bool canal_AST_analyzer::VisitIntegerLiteral(clang::IntegerLiteral *in_lt){
 
 		std::string var_name = current_function->current_vstance->get_latest_added_var()->name;
 
-		current_function->operations.push_back(Equal(*current_function));
-		current_function->operations.push_back(VarPush(var_name,*current_function));
+		current_function->operations.insert_all_ropes(Equal(*current_function));
+		current_function->operations.insert_all_ropes(VarPush(var_name,*current_function));
 		
 		thisIsFollowupForAVarDecl = false;
 	}
@@ -166,7 +180,7 @@ bool canal_AST_analyzer::VisitIntegerLiteral(clang::IntegerLiteral *in_lt){
 		thisIsFollowupOfUnaryOperator = false;
 	}
 
-	current_function->operations.push_back(IntLiteral(literal,*current_function));
+	current_function->operations.insert_all_ropes(IntLiteral(literal,*current_function));
 
 	return true;
 }
@@ -175,6 +189,7 @@ bool canal_AST_analyzer::VisitIntegerLiteral(clang::IntegerLiteral *in_lt){
 bool canal_AST_analyzer::VisitBinaryOperator(clang::BinaryOperator *bn_op){
 	if(!Schedule.look_up())
 		return true;
+	Schedule.increase_child();
 	
 	if(bn_op->isComparisonOp()){
 		// to be implemented in the future
@@ -186,8 +201,8 @@ bool canal_AST_analyzer::VisitBinaryOperator(clang::BinaryOperator *bn_op){
 
 		std::string var_name = current_function->current_vstance->get_latest_added_var()->name;
 
-		current_function->operations.push_back(Equal(*current_function));
-		current_function->operations.push_back(VarPush(var_name,*current_function));
+		current_function->operations.insert_all_ropes(Equal(*current_function));
+		current_function->operations.insert_all_ropes(VarPush(var_name,*current_function));
 		
 		thisIsFollowupForAVarDecl = false;
 	}
@@ -195,43 +210,43 @@ bool canal_AST_analyzer::VisitBinaryOperator(clang::BinaryOperator *bn_op){
 	switch(bn_op->getOpcode()){
 		case clang::BinaryOperatorKind::BO_Add:
 			debug("found Add operator");
-			current_function->operations.push_back(Add(*current_function));
+			current_function->operations.insert_all_ropes(Add(*current_function));
 			break;
 		case clang::BinaryOperatorKind::BO_Sub:
 			debug("found Minus operator");
-			current_function->operations.push_back(Minus(*current_function));
+			current_function->operations.insert_all_ropes(Minus(*current_function));
 			break;
 		case clang::BinaryOperatorKind::BO_Div:
 			debug("found Divide operator");
-			current_function->operations.push_back(Divide(*current_function));
+			current_function->operations.insert_all_ropes(Divide(*current_function));
 			break;
 		case clang::BinaryOperatorKind::BO_Mul:
 			debug("found Times operator");
-			current_function->operations.push_back(Times(*current_function));
+			current_function->operations.insert_all_ropes(Times(*current_function));
 			break;
 		case clang::BinaryOperatorKind::BO_Or:
 			debug("found Or operator");
-			current_function->operations.push_back(Or(*current_function));
+			current_function->operations.insert_all_ropes(Or(*current_function));
 			break;
 		case clang::BinaryOperatorKind::BO_And:
 			debug("found And operator");
-			current_function->operations.push_back(And(*current_function));
+			current_function->operations.insert_all_ropes(And(*current_function));
 			break;
 		case clang::BinaryOperatorKind::BO_Xor:
 			debug("found Xor operator");
-			current_function->operations.push_back(Xor(*current_function));
+			current_function->operations.insert_all_ropes(Xor(*current_function));
 			break;
 		case clang::BinaryOperatorKind::BO_Assign:
 			debug("found Equal operator");
-			current_function->operations.push_back(Equal(*current_function));
+			current_function->operations.insert_all_ropes(Equal(*current_function));
 			break;
 		case clang::BinaryOperatorKind::BO_Shl:
 			debug("found Shl operator");
-			current_function->operations.push_back(Shl(*current_function));
+			current_function->operations.insert_all_ropes(Shl(*current_function));
 			break;
 		case clang::BinaryOperatorKind::BO_Shr:
 			debug("found Shr operator");
-			current_function->operations.push_back(Shr(*current_function));
+			current_function->operations.insert_all_ropes(Shr(*current_function));
 			break;
 		default:
 			info("%s is not yet implemented in VisitBinaryOperator",clang::BinaryOperator::getOpcodeStr(bn_op->getOpcode()).bytes_begin());

@@ -46,6 +46,7 @@ operation_stack_insert_value:
 
 template<typename T>
 void operation_stack::insert_all_ropes(const T &value){
+	warning_conditional(ropes.empty(), "trying to insert operation to operation_stack without any ropes");
 	for(auto i = ropes.begin();i != ropes.end();i++){
 		insert(value,&(*i));
 	}
@@ -265,6 +266,11 @@ operation *operation_stack::get_latest_added_operation(){
 	return end_buf - 1;
 }
 
+void operation_stack::clear_ropes(){
+	debug("clearing all ropes of operation_stack");
+	ropes.clear();
+}
+
 template void operation_stack::insert<Add>(const Add &value,rope *r);
 template void operation_stack::insert<Minus>(const Minus &value,rope *r);
 template void operation_stack::insert<Divide>(const Divide &value,rope *r);
@@ -281,6 +287,7 @@ template void operation_stack::insert<Call>(const Call &value,rope *r);
 template void operation_stack::insert<Equal>(const Equal &value,rope *r);
 template void operation_stack::insert<Ret>(const Ret &value,rope *r);
 template void operation_stack::insert<VarPush>(const VarPush &value,rope *r);
+template void operation_stack::insert<IntLiteral>(const IntLiteral &value,rope *r);
 
 template void operation_stack::insert_all_ropes<Add>(const Add &value);
 template void operation_stack::insert_all_ropes<Minus>(const Minus &value);
@@ -298,6 +305,7 @@ template void operation_stack::insert_all_ropes<Call>(const Call &value);
 template void operation_stack::insert_all_ropes<Equal>(const Equal &value);
 template void operation_stack::insert_all_ropes<Ret>(const Ret &value);
 template void operation_stack::insert_all_ropes<VarPush>(const VarPush &value);
+template void operation_stack::insert_all_ropes<IntLiteral>(const IntLiteral &value);
 
 template void operation_stack::insert_last_rope<Add>(const Add &value);
 template void operation_stack::insert_last_rope<Minus>(const Minus &value);
@@ -315,3 +323,4 @@ template void operation_stack::insert_last_rope<Call>(const Call &value);
 template void operation_stack::insert_last_rope<Equal>(const Equal &value);
 template void operation_stack::insert_last_rope<Ret>(const Ret &value);
 template void operation_stack::insert_last_rope<VarPush>(const VarPush &value);
+template void operation_stack::insert_last_rope<IntLiteral>(const IntLiteral &value);
