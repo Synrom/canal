@@ -314,28 +314,24 @@ operation *operation_stack::get_latest_added_operation(){
 	return end_buf - 1;
 }
 
-void operation_stack::clear_ropes(){
-	debug("clearing all ropes of operation_stack");
-	ropes.clear();
-}
 
-template void operation_stack::insert<Add>(const Add &value,rope *r);
-template void operation_stack::insert<Minus>(const Minus &value,rope *r);
-template void operation_stack::insert<Divide>(const Divide &value,rope *r);
-template void operation_stack::insert<Times>(const Times &value,rope *r);
-template void operation_stack::insert<Or>(const Or &value,rope *r);
-template void operation_stack::insert<And>(const And &value,rope *r);
-template void operation_stack::insert<Xor>(const Xor &value,rope *r);
-template void operation_stack::insert<Shl>(const Shl &value,rope *r);
-template void operation_stack::insert<Shr>(const Shr &value,rope *r);
-template void operation_stack::insert<Neg>(const Neg &value,rope *r);
-template void operation_stack::insert<Dec>(const Dec &value,rope *r);
-template void operation_stack::insert<Inc>(const Inc &value,rope *r);
-template void operation_stack::insert<Call>(const Call &value,rope *r);
-template void operation_stack::insert<Equal>(const Equal &value,rope *r);
-template void operation_stack::insert<Ret>(const Ret &value,rope *r);
-template void operation_stack::insert<VarPush>(const VarPush &value,rope *r);
-template void operation_stack::insert<IntLiteral>(const IntLiteral &value,rope *r);
+template void operation_stack::insert<Add>(const Add &value,rope &r);
+template void operation_stack::insert<Minus>(const Minus &value,rope &r);
+template void operation_stack::insert<Divide>(const Divide &value,rope &r);
+template void operation_stack::insert<Times>(const Times &value,rope &r);
+template void operation_stack::insert<Or>(const Or &value,rope &r);
+template void operation_stack::insert<And>(const And &value,rope &r);
+template void operation_stack::insert<Xor>(const Xor &value,rope &r);
+template void operation_stack::insert<Shl>(const Shl &value,rope &r);
+template void operation_stack::insert<Shr>(const Shr &value,rope &r);
+template void operation_stack::insert<Neg>(const Neg &value,rope &r);
+template void operation_stack::insert<Dec>(const Dec &value,rope &r);
+template void operation_stack::insert<Inc>(const Inc &value,rope &r);
+template void operation_stack::insert<Call>(const Call &value,rope &r);
+template void operation_stack::insert<Equal>(const Equal &value,rope &r);
+template void operation_stack::insert<Ret>(const Ret &value,rope &r);
+template void operation_stack::insert<VarPush>(const VarPush &value,rope &r);
+template void operation_stack::insert<IntLiteral>(const IntLiteral &value,rope &r);
 
 template void operation_stack::insert_all_ropes<Add>(const Add &value);
 template void operation_stack::insert_all_ropes<Minus>(const Minus &value);
