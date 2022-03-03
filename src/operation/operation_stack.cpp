@@ -6,18 +6,20 @@
 
 
 template<typename T> 
-void operation_stack::insert(const T &value, rope *r){
-	debug("inserting operation in operation_stack at %u",*r);
+void operation_stack::insert(const T &value, rope &r){
+	debug("inserting operation in operation_stack at %u",r);
 	unsigned int difference = current - start_buf;
+	if(difference > r)
+		difference++;
 
 	debug("operation_stack before new location %p-%p",start_buf,end_buf);
 	operation *i = get_new_location();
 	debug("operation_stack after new location %p-%p",start_buf,end_buf);
 
 
-	while(start_buf + *r < i){
+	while(start_buf + r < i){
 
-		error_conditional(i < start_buf, "operation_stack::insert with rope %u is out of bounds start: %p iterator: %p",*r,start_buf,i);
+		error_conditional(i < start_buf, "operation_stack::insert with rope %u is out of bounds start: %p iterator: %p",r,start_buf,i);
 
 
 		debug("cloning %p to %p",i-1,i);
@@ -30,37 +32,81 @@ void operation_stack::insert(const T &value, rope *r){
 	}
 
 operation_stack_insert_value:
-	error_conditional(start_buf + *r != i, "start_buf %p plus %u (times size of operation) isnt equal to %p",start_buf,*r,i);
+	error_conditional(start_buf + r != i, "start_buf %p plus %u (times size of operation) isnt equal to %p",start_buf,r,i);
 	debug("final clone of value to %p",i);
 	value.clone(i);
 
-	for(auto adjuster = ropes.begin();adjuster != ropes.end();adjuster++){
-		if(*adjuster > *r)
-			(*adjuster)++;
+	
+	for(auto rope_domain = ropes.begin(); rope_domain != ropes.end();rope_domain++){
+		for(auto adjuster = (*rope_domain).begin();adjuster != (*rope_domain).end();adjuster++){
+			if(*adjuster > r)
+				(*adjuster)++;
+		}
+	}
+
+	debug("fixing the parent ropes of r, in case they have the same value as r");
+	unsigned int domain = ropes.size() - 1;
+	while(get_base_rope(r, domain) == r && domain != 0){
+		get_base_rope(r,  domain)++;
+		domain--;
 	}
 
 	current = start_buf + difference;
-	(*r)++;
+	r++;
 }
 
+operation_stack::rope &operation_stack::get_base_rope(rope r, unsigned int domain){
+	debug("getting base rope of rope %u at level",r);
+
+	error_conditional(domain - 1 < 0, "trying to get base rope of a root rope");
+	std::vector<rope> &parent_rope_domain = ropes[domain - 1];
+
+	for(auto i = parent_rope_domain.begin();i != parent_rope_domain.end();i++){
+		if(*i >= r)
+			return *i;
+	}
+	error("couldnt find a parent of %u",r);
+
+}
 
 template<typename T>
 void operation_stack::insert_all_ropes(const T &value){
 	warning_conditional(ropes.empty(), "trying to insert operation to operation_stack without any ropes");
-	for(auto i = ropes.begin();i != ropes.end();i++){
-		insert(value,&(*i));
+	for(auto i = ropes.back().begin();i != ropes.back().end();i++){
+		insert(value,*i);
 	}
 }
 
 template<typename T>
 void operation_stack::insert_last_rope(const T &value){
 	debug("inserting into last rope");
-	insert(value,&ropes.back());
+	if(ropes.size() == 1){
+		insert(value,ropes.back().back());
+		return;
+	}
+	auto rope_riterator = ropes.back().rbegin();
+	for(unsigned int i = ropes[ropes.size() - 2].size();i > 0;i--, rope_riterator++){
+		insert(value,*rope_riterator);
+	}
+}
+
+void operation_stack::down_rope(){
+	std::vector<rope> rope_domain = ropes.back();
+	ropes.push_back(rope_domain);
+}
+
+void operation_stack::up_rope(){
+	error_conditional(ropes.size() == 1, "trying to go up from root rope");
+	ropes.pop_back();
 }
 
 void operation_stack::add_rope(){
-	debug("returning rope %u with start: %p and end: %p",end_buf-start_buf,start_buf,end_buf);
-	ropes.emplace_back(end_buf-start_buf);
+	if(ropes.size() == 1){
+		ropes.back().push_back(ropes.back().back());
+		return;
+	}
+	for(auto rope_it = ropes[ropes.size() - 2].begin();rope_it != ropes[ropes.size() - 2].end();rope_it++)
+		ropes.back().push_back(*rope_it);
 }
 
 
@@ -71,7 +117,9 @@ operation_stack::operation_stack(){
 	end_buf = NULL;
 	current = NULL;
 	capacity = 0;
-
+	std::vector<rope> rope_init;
+	rope_init.push_back(0);
+	ropes.push_back(rope_init);
 }
 
 operation_stack::~operation_stack(){

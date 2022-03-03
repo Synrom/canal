@@ -42,13 +42,15 @@ public:
 	
 	
 	template<typename T>
-	void insert_last_rope(const T &);
+	void insert_last_rope(const T &); // last rope in current sub domain, so still applied to all parent ropes
 
 	template<typename T>
 	void insert_all_ropes(const T &);
 
 	void add_rope();
-	void clear_ropes();
+	void down_rope();
+	void up_rope();
+
 
 	operation *get_latest_added_operation();
 
@@ -74,12 +76,13 @@ private:
 	void push_back(const VarPush &);
 
 	template<typename T>
-	void insert(const T &,rope *);
+	void insert(const T &,rope &);
 
 	operation *start_buf, *end_buf;
 	unsigned int capacity;
 	operation *current;
-	std::vector<rope> ropes;
+	std::vector<std::vector<rope>> ropes;
+	rope &get_base_rope(rope , unsigned int );
 
 	iterator begin();
 	iterator end();
