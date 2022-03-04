@@ -82,7 +82,7 @@ private:
 	unsigned int capacity;
 	operation *current;
 	std::vector<std::vector<rope>> ropes;
-	rope &get_base_rope(rope , unsigned int );
+	rope &get_base_rope(rope , int );
 
 	iterator begin();
 	iterator end();

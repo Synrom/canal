@@ -44,9 +44,9 @@ operation_stack_insert_value:
 		}
 	}
 
-	debug("fixing the parent ropes of r, in case they have the same value as r");
-	unsigned int domain = ropes.size() - 1;
-	while(get_base_rope(r, domain) == r && domain != 0){
+	int domain = ropes.size() - 1;
+	debug("fixing the parent ropes of %u at level %d",r,domain);
+	while(domain != 0 && get_base_rope(r, domain) == r){
 		get_base_rope(r,  domain)++;
 		domain--;
 	}
@@ -55,8 +55,8 @@ operation_stack_insert_value:
 	r++;
 }
 
-operation_stack::rope &operation_stack::get_base_rope(rope r, unsigned int domain){
-	debug("getting base rope of rope %u at level",r);
+operation_stack::rope &operation_stack::get_base_rope(rope r, int domain){
+	debug("getting base rope of rope %u at level %d",r,domain);
 
 	error_conditional(domain - 1 < 0, "trying to get base rope of a root rope");
 	std::vector<rope> &parent_rope_domain = ropes[domain - 1];
