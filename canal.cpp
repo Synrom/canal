@@ -1,3 +1,4 @@
+#include "canal/operation.h"
 #include "clang/AST/ASTConsumer.h"
 #include "clang/AST/RecursiveASTVisitor.h"
 #include "clang/Frontend/CompilerInstance.h"
@@ -22,6 +23,7 @@ int main(int argc, char** argv)
 {
 
 	// TEST OPERATION_STACK ROPE
+	/*
 	{
 		printf("TESTING THE OPERATION_STACK ROPE SYSTEM\n");
 		function imag("imaginary");
@@ -82,6 +84,7 @@ int main(int argc, char** argv)
 
 		info("TEST ENDED");
 	}
+	*/
 
 	/*
 	// TEST VSTANCE SWITCHES
@@ -108,6 +111,46 @@ int main(int argc, char** argv)
 
 	}
 	*/
+
+	// TEST VSTANCE OPERATION PRINT
+	{
+		printf("TEST VSTANCE OPERATION PRINT\n");
+		function imag("imaginary");
+
+		imag.operations.insert_all_ropes(Add_Switch(3,imag));
+		imag.operations.add_rope();
+		imag.operations.insert_last_rope(Equal(imag));
+		imag.operations.insert_last_rope(VarPush("first",imag));
+		imag.operations.insert_last_rope(VarPush("works",imag));
+		
+		imag.operations.insert_last_rope(Next_Switch(imag));
+		imag.operations.add_rope();
+		imag.operations.insert_last_rope(Equal(imag));
+		imag.operations.insert_last_rope(VarPush("second",imag));
+		imag.operations.insert_last_rope(VarPush("works",imag));
+		imag.operations.insert_last_rope(Add_Switch(1,imag));
+		imag.operations.insert_last_rope(Equal(imag));
+		imag.operations.insert_last_rope(VarPush("indented",imag));
+		imag.operations.insert_last_rope(VarPush("works",imag));
+		imag.operations.insert_last_rope(End_Switch(imag));
+
+
+		imag.operations.insert_last_rope(Next_Switch(imag));
+		imag.operations.add_rope();
+		imag.operations.insert_last_rope(Equal(imag));
+		imag.operations.insert_last_rope(VarPush("third",imag));
+		imag.operations.insert_last_rope(VarPush("works",imag));
+
+
+		imag.operations.insert_last_rope(End_Switch(imag));
+		imag.operations.insert_all_ropes(Equal(imag));
+		imag.operations.insert_all_ropes(VarPush("all",imag));
+		imag.operations.insert_all_ropes(VarPush("works",imag));
+
+		imag.operations.print_simple();
+		imag.operations.print();
+
+	}
 	/*
 	if (argc < 2) {
 		return 1;

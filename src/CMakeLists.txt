@@ -38,6 +38,7 @@ list(APPEND OperationFiles
 	"operation/var_push.cpp"
 	"operation/call.cpp"
 	"operation/ret.cpp"
+	"operation/switch.cpp"
 )
 
 list(APPEND DebuggerFiles

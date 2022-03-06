@@ -591,6 +591,30 @@ operation/shl_shr.cpp.s:
 	cd /home/synrom/lego/canal && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/struct.dir/build.make src/CMakeFiles/struct.dir/operation/shl_shr.cpp.s
 .PHONY : operation/shl_shr.cpp.s
 
+operation/switch.o: operation/switch.cpp.o
+.PHONY : operation/switch.o
+
+# target to build an object file
+operation/switch.cpp.o:
+	cd /home/synrom/lego/canal && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/struct.dir/build.make src/CMakeFiles/struct.dir/operation/switch.cpp.o
+.PHONY : operation/switch.cpp.o
+
+operation/switch.i: operation/switch.cpp.i
+.PHONY : operation/switch.i
+
+# target to preprocess a source file
+operation/switch.cpp.i:
+	cd /home/synrom/lego/canal && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/struct.dir/build.make src/CMakeFiles/struct.dir/operation/switch.cpp.i
+.PHONY : operation/switch.cpp.i
+
+operation/switch.s: operation/switch.cpp.s
+.PHONY : operation/switch.s
+
+# target to generate assembly for a file
+operation/switch.cpp.s:
+	cd /home/synrom/lego/canal && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/struct.dir/build.make src/CMakeFiles/struct.dir/operation/switch.cpp.s
+.PHONY : operation/switch.cpp.s
+
 operation/var_push.o: operation/var_push.cpp.o
 .PHONY : operation/var_push.o
 
@@ -1301,6 +1325,9 @@ help:
 	@echo "... operation/shl_shr.o"
 	@echo "... operation/shl_shr.i"
 	@echo "... operation/shl_shr.s"
+	@echo "... operation/switch.o"
+	@echo "... operation/switch.i"
+	@echo "... operation/switch.s"
 	@echo "... operation/var_push.o"
 	@echo "... operation/var_push.i"
 	@echo "... operation/var_push.s"

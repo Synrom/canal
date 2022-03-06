@@ -29,6 +29,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/struct.dir/operation/ret.cpp.o.d"
   "CMakeFiles/struct.dir/operation/shl_shr.cpp.o"
   "CMakeFiles/struct.dir/operation/shl_shr.cpp.o.d"
+  "CMakeFiles/struct.dir/operation/switch.cpp.o"
+  "CMakeFiles/struct.dir/operation/switch.cpp.o.d"
   "CMakeFiles/struct.dir/operation/var_push.cpp.o"
   "CMakeFiles/struct.dir/operation/var_push.cpp.o.d"
   "CMakeFiles/struct.dir/result/identifiers.cpp.o"

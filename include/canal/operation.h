@@ -22,13 +22,13 @@ public:
 		Xor,
 		Shl,
 		Shr,
-		Neg, // TODO in function_analyzer
-		Dec, // TODO in function_analyzer
-		Inc, // TODO in function_analyzer
+		Neg, // TODO in function_analyzer, als OP implementieren
+		Dec, // TODO in function_analyzer, als OP implementieren
+		Inc, // TODO in function_analyzer, als OP implementieren
 		Call,
 		Equal,
 		Ret,
-		Switch,
+		Add_Switch,
 		Next_Switch,
 		End_Switch,
 		IntLiteral,
@@ -210,6 +210,42 @@ public:
 	Ret(function &);
 	Ret(operation *);
 	Ret(const Ret &);
+	void clone(operation *) const;
+	void print();
+	void print_simple();
+	void execute();
+};
+
+class Add_Switch: public operation{
+	void executeOperation(variable *,variable *,variable *);
+public:
+	Add_Switch(unsigned int ,function &);
+	Add_Switch(operation *);
+	Add_Switch(const Add_Switch &);
+	void clone(operation *) const;
+	void print();
+	void print_simple();
+	void execute();
+};
+
+class Next_Switch: public operation{
+	void executeOperation(variable *,variable *,variable *);
+public:
+	Next_Switch(function &);
+	Next_Switch(operation *);
+	Next_Switch(const Next_Switch &);
+	void clone(operation *) const;
+	void print();
+	void print_simple();
+	void execute();
+};
+
+class End_Switch: public operation{
+	void executeOperation(variable *,variable *,variable *);
+public:
+	End_Switch(function &);
+	End_Switch(operation *);
+	End_Switch(const End_Switch &);
 	void clone(operation *) const;
 	void print();
 	void print_simple();

@@ -3,20 +3,8 @@
 
 CMakeFiles/canal.dir/canal.cpp.o: canal.cpp \
   /usr/x86_64-linux-gnu/include/stdc-predef.h \
-  /usr/local/include/clang/AST/ASTConsumer.h \
-  /usr/local/include/clang/AST/RecursiveASTVisitor.h \
-  /usr/local/include/clang/AST/Attr.h \
-  /usr/local/include/clang/AST/ASTFwd.h \
-  /usr/local/include/clang/AST/DeclNodes.inc \
-  /usr/local/include/clang/AST/StmtNodes.inc \
-  /usr/local/include/clang/AST/TypeNodes.inc \
-  /usr/local/include/llvm/Frontend/OpenMP/OMP.inc \
-  /usr/local/include/clang/AST/AttrIterator.h \
-  /usr/local/include/clang/Basic/LLVM.h \
-  /usr/local/include/llvm/Support/Casting.h \
-  /usr/local/include/llvm/Support/Compiler.h \
-  /usr/local/include/llvm/Config/llvm-config.h \
-  /usr/include/c++/10/new \
+  include/canal/operation.h \
+  /usr/include/c++/10/iostream \
   /usr/include/x86_64-linux-gnu/c++/10/bits/c++config.h \
   /usr/include/x86_64-linux-gnu/c++/10/bits/os_defines.h \
   /usr/x86_64-linux-gnu/include/features.h \
@@ -26,57 +14,18 @@ CMakeFiles/canal.dir/canal.cpp.o: canal.cpp \
   /usr/x86_64-linux-gnu/include/gnu/stubs.h \
   /usr/x86_64-linux-gnu/include/gnu/stubs-64.h \
   /usr/include/x86_64-linux-gnu/c++/10/bits/cpu_defines.h \
-  /usr/include/c++/10/exception \
-  /usr/include/c++/10/bits/exception.h \
-  /usr/include/c++/10/bits/exception_ptr.h \
-  /usr/include/c++/10/bits/exception_defines.h \
-  /usr/include/c++/10/bits/cxxabi_init_exception.h \
-  /usr/lib/gcc/x86_64-linux-gnu/10/include/stddef.h \
-  /usr/include/c++/10/typeinfo \
-  /usr/include/c++/10/bits/hash_bytes.h \
-  /usr/include/c++/10/bits/nested_exception.h \
-  /usr/include/c++/10/bits/move.h \
-  /usr/include/c++/10/type_traits \
-  /usr/local/include/llvm/Support/type_traits.h \
-  /usr/include/c++/10/utility \
-  /usr/include/c++/10/bits/stl_relops.h \
-  /usr/include/c++/10/bits/stl_pair.h \
-  /usr/include/c++/10/initializer_list \
-  /usr/include/c++/10/cassert \
-  /usr/x86_64-linux-gnu/include/assert.h \
-  /usr/include/c++/10/memory \
-  /usr/include/c++/10/bits/stl_algobase.h \
-  /usr/include/c++/10/bits/functexcept.h \
-  /usr/include/c++/10/bits/cpp_type_traits.h \
-  /usr/include/c++/10/ext/type_traits.h \
-  /usr/include/c++/10/ext/numeric_traits.h \
-  /usr/include/c++/10/bits/stl_iterator_base_types.h \
-  /usr/include/c++/10/bits/stl_iterator_base_funcs.h \
-  /usr/include/c++/10/bits/concept_check.h \
-  /usr/include/c++/10/debug/assertions.h \
-  /usr/include/c++/10/bits/stl_iterator.h \
-  /usr/include/c++/10/bits/ptr_traits.h \
-  /usr/include/c++/10/debug/debug.h \
-  /usr/include/c++/10/bits/predefined_ops.h \
-  /usr/include/c++/10/bits/allocator.h \
-  /usr/include/x86_64-linux-gnu/c++/10/bits/c++allocator.h \
-  /usr/include/c++/10/ext/new_allocator.h \
-  /usr/include/c++/10/bits/memoryfwd.h \
-  /usr/include/c++/10/bits/stl_construct.h \
-  /usr/include/c++/10/bits/stl_uninitialized.h \
-  /usr/include/c++/10/ext/alloc_traits.h \
-  /usr/include/c++/10/bits/alloc_traits.h \
-  /usr/include/c++/10/bits/stl_tempbuf.h \
-  /usr/include/c++/10/bits/stl_raw_storage_iter.h \
-  /usr/include/c++/10/bits/ranges_uninitialized.h \
+  /usr/include/c++/10/ostream \
+  /usr/include/c++/10/ios \
   /usr/include/c++/10/iosfwd \
   /usr/include/c++/10/bits/stringfwd.h \
+  /usr/include/c++/10/bits/memoryfwd.h \
   /usr/include/c++/10/bits/postypes.h \
   /usr/include/c++/10/cwchar \
   /usr/x86_64-linux-gnu/include/wchar.h \
   /usr/x86_64-linux-gnu/include/bits/libc-header-start.h \
   /usr/x86_64-linux-gnu/include/bits/floatn.h \
   /usr/x86_64-linux-gnu/include/bits/floatn-common.h \
+  /usr/lib/gcc/x86_64-linux-gnu/10/include/stddef.h \
   /usr/lib/gcc/x86_64-linux-gnu/10/include/stdarg.h \
   /usr/x86_64-linux-gnu/include/bits/wchar.h \
   /usr/x86_64-linux-gnu/include/bits/types/wint_t.h \
@@ -86,19 +35,58 @@ CMakeFiles/canal.dir/canal.cpp.o: canal.cpp \
   /usr/x86_64-linux-gnu/include/bits/types/FILE.h \
   /usr/x86_64-linux-gnu/include/bits/types/locale_t.h \
   /usr/x86_64-linux-gnu/include/bits/types/__locale_t.h \
+  /usr/include/c++/10/exception \
+  /usr/include/c++/10/bits/exception.h \
+  /usr/include/c++/10/bits/exception_ptr.h \
+  /usr/include/c++/10/bits/exception_defines.h \
+  /usr/include/c++/10/bits/cxxabi_init_exception.h \
+  /usr/include/c++/10/typeinfo \
+  /usr/include/c++/10/bits/hash_bytes.h \
+  /usr/include/c++/10/new \
+  /usr/include/c++/10/bits/nested_exception.h \
+  /usr/include/c++/10/bits/move.h \
+  /usr/include/c++/10/type_traits \
+  /usr/include/c++/10/bits/char_traits.h \
+  /usr/include/c++/10/bits/stl_algobase.h \
+  /usr/include/c++/10/bits/functexcept.h \
+  /usr/include/c++/10/bits/cpp_type_traits.h \
+  /usr/include/c++/10/ext/type_traits.h \
+  /usr/include/c++/10/ext/numeric_traits.h \
+  /usr/include/c++/10/bits/stl_pair.h \
+  /usr/include/c++/10/bits/stl_iterator_base_types.h \
+  /usr/include/c++/10/bits/stl_iterator_base_funcs.h \
+  /usr/include/c++/10/bits/concept_check.h \
+  /usr/include/c++/10/debug/assertions.h \
+  /usr/include/c++/10/bits/stl_iterator.h \
+  /usr/include/c++/10/bits/ptr_traits.h \
+  /usr/include/c++/10/debug/debug.h \
+  /usr/include/c++/10/bits/predefined_ops.h \
+  /usr/include/c++/10/cstdint \
+  /usr/lib/gcc/x86_64-linux-gnu/10/include/stdint.h \
+  /usr/x86_64-linux-gnu/include/stdint.h \
+  /usr/x86_64-linux-gnu/include/bits/types.h \
+  /usr/x86_64-linux-gnu/include/bits/timesize.h \
+  /usr/x86_64-linux-gnu/include/bits/typesizes.h \
+  /usr/x86_64-linux-gnu/include/bits/time64.h \
+  /usr/x86_64-linux-gnu/include/bits/stdint-intn.h \
+  /usr/x86_64-linux-gnu/include/bits/stdint-uintn.h \
+  /usr/include/c++/10/bits/localefwd.h \
+  /usr/include/x86_64-linux-gnu/c++/10/bits/c++locale.h \
+  /usr/include/c++/10/clocale \
+  /usr/x86_64-linux-gnu/include/locale.h \
+  /usr/x86_64-linux-gnu/include/bits/locale.h \
+  /usr/include/c++/10/cctype \
+  /usr/x86_64-linux-gnu/include/ctype.h \
+  /usr/x86_64-linux-gnu/include/bits/endian.h \
+  /usr/x86_64-linux-gnu/include/bits/endianness.h \
+  /usr/include/c++/10/bits/ios_base.h \
   /usr/include/c++/10/ext/atomicity.h \
   /usr/include/x86_64-linux-gnu/c++/10/bits/gthr.h \
   /usr/include/x86_64-linux-gnu/c++/10/bits/gthr-default.h \
   /usr/x86_64-linux-gnu/include/pthread.h \
   /usr/x86_64-linux-gnu/include/sched.h \
-  /usr/x86_64-linux-gnu/include/bits/types.h \
-  /usr/x86_64-linux-gnu/include/bits/timesize.h \
-  /usr/x86_64-linux-gnu/include/bits/typesizes.h \
-  /usr/x86_64-linux-gnu/include/bits/time64.h \
   /usr/x86_64-linux-gnu/include/bits/types/time_t.h \
   /usr/x86_64-linux-gnu/include/bits/types/struct_timespec.h \
-  /usr/x86_64-linux-gnu/include/bits/endian.h \
-  /usr/x86_64-linux-gnu/include/bits/endianness.h \
   /usr/x86_64-linux-gnu/include/bits/sched.h \
   /usr/x86_64-linux-gnu/include/bits/types/struct_sched_param.h \
   /usr/x86_64-linux-gnu/include/bits/cpu-set.h \
@@ -120,49 +108,24 @@ CMakeFiles/canal.dir/canal.cpp.o: canal.cpp \
   /usr/x86_64-linux-gnu/include/bits/types/__sigset_t.h \
   /usr/x86_64-linux-gnu/include/bits/types/struct___jmp_buf_tag.h \
   /usr/include/x86_64-linux-gnu/c++/10/bits/atomic_word.h \
-  /usr/include/c++/10/ext/concurrence.h \
+  /usr/include/c++/10/bits/locale_classes.h \
+  /usr/include/c++/10/string \
+  /usr/include/c++/10/bits/allocator.h \
+  /usr/include/x86_64-linux-gnu/c++/10/bits/c++allocator.h \
+  /usr/include/c++/10/ext/new_allocator.h \
+  /usr/include/c++/10/bits/ostream_insert.h \
+  /usr/include/c++/10/bits/cxxabi_forced.h \
   /usr/include/c++/10/bits/stl_function.h \
   /usr/include/c++/10/backward/binders.h \
-  /usr/include/c++/10/bits/uses_allocator.h \
-  /usr/include/c++/10/bits/unique_ptr.h \
-  /usr/include/c++/10/tuple \
-  /usr/include/c++/10/array \
   /usr/include/c++/10/bits/range_access.h \
+  /usr/include/c++/10/initializer_list \
   /usr/include/c++/10/bits/iterator_concepts.h \
   /usr/include/c++/10/concepts \
   /usr/include/c++/10/bits/range_cmp.h \
-  /usr/include/c++/10/bits/invoke.h \
-  /usr/include/c++/10/bits/functional_hash.h \
-  /usr/include/c++/10/bits/shared_ptr.h \
-  /usr/include/c++/10/bits/shared_ptr_base.h \
-  /usr/include/c++/10/bits/allocated_ptr.h \
-  /usr/include/c++/10/bits/refwrap.h \
-  /usr/include/c++/10/ext/aligned_buffer.h \
-  /usr/include/c++/10/bits/shared_ptr_atomic.h \
-  /usr/include/c++/10/bits/atomic_base.h \
-  /usr/lib/gcc/x86_64-linux-gnu/10/include/stdint.h \
-  /usr/x86_64-linux-gnu/include/stdint.h \
-  /usr/x86_64-linux-gnu/include/bits/stdint-intn.h \
-  /usr/x86_64-linux-gnu/include/bits/stdint-uintn.h \
-  /usr/include/c++/10/bits/atomic_lockfree_defines.h \
-  /usr/include/c++/10/backward/auto_ptr.h \
-  /usr/include/c++/10/cstdint \
-  /usr/local/include/llvm/ADT/None.h \
-  /usr/local/include/llvm/ADT/SmallVector.h \
-  /usr/local/include/llvm/ADT/iterator_range.h \
-  /usr/local/include/llvm/Support/ErrorHandling.h \
-  /usr/include/c++/10/string \
-  /usr/include/c++/10/bits/char_traits.h \
-  /usr/include/c++/10/bits/localefwd.h \
-  /usr/include/x86_64-linux-gnu/c++/10/bits/c++locale.h \
-  /usr/include/c++/10/clocale \
-  /usr/x86_64-linux-gnu/include/locale.h \
-  /usr/x86_64-linux-gnu/include/bits/locale.h \
-  /usr/include/c++/10/cctype \
-  /usr/x86_64-linux-gnu/include/ctype.h \
-  /usr/include/c++/10/bits/ostream_insert.h \
-  /usr/include/c++/10/bits/cxxabi_forced.h \
   /usr/include/c++/10/bits/basic_string.h \
+  /usr/include/c++/10/ext/alloc_traits.h \
+  /usr/include/c++/10/bits/alloc_traits.h \
+  /usr/include/c++/10/bits/stl_construct.h \
   /usr/include/c++/10/ext/string_conversions.h \
   /usr/include/c++/10/cstdlib \
   /usr/x86_64-linux-gnu/include/stdlib.h \
@@ -194,7 +157,81 @@ CMakeFiles/canal.dir/canal.cpp.o: canal.cpp \
   /usr/x86_64-linux-gnu/include/asm-generic/errno-base.h \
   /usr/x86_64-linux-gnu/include/bits/types/error_t.h \
   /usr/include/c++/10/bits/charconv.h \
+  /usr/include/c++/10/bits/functional_hash.h \
   /usr/include/c++/10/bits/basic_string.tcc \
+  /usr/include/c++/10/bits/locale_classes.tcc \
+  /usr/include/c++/10/system_error \
+  /usr/include/x86_64-linux-gnu/c++/10/bits/error_constants.h \
+  /usr/include/c++/10/stdexcept \
+  /usr/include/c++/10/streambuf \
+  /usr/include/c++/10/bits/streambuf.tcc \
+  /usr/include/c++/10/bits/basic_ios.h \
+  /usr/include/c++/10/bits/locale_facets.h \
+  /usr/include/c++/10/cwctype \
+  /usr/x86_64-linux-gnu/include/wctype.h \
+  /usr/x86_64-linux-gnu/include/bits/wctype-wchar.h \
+  /usr/include/x86_64-linux-gnu/c++/10/bits/ctype_base.h \
+  /usr/include/c++/10/bits/streambuf_iterator.h \
+  /usr/include/x86_64-linux-gnu/c++/10/bits/ctype_inline.h \
+  /usr/include/c++/10/bits/locale_facets.tcc \
+  /usr/include/c++/10/bits/basic_ios.tcc \
+  /usr/include/c++/10/bits/ostream.tcc \
+  /usr/include/c++/10/istream \
+  /usr/include/c++/10/bits/istream.tcc \
+  /usr/include/c++/10/vector \
+  /usr/include/c++/10/bits/stl_uninitialized.h \
+  /usr/include/c++/10/bits/stl_vector.h \
+  /usr/include/c++/10/bits/stl_bvector.h \
+  /usr/include/c++/10/bits/vector.tcc \
+  include/canal/variable.h \
+  include/canal/function.h \
+  include/canal/container.h \
+  /usr/include/c++/10/deque \
+  /usr/include/c++/10/bits/stl_deque.h \
+  /usr/include/c++/10/bits/deque.tcc \
+  include/canal/operation_stack.h \
+  include/canal/result.h \
+  /usr/local/include/clang/AST/ASTConsumer.h \
+  /usr/local/include/clang/AST/RecursiveASTVisitor.h \
+  /usr/local/include/clang/AST/Attr.h \
+  /usr/local/include/clang/AST/ASTFwd.h \
+  /usr/local/include/clang/AST/DeclNodes.inc \
+  /usr/local/include/clang/AST/StmtNodes.inc \
+  /usr/local/include/clang/AST/TypeNodes.inc \
+  /usr/local/include/llvm/Frontend/OpenMP/OMP.inc \
+  /usr/local/include/clang/AST/AttrIterator.h \
+  /usr/local/include/clang/Basic/LLVM.h \
+  /usr/local/include/llvm/Support/Casting.h \
+  /usr/local/include/llvm/Support/Compiler.h \
+  /usr/local/include/llvm/Config/llvm-config.h \
+  /usr/local/include/llvm/Support/type_traits.h \
+  /usr/include/c++/10/utility \
+  /usr/include/c++/10/bits/stl_relops.h \
+  /usr/include/c++/10/cassert \
+  /usr/x86_64-linux-gnu/include/assert.h \
+  /usr/include/c++/10/memory \
+  /usr/include/c++/10/bits/stl_tempbuf.h \
+  /usr/include/c++/10/bits/stl_raw_storage_iter.h \
+  /usr/include/c++/10/bits/ranges_uninitialized.h \
+  /usr/include/c++/10/ext/concurrence.h \
+  /usr/include/c++/10/bits/uses_allocator.h \
+  /usr/include/c++/10/bits/unique_ptr.h \
+  /usr/include/c++/10/tuple \
+  /usr/include/c++/10/array \
+  /usr/include/c++/10/bits/invoke.h \
+  /usr/include/c++/10/bits/shared_ptr.h \
+  /usr/include/c++/10/bits/shared_ptr_base.h \
+  /usr/include/c++/10/bits/allocated_ptr.h \
+  /usr/include/c++/10/bits/refwrap.h \
+  /usr/include/c++/10/ext/aligned_buffer.h \
+  /usr/include/c++/10/bits/shared_ptr_atomic.h \
+  /usr/include/c++/10/bits/atomic_base.h \
+  /usr/include/c++/10/bits/atomic_lockfree_defines.h \
+  /usr/include/c++/10/backward/auto_ptr.h \
+  /usr/local/include/llvm/ADT/None.h \
+  /usr/local/include/llvm/ADT/SmallVector.h \
+  /usr/local/include/llvm/ADT/iterator_range.h \
+  /usr/local/include/llvm/Support/ErrorHandling.h \
   /usr/local/include/llvm/Support/MemAlloc.h \
   /usr/include/c++/10/algorithm \
   /usr/include/c++/10/bits/stl_algo.h \
@@ -210,15 +247,6 @@ CMakeFiles/canal.dir/canal.cpp.o: canal.cpp \
   /usr/include/c++/10/bits/std_function.h \
   /usr/include/c++/10/iterator \
   /usr/include/c++/10/bits/stream_iterator.h \
-  /usr/include/c++/10/bits/streambuf_iterator.h \
-  /usr/include/c++/10/streambuf \
-  /usr/include/c++/10/bits/ios_base.h \
-  /usr/include/c++/10/bits/locale_classes.h \
-  /usr/include/c++/10/bits/locale_classes.tcc \
-  /usr/include/c++/10/system_error \
-  /usr/include/x86_64-linux-gnu/c++/10/bits/error_constants.h \
-  /usr/include/c++/10/stdexcept \
-  /usr/include/c++/10/bits/streambuf.tcc \
   /usr/local/include/clang/AST/Decl.h \
   /usr/local/include/clang/AST/APValue.h \
   /usr/local/include/llvm/ADT/APFixedPoint.h \
@@ -265,10 +293,6 @@ CMakeFiles/canal.dir/canal.cpp.o: canal.cpp \
   /usr/include/c++/10/bits/parse_numbers.h \
   /usr/local/include/llvm/ADT/APFloat.h \
   /usr/local/include/llvm/ADT/ArrayRef.h \
-  /usr/include/c++/10/vector \
-  /usr/include/c++/10/bits/stl_vector.h \
-  /usr/include/c++/10/bits/stl_bvector.h \
-  /usr/include/c++/10/bits/vector.tcc \
   /usr/local/include/llvm/ADT/FloatingPointMode.h \
   /usr/local/include/llvm/ADT/StringSwitch.h \
   /usr/local/include/llvm/ADT/FoldingSet.h \
@@ -464,9 +488,6 @@ CMakeFiles/canal.dir/canal.cpp.o: canal.cpp \
   /usr/local/include/llvm/ADT/GraphTraits.h \
   /usr/include/c++/10/bitset \
   /usr/local/include/clang/Analysis/CodeInjector.h \
-  /usr/include/c++/10/deque \
-  /usr/include/c++/10/bits/stl_deque.h \
-  /usr/include/c++/10/bits/deque.tcc \
   /usr/local/include/clang/StaticAnalyzer/Core/Analyses.def \
   /usr/local/include/clang/StaticAnalyzer/Core/AnalyzerOptions.def \
   /usr/local/include/clang/StaticAnalyzer/Checkers/Checkers.inc \
@@ -549,21 +570,6 @@ CMakeFiles/canal.dir/canal.cpp.o: canal.cpp \
   /usr/local/include/llvm/Option/Option.h \
   /usr/local/include/llvm/Option/OptTable.h \
   /usr/local/include/llvm/Support/StringSaver.h \
-  /usr/include/c++/10/iostream \
-  /usr/include/c++/10/ostream \
-  /usr/include/c++/10/ios \
-  /usr/include/c++/10/bits/basic_ios.h \
-  /usr/include/c++/10/bits/locale_facets.h \
-  /usr/include/c++/10/cwctype \
-  /usr/x86_64-linux-gnu/include/wctype.h \
-  /usr/x86_64-linux-gnu/include/bits/wctype-wchar.h \
-  /usr/include/x86_64-linux-gnu/c++/10/bits/ctype_base.h \
-  /usr/include/x86_64-linux-gnu/c++/10/bits/ctype_inline.h \
-  /usr/include/c++/10/bits/locale_facets.tcc \
-  /usr/include/c++/10/bits/basic_ios.tcc \
-  /usr/include/c++/10/bits/ostream.tcc \
-  /usr/include/c++/10/istream \
-  /usr/include/c++/10/bits/istream.tcc \
   /usr/include/c++/10/fstream \
   /usr/include/c++/10/bits/codecvt.h \
   /usr/include/x86_64-linux-gnu/c++/10/bits/basic_file.h \
@@ -571,11 +577,6 @@ CMakeFiles/canal.dir/canal.cpp.o: canal.cpp \
   /usr/include/c++/10/bits/fstream.tcc \
   include/canal/analyzer.h \
   include/canal/operation.h \
-  include/canal/variable.h \
-  include/canal/function.h \
-  include/canal/container.h \
-  include/canal/operation_stack.h \
-  include/canal/result.h \
   include/canal/scheduler.h \
   include/canal/debugger.h \
   /usr/x86_64-linux-gnu/include/sys/time.h \
@@ -588,16 +589,6 @@ include/canal/root_scope.h:
 
 include/canal/debugger.h:
 
-include/canal/result.h:
-
-include/canal/operation_stack.h:
-
-include/canal/function.h:
-
-include/canal/variable.h:
-
-include/canal/operation.h:
-
 include/canal/analyzer.h:
 
 /usr/include/c++/10/bits/fstream.tcc:
@@ -605,28 +596,6 @@ include/canal/analyzer.h:
 /usr/include/x86_64-linux-gnu/c++/10/bits/basic_file.h:
 
 /usr/include/c++/10/fstream:
-
-/usr/include/c++/10/bits/istream.tcc:
-
-/usr/include/c++/10/istream:
-
-/usr/include/c++/10/bits/ostream.tcc:
-
-/usr/include/c++/10/bits/basic_ios.tcc:
-
-/usr/include/c++/10/bits/locale_facets.tcc:
-
-/usr/include/x86_64-linux-gnu/c++/10/bits/ctype_inline.h:
-
-/usr/include/x86_64-linux-gnu/c++/10/bits/ctype_base.h:
-
-/usr/x86_64-linux-gnu/include/bits/wctype-wchar.h:
-
-/usr/x86_64-linux-gnu/include/wctype.h:
-
-/usr/include/c++/10/cwctype:
-
-/usr/include/c++/10/ostream:
 
 /usr/local/include/llvm/Support/StringSaver.h:
 
@@ -718,10 +687,6 @@ include/canal/analyzer.h:
 
 /usr/local/include/clang/StaticAnalyzer/Core/AnalyzerOptions.def:
 
-/usr/include/c++/10/bits/deque.tcc:
-
-/usr/include/c++/10/bits/stl_deque.h:
-
 /usr/local/include/clang/Analysis/CodeInjector.h:
 
 /usr/include/c++/10/bitset:
@@ -776,6 +741,96 @@ include/canal/analyzer.h:
 
 /usr/local/include/llvm/ADT/MapVector.h:
 
+/usr/local/include/clang/Basic/CodeGenOptions.def:
+
+/usr/local/include/llvm/Target/TargetOptions.h:
+
+/usr/local/include/llvm/Support/Regex.h:
+
+/usr/local/include/llvm/Support/CodeGen.h:
+
+/usr/local/include/clang/Driver/OptionUtils.h:
+
+/usr/local/include/clang/Basic/XRayInstr.h:
+
+/usr/local/include/clang/Basic/DebugInfoOptions.h:
+
+/usr/local/include/clang/Basic/NoSanitizeList.h:
+
+/usr/local/include/clang/AST/RawCommentList.h:
+
+/usr/local/include/clang/AST/PrettyPrinter.h:
+
+/usr/local/include/clang/AST/ComparisonCategories.h:
+
+/usr/local/include/clang/AST/CommentCommandList.inc:
+
+/usr/local/include/clang/AST/CommentCommandTraits.h:
+
+/usr/local/include/clang/AST/ASTContext.h:
+
+/usr/local/include/clang/AST/DeclOpenMP.h:
+
+/usr/local/include/llvm/ADT/DenseSet.h:
+
+/usr/local/include/clang/AST/SelectorLocationsKind.h:
+
+/usr/local/include/clang/AST/DeclObjCCommon.h:
+
+/usr/local/include/clang/AST/DeclObjC.h:
+
+/usr/local/include/clang/Basic/TargetOptions.h:
+
+/usr/local/include/clang/AST/ASTConcept.h:
+
+/usr/local/include/clang/AST/DeclTemplate.h:
+
+/usr/local/include/clang/AST/StmtNodes.inc:
+
+/usr/x86_64-linux-gnu/include/time.h:
+
+/usr/local/include/clang/Basic/Specifiers.h:
+
+/usr/local/include/clang/AST/ASTFwd.h:
+
+/usr/include/c++/10/cwctype:
+
+include/canal/result.h:
+
+/usr/x86_64-linux-gnu/include/bits/xopen_lim.h:
+
+include/canal/operation_stack.h:
+
+/usr/local/include/llvm/MC/MCTargetOptions.h:
+
+/usr/x86_64-linux-gnu/include/bits/locale.h:
+
+/usr/include/c++/10/bits/deque.tcc:
+
+/usr/include/c++/10/bits/ostream.tcc:
+
+include/canal/function.h:
+
+/usr/include/c++/10/bits/vector.tcc:
+
+/usr/include/c++/10/bits/streambuf_iterator.h:
+
+/usr/include/c++/10/debug/assertions.h:
+
+/usr/local/include/llvm/Config/abi-breaking.h:
+
+/usr/x86_64-linux-gnu/include/bits/wctype-wchar.h:
+
+/usr/x86_64-linux-gnu/include/wctype.h:
+
+/usr/local/include/clang/Basic/AttributeCommonInfo.h:
+
+/usr/include/c++/10/bits/locale_facets.tcc:
+
+/usr/include/c++/10/bits/std_abs.h:
+
+/usr/x86_64-linux-gnu/include/bits/types/locale_t.h:
+
 /usr/include/c++/10/bits/basic_string.tcc:
 
 /usr/x86_64-linux-gnu/include/asm-generic/errno.h:
@@ -790,23 +845,37 @@ include/canal/analyzer.h:
 
 /usr/include/c++/10/cerrno:
 
+/usr/x86_64-linux-gnu/include/bits/types/cookie_io_functions_t.h:
+
+/usr/local/include/clang/AST/TypeNodes.inc:
+
+/usr/x86_64-linux-gnu/include/bits/types/__fpos_t.h:
+
+/usr/include/x86_64-linux-gnu/c++/10/bits/ctype_inline.h:
+
 /usr/x86_64-linux-gnu/include/alloca.h:
 
 /usr/local/include/clang/AST/DeclGroup.h:
 
 /usr/include/c++/10/bits/stl_iterator.h:
 
-/usr/local/include/clang/AST/CommentCommandTraits.h:
+/usr/x86_64-linux-gnu/include/sys/select.h:
 
 /usr/x86_64-linux-gnu/include/bits/uintn-identity.h:
 
 /usr/local/include/clang/AST/Stmt.h:
 
-/usr/local/include/llvm/Target/TargetOptions.h:
+/usr/include/x86_64-linux-gnu/c++/10/bits/error_constants.h:
 
 /usr/x86_64-linux-gnu/include/bits/byteswap.h:
 
 /usr/x86_64-linux-gnu/include/bits/timesize.h:
+
+/usr/include/c++/10/bits/istream.tcc:
+
+/usr/x86_64-linux-gnu/include/bits/types/__mbstate_t.h:
+
+/usr/local/include/llvm/Config/llvm-config.h:
 
 /usr/local/include/clang/Analysis/BodyFarm.h:
 
@@ -816,119 +885,53 @@ include/canal/analyzer.h:
 
 /usr/x86_64-linux-gnu/include/bits/waitstatus.h:
 
-/usr/include/x86_64-linux-gnu/c++/10/bits/error_constants.h:
-
-/usr/x86_64-linux-gnu/include/bits/types/sigset_t.h:
-
-/usr/local/include/clang/Basic/PragmaKinds.h:
-
-/usr/local/include/clang/Basic/AttrSubjectMatchRules.h:
-
-/usr/include/c++/10/bits/ostream_insert.h:
-
-/usr/x86_64-linux-gnu/include/bits/endian.h:
-
-/usr/local/include/llvm/Support/ErrorHandling.h:
-
-/usr/local/include/clang/Basic/CapturedStmt.h:
-
-/usr/local/include/clang/Frontend/PCHContainerOperations.h:
-
-/usr/x86_64-linux-gnu/include/locale.h:
-
-/usr/x86_64-linux-gnu/include/stdint.h:
-
-/usr/include/c++/10/limits:
-
-/usr/lib/gcc/x86_64-linux-gnu/10/include/stdint.h:
-
-/usr/include/x86_64-linux-gnu/c++/10/bits/c++allocator.h:
-
-/usr/local/include/llvm-c/DataTypes.h:
-
-/usr/local/include/clang/AST/CommentCommandList.inc:
-
-/usr/x86_64-linux-gnu/include/bits/types/cookie_io_functions_t.h:
-
-/usr/local/include/clang/Basic/AttrSubMatchRulesList.inc:
-
-/usr/include/c++/10/bits/shared_ptr_atomic.h:
-
-/usr/local/include/clang/Tooling/ArgumentsAdjusters.h:
-
-/usr/x86_64-linux-gnu/include/bits/local_lim.h:
-
-/usr/x86_64-linux-gnu/include/bits/types/__fpos_t.h:
-
-/usr/x86_64-linux-gnu/include/bits/select.h:
-
-/usr/local/include/llvm/Support/MemAlloc.h:
-
-/usr/local/include/clang/Lex/PreprocessorLexer.h:
-
-/usr/local/include/clang/Basic/SourceManager.h:
-
-/usr/include/c++/10/bits/shared_ptr_base.h:
-
-/usr/local/include/clang/Basic/Module.h:
-
-/usr/include/c++/10/bits/shared_ptr.h:
-
-/usr/x86_64-linux-gnu/include/bits/wchar.h:
-
-/usr/local/include/clang/Basic/AddressSpaces.h:
-
-/usr/local/include/clang/AST/ExternalASTSource.h:
+/usr/include/c++/10/bits/stl_construct.h:
 
 /usr/local/include/clang/Basic/LangStandards.def:
 
 /usr/include/c++/10/bits/iterator_concepts.h:
 
-/usr/include/c++/10/tuple:
+/usr/include/c++/10/bits/cxxabi_forced.h:
 
-/usr/local/include/clang/Serialization/PCHContainerOperations.h:
+/usr/include/x86_64-linux-gnu/c++/10/bits/c++allocator.h:
 
-/usr/local/include/clang/AST/DependenceFlags.h:
+/usr/lib/gcc/x86_64-linux-gnu/10/include/stdint.h:
 
-/usr/local/include/clang/Lex/TokenLexer.h:
+/usr/local/include/llvm-c/DataTypes.h:
 
-/usr/local/include/clang/AST/DeclFriend.h:
+/usr/local/include/llvm/Support/TypeSize.h:
 
-/usr/local/include/clang/Basic/NoSanitizeList.h:
+/usr/include/c++/10/bits/allocator.h:
 
-/usr/include/c++/10/bits/stl_set.h:
+/usr/include/c++/10/bits/stl_deque.h:
 
-/usr/include/c++/10/bits/uses_allocator.h:
+/usr/x86_64-linux-gnu/include/wchar.h:
 
-/usr/include/c++/10/bits/postypes.h:
+/usr/include/c++/10/bits/locale_classes.h:
 
-/usr/local/include/clang/Analysis/ConstructionContext.h:
+/usr/include/c++/10/bits/basic_ios.tcc:
 
-/usr/local/include/llvm/Support/DataTypes.h:
+/usr/x86_64-linux-gnu/include/stdio.h:
 
-/usr/include/c++/10/ext/concurrence.h:
+/usr/include/c++/10/bits/alloc_traits.h:
 
-/usr/local/include/clang/Lex/MacroInfo.h:
-
-/usr/local/include/llvm/ADT/CachedHashString.h:
-
-/usr/local/include/clang/StaticAnalyzer/Checkers/Checkers.inc:
-
-/usr/include/c++/10/ext/aligned_buffer.h:
-
-/usr/lib/gcc/x86_64-linux-gnu/10/include/stdarg.h:
-
-/usr/local/include/llvm/Support/CommandLine.h:
-
-/usr/local/include/llvm/Support/MemoryBufferRef.h:
-
-/usr/include/x86_64-linux-gnu/c++/10/bits/gthr-default.h:
+/usr/local/include/clang/Basic/Linkage.h:
 
 /usr/local/include/clang/Frontend/CompilerInstance.h:
 
 /usr/x86_64-linux-gnu/include/bits/types/struct___jmp_buf_tag.h:
 
 /usr/x86_64-linux-gnu/include/sched.h:
+
+/usr/include/c++/10/ext/alloc_traits.h:
+
+/usr/x86_64-linux-gnu/include/bits/types/__sigset_t.h:
+
+/usr/local/include/clang/AST/BuiltinTypes.def:
+
+/usr/x86_64-linux-gnu/include/bits/setjmp.h:
+
+/usr/include/c++/10/bits/streambuf.tcc:
 
 /usr/x86_64-linux-gnu/include/bits/struct_rwlock.h:
 
@@ -940,63 +943,17 @@ include/canal/analyzer.h:
 
 /usr/include/c++/10/bits/functional_hash.h:
 
+/usr/x86_64-linux-gnu/include/bits/uio_lim.h:
+
+/usr/x86_64-linux-gnu/include/bits/thread-shared-types.h:
+
 /usr/local/include/clang/Basic/LLVM.h:
 
 /usr/x86_64-linux-gnu/include/bits/types/struct_itimerspec.h:
 
-/usr/local/include/clang/Basic/TokenKinds.h:
+/usr/local/include/clang/Lex/Lexer.h:
 
-/usr/x86_64-linux-gnu/include/bits/posix2_lim.h:
-
-/usr/local/include/clang/AST/NestedNameSpecifier.h:
-
-/usr/x86_64-linux-gnu/include/inttypes.h:
-
-/usr/include/c++/10/string:
-
-/usr/x86_64-linux-gnu/include/bits/types/struct_sched_param.h:
-
-/usr/local/include/clang/Basic/Diagnostic.h:
-
-/usr/x86_64-linux-gnu/include/bits/sched.h:
-
-/usr/include/c++/10/bits/range_access.h:
-
-/usr/x86_64-linux-gnu/include/assert.h:
-
-/usr/local/include/clang/Basic/SourceLocation.h:
-
-/usr/include/c++/10/bits/stl_pair.h:
-
-/usr/include/c++/10/bits/stl_function.h:
-
-/usr/include/c++/10/bits/stl_relops.h:
-
-/usr/local/include/clang/Frontend/CommandLineSourceLoc.h:
-
-/usr/include/c++/10/utility:
-
-/usr/include/c++/10/memory:
-
-/usr/local/include/llvm/ADT/APInt.h:
-
-/usr/x86_64-linux-gnu/include/wchar.h:
-
-/usr/local/include/llvm/Support/TypeSize.h:
-
-/usr/include/c++/10/bits/allocator.h:
-
-/usr/x86_64-linux-gnu/include/bits/wordsize.h:
-
-/usr/local/include/clang/Basic/Lambda.h:
-
-/usr/include/c++/10/bits/functexcept.h:
-
-/usr/x86_64-linux-gnu/include/stdio.h:
-
-/usr/local/include/clang/Basic/Linkage.h:
-
-/usr/include/c++/10/bits/alloc_traits.h:
+/usr/include/c++/10/bits/parse_numbers.h:
 
 /usr/include/c++/10/bits/hash_bytes.h:
 
@@ -1006,253 +963,7 @@ include/canal/analyzer.h:
 
 /usr/include/c++/10/bits/exception_defines.h:
 
-/usr/include/c++/10/ext/new_allocator.h:
-
-/usr/include/c++/10/bits/predefined_ops.h:
-
-/usr/include/c++/10/bits/unique_lock.h:
-
-/usr/local/include/llvm/Support/VirtualFileSystem.h:
-
-/usr/include/c++/10/exception:
-
-/usr/x86_64-linux-gnu/include/gnu/stubs.h:
-
-/usr/x86_64-linux-gnu/include/stdlib.h:
-
-/usr/include/c++/10/cstddef:
-
-/usr/local/include/clang/Frontend/Utils.h:
-
-/usr/include/x86_64-linux-gnu/c++/10/bits/cpu_defines.h:
-
-/usr/include/c++/10/bits/localefwd.h:
-
-/usr/include/c++/10/bits/cxxabi_init_exception.h:
-
-/usr/local/include/clang/Basic/CharInfo.h:
-
-/usr/local/include/clang/AST/TemplateName.h:
-
-/usr/local/include/clang/AST/TypeNodes.inc:
-
-/usr/local/include/clang/AST/DeclObjC.h:
-
-/usr/x86_64-linux-gnu/include/stdc-predef.h:
-
-/usr/include/c++/10/bits/exception.h:
-
-/usr/local/include/clang/Analysis/PathDiagnostic.h:
-
-/usr/local/include/llvm/ADT/ArrayRef.h:
-
-/usr/local/include/clang/Basic/TypeTraits.h:
-
-/usr/local/include/clang/AST/ASTFwd.h:
-
-/usr/lib/gcc/x86_64-linux-gnu/10/include/stddef.h:
-
-/usr/include/c++/10/initializer_list:
-
-/usr/include/c++/10/bits/stl_raw_storage_iter.h:
-
-/usr/x86_64-linux-gnu/include/bits/types/clockid_t.h:
-
-/usr/x86_64-linux-gnu/include/bits/types/__FILE.h:
-
-/usr/include/x86_64-linux-gnu/c++/10/bits/c++io.h:
-
-/usr/local/include/clang/AST/TemplateBase.h:
-
-/usr/local/include/clang/AST/StmtObjC.h:
-
-/usr/include/c++/10/bits/atomic_lockfree_defines.h:
-
-/usr/local/include/clang/AST/StmtNodes.inc:
-
-/usr/x86_64-linux-gnu/include/time.h:
-
-/usr/local/include/clang/Basic/Specifiers.h:
-
-/usr/include/c++/10/bits/nested_exception.h:
-
-/usr/include/c++/10/cctype:
-
-/usr/include/c++/10/bits/cpp_type_traits.h:
-
-/usr/include/c++/10/algorithm:
-
-/usr/include/c++/10/type_traits:
-
-/usr/local/include/clang/AST/ASTConsumer.h:
-
-/usr/local/include/llvm/Support/Casting.h:
-
-/usr/x86_64-linux-gnu/include/bits/types/wint_t.h:
-
-/usr/local/include/clang/Basic/IdentifierTable.h:
-
-/usr/include/c++/10/concepts:
-
-/usr/include/c++/10/bits/std_abs.h:
-
-canal.cpp:
-
-/usr/local/include/clang/AST/RecursiveASTVisitor.h:
-
-/usr/include/c++/10/bits/charconv.h:
-
-/usr/x86_64-linux-gnu/include/bits/types/struct_timespec.h:
-
-/usr/x86_64-linux-gnu/include/bits/types/timer_t.h:
-
-/usr/local/include/clang/Basic/Visibility.h:
-
-/usr/local/include/clang/Basic/OpenMPKinds.def:
-
-/usr/local/include/llvm/ADT/STLExtras.h:
-
-/usr/include/c++/10/ext/atomicity.h:
-
-/usr/local/include/clang/AST/ExprOpenMP.h:
-
-/usr/local/include/llvm/ADT/Optional.h:
-
-/usr/x86_64-linux-gnu/include/linux/limits.h:
-
-/usr/include/c++/10/bits/stl_tree.h:
-
-/usr/local/include/clang/AST/Attr.h:
-
-/usr/include/x86_64-linux-gnu/c++/10/bits/c++locale.h:
-
-/usr/include/c++/10/bits/invoke.h:
-
-/usr/x86_64-linux-gnu/include/sys/cdefs.h:
-
-/usr/x86_64-linux-gnu/include/sys/select.h:
-
-/usr/include/c++/10/cassert:
-
-/usr/x86_64-linux-gnu/include/linux/errno.h:
-
-/usr/x86_64-linux-gnu/include/bits/waitflags.h:
-
-/usr/include/c++/10/bits/exception_ptr.h:
-
-/usr/local/include/clang/AST/Decl.h:
-
-/usr/x86_64-linux-gnu/include/bits/endianness.h:
-
-/usr/include/c++/10/debug/assertions.h:
-
-/usr/include/c++/10/bits/streambuf_iterator.h:
-
-/usr/local/include/llvm/Config/abi-breaking.h:
-
-/usr/include/c++/10/cstdlib:
-
-/usr/local/include/llvm/Support/ExtensibleRTTI.h:
-
-/usr/x86_64-linux-gnu/include/gnu/stubs-64.h:
-
-/usr/local/include/llvm/ADT/Twine.h:
-
-/usr/include/c++/10/backward/auto_ptr.h:
-
-/usr/local/include/llvm/Support/Compiler.h:
-
-/usr/local/include/llvm/Config/llvm-config.h:
-
-/usr/x86_64-linux-gnu/include/bits/types/__mbstate_t.h:
-
-/usr/x86_64-linux-gnu/include/bits/types/__sigset_t.h:
-
-/usr/include/c++/10/ext/alloc_traits.h:
-
-/usr/local/include/clang/AST/BuiltinTypes.def:
-
-/usr/local/include/llvm/ADT/IntrusiveRefCntPtr.h:
-
-/usr/include/c++/10/bits/unique_ptr.h:
-
-/usr/include/x86_64-linux-gnu/c++/10/bits/gthr.h:
-
-/usr/local/include/llvm-c/ExternC.h:
-
-/usr/local/include/clang/AST/DeclBase.h:
-
-/usr/x86_64-linux-gnu/include/bits/types/locale_t.h:
-
-/usr/include/c++/10/bits/char_traits.h:
-
-/usr/include/c++/10/bits/locale_classes.tcc:
-
-/usr/local/include/clang/AST/ComparisonCategories.h:
-
-/usr/local/include/llvm/ADT/PointerIntPair.h:
-
-/usr/include/c++/10/typeinfo:
-
-/usr/local/include/llvm/Transforms/Instrumentation/AddressSanitizerOptions.h:
-
-/usr/include/c++/10/bits/stl_algobase.h:
-
-/usr/include/c++/10/bits/stringfwd.h:
-
-/usr/local/include/clang/Basic/OperatorKinds.h:
-
-/usr/local/include/llvm/Support/MD5.h:
-
-/usr/include/c++/10/bits/stl_algo.h:
-
-/usr/local/include/llvm/Support/Regex.h:
-
-/usr/include/c++/10/cwchar:
-
-/usr/include/c++/10/bits/stl_construct.h:
-
-/usr/local/include/clang/StaticAnalyzer/Core/Analyses.def:
-
-/usr/local/include/clang/AST/DeclarationName.h:
-
-/usr/x86_64-linux-gnu/include/bits/types/struct_FILE.h:
-
-/usr/x86_64-linux-gnu/include/bits/types/__locale_t.h:
-
-/usr/include/c++/10/bits/codecvt.h:
-
-/usr/include/c++/10/bits/stl_iterator_base_types.h:
-
-/usr/local/include/clang/AST/DeclNodes.inc:
-
-/usr/include/c++/10/bits/atomic_base.h:
-
-/usr/x86_64-linux-gnu/include/bits/setjmp.h:
-
-/usr/local/include/llvm/Support/TrailingObjects.h:
-
-/usr/local/include/llvm/ADT/BitmaskEnum.h:
-
-/usr/local/include/clang/Basic/TokenKinds.def:
-
-/usr/local/include/clang/Driver/OptionUtils.h:
-
-/usr/local/include/clang/Basic/XRayInstr.h:
-
-/usr/local/include/llvm/Support/ErrorOr.h:
-
-/usr/x86_64-linux-gnu/include/bits/floatn.h:
-
-/usr/local/include/clang/Frontend/DependencyOutputOptions.h:
-
-/usr/include/c++/10/cstdio:
-
-/usr/local/include/clang/Lex/Token.h:
-
-/usr/include/x86_64-linux-gnu/c++/10/bits/os_defines.h:
-
-/usr/local/include/llvm/Support/ReverseIteration.h:
+include/canal/variable.h:
 
 /usr/include/c++/10/bits/stl_iterator_base_funcs.h:
 
@@ -1262,83 +973,167 @@ canal.cpp:
 
 /usr/include/c++/10/bits/std_function.h:
 
-/usr/x86_64-linux-gnu/include/bits/errno.h:
+/usr/include/x86_64-linux-gnu/c++/10/bits/gthr.h:
 
-/usr/local/include/llvm/ADT/DenseMap.h:
+/usr/include/c++/10/deque:
 
-/usr/x86_64-linux-gnu/include/bits/time.h:
+/usr/include/c++/10/bits/stl_vector.h:
 
-/usr/include/c++/10/bits/ptr_traits.h:
+/usr/include/c++/10/bits/postypes.h:
+
+/usr/include/c++/10/bits/stl_set.h:
+
+/usr/include/c++/10/bits/uses_allocator.h:
+
+/usr/local/include/clang/Analysis/ConstructionContext.h:
+
+/usr/local/include/llvm/Support/DataTypes.h:
+
+/usr/include/c++/10/stdexcept:
+
+/usr/include/c++/10/system_error:
+
+/usr/x86_64-linux-gnu/include/bits/wchar.h:
+
+/usr/local/include/clang/Basic/Module.h:
+
+/usr/include/c++/10/bits/shared_ptr.h:
+
+/usr/local/include/clang/Basic/AddressSpaces.h:
+
+/usr/local/include/clang/AST/ExternalASTSource.h:
+
+/usr/include/c++/10/type_traits:
 
 /usr/include/c++/10/bits/stl_uninitialized.h:
 
-/usr/x86_64-linux-gnu/include/pthread.h:
+/usr/include/c++/10/bits/exception.h:
 
-/usr/include/c++/10/climits:
+/usr/x86_64-linux-gnu/include/stdc-predef.h:
 
-/usr/local/include/llvm/ADT/PointerUnion.h:
+/usr/local/include/clang/Analysis/PathDiagnostic.h:
 
-/usr/local/include/llvm/Support/WithColor.h:
+/usr/local/include/llvm/ADT/ArrayRef.h:
 
-/usr/local/include/clang/Basic/PPCTypes.def:
+/usr/local/include/clang/Basic/TypeTraits.h:
 
-/usr/include/c++/10/bits/cxxabi_forced.h:
+/usr/lib/gcc/x86_64-linux-gnu/10/include/stddef.h:
 
-/usr/include/c++/10/bits/stl_tempbuf.h:
+/usr/include/c++/10/initializer_list:
 
-/usr/local/include/clang/AST/ASTContext.h:
+/usr/include/c++/10/bits/stl_raw_storage_iter.h:
 
-/usr/local/include/clang/Basic/AArch64SVEACLETypes.def:
+/usr/include/x86_64-linux-gnu/c++/10/bits/c++io.h:
 
-/usr/include/c++/10/bits/ranges_uninitialized.h:
+/usr/local/include/clang/AST/TemplateBase.h:
 
-/usr/local/include/llvm/Support/FileSystem/UniqueID.h:
+/usr/x86_64-linux-gnu/include/bits/types/wint_t.h:
 
-/usr/local/include/llvm/Frontend/OpenMP/OMP.inc:
+/usr/local/include/clang/Basic/IdentifierTable.h:
 
-/usr/local/include/clang/AST/ASTVector.h:
+/usr/include/c++/10/concepts:
 
-/usr/include/c++/10/functional:
+/usr/local/include/llvm/Support/ErrorOr.h:
 
-/usr/local/include/clang/Basic/PartialDiagnostic.h:
+/usr/x86_64-linux-gnu/include/bits/floatn.h:
 
-/usr/local/include/clang/Basic/Sanitizers.h:
+/usr/local/include/clang/Frontend/DependencyOutputOptions.h:
+
+/usr/include/c++/10/cstdio:
+
+/usr/include/c++/10/bits/codecvt.h:
+
+/usr/include/c++/10/bits/stl_iterator_base_types.h:
+
+/usr/x86_64-linux-gnu/include/sys/cdefs.h:
+
+/usr/include/c++/10/bits/invoke.h:
+
+/usr/x86_64-linux-gnu/include/linux/errno.h:
+
+/usr/x86_64-linux-gnu/include/bits/waitflags.h:
+
+/usr/include/c++/10/bits/exception_ptr.h:
+
+/usr/local/include/clang/AST/Decl.h:
+
+/usr/include/c++/10/cstdlib:
+
+/usr/local/include/llvm/Support/ExtensibleRTTI.h:
+
+/usr/x86_64-linux-gnu/include/gnu/stubs-64.h:
+
+/usr/include/c++/10/cwchar:
+
+/usr/local/include/llvm/ADT/DenseMap.h:
+
+/usr/x86_64-linux-gnu/include/bits/errno.h:
+
+/usr/include/c++/10/memory:
+
+/usr/local/include/llvm/ADT/APInt.h:
+
+/usr/include/c++/10/bits/stl_algobase.h:
+
+/usr/x86_64-linux-gnu/include/bits/wordsize.h:
+
+/usr/local/include/llvm/ADT/PointerIntPair.h:
+
+/usr/include/c++/10/typeinfo:
+
+/usr/local/include/llvm/Transforms/Instrumentation/AddressSanitizerOptions.h:
 
 /usr/include/c++/10/cstdint:
 
-/usr/x86_64-linux-gnu/include/ctype.h:
+/usr/x86_64-linux-gnu/include/bits/types/struct_sched_param.h:
 
-/usr/x86_64-linux-gnu/include/bits/types/__fpos64_t.h:
+/usr/local/include/clang/Basic/Diagnostic.h:
 
-/usr/x86_64-linux-gnu/include/bits/stdio_lim.h:
+canal.cpp:
 
-/usr/x86_64-linux-gnu/include/bits/stdint-intn.h:
+/usr/local/include/llvm/Support/TrailingObjects.h:
 
-/usr/x86_64-linux-gnu/include/bits/pthreadtypes-arch.h:
+/usr/local/include/clang/Basic/TokenKinds.def:
 
-/usr/include/c++/10/clocale:
+/usr/local/include/llvm/ADT/BitmaskEnum.h:
 
-/usr/local/include/llvm/ADT/iterator_range.h:
+/usr/local/include/clang/Basic/AArch64SVEACLETypes.def:
 
-/usr/x86_64-linux-gnu/include/bits/types/struct_tm.h:
+/usr/include/c++/10/ostream:
 
-/usr/x86_64-linux-gnu/include/bits/libc-header-start.h:
+/usr/x86_64-linux-gnu/include/bits/sched.h:
 
-/usr/include/c++/10/ext/type_traits.h:
+/usr/include/c++/10/bits/locale_classes.tcc:
 
-/usr/local/include/clang/Basic/OpenCLExtensionTypes.def:
+/usr/include/c++/10/bits/char_traits.h:
 
-/usr/local/include/clang/AST/AttrIterator.h:
+/usr/include/c++/10/istream:
 
-/usr/local/include/llvm/ADT/SmallString.h:
+/usr/local/include/clang/StaticAnalyzer/Core/Analyses.def:
 
-/usr/local/include/clang/AST/Redeclarable.h:
+/usr/x86_64-linux-gnu/include/bits/types/struct_FILE.h:
 
-/usr/x86_64-linux-gnu/include/bits/typesizes.h:
+/usr/local/include/clang/AST/DeclarationName.h:
 
-/usr/x86_64-linux-gnu/include/bits/time64.h:
+/usr/x86_64-linux-gnu/include/bits/types/__locale_t.h:
 
-/usr/x86_64-linux-gnu/include/bits/flt-eval-method.h:
+/usr/include/x86_64-linux-gnu/c++/10/bits/ctype_base.h:
+
+/usr/include/c++/10/ext/new_allocator.h:
+
+/usr/include/c++/10/bits/stringfwd.h:
+
+/usr/local/include/clang/Basic/OperatorKinds.h:
+
+/usr/include/c++/10/vector:
+
+/usr/include/c++/10/iostream:
+
+/usr/local/include/clang/AST/LambdaCapture.h:
+
+/usr/local/include/clang/Basic/TokenKinds.h:
+
+include/canal/operation.h:
 
 /usr/local/include/clang/Lex/ModuleMap.h:
 
@@ -1350,11 +1145,299 @@ include/canal/container.h:
 
 /usr/x86_64-linux-gnu/include/bits/floatn-common.h:
 
+/usr/local/include/clang/Basic/ProfileList.h:
+
+/usr/x86_64-linux-gnu/include/bits/types/struct_timeval.h:
+
+/usr/x86_64-linux-gnu/include/bits/types/time_t.h:
+
 /usr/local/include/llvm/Support/Alignment.h:
 
-/usr/x86_64-linux-gnu/include/bits/locale.h:
+/usr/include/c++/10/bits/atomic_base.h:
 
-/usr/local/include/llvm/MC/MCTargetOptions.h:
+/usr/local/include/clang/AST/DeclNodes.inc:
+
+/usr/include/c++/10/bits/stl_tree.h:
+
+/usr/local/include/clang/AST/CanonicalType.h:
+
+/usr/x86_64-linux-gnu/include/bits/types/FILE.h:
+
+/usr/x86_64-linux-gnu/include/gnu/stubs.h:
+
+/usr/local/include/clang/Frontend/Utils.h:
+
+/usr/include/x86_64-linux-gnu/c++/10/bits/cpu_defines.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/10/include/stdarg.h:
+
+/usr/local/include/llvm/Support/CommandLine.h:
+
+/usr/local/include/llvm/Support/MemoryBufferRef.h:
+
+/usr/include/x86_64-linux-gnu/c++/10/bits/gthr-default.h:
+
+/usr/include/c++/10/ext/concurrence.h:
+
+/usr/local/include/clang/Lex/MacroInfo.h:
+
+/usr/local/include/llvm/ADT/CachedHashString.h:
+
+/usr/local/include/clang/StaticAnalyzer/Checkers/Checkers.inc:
+
+/usr/include/c++/10/ext/aligned_buffer.h:
+
+/usr/include/c++/10/bits/nested_exception.h:
+
+/usr/include/c++/10/string:
+
+/usr/include/c++/10/bits/stl_pair.h:
+
+/usr/local/include/llvm/Frontend/OpenMP/OMPContext.h:
+
+/usr/include/c++/10/bits/move.h:
+
+/usr/include/c++/10/streambuf:
+
+/usr/include/c++/10/bits/charconv.h:
+
+/usr/x86_64-linux-gnu/include/bits/types/struct_timespec.h:
+
+/usr/local/include/clang/AST/RecursiveASTVisitor.h:
+
+/usr/x86_64-linux-gnu/include/bits/types/timer_t.h:
+
+/usr/local/include/clang/Basic/Visibility.h:
+
+/usr/local/include/clang/Basic/OpenMPKinds.def:
+
+/usr/local/include/clang/Lex/Token.h:
+
+/usr/include/x86_64-linux-gnu/c++/10/bits/os_defines.h:
+
+/usr/local/include/llvm/Support/ReverseIteration.h:
+
+/usr/x86_64-linux-gnu/include/bits/time.h:
+
+/usr/include/c++/10/bits/ptr_traits.h:
+
+/usr/include/c++/10/bits/unique_lock.h:
+
+/usr/local/include/llvm/Support/VirtualFileSystem.h:
+
+/usr/include/c++/10/exception:
+
+/usr/include/c++/10/bits/predefined_ops.h:
+
+/usr/include/c++/10/limits:
+
+/usr/x86_64-linux-gnu/include/bits/libc-header-start.h:
+
+/usr/include/c++/10/ext/type_traits.h:
+
+/usr/local/include/clang/Basic/OpenCLExtensionTypes.def:
+
+/usr/x86_64-linux-gnu/include/bits/typesizes.h:
+
+/usr/x86_64-linux-gnu/include/bits/time64.h:
+
+/usr/x86_64-linux-gnu/include/bits/flt-eval-method.h:
+
+/usr/include/c++/10/bits/functexcept.h:
+
+/usr/local/include/clang/Basic/Lambda.h:
+
+/usr/include/c++/10/bits/cxxabi_init_exception.h:
+
+/usr/local/include/clang/Basic/CharInfo.h:
+
+/usr/local/include/clang/AST/TemplateName.h:
+
+/usr/include/c++/10/bits/localefwd.h:
+
+/usr/local/include/clang/AST/Attr.h:
+
+/usr/include/x86_64-linux-gnu/c++/10/bits/c++locale.h:
+
+/usr/local/include/clang/Frontend/PCHContainerOperations.h:
+
+/usr/x86_64-linux-gnu/include/stdint.h:
+
+/usr/x86_64-linux-gnu/include/locale.h:
+
+/usr/local/include/clang/Basic/AttrSubjectMatchRules.h:
+
+/usr/include/c++/10/bits/ostream_insert.h:
+
+/usr/x86_64-linux-gnu/include/bits/endian.h:
+
+/usr/x86_64-linux-gnu/include/bits/types/sigset_t.h:
+
+/usr/include/c++/10/bits/cpp_type_traits.h:
+
+/usr/include/c++/10/cctype:
+
+/usr/local/include/clang/Basic/PragmaKinds.h:
+
+/usr/include/c++/10/bits/range_access.h:
+
+/usr/x86_64-linux-gnu/include/bits/endianness.h:
+
+/usr/include/c++/10/set:
+
+/usr/include/c++/10/bits/ios_base.h:
+
+/usr/x86_64-linux-gnu/include/bits/pthreadtypes-arch.h:
+
+/usr/include/c++/10/clocale:
+
+/usr/local/include/llvm/ADT/STLExtras.h:
+
+/usr/include/c++/10/ext/atomicity.h:
+
+/usr/local/include/clang/AST/ExprOpenMP.h:
+
+/usr/local/include/llvm/ADT/Optional.h:
+
+/usr/x86_64-linux-gnu/include/linux/limits.h:
+
+/usr/x86_64-linux-gnu/include/ctype.h:
+
+/usr/x86_64-linux-gnu/include/bits/types/__fpos64_t.h:
+
+/usr/x86_64-linux-gnu/include/bits/stdio_lim.h:
+
+/usr/x86_64-linux-gnu/include/bits/stdint-intn.h:
+
+/usr/x86_64-linux-gnu/include/pthread.h:
+
+/usr/include/c++/10/climits:
+
+/usr/local/include/llvm/ADT/PointerUnion.h:
+
+/usr/local/include/llvm/Support/WithColor.h:
+
+/usr/local/include/clang/Basic/PPCTypes.def:
+
+/usr/include/c++/10/cstddef:
+
+/usr/x86_64-linux-gnu/include/stdlib.h:
+
+/usr/x86_64-linux-gnu/include/bits/types/__FILE.h:
+
+/usr/x86_64-linux-gnu/include/bits/types/clockid_t.h:
+
+/usr/x86_64-linux-gnu/include/bits/posix2_lim.h:
+
+/usr/x86_64-linux-gnu/include/inttypes.h:
+
+/usr/local/include/clang/AST/NestedNameSpecifier.h:
+
+/usr/local/include/llvm/ADT/SmallString.h:
+
+/usr/local/include/clang/AST/Redeclarable.h:
+
+/usr/local/include/clang/AST/AttrIterator.h:
+
+/usr/local/include/clang/AST/ASTConsumer.h:
+
+/usr/local/include/llvm/Support/Casting.h:
+
+/usr/local/include/llvm/Support/Compiler.h:
+
+/usr/local/include/clang/Frontend/CommandLineSourceLoc.h:
+
+/usr/include/c++/10/utility:
+
+/usr/include/c++/10/bits/stl_function.h:
+
+/usr/include/c++/10/bits/stl_relops.h:
+
+/usr/include/c++/10/cassert:
+
+/usr/x86_64-linux-gnu/include/assert.h:
+
+/usr/local/include/clang/Basic/SourceLocation.h:
+
+/usr/include/c++/10/bits/stl_tempbuf.h:
+
+/usr/include/c++/10/bits/ranges_uninitialized.h:
+
+/usr/local/include/llvm/Support/FileSystem/UniqueID.h:
+
+/usr/local/include/clang/AST/ASTVector.h:
+
+/usr/local/include/llvm/Frontend/OpenMP/OMP.inc:
+
+/usr/include/c++/10/functional:
+
+/usr/local/include/clang/Basic/PartialDiagnostic.h:
+
+/usr/local/include/clang/Basic/Sanitizers.h:
+
+/usr/local/include/llvm/ADT/IntrusiveRefCntPtr.h:
+
+/usr/include/c++/10/bits/unique_ptr.h:
+
+/usr/include/c++/10/tuple:
+
+/usr/local/include/clang/Serialization/PCHContainerOperations.h:
+
+/usr/local/include/clang/AST/DependenceFlags.h:
+
+/usr/local/include/clang/Lex/TokenLexer.h:
+
+/usr/local/include/clang/AST/DeclFriend.h:
+
+/usr/local/include/clang/Lex/PreprocessorLexer.h:
+
+/usr/local/include/clang/Basic/SourceManager.h:
+
+/usr/include/c++/10/bits/shared_ptr_base.h:
+
+/usr/local/include/clang/Basic/CodeGenOptions.h:
+
+/usr/x86_64-linux-gnu/include/bits/cpu-set.h:
+
+/usr/include/c++/10/bits/allocated_ptr.h:
+
+/usr/local/include/llvm/Support/ErrorHandling.h:
+
+/usr/local/include/clang/Basic/CapturedStmt.h:
+
+/usr/local/include/clang/Tooling/ArgumentsAdjusters.h:
+
+/usr/x86_64-linux-gnu/include/bits/local_lim.h:
+
+/usr/local/include/clang/Basic/AttrSubMatchRulesList.inc:
+
+/usr/include/c++/10/bits/shared_ptr_atomic.h:
+
+/usr/local/include/clang/AST/StmtObjC.h:
+
+/usr/include/c++/10/bits/atomic_lockfree_defines.h:
+
+/usr/local/include/llvm/ADT/Twine.h:
+
+/usr/include/c++/10/backward/auto_ptr.h:
+
+/usr/local/include/llvm-c/ExternC.h:
+
+/usr/local/include/clang/AST/DeclBase.h:
+
+/usr/x86_64-linux-gnu/include/bits/types/struct_tm.h:
+
+/usr/local/include/llvm/ADT/iterator_range.h:
+
+/usr/x86_64-linux-gnu/include/bits/select.h:
+
+/usr/local/include/llvm/Support/MemAlloc.h:
+
+/usr/include/c++/10/algorithm:
+
+/usr/local/include/llvm/Support/MD5.h:
+
+/usr/include/c++/10/bits/stl_algo.h:
 
 /usr/x86_64-linux-gnu/include/string.h:
 
@@ -1382,24 +1465,6 @@ include/canal/container.h:
 
 /usr/local/include/clang/Basic/DiagnosticOptions.h:
 
-/usr/local/include/llvm/Frontend/OpenMP/OMPContext.h:
-
-/usr/include/c++/10/bits/move.h:
-
-/usr/include/c++/10/streambuf:
-
-/usr/include/c++/10/set:
-
-/usr/include/c++/10/bits/ios_base.h:
-
-/usr/include/c++/10/bits/locale_classes.h:
-
-/usr/include/c++/10/system_error:
-
-/usr/include/c++/10/stdexcept:
-
-/usr/include/c++/10/bits/streambuf.tcc:
-
 /usr/include/c++/10/bits/range_cmp.h:
 
 /usr/local/include/clang/AST/APValue.h:
@@ -1418,23 +1483,23 @@ include/canal/container.h:
 
 /usr/lib/gcc/x86_64-linux-gnu/10/include/limits.h:
 
+/usr/local/include/llvm/ADT/SmallSet.h:
+
+/usr/include/c++/10/bits/stl_bvector.h:
+
+/usr/local/include/llvm/ADT/FloatingPointMode.h:
+
 /usr/lib/gcc/x86_64-linux-gnu/10/include/syslimits.h:
 
 /usr/x86_64-linux-gnu/include/limits.h:
 
 /usr/x86_64-linux-gnu/include/bits/posix1_lim.h:
 
-/usr/x86_64-linux-gnu/include/bits/xopen_lim.h:
-
-/usr/x86_64-linux-gnu/include/bits/thread-shared-types.h:
-
-/usr/x86_64-linux-gnu/include/bits/uio_lim.h:
-
 /usr/include/c++/10/cmath:
 
-/usr/include/c++/10/bits/refwrap.h:
-
 /usr/local/include/llvm/Support/Allocator.h:
+
+/usr/include/c++/10/bits/refwrap.h:
 
 /usr/x86_64-linux-gnu/include/math.h:
 
@@ -1474,35 +1539,15 @@ include/canal/container.h:
 
 /usr/local/include/llvm/Support/raw_ostream.h:
 
-/usr/include/c++/10/bits/basic_ios.h:
-
 /usr/local/include/clang/Analysis/CFG.h:
+
+/usr/include/c++/10/bits/basic_ios.h:
 
 /usr/include/c++/10/ratio:
 
 /usr/include/c++/10/ctime:
 
-/usr/local/include/clang/Lex/Lexer.h:
-
-/usr/include/c++/10/bits/parse_numbers.h:
-
 /usr/local/include/llvm/ADT/APFloat.h:
-
-/usr/include/c++/10/iostream:
-
-/usr/include/c++/10/vector:
-
-/usr/include/c++/10/deque:
-
-/usr/include/c++/10/bits/stl_vector.h:
-
-/usr/local/include/llvm/ADT/SmallSet.h:
-
-/usr/local/include/llvm/ADT/FloatingPointMode.h:
-
-/usr/include/c++/10/bits/stl_bvector.h:
-
-/usr/include/c++/10/bits/vector.tcc:
 
 /usr/local/include/llvm/ADT/GraphTraits.h:
 
@@ -1550,8 +1595,6 @@ include/canal/scheduler.h:
 
 /usr/local/include/clang/Basic/BitmaskEnum.h:
 
-/usr/local/include/clang/AST/DeclTemplate.h:
-
 /usr/local/include/clang/Basic/XRayLists.h:
 
 /usr/local/include/clang/Basic/DiagnosticIDs.h:
@@ -1560,11 +1603,9 @@ include/canal/scheduler.h:
 
 /usr/local/include/clang/AST/OperationKinds.def:
 
-/usr/local/include/clang/AST/PrettyPrinter.h:
+/usr/x86_64-linux-gnu/include/bits/fp-logb.h:
 
 /usr/include/x86_64-linux-gnu/c++/10/bits/c++config.h:
-
-/usr/x86_64-linux-gnu/include/bits/fp-logb.h:
 
 /usr/local/include/clang/Basic/DiagnosticOptions.def:
 
@@ -1614,17 +1655,11 @@ include/canal/scheduler.h:
 
 /usr/local/include/llvm/Support/VersionTuple.h:
 
-/usr/local/include/clang/Basic/AttributeCommonInfo.h:
-
 /usr/local/include/clang/Sema/AttrParsedAttrList.inc:
 
 /usr/local/include/clang/Basic/LangOptions.h:
 
 /usr/local/include/clang/Basic/LangStandard.h:
-
-/usr/x86_64-linux-gnu/include/bits/types/FILE.h:
-
-/usr/local/include/clang/AST/CanonicalType.h:
 
 /usr/local/include/llvm/ADT/APSInt.h:
 
@@ -1696,8 +1731,6 @@ include/canal/scheduler.h:
 
 /usr/local/include/clang/AST/OperationKinds.h:
 
-/usr/local/include/clang/AST/LambdaCapture.h:
-
 /usr/local/include/clang/AST/CharUnits.h:
 
 /usr/local/include/clang/AST/TypeLocNodes.def:
@@ -1707,35 +1740,3 @@ include/canal/scheduler.h:
 /usr/local/include/llvm/ADT/TinyPtrVector.h:
 
 /usr/local/include/clang/AST/CXXRecordDeclDefinitionBits.def:
-
-/usr/local/include/clang/Basic/TargetOptions.h:
-
-/usr/local/include/clang/AST/ASTConcept.h:
-
-/usr/local/include/clang/AST/DeclObjCCommon.h:
-
-/usr/local/include/clang/AST/SelectorLocationsKind.h:
-
-/usr/local/include/llvm/ADT/DenseSet.h:
-
-/usr/local/include/clang/AST/DeclOpenMP.h:
-
-/usr/local/include/clang/AST/RawCommentList.h:
-
-/usr/x86_64-linux-gnu/include/bits/types/struct_timeval.h:
-
-/usr/x86_64-linux-gnu/include/bits/types/time_t.h:
-
-/usr/local/include/clang/Basic/ProfileList.h:
-
-/usr/include/c++/10/bits/allocated_ptr.h:
-
-/usr/x86_64-linux-gnu/include/bits/cpu-set.h:
-
-/usr/local/include/clang/Basic/CodeGenOptions.h:
-
-/usr/local/include/clang/Basic/DebugInfoOptions.h:
-
-/usr/local/include/llvm/Support/CodeGen.h:
-
-/usr/local/include/clang/Basic/CodeGenOptions.def:

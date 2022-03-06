@@ -23,6 +23,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/synrom/lego/canal/src/operation/print.cpp" "src/CMakeFiles/struct.dir/operation/print.cpp.o" "gcc" "src/CMakeFiles/struct.dir/operation/print.cpp.o.d"
   "/home/synrom/lego/canal/src/operation/ret.cpp" "src/CMakeFiles/struct.dir/operation/ret.cpp.o" "gcc" "src/CMakeFiles/struct.dir/operation/ret.cpp.o.d"
   "/home/synrom/lego/canal/src/operation/shl_shr.cpp" "src/CMakeFiles/struct.dir/operation/shl_shr.cpp.o" "gcc" "src/CMakeFiles/struct.dir/operation/shl_shr.cpp.o.d"
+  "/home/synrom/lego/canal/src/operation/switch.cpp" "src/CMakeFiles/struct.dir/operation/switch.cpp.o" "gcc" "src/CMakeFiles/struct.dir/operation/switch.cpp.o.d"
   "/home/synrom/lego/canal/src/operation/var_push.cpp" "src/CMakeFiles/struct.dir/operation/var_push.cpp.o" "gcc" "src/CMakeFiles/struct.dir/operation/var_push.cpp.o.d"
   "/home/synrom/lego/canal/src/result/identifiers.cpp" "src/CMakeFiles/struct.dir/result/identifiers.cpp.o" "gcc" "src/CMakeFiles/struct.dir/result/identifiers.cpp.o.d"
   "/home/synrom/lego/canal/src/result/locals.cpp" "src/CMakeFiles/struct.dir/result/locals.cpp.o" "gcc" "src/CMakeFiles/struct.dir/result/locals.cpp.o.d"

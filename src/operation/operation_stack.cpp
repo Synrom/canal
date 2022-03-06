@@ -295,16 +295,33 @@ void operation_stack::push_back(const VarPush &cpy){
 
 void operation_stack::print(){
 
-	for(operation *i = start_buf;i != end_buf;i++)
-		i->print();
+	operation *current_safe = current;
+	printf("current safe = %p\n",current_safe);
+	reset();
 
+	operation *op = getNext();
+	while(op != NULL){
+		op->print();
+		op = getNext();
+	}
+
+	current = current_safe;
 
 }
 
 void operation_stack::print_simple(){
 
-	for(operation *i = start_buf;i != end_buf;i++)
-		i->print_simple();
+	operation *current_safe = current;
+	printf("current safe = %p\n",current_safe);
+	reset();
+
+	operation *op = getNext();
+	while(op != NULL){
+		op->print_simple();
+		op = getNext();
+	}
+
+	current = current_safe;
 
 
 }
@@ -332,6 +349,9 @@ template void operation_stack::insert<Equal>(const Equal &value,rope &r);
 template void operation_stack::insert<Ret>(const Ret &value,rope &r);
 template void operation_stack::insert<VarPush>(const VarPush &value,rope &r);
 template void operation_stack::insert<IntLiteral>(const IntLiteral &value,rope &r);
+template void operation_stack::insert<Add_Switch>(const Add_Switch &value,rope &r);
+template void operation_stack::insert<Next_Switch>(const Next_Switch &value,rope &r);
+template void operation_stack::insert<End_Switch>(const End_Switch &value,rope &r);
 
 template void operation_stack::insert_all_ropes<Add>(const Add &value);
 template void operation_stack::insert_all_ropes<Minus>(const Minus &value);
@@ -350,6 +370,9 @@ template void operation_stack::insert_all_ropes<Equal>(const Equal &value);
 template void operation_stack::insert_all_ropes<Ret>(const Ret &value);
 template void operation_stack::insert_all_ropes<VarPush>(const VarPush &value);
 template void operation_stack::insert_all_ropes<IntLiteral>(const IntLiteral &value);
+template void operation_stack::insert_all_ropes<Add_Switch>(const Add_Switch &value);
+template void operation_stack::insert_all_ropes<Next_Switch>(const Next_Switch &value);
+template void operation_stack::insert_all_ropes<End_Switch>(const End_Switch &value);
 
 template void operation_stack::insert_last_rope<Add>(const Add &value);
 template void operation_stack::insert_last_rope<Minus>(const Minus &value);
@@ -368,3 +391,6 @@ template void operation_stack::insert_last_rope<Equal>(const Equal &value);
 template void operation_stack::insert_last_rope<Ret>(const Ret &value);
 template void operation_stack::insert_last_rope<VarPush>(const VarPush &value);
 template void operation_stack::insert_last_rope<IntLiteral>(const IntLiteral &value);
+template void operation_stack::insert_last_rope<Add_Switch>(const Add_Switch &value);
+template void operation_stack::insert_last_rope<Next_Switch>(const Next_Switch &value);
+template void operation_stack::insert_last_rope<End_Switch>(const End_Switch &value);

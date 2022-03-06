@@ -1,7 +1,7 @@
-- Sub Ropes testen
 - Switch Operations implementieren
 - Inc/Dec Operation implementieren (einfach auch auf result stack pushen -> wird eh nach Aufruf der Funktion gecleared)
 	-> und zu analyzer hinzufügen
+- Neg Operation implementieren
 - Access Operation implementieren
 
 
