@@ -54,11 +54,7 @@ void function::print(){
 	for(auto i = pvariables.begin();i != pvariables.end();i++)
 		printf("%s, ",(*i).c_str());
 	printf("){\n");
-	operations.reset();
-	operation *next;
-	while((next = operations.getNext()) != NULL)
-		next->print();
-	operations.reset();
+	operations.print();
 	printf("}\n\n");
 	
 }
@@ -68,11 +64,7 @@ void function::print_simple(){
 	for(auto i = pvariables.begin();i != pvariables.end();i++)
 		printf("%s, ",(*i).c_str());
 	printf("){\n");
-	operations.reset();
-	operation *next;
-	while((next = operations.getNext()) != NULL)
-		next->print_simple();
-	operations.reset();
+	operations.print_simple();
 	printf("}\n\n");
 	
 }

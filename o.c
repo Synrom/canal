@@ -42,6 +42,17 @@ int main(){
 	// test equal
 	a = c;
 	a = 16;
+	a++;
+
+	a = 0;
+	b = 1;
+	c = 2;
+
+	c = ~a;
+
+	a = b++;
+
+	b = ++a;
 
 	// test call
 	//int d = add(5,getvar());

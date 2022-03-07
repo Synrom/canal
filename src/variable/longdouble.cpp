@@ -98,20 +98,39 @@ void longdouble::Xor(variable *where, variable *what){
 		new (where) longdouble("", (long double) (value.longdouble));
 	}
 }
-void longdouble::Inc(){
-	debug("longdouble::Inc");
-	value.longdouble++;
-}
-void longdouble::Dec(){
-	debug("longdouble::Dec");
-	value.longdouble--;
-}
-void longdouble::Neg(variable *where){
-	debug("longdouble::Neg");
-	error_conditional(!where, "in longdouble::Neg where is NULL");
-	warning("calling longdouble::Neg which is really weird");
 
-	new (where) longdouble("", (long double) (value.longdouble));
+void longdouble::Inc(variable *where){
+	debug("longdouble::Inc");
+	if(where == this || !where){
+		debug("longdouble::Inc where == this");
+		value.longdouble++;
+	}else{
+		debug("longdouble::Inc where != this");
+		new (where) longdouble("", (double) (value.longdouble) + 1);
+	}
+}
+
+void longdouble::Dec(variable *where){
+	debug("longdouble::Dec");
+	if(where == this || !where){
+		debug("longdouble::Dec where == this");
+		value.longdouble--;
+	}else{
+		debug("longdouble::Dec where != this");
+		new (where) longdouble("", (double) (value.longdouble) - 1);
+	}
+}
+
+void longdouble::Neg(variable *where){
+	warning("calling longdouble::Neg which is really weird");
+	debug("longdouble::Neg");
+	if(where == this || !where){
+		debug("longdouble::Dec where == this");
+		value.longdouble = value.longdouble;
+	}else{
+		debug("longdouble::Dec where != this");
+		new (where) longdouble("", value.longdouble);
+	}
 }
 
 void longdouble::Equal(variable *what){

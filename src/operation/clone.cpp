@@ -44,16 +44,6 @@ void Neg::clone(operation *location) const {
 	new (location) Neg(freference);
 }
 
-void Dec::clone(operation *location) const {
-	debug("cloning Dec operation to %p",location);
-	new (location) Dec(freference);
-}
-
-void Inc::clone(operation *location) const {
-	debug("cloning Inc operation to %p",location);
-	new (location) Inc(freference);
-}
-
 void Call::clone(operation *location) const {
 	debug("cloning Call operation to %p",location);
 	new (location) Call(call,freference);

@@ -72,6 +72,7 @@ operation_stack::rope &operation_stack::get_base_rope(rope r, int domain){
 template<typename T>
 void operation_stack::insert_all_ropes(const T &value){
 	warning_conditional(ropes.empty(), "trying to insert operation to operation_stack without any ropes");
+	info("writing into %lu ropes with %lu levels",ropes.back().size(),ropes.size());
 	for(auto i = ropes.back().begin();i != ropes.back().end();i++){
 		insert(value,*i);
 	}
@@ -258,14 +259,24 @@ void operation_stack::push_back(const Shr &cpy){
 	new (get_new_location()) Shr(cpy);
 }
 
-void operation_stack::push_back(const Inc &cpy){
+void operation_stack::push_back(const Inc_Post &cpy){
 	debug("adding Inc to operation_stack");
-	new (get_new_location()) Inc(cpy);
+	new (get_new_location()) Inc_Post(cpy);
 }
 
-void operation_stack::push_back(const Dec &cpy){
+void operation_stack::push_back(const Dec_Post &cpy){
 	debug("adding Dec to operation_stack");
-	new (get_new_location()) Dec(cpy);
+	new (get_new_location()) Dec_Post(cpy);
+}
+
+void operation_stack::push_back(const Inc_Pre &cpy){
+	debug("adding Inc to operation_stack");
+	new (get_new_location()) Inc_Pre(cpy);
+}
+
+void operation_stack::push_back(const Dec_Pre &cpy){
+	debug("adding Dec to operation_stack");
+	new (get_new_location()) Dec_Pre(cpy);
 }
 
 void operation_stack::push_back(const Neg &cpy){
@@ -296,7 +307,6 @@ void operation_stack::push_back(const VarPush &cpy){
 void operation_stack::print(){
 
 	operation *current_safe = current;
-	printf("current safe = %p\n",current_safe);
 	reset();
 
 	operation *op = getNext();
@@ -312,7 +322,6 @@ void operation_stack::print(){
 void operation_stack::print_simple(){
 
 	operation *current_safe = current;
-	printf("current safe = %p\n",current_safe);
 	reset();
 
 	operation *op = getNext();
@@ -342,8 +351,10 @@ template void operation_stack::insert<Xor>(const Xor &value,rope &r);
 template void operation_stack::insert<Shl>(const Shl &value,rope &r);
 template void operation_stack::insert<Shr>(const Shr &value,rope &r);
 template void operation_stack::insert<Neg>(const Neg &value,rope &r);
-template void operation_stack::insert<Dec>(const Dec &value,rope &r);
-template void operation_stack::insert<Inc>(const Inc &value,rope &r);
+template void operation_stack::insert<Dec_Post>(const Dec_Post &value,rope &r);
+template void operation_stack::insert<Inc_Post>(const Inc_Post &value,rope &r);
+template void operation_stack::insert<Dec_Pre>(const Dec_Pre &value,rope &r);
+template void operation_stack::insert<Inc_Pre>(const Inc_Pre &value,rope &r);
 template void operation_stack::insert<Call>(const Call &value,rope &r);
 template void operation_stack::insert<Equal>(const Equal &value,rope &r);
 template void operation_stack::insert<Ret>(const Ret &value,rope &r);
@@ -363,8 +374,10 @@ template void operation_stack::insert_all_ropes<Xor>(const Xor &value);
 template void operation_stack::insert_all_ropes<Shl>(const Shl &value);
 template void operation_stack::insert_all_ropes<Shr>(const Shr &value);
 template void operation_stack::insert_all_ropes<Neg>(const Neg &value);
-template void operation_stack::insert_all_ropes<Dec>(const Dec &value);
-template void operation_stack::insert_all_ropes<Inc>(const Inc &value);
+template void operation_stack::insert_all_ropes<Dec_Post>(const Dec_Post &value);
+template void operation_stack::insert_all_ropes<Inc_Post>(const Inc_Post &value);
+template void operation_stack::insert_all_ropes<Dec_Pre>(const Dec_Pre &value);
+template void operation_stack::insert_all_ropes<Inc_Pre>(const Inc_Pre &value);
 template void operation_stack::insert_all_ropes<Call>(const Call &value);
 template void operation_stack::insert_all_ropes<Equal>(const Equal &value);
 template void operation_stack::insert_all_ropes<Ret>(const Ret &value);
@@ -384,8 +397,10 @@ template void operation_stack::insert_last_rope<Xor>(const Xor &value);
 template void operation_stack::insert_last_rope<Shl>(const Shl &value);
 template void operation_stack::insert_last_rope<Shr>(const Shr &value);
 template void operation_stack::insert_last_rope<Neg>(const Neg &value);
-template void operation_stack::insert_last_rope<Dec>(const Dec &value);
-template void operation_stack::insert_last_rope<Inc>(const Inc &value);
+template void operation_stack::insert_last_rope<Dec_Post>(const Dec_Post &value);
+template void operation_stack::insert_last_rope<Inc_Post>(const Inc_Post &value);
+template void operation_stack::insert_last_rope<Dec_Pre>(const Dec_Pre &value);
+template void operation_stack::insert_last_rope<Inc_Pre>(const Inc_Pre &value);
 template void operation_stack::insert_last_rope<Call>(const Call &value);
 template void operation_stack::insert_last_rope<Equal>(const Equal &value);
 template void operation_stack::insert_last_rope<Ret>(const Ret &value);

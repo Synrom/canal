@@ -18,6 +18,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/synrom/lego/canal/src/operation/clone.cpp" "src/CMakeFiles/struct.dir/operation/clone.cpp.o" "gcc" "src/CMakeFiles/struct.dir/operation/clone.cpp.o.d"
   "/home/synrom/lego/canal/src/operation/equal.cpp" "src/CMakeFiles/struct.dir/operation/equal.cpp.o" "gcc" "src/CMakeFiles/struct.dir/operation/equal.cpp.o.d"
   "/home/synrom/lego/canal/src/operation/int_lit.cpp" "src/CMakeFiles/struct.dir/operation/int_lit.cpp.o" "gcc" "src/CMakeFiles/struct.dir/operation/int_lit.cpp.o.d"
+  "/home/synrom/lego/canal/src/operation/neg_dec_inc.cpp" "src/CMakeFiles/struct.dir/operation/neg_dec_inc.cpp.o" "gcc" "src/CMakeFiles/struct.dir/operation/neg_dec_inc.cpp.o.d"
   "/home/synrom/lego/canal/src/operation/operation.cpp" "src/CMakeFiles/struct.dir/operation/operation.cpp.o" "gcc" "src/CMakeFiles/struct.dir/operation/operation.cpp.o.d"
   "/home/synrom/lego/canal/src/operation/operation_stack.cpp" "src/CMakeFiles/struct.dir/operation/operation_stack.cpp.o" "gcc" "src/CMakeFiles/struct.dir/operation/operation_stack.cpp.o.d"
   "/home/synrom/lego/canal/src/operation/print.cpp" "src/CMakeFiles/struct.dir/operation/print.cpp.o" "gcc" "src/CMakeFiles/struct.dir/operation/print.cpp.o.d"

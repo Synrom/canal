@@ -23,8 +23,10 @@ public:
 		Shl,
 		Shr,
 		Neg, // TODO in function_analyzer, als OP implementieren
-		Dec, // TODO in function_analyzer, als OP implementieren
-		Inc, // TODO in function_analyzer, als OP implementieren
+		Dec_Post, // TODO in function_analyzer, als OP implementieren
+		Inc_Post, // TODO in function_analyzer, als OP implementieren
+		Dec_Pre, // TODO in function_analyzer, als OP implementieren
+		Inc_Pre, // TODO in function_analyzer, als OP implementieren
 		Call,
 		Equal,
 		Ret,
@@ -166,23 +168,56 @@ public:
 	Neg(operation *);
 	Neg(const Neg &);
 	void clone(operation *) const;
+	void execute();
+	void print();
+	void print_simple();
 };
-class Dec: public operation{
+class Dec_Post: public operation{
 	void executeOperation(variable *,variable *,variable *);
 public:
-	Dec(function &);
-	Dec(operation *);
-	Dec(const Dec &);
+	Dec_Post(function &);
+	Dec_Post(operation *);
+	Dec_Post(const Dec_Post &);
 	void clone(operation *) const;
+	void execute();
+	void print();
+	void print_simple();
 };
-class Inc: public operation{
+class Inc_Post: public operation{
 	void executeOperation(variable *,variable *,variable *);
 public:
-	Inc(function &);
-	Inc(operation *);
-	Inc(const Inc &);
+	Inc_Post(function &);
+	Inc_Post(operation *);
+	Inc_Post(const Inc_Post &);
 	void clone(operation *) const;
+	void execute();
+	void print();
+	void print_simple();
 };
+
+class Dec_Pre: public operation{
+	void executeOperation(variable *,variable *,variable *);
+public:
+	Dec_Pre(function &);
+	Dec_Pre(operation *);
+	Dec_Pre(const Dec_Pre &);
+	void execute();
+	void clone(operation *) const;
+	void print();
+	void print_simple();
+};
+class Inc_Pre: public operation{
+	void executeOperation(variable *,variable *,variable *);
+public:
+	Inc_Pre(function &);
+	Inc_Pre(operation *);
+	Inc_Pre(const Inc_Pre &);
+	void clone(operation *) const;
+	void execute();
+	void print();
+	void print_simple();
+};
+
 class Call: public operation{
 	void executeOperation(variable *,variable *,variable *);
 public:
@@ -251,5 +286,6 @@ public:
 	void print_simple();
 	void execute();
 };
+
 
 #endif

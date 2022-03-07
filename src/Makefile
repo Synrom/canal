@@ -471,6 +471,30 @@ operation/int_lit.cpp.s:
 	cd /home/synrom/lego/canal && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/struct.dir/build.make src/CMakeFiles/struct.dir/operation/int_lit.cpp.s
 .PHONY : operation/int_lit.cpp.s
 
+operation/neg_dec_inc.o: operation/neg_dec_inc.cpp.o
+.PHONY : operation/neg_dec_inc.o
+
+# target to build an object file
+operation/neg_dec_inc.cpp.o:
+	cd /home/synrom/lego/canal && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/struct.dir/build.make src/CMakeFiles/struct.dir/operation/neg_dec_inc.cpp.o
+.PHONY : operation/neg_dec_inc.cpp.o
+
+operation/neg_dec_inc.i: operation/neg_dec_inc.cpp.i
+.PHONY : operation/neg_dec_inc.i
+
+# target to preprocess a source file
+operation/neg_dec_inc.cpp.i:
+	cd /home/synrom/lego/canal && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/struct.dir/build.make src/CMakeFiles/struct.dir/operation/neg_dec_inc.cpp.i
+.PHONY : operation/neg_dec_inc.cpp.i
+
+operation/neg_dec_inc.s: operation/neg_dec_inc.cpp.s
+.PHONY : operation/neg_dec_inc.s
+
+# target to generate assembly for a file
+operation/neg_dec_inc.cpp.s:
+	cd /home/synrom/lego/canal && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/struct.dir/build.make src/CMakeFiles/struct.dir/operation/neg_dec_inc.cpp.s
+.PHONY : operation/neg_dec_inc.cpp.s
+
 operation/operation.o: operation/operation.cpp.o
 .PHONY : operation/operation.o
 
@@ -1310,6 +1334,9 @@ help:
 	@echo "... operation/int_lit.o"
 	@echo "... operation/int_lit.i"
 	@echo "... operation/int_lit.s"
+	@echo "... operation/neg_dec_inc.o"
+	@echo "... operation/neg_dec_inc.i"
+	@echo "... operation/neg_dec_inc.s"
 	@echo "... operation/operation.o"
 	@echo "... operation/operation.i"
 	@echo "... operation/operation.s"

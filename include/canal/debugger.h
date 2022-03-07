@@ -66,8 +66,8 @@ private:
 
 #else
 
+#define debug(...)
 #define debug_conditional(condition,...) 
-#define debug(...) 
 #define info_conditional(condition,...) 
 #define info(...)
 #define warning_conditional(condition,...)

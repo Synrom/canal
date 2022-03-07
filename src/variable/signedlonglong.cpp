@@ -98,19 +98,36 @@ void signedlonglong::Xor(variable *where, variable *what){
 		new (where) signedlonglong("", (signed long long) (value.signedlonglong ^ what->value.signedlonglong));
 	}
 }
-void signedlonglong::Inc(){
+void signedlonglong::Inc(variable *where){
 	debug("signedlonglong::Inc");
-	value.signedlonglong++;
+	if(where == this || !where){
+		debug("signedlonglong::Inc where == this");
+		value.signedlonglong++;
+	}else{
+		debug("signedlonglong::Inc where != this");
+		new (where) signedlonglong("", (double) (value.signedlonglong) + 1);
+	}
 }
-void signedlonglong::Dec(){
+
+void signedlonglong::Dec(variable *where){
 	debug("signedlonglong::Dec");
-	value.signedlonglong--;
+	if(where == this || !where){
+		debug("signedlonglong::Dec where == this");
+		value.signedlonglong--;
+	}else{
+		debug("signedlonglong::Dec where != this");
+		new (where) signedlonglong("", (double) (value.signedlonglong) - 1);
+	}
 }
 void signedlonglong::Neg(variable *where){
 	debug("signedlonglong::Neg");
-	error_conditional(!where, "in signedlonglong::Neg where is NULL");
-
-	new (where) signedlonglong("", (signed long long) (~value.signedlonglong));
+	if(where == this || !where){
+		debug("signedlonglong::Dec where == this");
+		value.signedlonglong = ~value.signedlonglong;
+	}else{
+		debug("signedlonglong::Dec where != this");
+		new (where) signedlonglong("", ~value.signedlonglong);
+	}
 }
 
 void signedlonglong::Equal(variable *what){

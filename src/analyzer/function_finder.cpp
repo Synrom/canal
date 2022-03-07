@@ -42,7 +42,6 @@ bool canal_AST_analyzer::VisitFunctionDecl(clang::FunctionDecl *clang_function){
 
 	current_function = global_scope.addFunction(name);
 	
-	current_function->operations.add_rope();
 
 	info("created function instance in global_scope and moved current %p (%s)",current_function, current_function->name.c_str());
 

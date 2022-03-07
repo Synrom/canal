@@ -98,19 +98,36 @@ void signedint::Xor(variable *where, variable *what){
 		new (where) signedint("", (signed int) (value.signedint ^ what->value.signedint));
 	}
 }
-void signedint::Inc(){
+void signedint::Inc(variable *where){
 	debug("signedint::Inc");
-	value.signedint++;
+	if(where == this || !where){
+		debug("signedint::Inc where == this");
+		value.signedint++;
+	}else{
+		debug("signedint::Inc where != this");
+		new (where) signedint("", (double) (value.signedint) + 1);
+	}
 }
-void signedint::Dec(){
+
+void signedint::Dec(variable *where){
 	debug("signedint::Dec");
-	value.signedint--;
+	if(where == this || !where){
+		debug("signedint::Dec where == this");
+		value.signedint--;
+	}else{
+		debug("signedint::Dec where != this");
+		new (where) signedint("", (double) (value.signedint) - 1);
+	}
 }
 void signedint::Neg(variable *where){
 	debug("signedint::Neg");
-	error_conditional(!where, "in signedint::Neg where is NULL");
-
-	new (where) signedint("", (signed int) (~value.signedint));
+	if(where == this || !where){
+		debug("signedint::Dec where == this");
+		value.signedint = ~value.signedint;
+	}else{
+		debug("signedint::Dec where != this");
+		new (where) signedint("", ~value.signedint);
+	}
 }
 
 void signedint::Equal(variable *what){

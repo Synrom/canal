@@ -98,19 +98,36 @@ void unsignedint::Xor(variable *where, variable *what){
 		new (where) unsignedint("", (unsigned int) (value.unsignedint ^ what->value.unsignedint));
 	}
 }
-void unsignedint::Inc(){
+void unsignedint::Inc(variable *where){
 	debug("unsignedint::Inc");
-	value.unsignedint++;
+	if(where == this || !where){
+		debug("unsignedint::Inc where == this");
+		value.unsignedint++;
+	}else{
+		debug("unsignedint::Inc where != this");
+		new (where) unsignedint("",  value.unsignedint + 1);
+	}
 }
-void unsignedint::Dec(){
+
+void unsignedint::Dec(variable *where){
 	debug("unsignedint::Dec");
-	value.unsignedint--;
+	if(where == this || !where){
+		debug("unsignedint::Dec where == this");
+		value.unsignedint--;
+	}else{
+		debug("unsignedint::Dec where != this");
+		new (where) unsignedint("", value.unsignedint - 1);
+	}
 }
 void unsignedint::Neg(variable *where){
 	debug("unsignedint::Neg");
-	error_conditional(!where, "in unsignedint::Neg where is NULL");
-
-	new (where) unsignedint("", (unsigned int) (~value.unsignedint));
+	if(where == this || !where){
+		debug("unsignedint::Dec where == this");
+		value.unsignedint = ~value.unsignedint;
+	}else{
+		debug("unsignedint::Dec where != this");
+		new (where) unsignedint("", ~value.unsignedint);
+	}
 }
 
 void unsignedint::Equal(variable *what){

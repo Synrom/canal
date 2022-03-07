@@ -112,6 +112,7 @@ int main(int argc, char** argv)
 	}
 	*/
 
+	/*
 	// TEST VSTANCE OPERATION PRINT
 	{
 		printf("TEST VSTANCE OPERATION PRINT\n");
@@ -151,7 +152,7 @@ int main(int argc, char** argv)
 		imag.operations.print();
 
 	}
-	/*
+	*/
 	if (argc < 2) {
 		return 1;
 	}
@@ -175,7 +176,6 @@ int main(int argc, char** argv)
 		}
 	}
 
-	*/
 	
 
 	return 0;

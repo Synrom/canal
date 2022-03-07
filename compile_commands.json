@@ -171,6 +171,11 @@
 },
 {
   "directory": "/home/synrom/lego/canal/src",
+  "command": "/usr/bin/c++ -DINFO -I/home/synrom/lego/canal/src/../include -I/home/synrom/lego/canal/src  -fno-exceptions -fno-rtti -std=gnu++14 -o CMakeFiles/struct.dir/operation/neg_dec_inc.cpp.o -c /home/synrom/lego/canal/src/operation/neg_dec_inc.cpp",
+  "file": "/home/synrom/lego/canal/src/operation/neg_dec_inc.cpp"
+},
+{
+  "directory": "/home/synrom/lego/canal/src",
   "command": "/usr/bin/c++ -DINFO -I/home/synrom/lego/canal/src/../include -I/home/synrom/lego/canal/src  -fno-exceptions -fno-rtti -std=gnu++14 -o CMakeFiles/struct.dir/debugger/debugger.cpp.o -c /home/synrom/lego/canal/src/debugger/debugger.cpp",
   "file": "/home/synrom/lego/canal/src/debugger/debugger.cpp"
 },

@@ -98,19 +98,36 @@ void unsignedchar::Xor(variable *where, variable *what){
 		new (where) unsignedchar("", (unsigned char) (value.unsignedchar ^ what->value.unsignedchar));
 	}
 }
-void unsignedchar::Inc(){
+void unsignedchar::Inc(variable *where){
 	debug("unsignedchar::Inc");
-	value.unsignedchar++;
+	if(where == this || !where){
+		debug("unsignedchar::Inc where == this");
+		value.unsignedchar++;
+	}else{
+		debug("unsignedchar::Inc where != this");
+		new (where) unsignedchar("", (double) (value.unsignedchar) + 1);
+	}
 }
-void unsignedchar::Dec(){
+
+void unsignedchar::Dec(variable *where){
 	debug("unsignedchar::Dec");
-	value.unsignedchar--;
+	if(where == this || !where){
+		debug("unsignedchar::Dec where == this");
+		value.unsignedchar--;
+	}else{
+		debug("unsignedchar::Dec where != this");
+		new (where) unsignedchar("", (double) (value.unsignedchar) - 1);
+	}
 }
 void unsignedchar::Neg(variable *where){
 	debug("unsignedchar::Neg");
-	error_conditional(!where, "in unsignedchar::Neg where is NULL");
-
-	new (where) unsignedchar("", (unsigned char) (~value.unsignedchar));
+	if(where == this || !where){
+		debug("unsignedchar::Dec where == this");
+		value.unsignedchar = ~value.unsignedchar;
+	}else{
+		debug("unsignedchar::Dec where != this");
+		new (where) unsignedchar("", ~value.unsignedchar);
+	}
 }
 
 void unsignedchar::Equal(variable *what){

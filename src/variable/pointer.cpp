@@ -101,22 +101,37 @@ void pointer::Xor(variable *where, variable *what){
 		new (where) pointer("", (unsigned long long) (value.unsignedlonglong ^ what->value.unsignedlonglong), size);
 	}
 }
-void pointer::Inc(){
 
+void pointer::Inc(variable *where){
 	debug("pointer::Inc");
-	value.unsignedlonglong--;
+	if(where == this || !where){
+		debug("pointer::Inc where == this");
+		value.unsignedlonglong++;
+	}else{
+		debug("pointer::Inc where != this");
+		new (where) pointer("", (double) (value.unsignedlonglong) + 1, size);
+	}
 }
-void pointer::Dec(){
 
+void pointer::Dec(variable *where){
 	debug("pointer::Dec");
-	value.unsignedlonglong++;
+	if(where == this || !where){
+		debug("pointer::Dec where == this");
+		value.unsignedlonglong--;
+	}else{
+		debug("pointer::Dec where != this");
+		new (where) pointer("", (double) (value.unsignedlonglong) - 1,size);
+	}
 }
 void pointer::Neg(variable *where){
-	error_conditional(!where, "in pointer::Neg where is NULL");
-	warning("pointer::Neg got called and the solution isnt final");
-
 	debug("pointer::Neg");
-	new (where) pointer("", (unsigned long long) ~value.unsignedlonglong ,size);
+	if(where == this || !where){
+		debug("pointer::Dec where == this");
+		value.unsignedlonglong = ~value.unsignedlonglong;
+	}else{
+		debug("pointer::Dec where != this");
+		new (where) pointer("", ~value.unsignedlonglong,size);
+	}
 }
 
 void pointer::Equal(variable *what){

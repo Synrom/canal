@@ -95,6 +95,21 @@ bool canal_AST_analyzer::VisitUnaryOperator(clang::UnaryOperator *un_op){
 			thisIsFollowupOfaMinus = true;
 			thisIsFollowupOfUnaryOperator = true;
 			break;
+		case clang::UnaryOperatorKind::UO_PostDec:
+			current_function->operations.insert_all_ropes(Dec_Post(*current_function));
+			break;
+		case clang::UnaryOperatorKind::UO_PreDec:
+			current_function->operations.insert_all_ropes(Dec_Pre(*current_function));
+			break;
+		case clang::UnaryOperatorKind::UO_PostInc:
+			current_function->operations.insert_all_ropes(Inc_Post(*current_function));
+			break;
+		case clang::UnaryOperatorKind::UO_PreInc:
+			current_function->operations.insert_all_ropes(Inc_Pre(*current_function));
+			break;
+		case clang::UnaryOperatorKind::UO_Not:
+			current_function->operations.insert_all_ropes(Neg(*current_function));
+			break;
 		default:
 			info("UnaryOperator %s is yet not implemented",clang::UnaryOperator::getOpcodeStr(un_op->getOpcode()).bytes_begin());
 			break;

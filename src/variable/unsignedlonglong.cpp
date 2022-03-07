@@ -98,19 +98,36 @@ void unsignedlonglong::Xor(variable *where, variable *what){
 		new (where) unsignedlonglong("", (unsigned long long) (value.unsignedlonglong ^ what->value.unsignedlonglong));
 	}
 }
-void unsignedlonglong::Inc(){
+void unsignedlonglong::Inc(variable *where){
 	debug("unsignedlonglong::Inc");
-	value.unsignedlonglong++;
+	if(where == this || !where){
+		debug("unsignedlonglong::Inc where == this");
+		value.unsignedlonglong++;
+	}else{
+		debug("unsignedlonglong::Inc where != this");
+		new (where) unsignedlonglong("", (double) (value.unsignedlonglong) + 1);
+	}
 }
-void unsignedlonglong::Dec(){
+
+void unsignedlonglong::Dec(variable *where){
 	debug("unsignedlonglong::Dec");
-	value.unsignedlonglong--;
+	if(where == this || !where){
+		debug("unsignedlonglong::Dec where == this");
+		value.unsignedlonglong--;
+	}else{
+		debug("unsignedlonglong::Dec where != this");
+		new (where) unsignedlonglong("", (double) (value.unsignedlonglong) - 1);
+	}
 }
 void unsignedlonglong::Neg(variable *where){
 	debug("unsignedlonglong::Neg");
-	error_conditional(!where, "in unsignedlonglong::Neg where is NULL");
-
-	new (where) unsignedlonglong("", (unsigned long long) (~value.unsignedlonglong));
+	if(where == this || !where){
+		debug("unsignedlonglong::Dec where == this");
+		value.unsignedlonglong = ~value.unsignedlonglong;
+	}else{
+		debug("unsignedlonglong::Dec where != this");
+		new (where) unsignedlonglong("", ~value.unsignedlonglong);
+	}
 }
 
 void unsignedlonglong::Equal(variable *what){

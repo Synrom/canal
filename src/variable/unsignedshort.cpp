@@ -98,19 +98,36 @@ void unsignedshort::Xor(variable *where, variable *what){
 		new (where) unsignedshort("", (unsigned short) (value.unsignedshort ^ what->value.unsignedshort));
 	}
 }
-void unsignedshort::Inc(){
+void unsignedshort::Inc(variable *where){
 	debug("unsignedshort::Inc");
-	value.unsignedshort++;
+	if(where == this || !where){
+		debug("unsignedshort::Inc where == this");
+		value.unsignedshort++;
+	}else{
+		debug("unsignedshort::Inc where != this");
+		new (where) unsignedshort("", (double) (value.unsignedshort) + 1);
+	}
 }
-void unsignedshort::Dec(){
+
+void unsignedshort::Dec(variable *where){
 	debug("unsignedshort::Dec");
-	value.unsignedshort--;
+	if(where == this || !where){
+		debug("unsignedshort::Dec where == this");
+		value.unsignedshort--;
+	}else{
+		debug("unsignedshort::Dec where != this");
+		new (where) unsignedshort("", (double) (value.unsignedshort) - 1);
+	}
 }
 void unsignedshort::Neg(variable *where){
 	debug("unsignedshort::Neg");
-	error_conditional(!where, "in unsignedshort::Neg where is NULL");
-
-	new (where) unsignedshort("", (unsigned short) (~value.unsignedshort));
+	if(where == this || !where){
+		debug("unsignedshort::Dec where == this");
+		value.unsignedshort = ~value.unsignedshort;
+	}else{
+		debug("unsignedshort::Dec where != this");
+		new (where) unsignedshort("", ~value.unsignedshort);
+	}
 }
 
 void unsignedshort::Equal(variable *what){

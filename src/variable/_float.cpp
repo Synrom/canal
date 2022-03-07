@@ -98,20 +98,37 @@ void _float::Xor(variable *where, variable *what){
 		new (where) _float("", (float) (value._float));
 	}
 }
-void _float::Inc(){
+
+void _float::Inc(variable *where){
 	debug("_float::Inc");
-	value._float++;
+	if(where == this || !where){
+		debug("_float::Inc where == this");
+		value._float++;
+	}else{
+		debug("_float::Inc where != this");
+		new (where) _float("", (double) (value._float) + 1);
+	}
 }
-void _float::Dec(){
+void _float::Dec(variable *where){
 	debug("_float::Dec");
-	value._float--;
+	if(where == this || !where){
+		debug("_float::Dec where == this");
+		value._float--;
+	}else{
+		debug("_float::Dec where != this");
+		new (where) _float("", (double) (value._float) - 1);
+	}
 }
 void _float::Neg(variable *where){
-	debug("_float::Neg");
-	error_conditional(!where, "in _float::Neg where is NULL");
 	warning("calling float::Neg which is really weird");
-
-	new (where) _float("", (float) (value._float));
+	debug("_float::Neg");
+	if(where == this || !where){
+		debug("_float::Dec where == this");
+		value._float = value._float;
+	}else{
+		debug("_float::Dec where != this");
+		new (where) _float("", value._float);
+	}
 }
 
 void _float::Equal(variable *what){

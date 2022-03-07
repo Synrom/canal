@@ -136,39 +136,7 @@ void Xor::executeOperation(variable *left, variable *right, variable *where){
 	left->Xor(where, right);
 }
 
-Inc::Inc(function &f) : operation(operation::Inc,f) { 
-	debug("creating Inc operation");
-}
-
-Inc::Inc(const Inc &cpy) : operation(operation::Inc,cpy.freference) { 
-	debug("creating Inc operation");
-}
-
-Inc::Inc(operation *cpy) : operation(operation::Inc,cpy->freference) { 
-	debug("creating Inc operation");
-}
-
-void Inc::executeOperation(variable *left, variable *right, variable *where){
-	warning("calling Inc executeOperation which is really weird");
-}
-
-Dec::Dec(function &f) : operation(operation::Dec,f) { 
-	debug("creating Dec operation");
-}
-
-Dec::Dec(const Dec &cpy) : operation(operation::Dec,cpy.freference) { 
-	debug("creating Dec operation");
-}
-
-Dec::Dec(operation *cpy) : operation(operation::Dec,cpy->freference) { 
-	debug("creating Dec operation");
-}
-
-void Dec::executeOperation(variable *left, variable *right, variable *where){
-	warning("calling Dec executeOperation which is really weird");
-}
-
-Neg::Neg(function &f) : operation(operation::Dec,f) { 
+Neg::Neg(function &f) : operation(operation::Neg,f) { 
 	debug("creating Neg operation");
 }
 

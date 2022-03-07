@@ -98,20 +98,36 @@ void _double::Xor(variable *where, variable *what){
 		new (where) _double("", (double) (value._double));
 	}
 }
-void _double::Inc(){
+void _double::Inc(variable *where){
 	debug("_double::Inc");
-	value._double++;
+	if(where == this || !where){
+		debug("_double::Inc where == this");
+		value._double++;
+	}else{
+		debug("_double::Inc where != this");
+		new (where) _double("", (double) (value._double) + 1);
+	}
 }
-void _double::Dec(){
+void _double::Dec(variable *where){
 	debug("_double::Dec");
-	value._double--;
+	if(where == this || !where){
+		debug("_double::Dec where == this");
+		value._double--;
+	}else{
+		debug("_double::Dec where != this");
+		new (where) _double("", (double) (value._double) - 1);
+	}
 }
-void _double::Neg(variable *where){
-	debug("_double::Neg");
-	error_conditional(!where, "in _double::Neg where is NULL");
-	warning("calling double::Neg which is really weird");
 
-	new (where) _double("", (double) (value._double));
+void _double::Neg(variable *where){
+	warning("calling double::Neg which is really weird");
+	debug("_double::Neg");
+	if(where == this || !where){
+		debug("_double::Dec where == this");
+	}else{
+		debug("_double::Dec where != this");
+		new (where) _double("", (double) (value._double));
+	}
 }
 
 void _double::Equal(variable *what){

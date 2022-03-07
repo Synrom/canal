@@ -98,19 +98,36 @@ void signedshort::Xor(variable *where, variable *what){
 		new (where) signedshort("", (signed short) (value.signedshort ^ what->value.signedshort));
 	}
 }
-void signedshort::Inc(){
+void signedshort::Inc(variable *where){
 	debug("signedshort::Inc");
-	value.signedshort++;
+	if(where == this || !where){
+		debug("signedshort::Inc where == this");
+		value.signedshort++;
+	}else{
+		debug("signedshort::Inc where != this");
+		new (where) signedshort("", (double) (value.signedshort) + 1);
+	}
 }
-void signedshort::Dec(){
+
+void signedshort::Dec(variable *where){
 	debug("signedshort::Dec");
-	value.signedshort--;
+	if(where == this || !where){
+		debug("signedshort::Dec where == this");
+		value.signedshort--;
+	}else{
+		debug("signedshort::Dec where != this");
+		new (where) signedshort("", (double) (value.signedshort) - 1);
+	}
 }
 void signedshort::Neg(variable *where){
 	debug("signedshort::Neg");
-	error_conditional(!where, "in signedshort::Neg where is NULL");
-
-	new (where) signedshort("", (signed short) (~value.signedshort));
+	if(where == this || !where){
+		debug("signedshort::Dec where == this");
+		value.signedshort = ~value.signedshort;
+	}else{
+		debug("signedshort::Dec where != this");
+		new (where) signedshort("", ~value.signedshort);
+	}
 }
 
 void signedshort::Equal(variable *what){

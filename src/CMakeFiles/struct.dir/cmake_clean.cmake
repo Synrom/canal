@@ -19,6 +19,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/struct.dir/operation/equal.cpp.o.d"
   "CMakeFiles/struct.dir/operation/int_lit.cpp.o"
   "CMakeFiles/struct.dir/operation/int_lit.cpp.o.d"
+  "CMakeFiles/struct.dir/operation/neg_dec_inc.cpp.o"
+  "CMakeFiles/struct.dir/operation/neg_dec_inc.cpp.o.d"
   "CMakeFiles/struct.dir/operation/operation.cpp.o"
   "CMakeFiles/struct.dir/operation/operation.cpp.o.d"
   "CMakeFiles/struct.dir/operation/operation_stack.cpp.o"

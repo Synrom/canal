@@ -39,6 +39,7 @@ list(APPEND OperationFiles
 	"operation/call.cpp"
 	"operation/ret.cpp"
 	"operation/switch.cpp"
+	"operation/neg_dec_inc.cpp"
 )
 
 list(APPEND DebuggerFiles

@@ -98,19 +98,36 @@ void signedchar::Xor(variable *where, variable *what){
 		new (where) signedchar("", (signed char) (value.signedchar ^ what->value.signedchar));
 	}
 }
-void signedchar::Inc(){
+void signedchar::Inc(variable *where){
 	debug("signedchar::Inc");
-	value.signedchar++;
+	if(where == this || !where){
+		debug("signedchar::Inc where == this");
+		value.signedchar++;
+	}else{
+		debug("signedchar::Inc where != this");
+		new (where) signedchar("", (double) (value.signedchar) + 1);
+	}
 }
-void signedchar::Dec(){
+
+void signedchar::Dec(variable *where){
 	debug("signedchar::Dec");
-	value.signedchar--;
+	if(where == this || !where){
+		debug("signedchar::Dec where == this");
+		value.signedchar--;
+	}else{
+		debug("signedchar::Dec where != this");
+		new (where) signedchar("", (double) (value.signedchar) - 1);
+	}
 }
 void signedchar::Neg(variable *where){
 	debug("signedchar::Neg");
-	error_conditional(!where, "in signedchar::Neg where is NULL");
-
-	new (where) signedchar("", (signed char) (~value.signedchar));
+	if(where == this || !where){
+		debug("signedchar::Dec where == this");
+		value.signedchar = ~value.signedchar;
+	}else{
+		debug("signedchar::Dec where != this");
+		new (where) signedchar("", ~value.signedchar);
+	}
 }
 
 void signedchar::Equal(variable *what){
