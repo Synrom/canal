@@ -105,7 +105,7 @@ void signedint::Inc(variable *where){
 		value.signedint++;
 	}else{
 		debug("signedint::Inc where != this");
-		new (where) signedint("", (double) (value.signedint) + 1);
+		new (where) signedint("",  (value.signedint) + 1);
 	}
 }
 
@@ -116,7 +116,7 @@ void signedint::Dec(variable *where){
 		value.signedint--;
 	}else{
 		debug("signedint::Dec where != this");
-		new (where) signedint("", (double) (value.signedint) - 1);
+		new (where) signedint("", (value.signedint) - 1);
 	}
 }
 void signedint::Neg(variable *where){

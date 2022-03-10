@@ -242,6 +242,32 @@ void operation::execute(){
 				left_iterator++;
 			}
 
+			if(left_result.begin()->type != variable::pointer && right_result.begin()->type == variable::pointer){
+				debug("have to adjust to right pointer");
+
+				result non_pointer_result = freference.results.pop_result();
+				result &pointer_result  = freference.results.push_result(non_pointer_result.get_size());
+
+				error_conditional(pointer_result.get_size() != right_result.get_size(), 
+						"in operation::execute adjusting space size %d != right_result.size %d",
+						pointer_result.get_size(), right_result.get_size());
+
+				auto pointer_it = pointer_result.begin();
+				auto non_pointer_it = non_pointer_result.begin();
+				right_iterator = right_result.begin();
+
+				while(right_iterator != right_result.end()){
+
+					right_iterator->clone(pointer_it);
+					pointer_it->Equal(non_pointer_it);
+					
+					right_iterator++;
+					pointer_it++;
+					non_pointer_it++;
+				}
+
+			}
+
 		}else{
 			debug("right is a variable");	
 			
@@ -272,6 +298,32 @@ void operation::execute(){
 			}
 
 			debug("out of right_iterator iteration");
+
+			if(left_result.begin()->type != variable::pointer && right_result.front()->type == variable::pointer){
+				debug("have to adjust to right pointer");
+
+				result non_pointer_result = freference.results.pop_result();
+				result &pointer_result  = freference.results.push_result(non_pointer_result.get_size());
+
+				error_conditional(pointer_result.get_size() != right_result.size(), 
+						"in operation::execute adjusting space size %d != right_result.size %ld",
+						pointer_result.get_size(), right_result.size());
+
+				auto pointer_it = pointer_result.begin();
+				auto non_pointer_it = non_pointer_result.begin();
+				right_iterator = right_result.begin();
+
+				while(right_iterator != right_result.end()){
+
+					(*right_iterator)->clone(pointer_it);
+					pointer_it->Equal(non_pointer_it);
+					
+					right_iterator++;
+					pointer_it++;
+					non_pointer_it++;
+				}
+
+			}
 
 		}
 	}else{
@@ -312,6 +364,32 @@ void operation::execute(){
 				result_iterator++;
 			}
 
+			if(left_result.front()->type != variable::pointer && right_result.begin()->type == variable::pointer){
+				debug("have to adjust to right pointer");
+
+				result non_pointer_result = freference.results.pop_result();
+				result &pointer_result  = freference.results.push_result(non_pointer_result.get_size());
+
+				error_conditional(pointer_result.get_size() != right_result.get_size(), 
+						"in operation::execute adjusting space size %d != right_result.size %d",
+						pointer_result.get_size(), right_result.get_size());
+
+				auto pointer_it = pointer_result.begin();
+				auto non_pointer_it = non_pointer_result.begin();
+				right_iterator = right_result.begin();
+
+				while(right_iterator != right_result.end()){
+
+					right_iterator->clone(pointer_it);
+					pointer_it->Equal(non_pointer_it);
+					
+					right_iterator++;
+					pointer_it++;
+					non_pointer_it++;
+				}
+
+			}
+
 		}else{
 			debug("right is a variable");
 
@@ -340,6 +418,32 @@ void operation::execute(){
 				left_iterator++;
 				right_iterator++;
 				result_iterator++;
+			}
+
+			if(left_result.front()->type != variable::pointer && right_result.front()->type == variable::pointer){
+				debug("have to adjust to right pointer");
+
+				result non_pointer_result = freference.results.pop_result();
+				result &pointer_result  = freference.results.push_result(non_pointer_result.get_size());
+
+				error_conditional(pointer_result.get_size() != right_result.size(), 
+						"in operation::execute adjusting space size %d != right_result.size %ld",
+						pointer_result.get_size(), right_result.size());
+
+				auto pointer_it = pointer_result.begin();
+				auto non_pointer_it = non_pointer_result.begin();
+				right_iterator = right_result.begin();
+
+				while(right_iterator != right_result.end()){
+
+					(*right_iterator)->clone(pointer_it);
+					pointer_it->Equal(non_pointer_it);
+					
+					right_iterator++;
+					pointer_it++;
+					non_pointer_it++;
+				}
+
 			}
 
 		}

@@ -105,7 +105,7 @@ void unsignedchar::Inc(variable *where){
 		value.unsignedchar++;
 	}else{
 		debug("unsignedchar::Inc where != this");
-		new (where) unsignedchar("", (double) (value.unsignedchar) + 1);
+		new (where) unsignedchar("",  (value.unsignedchar) + 1);
 	}
 }
 
@@ -116,7 +116,7 @@ void unsignedchar::Dec(variable *where){
 		value.unsignedchar--;
 	}else{
 		debug("unsignedchar::Dec where != this");
-		new (where) unsignedchar("", (double) (value.unsignedchar) - 1);
+		new (where) unsignedchar("", (value.unsignedchar) - 1);
 	}
 }
 void unsignedchar::Neg(variable *where){

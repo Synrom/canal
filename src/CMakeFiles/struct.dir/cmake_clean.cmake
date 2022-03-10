@@ -11,6 +11,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/struct.dir/container/vectors.cpp.o.d"
   "CMakeFiles/struct.dir/debugger/debugger.cpp.o"
   "CMakeFiles/struct.dir/debugger/debugger.cpp.o.d"
+  "CMakeFiles/struct.dir/operation/access.cpp.o"
+  "CMakeFiles/struct.dir/operation/access.cpp.o.d"
   "CMakeFiles/struct.dir/operation/call.cpp.o"
   "CMakeFiles/struct.dir/operation/call.cpp.o.d"
   "CMakeFiles/struct.dir/operation/clone.cpp.o"

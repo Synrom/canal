@@ -411,7 +411,7 @@ public:
 
 class pointer: public variable{
 public:
-	pointer(const std::string & , unsigned long long, unsigned int);
+	pointer(const std::string & , signed long long, unsigned int);
 	pointer(const variable *);
 	~pointer();
 	void Plus(variable *,variable *);

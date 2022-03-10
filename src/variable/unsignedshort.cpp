@@ -105,7 +105,7 @@ void unsignedshort::Inc(variable *where){
 		value.unsignedshort++;
 	}else{
 		debug("unsignedshort::Inc where != this");
-		new (where) unsignedshort("", (double) (value.unsignedshort) + 1);
+		new (where) unsignedshort("", (value.unsignedshort) + 1);
 	}
 }
 
@@ -116,7 +116,7 @@ void unsignedshort::Dec(variable *where){
 		value.unsignedshort--;
 	}else{
 		debug("unsignedshort::Dec where != this");
-		new (where) unsignedshort("", (double) (value.unsignedshort) - 1);
+		new (where) unsignedshort("",  (value.unsignedshort) - 1);
 	}
 }
 void unsignedshort::Neg(variable *where){

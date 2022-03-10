@@ -68,5 +68,11 @@ int main(){
 		a = 14;
 	}
 
+	a = 50;
+	int *pa,*pb;
+	*pa = a;
+	*pb = b;
+	*pa = *pb;
+
 	return 0;
 }

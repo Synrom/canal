@@ -106,7 +106,7 @@ void _float::Inc(variable *where){
 		value._float++;
 	}else{
 		debug("_float::Inc where != this");
-		new (where) _float("", (double) (value._float) + 1);
+		new (where) _float("",  (value._float) + 1);
 	}
 }
 void _float::Dec(variable *where){
@@ -116,7 +116,7 @@ void _float::Dec(variable *where){
 		value._float--;
 	}else{
 		debug("_float::Dec where != this");
-		new (where) _float("", (double) (value._float) - 1);
+		new (where) _float("",  (value._float) - 1);
 	}
 }
 void _float::Neg(variable *where){

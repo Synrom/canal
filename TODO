@@ -1,4 +1,6 @@
-- Access Operation implementieren
+- Access bei "=" Operation sinnvoll beachten
+- Pointer und Arrays bei VarDecl hinzufügen
+- ArraySubscript Operation implementieren
 
 
 
@@ -12,4 +14,10 @@ IfStmntConditionHandler:
 	!= ignorieren
 	
 
+Pointer ueberleben:
+	operation::execute if right is pointer:
+		- do the operation
+		- pop result
+		- create result space of cpy of right
+		- execute result space exals poped result
 

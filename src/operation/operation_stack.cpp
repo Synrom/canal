@@ -363,6 +363,7 @@ template void operation_stack::insert<IntLiteral>(const IntLiteral &value,rope &
 template void operation_stack::insert<Add_Switch>(const Add_Switch &value,rope &r);
 template void operation_stack::insert<Next_Switch>(const Next_Switch &value,rope &r);
 template void operation_stack::insert<End_Switch>(const End_Switch &value,rope &r);
+template void operation_stack::insert<Access>(const Access &value,rope &r);
 
 template void operation_stack::insert_all_ropes<Add>(const Add &value);
 template void operation_stack::insert_all_ropes<Minus>(const Minus &value);
@@ -386,6 +387,7 @@ template void operation_stack::insert_all_ropes<IntLiteral>(const IntLiteral &va
 template void operation_stack::insert_all_ropes<Add_Switch>(const Add_Switch &value);
 template void operation_stack::insert_all_ropes<Next_Switch>(const Next_Switch &value);
 template void operation_stack::insert_all_ropes<End_Switch>(const End_Switch &value);
+template void operation_stack::insert_all_ropes<Access>(const Access &value);
 
 template void operation_stack::insert_last_rope<Add>(const Add &value);
 template void operation_stack::insert_last_rope<Minus>(const Minus &value);
@@ -409,3 +411,4 @@ template void operation_stack::insert_last_rope<IntLiteral>(const IntLiteral &va
 template void operation_stack::insert_last_rope<Add_Switch>(const Add_Switch &value);
 template void operation_stack::insert_last_rope<Next_Switch>(const Next_Switch &value);
 template void operation_stack::insert_last_rope<End_Switch>(const End_Switch &value);
+template void operation_stack::insert_last_rope<Access>(const Access &value);

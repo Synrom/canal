@@ -375,6 +375,30 @@ debugger/debugger.cpp.s:
 	cd /home/synrom/lego/canal && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/struct.dir/build.make src/CMakeFiles/struct.dir/debugger/debugger.cpp.s
 .PHONY : debugger/debugger.cpp.s
 
+operation/access.o: operation/access.cpp.o
+.PHONY : operation/access.o
+
+# target to build an object file
+operation/access.cpp.o:
+	cd /home/synrom/lego/canal && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/struct.dir/build.make src/CMakeFiles/struct.dir/operation/access.cpp.o
+.PHONY : operation/access.cpp.o
+
+operation/access.i: operation/access.cpp.i
+.PHONY : operation/access.i
+
+# target to preprocess a source file
+operation/access.cpp.i:
+	cd /home/synrom/lego/canal && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/struct.dir/build.make src/CMakeFiles/struct.dir/operation/access.cpp.i
+.PHONY : operation/access.cpp.i
+
+operation/access.s: operation/access.cpp.s
+.PHONY : operation/access.s
+
+# target to generate assembly for a file
+operation/access.cpp.s:
+	cd /home/synrom/lego/canal && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/struct.dir/build.make src/CMakeFiles/struct.dir/operation/access.cpp.s
+.PHONY : operation/access.cpp.s
+
 operation/call.o: operation/call.cpp.o
 .PHONY : operation/call.o
 
@@ -1322,6 +1346,9 @@ help:
 	@echo "... debugger/debugger.o"
 	@echo "... debugger/debugger.i"
 	@echo "... debugger/debugger.s"
+	@echo "... operation/access.o"
+	@echo "... operation/access.i"
+	@echo "... operation/access.s"
 	@echo "... operation/call.o"
 	@echo "... operation/call.i"
 	@echo "... operation/call.s"

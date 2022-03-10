@@ -105,7 +105,7 @@ void unsignedlong::Inc(variable *where){
 		value.unsignedlong++;
 	}else{
 		debug("unsignedlong::Inc where != this");
-		new (where) unsignedlong("", (double) (value.unsignedlong) + 1);
+		new (where) unsignedlong("",  (value.unsignedlong) + 1);
 	}
 }
 
@@ -116,7 +116,7 @@ void unsignedlong::Dec(variable *where){
 		value.unsignedlong--;
 	}else{
 		debug("unsignedlong::Dec where != this");
-		new (where) unsignedlong("", (double) (value.unsignedlong) - 1);
+		new (where) unsignedlong("", (value.unsignedlong) - 1);
 	}
 }
 void unsignedlong::Neg(variable *where){

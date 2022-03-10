@@ -34,7 +34,8 @@ public:
 		Next_Switch,
 		End_Switch,
 		IntLiteral,
-		VarPush
+		VarPush,
+		Access
 	};
 
 	Types type;
@@ -281,6 +282,18 @@ public:
 	End_Switch(function &);
 	End_Switch(operation *);
 	End_Switch(const End_Switch &);
+	void clone(operation *) const;
+	void print();
+	void print_simple();
+	void execute();
+};
+
+class Access: public operation{
+	void executeOperation(variable *,variable *,variable *);
+public:
+	Access(function &);
+	Access(operation *);
+	Access(const Access &);
 	void clone(operation *) const;
 	void print();
 	void print_simple();

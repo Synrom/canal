@@ -105,7 +105,7 @@ void signedchar::Inc(variable *where){
 		value.signedchar++;
 	}else{
 		debug("signedchar::Inc where != this");
-		new (where) signedchar("", (double) (value.signedchar) + 1);
+		new (where) signedchar("",  (value.signedchar) + 1);
 	}
 }
 
@@ -116,7 +116,7 @@ void signedchar::Dec(variable *where){
 		value.signedchar--;
 	}else{
 		debug("signedchar::Dec where != this");
-		new (where) signedchar("", (double) (value.signedchar) - 1);
+		new (where) signedchar("", (value.signedchar) - 1);
 	}
 }
 void signedchar::Neg(variable *where){

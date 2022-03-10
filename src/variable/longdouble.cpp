@@ -106,7 +106,7 @@ void longdouble::Inc(variable *where){
 		value.longdouble++;
 	}else{
 		debug("longdouble::Inc where != this");
-		new (where) longdouble("", (double) (value.longdouble) + 1);
+		new (where) longdouble("", (value.longdouble) + 1);
 	}
 }
 
@@ -117,7 +117,7 @@ void longdouble::Dec(variable *where){
 		value.longdouble--;
 	}else{
 		debug("longdouble::Dec where != this");
-		new (where) longdouble("", (double) (value.longdouble) - 1);
+		new (where) longdouble("", (value.longdouble) - 1);
 	}
 }
 

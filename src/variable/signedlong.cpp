@@ -105,7 +105,7 @@ void signedlong::Inc(variable *where){
 		value.signedlong++;
 	}else{
 		debug("signedlong::Inc where != this");
-		new (where) signedlong("", (double) (value.signedlong) + 1);
+		new (where) signedlong("", (value.signedlong) + 1);
 	}
 }
 
@@ -116,7 +116,7 @@ void signedlong::Dec(variable *where){
 		value.signedlong--;
 	}else{
 		debug("signedlong::Dec where != this");
-		new (where) signedlong("", (double) (value.signedlong) - 1);
+		new (where) signedlong("", (value.signedlong) - 1);
 	}
 }
 void signedlong::Neg(variable *where){

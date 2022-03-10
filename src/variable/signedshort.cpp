@@ -105,7 +105,7 @@ void signedshort::Inc(variable *where){
 		value.signedshort++;
 	}else{
 		debug("signedshort::Inc where != this");
-		new (where) signedshort("", (double) (value.signedshort) + 1);
+		new (where) signedshort("",  (value.signedshort) + 1);
 	}
 }
 
@@ -116,7 +116,7 @@ void signedshort::Dec(variable *where){
 		value.signedshort--;
 	}else{
 		debug("signedshort::Dec where != this");
-		new (where) signedshort("", (double) (value.signedshort) - 1);
+		new (where) signedshort("", (value.signedshort) - 1);
 	}
 }
 void signedshort::Neg(variable *where){
