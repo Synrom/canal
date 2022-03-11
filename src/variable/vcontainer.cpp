@@ -399,10 +399,10 @@ void vcontainer::emplace_back(const std::string &s, long double v){
 	new (location) longdouble(s,v);
 }
 
-void vcontainer::emplace_back(const std::string &s, unsigned long long si, unsigned int v){
+void vcontainer::emplace_back(const std::string &s,variable::Types t, unsigned long long si, unsigned int v){
 	debug("emplaceing pointer at the end of vcontaier");
 	variable *location = get_new_location();
-	new (location) pointer(s,si,v);
+	new (location) pointer(s,t,si,v);
 }
 
 int vcontainer::find(const std::string &name){

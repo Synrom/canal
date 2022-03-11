@@ -16,6 +16,36 @@
 #include <clang/AST/OperationKinds.h>
 #include <llvm/Support/Casting.h>
 
+canal_Access_In_Expr::canal_Access_In_Expr(clang::ASTContext *c): context(c){
+	debug("creating Access checker");
+}
+
+bool canal_Access_In_Expr::isAccess(){
+	return ceAccess;
+}
+
+bool canal_Access_In_Expr::VisitUnaryOperator(clang::UnaryOperator *un_op){
+	switch(un_op->getOpcode()){
+		case clang::UnaryOperatorKind::UO_Deref:
+			ceAccess = true;
+			break;
+		default:
+			break;
+	}
+	return true;
+}
+
+bool canal_Access_In_Expr::VisitArraySubscriptExpr(clang::ArraySubscriptExpr *ar){
+	ceAccess = true;
+	return true;
+}
+
+bool isAccessInStmt(clang::Stmt *stmt,clang::ASTContext *c){
+	canal_Access_In_Expr checker(c);
+	checker.TraverseStmt(stmt);
+	return checker.isAccess();
+}
+
 unsigned int canal_IfStmnt_classifier::getSwitchCount(){
 	return switch_count;
 }

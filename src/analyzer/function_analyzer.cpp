@@ -90,6 +90,17 @@ bool canal_AST_analyzer::VisitUnaryOperator(clang::UnaryOperator *un_op){
 	Schedule.increase_child();
 	info("visiting Unary Operator");
 
+	if(thisIsFollowupForAVarDecl){
+		info("this is follow up of VarDecl so we need to add an = operation first :)");
+
+		std::string var_name = current_function->current_vstance->get_latest_added_var()->name;
+
+		current_function->operations.insert_all_ropes(Equal(*current_function));
+		current_function->operations.insert_all_ropes(VarPush(var_name,*current_function));
+		
+		thisIsFollowupForAVarDecl = false;
+	}
+
 	switch(un_op->getOpcode()){
 		case clang::UnaryOperatorKind::UO_Minus:
 			thisIsFollowupOfaMinus = true;
@@ -208,11 +219,14 @@ bool canal_AST_analyzer::VisitBinaryOperator(clang::BinaryOperator *bn_op){
 	if(!Schedule.look_up())
 		return true;
 	Schedule.increase_child();
+
+	info("visiting binary operation %s",clang::BinaryOperator::getOpcodeStr(bn_op->getOpcode()).bytes_begin());
 	
 	if(bn_op->isComparisonOp()){
 		// to be implemented in the future
 		return true;
 	}
+
 	
 	if(thisIsFollowupForAVarDecl && bn_op->getOpcode() != clang::BinaryOperatorKind::BO_Assign){
 		info("this is follow up of VarDecl so we need to add an = operation first :)");
@@ -222,6 +236,8 @@ bool canal_AST_analyzer::VisitBinaryOperator(clang::BinaryOperator *bn_op){
 		current_function->operations.insert_all_ropes(Equal(*current_function));
 		current_function->operations.insert_all_ropes(VarPush(var_name,*current_function));
 		
+		thisIsFollowupForAVarDecl = false;
+	}else if(thisIsFollowupForAVarDecl){
 		thisIsFollowupForAVarDecl = false;
 	}
 
@@ -256,6 +272,19 @@ bool canal_AST_analyzer::VisitBinaryOperator(clang::BinaryOperator *bn_op){
 			break;
 		case clang::BinaryOperatorKind::BO_Assign:
 			debug("found Equal operator");
+			if(isAccessInStmt(bn_op->getLHS(),context)){
+				canal_dump_AST_Handler dumpHandler(context,&Schedule);
+				dumpHandler.TraverseStmt(bn_op);
+				if(isAccessInStmt(bn_op->getRHS(), context)){
+					canal_AST_analyzer analyzer(context,current_function);
+					analyzer.TraverseStmt(bn_op->getRHS());
+					info("finished with getRHS");
+				}
+				canal_AST_analyzer analyzer(context,current_function);
+				analyzer.TraverseStmt(bn_op->getLHS());
+				info("finished with getLHS");
+				break;
+			}
 			current_function->operations.insert_all_ropes(Equal(*current_function));
 			break;
 		case clang::BinaryOperatorKind::BO_Shl:
@@ -322,31 +351,44 @@ void canal_AST_analyzer::addVar(const std::string &name, std::string &type){
 		type.pop_back();
 		current_type = variable::pointer;
 		if(type == "double"){
-			current_function->current_vstance->add_var(name, 0, sizeof(double));
+			current_function->current_vstance->add_var(name,variable::_double, 0, sizeof(double));
+			current_type = variable::pointer;
 		}else if(type == "float"){
-			current_function->current_vstance->add_var(name, 0, sizeof(float));
+			current_function->current_vstance->add_var(name,variable::_float, 0, sizeof(float));
+			current_type = variable::pointer;
 		}else if(type == "long double"){
-			current_function->current_vstance->add_var(name, 0, sizeof(long double));
+			current_function->current_vstance->add_var(name,variable::longdouble, 0, sizeof(long double));
+			current_type = variable::pointer;
 		}else if(type == "signed char"){
-			current_function->current_vstance->add_var(name, 0, sizeof(signed char));
+			current_function->current_vstance->add_var(name,variable::signedchar, 0, sizeof(signed char));
+			current_type = variable::pointer;
 		}else if(type == "int"){
-			current_function->current_vstance->add_var(name, 0, sizeof(int));
+			current_function->current_vstance->add_var(name,variable::signedint, 0, sizeof(int));
+			current_type = variable::pointer;
 		}else if(type == "long"){
-			current_function->current_vstance->add_var(name, 0, sizeof(long));
+			current_function->current_vstance->add_var(name,variable::signedlong, 0, sizeof(long));
+			current_type = variable::pointer;
 		}else if(type == "long long"){
-			current_function->current_vstance->add_var(name, 0, sizeof(long long));
+			current_function->current_vstance->add_var(name,variable::signedlonglong, 0, sizeof(long long));
+			current_type = variable::pointer;
 		}else if(type == "short"){
-			current_function->current_vstance->add_var(name, 0, sizeof(short));
+			current_function->current_vstance->add_var(name,variable::signedshort, 0, sizeof(short));
+			current_type = variable::pointer;
 		}else if(type == "unsigned char"){
-			current_function->current_vstance->add_var(name, 0, sizeof(unsigned char));
+			current_function->current_vstance->add_var(name,variable::unsignedchar, 0, sizeof(unsigned char));
+			current_type = variable::pointer;
 		}else if(type == "unsigned int"){
-			current_function->current_vstance->add_var(name, 0, sizeof(unsigned int));
+			current_function->current_vstance->add_var(name,variable::unsignedint, 0, sizeof(unsigned int));
+			current_type = variable::pointer;
 		}else if(type == "unsigned long"){
-			current_function->current_vstance->add_var(name, 0, sizeof(unsigned long));
+			current_function->current_vstance->add_var(name,variable::unsignedlong, 0, sizeof(unsigned long));
+			current_type = variable::pointer;
 		}else if(type == "unsigned long long"){
-			current_function->current_vstance->add_var(name, 0, sizeof(unsigned long long));
+			current_function->current_vstance->add_var(name,variable::unsignedlonglong, 0, sizeof(unsigned long long));
+			current_type = variable::pointer;
 		}else if(type == "unsigned short"){
-			current_function->current_vstance->add_var(name, 0, sizeof(unsigned short));
+			current_function->current_vstance->add_var(name,variable::unsignedshort, 0, sizeof(unsigned short));
+			current_type = variable::pointer;
 		}else{
 			warning("type %s is not implemented yet in the analyzer",type.c_str());
 		}

@@ -108,6 +108,7 @@ public:
 	bool isBigger(variable *);
 	bool isEqual(variable *);
 	void clone(variable *);
+	static void cloneMax(variable *);
 };
 
 
@@ -133,6 +134,7 @@ public:
 	bool isBigger(variable *);
 	bool isEqual(variable *);
 	void clone(variable *);
+	static void cloneMax(variable *);
 };
 
 
@@ -158,6 +160,7 @@ public:
 	bool isBigger(variable *);
 	bool isEqual(variable *);
 	void clone(variable *);
+	static void cloneMax(variable *);
 };
 
 
@@ -183,6 +186,7 @@ public:
 	bool isBigger(variable *);
 	bool isEqual(variable *);
 	void clone(variable *);
+	static void cloneMax(variable *);
 };
 
 class signedshort: public variable{
@@ -207,6 +211,7 @@ public:
 	bool isBigger(variable *);
 	bool isEqual(variable *);
 	void clone(variable *);
+	static void cloneMax(variable *);
 };
 
 
@@ -232,6 +237,7 @@ public:
 	bool isBigger(variable *);
 	bool isEqual(variable *);
 	void clone(variable *);
+	static void cloneMax(variable *);
 };
 
 
@@ -257,6 +263,7 @@ public:
 	bool isBigger(variable *);
 	bool isEqual(variable *);
 	void clone(variable *);
+	static void cloneMax(variable *);
 };
 
 
@@ -282,6 +289,7 @@ public:
 	bool isBigger(variable *);
 	bool isEqual(variable *);
 	void clone(variable *);
+	static void cloneMax(variable *);
 };
 
 
@@ -307,6 +315,7 @@ public:
 	bool isBigger(variable *);
 	bool isEqual(variable *);
 	void clone(variable *);
+	static void cloneMax(variable *);
 };
 
 
@@ -332,6 +341,7 @@ public:
 	bool isBigger(variable *);
 	bool isEqual(variable *);
 	void clone(variable *);
+	static void cloneMax(variable *);
 };
 
 class _float: public variable{
@@ -356,6 +366,7 @@ public:
 	bool isBigger(variable *);
 	bool isEqual(variable *);
 	void clone(variable *);
+	static void cloneMax(variable *);
 };
 
 
@@ -381,6 +392,7 @@ public:
 	bool isBigger(variable *);
 	bool isEqual(variable *);
 	void clone(variable *);
+	static void cloneMax(variable *);
 };
 
 
@@ -406,12 +418,13 @@ public:
 	bool isBigger(variable *);
 	bool isEqual(variable *);
 	void clone(variable *);
+	static void cloneMax(variable *);
 };
 
 
 class pointer: public variable{
 public:
-	pointer(const std::string & , signed long long, unsigned int);
+	pointer(const std::string & ,variable::Types ,signed long long, unsigned int);
 	pointer(const variable *);
 	~pointer();
 	void Plus(variable *,variable *);
@@ -431,6 +444,12 @@ public:
 	bool isBigger(variable *);
 	bool isEqual(variable *);
 	void clone(variable *);
+	static void cloneMax(variable *);
 };
+
+void check_mul_overflow(signed long long, signed long long, signed long long &);
+void check_minus_overflow(signed long long, signed long long, signed long long &);
+void check_plus_overflow(signed long long, signed long long, signed long long &);
+void check_divide_overflow(signed long long, signed long long, signed long long &);
 
 #endif

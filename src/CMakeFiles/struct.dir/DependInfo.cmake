@@ -36,6 +36,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/synrom/lego/canal/src/variable/_double.cpp" "src/CMakeFiles/struct.dir/variable/_double.cpp.o" "gcc" "src/CMakeFiles/struct.dir/variable/_double.cpp.o.d"
   "/home/synrom/lego/canal/src/variable/_float.cpp" "src/CMakeFiles/struct.dir/variable/_float.cpp.o" "gcc" "src/CMakeFiles/struct.dir/variable/_float.cpp.o.d"
   "/home/synrom/lego/canal/src/variable/clone.cpp" "src/CMakeFiles/struct.dir/variable/clone.cpp.o" "gcc" "src/CMakeFiles/struct.dir/variable/clone.cpp.o.d"
+  "/home/synrom/lego/canal/src/variable/cloneMax.cpp" "src/CMakeFiles/struct.dir/variable/cloneMax.cpp.o" "gcc" "src/CMakeFiles/struct.dir/variable/cloneMax.cpp.o.d"
   "/home/synrom/lego/canal/src/variable/comperator.cpp" "src/CMakeFiles/struct.dir/variable/comperator.cpp.o" "gcc" "src/CMakeFiles/struct.dir/variable/comperator.cpp.o.d"
   "/home/synrom/lego/canal/src/variable/longdouble.cpp" "src/CMakeFiles/struct.dir/variable/longdouble.cpp.o" "gcc" "src/CMakeFiles/struct.dir/variable/longdouble.cpp.o.d"
   "/home/synrom/lego/canal/src/variable/pointer.cpp" "src/CMakeFiles/struct.dir/variable/pointer.cpp.o" "gcc" "src/CMakeFiles/struct.dir/variable/pointer.cpp.o.d"

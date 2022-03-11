@@ -312,7 +312,7 @@ void pointer::Shl(variable *where, variable *what){
 		value.unsignedlonglong -= difference;
 	}else{
 		debug("pointer::Plus where != this");
-		new (where) pointer("", (unsigned long long) (value.unsignedlonglong - difference), size);
+		new (where) pointer("", type, (unsigned long long) (value.unsignedlonglong - difference), size);
 	}
 }
 
@@ -327,6 +327,6 @@ void pointer::Shr(variable *where, variable *what){
 		value.unsignedlonglong += difference;
 	}else{
 		debug("pointer::Plus where != this");
-		new (where) pointer("", (unsigned long long) (value.unsignedlonglong + difference), size);
+		new (where) pointer("", type, (unsigned long long) (value.unsignedlonglong + difference), size);
 	}
 }

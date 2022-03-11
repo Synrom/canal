@@ -70,9 +70,11 @@ int main(){
 
 	a = 50;
 	int *pa,*pb;
-	*pa = a;
+	*(pa + 10) = a;
 	*pb = b;
-	*pa = *pb;
+	*pa = *(pb + 20 * 2);
+	a = *(pb - 20);
+
 
 	return 0;
 }

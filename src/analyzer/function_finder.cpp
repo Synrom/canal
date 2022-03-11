@@ -33,6 +33,10 @@ canal_AST_analyzer::canal_AST_analyzer(clang::ASTContext *c) : context(c) {
 	info("created AST analyzer");
 }
 
+canal_AST_analyzer::canal_AST_analyzer(clang::ASTContext *c,function *f) : context(c), current_function(f) {
+	info("created AST analyzer");
+}
+
 bool canal_AST_analyzer::VisitFunctionDecl(clang::FunctionDecl *clang_function){
 	if(!Schedule.look_up())
 		return true;

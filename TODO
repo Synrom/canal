@@ -1,6 +1,6 @@
-- Access bei "=" Operation sinnvoll beachten
-- Pointer und Arrays bei VarDecl hinzufügen
+- Arrays bei VarDecl hinzufügen
 - ArraySubscript Operation implementieren
+- Shl_shr Overflow safe machen
 
 
 
@@ -14,10 +14,4 @@ IfStmntConditionHandler:
 	!= ignorieren
 	
 
-Pointer ueberleben:
-	operation::execute if right is pointer:
-		- do the operation
-		- pop result
-		- create result space of cpy of right
-		- execute result space exals poped result
 

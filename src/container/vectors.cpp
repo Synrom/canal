@@ -143,10 +143,10 @@ void vstance::add_var(const std::string &s, unsigned long long v){
 		(*i)->emplace_back(s,v);
 }
 
-void vstance::add_var(const std::string &s, unsigned long long v, unsigned int size){
+void vstance::add_var(const std::string &s, variable::Types t, unsigned long long v, unsigned int size){
 	debug("adding %s to vstance",s.c_str());
 	for(auto i = container.begin();i != container.end();i++)
-		(*i)->emplace_back(s,v,size);
+		(*i)->emplace_back(s,t,v,size);
 }
 
 void vstance::add_var(const std::string &s, float v){

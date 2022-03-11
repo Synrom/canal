@@ -158,4 +158,24 @@ src/CMakeFiles/struct.dir/variable/unsignedlong.cpp.o: \
  /usr/include/c++/10/bits/ostream.tcc /usr/include/c++/10/istream \
  /usr/include/c++/10/bits/istream.tcc \
  /home/synrom/lego/canal/src/../include/canal/debugger.h \
- /usr/x86_64-linux-gnu/include/sys/time.h
+ /usr/x86_64-linux-gnu/include/sys/time.h \
+ /usr/lib/gcc/x86_64-linux-gnu/10/include/float.h \
+ /usr/include/c++/10/cmath /usr/x86_64-linux-gnu/include/math.h \
+ /usr/x86_64-linux-gnu/include/bits/math-vector.h \
+ /usr/x86_64-linux-gnu/include/bits/libm-simd-decl-stubs.h \
+ /usr/x86_64-linux-gnu/include/bits/flt-eval-method.h \
+ /usr/x86_64-linux-gnu/include/bits/fp-logb.h \
+ /usr/x86_64-linux-gnu/include/bits/fp-fast.h \
+ /usr/x86_64-linux-gnu/include/bits/mathcalls-helper-functions.h \
+ /usr/x86_64-linux-gnu/include/bits/mathcalls.h \
+ /usr/x86_64-linux-gnu/include/bits/mathcalls-narrow.h \
+ /usr/x86_64-linux-gnu/include/bits/iscanonical.h \
+ /usr/lib/gcc/x86_64-linux-gnu/10/include/limits.h \
+ /usr/lib/gcc/x86_64-linux-gnu/10/include/syslimits.h \
+ /usr/x86_64-linux-gnu/include/limits.h \
+ /usr/x86_64-linux-gnu/include/bits/posix1_lim.h \
+ /usr/x86_64-linux-gnu/include/bits/local_lim.h \
+ /usr/x86_64-linux-gnu/include/linux/limits.h \
+ /usr/x86_64-linux-gnu/include/bits/posix2_lim.h \
+ /usr/x86_64-linux-gnu/include/bits/xopen_lim.h \
+ /usr/x86_64-linux-gnu/include/bits/uio_lim.h

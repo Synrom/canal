@@ -55,6 +55,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/struct.dir/variable/_float.cpp.o.d"
   "CMakeFiles/struct.dir/variable/clone.cpp.o"
   "CMakeFiles/struct.dir/variable/clone.cpp.o.d"
+  "CMakeFiles/struct.dir/variable/cloneMax.cpp.o"
+  "CMakeFiles/struct.dir/variable/cloneMax.cpp.o.d"
   "CMakeFiles/struct.dir/variable/comperator.cpp.o"
   "CMakeFiles/struct.dir/variable/comperator.cpp.o.d"
   "CMakeFiles/struct.dir/variable/longdouble.cpp.o"

@@ -48,7 +48,7 @@ public:
 	void emplace_back(const std::string & ,double );
 	void emplace_back(const std::string & ,float );
 	void emplace_back(const std::string & ,long double );
-	void emplace_back(const std::string & ,unsigned long long ,unsigned int );
+	void emplace_back(const std::string & ,variable::Types ,unsigned long long ,unsigned int );
 	void emplace_back(const std::string & ,signed char );
 	void emplace_back(const std::string & ,signed int );
 	void emplace_back(const std::string & ,signed long );
@@ -110,7 +110,7 @@ public:
 	void add_var(const std::string & ,double );
 	void add_var(const std::string & ,float );
 	void add_var(const std::string & ,long double );
-	void add_var(const std::string & ,unsigned long long ,unsigned int );
+	void add_var(const std::string & ,variable::Types ,unsigned long long ,unsigned int );
 	void add_var(const std::string & ,signed char );
 	void add_var(const std::string & ,signed int );
 	void add_var(const std::string & ,signed long );

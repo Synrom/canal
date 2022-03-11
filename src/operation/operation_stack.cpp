@@ -72,7 +72,6 @@ operation_stack::rope &operation_stack::get_base_rope(rope r, int domain){
 template<typename T>
 void operation_stack::insert_all_ropes(const T &value){
 	warning_conditional(ropes.empty(), "trying to insert operation to operation_stack without any ropes");
-	info("writing into %lu ropes with %lu levels",ropes.back().size(),ropes.size());
 	for(auto i = ropes.back().begin();i != ropes.back().end();i++){
 		insert(value,*i);
 	}

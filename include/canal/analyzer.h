@@ -44,6 +44,20 @@ private:
 	scheduler Schedule;
 };
 
+bool isAccessInStmt(clang::Stmt *,clang::ASTContext *);
+
+class canal_Access_In_Expr: public clang::RecursiveASTVisitor<canal_Access_In_Expr>{
+public:
+	explicit canal_Access_In_Expr(clang::ASTContext *);
+	bool VisitUnaryOperator(clang::UnaryOperator *);
+	bool VisitArraySubscriptExpr(clang::ArraySubscriptExpr *);
+	bool isAccess();
+private:
+	bool ceAccess{false};
+	clang::ASTContext *context{NULL};
+
+};
+
 class canal_Compound_classifier : public clang::RecursiveASTVisitor<canal_Compound_classifier>{
 public:
 
@@ -95,6 +109,7 @@ private:
 class canal_AST_analyzer : public clang::RecursiveASTVisitor<canal_AST_analyzer>{
 public:
 	explicit canal_AST_analyzer(clang::ASTContext* );
+	explicit canal_AST_analyzer(clang::ASTContext* ,function *);
 	bool VisitFunctionDecl(clang::FunctionDecl *);
 	bool VisitVarDecl(clang::VarDecl *);
 	bool VisitBinaryOperator(clang::BinaryOperator *);

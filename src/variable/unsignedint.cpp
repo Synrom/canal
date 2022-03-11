@@ -21,50 +21,6 @@ unsignedint::~unsignedint(){
 	debug("destructing unsignedint object");
 }
 
-void unsignedint::Plus(variable *where, variable *what){
-	error_conditional(!what, "in unsignedint::Plus what is NULL");
-
-	if(where == this || !where){
-		debug("unsignedint::Plus where == this");
-		value.unsignedint += what->value.unsignedint;
-	}else{
-		debug("unsignedint::Plus where != this");
-		new (where) unsignedint("", (unsigned int) (value.unsignedint + what->value.unsignedint));
-	}
-}
-void unsignedint::Minus(variable *where, variable *what){
-	error_conditional(!what, "in unsignedint::Minus what is NULL");
-
-	if(where == this || !where){
-		debug("unsignedint::Minus where == this");
-		value.unsignedint -= what->value.unsignedint;
-	}else{
-		debug("unsignedint::Minus where != this");
-		new (where) unsignedint("", (unsigned int) (value.unsignedint - what->value.unsignedint));
-	}
-}
-void unsignedint::Times(variable *where, variable *what){
-	error_conditional(!what, "in unsignedint::Times what is NULL");
-
-	if(where == this || !where){
-		debug("unsignedint::Times where == this");
-		value.unsignedint *= what->value.unsignedint;
-	}else{
-		debug("unsignedint::Times where != this");
-		new (where) unsignedint("", (unsigned int) (value.unsignedint * what->value.unsignedint));
-	}
-}
-void unsignedint::Divide(variable *where, variable *what){
-	error_conditional(!what, "in unsignedint::Divide what is NULL");
-
-	if(where == this || !where){
-		debug("unsignedint::Divide where == this");
-		value.unsignedint /= what->value.unsignedint;
-	}else{
-		debug("unsignedint::Divide where != this");
-		new (where) unsignedint("", (unsigned int) (value.unsignedint / what->value.unsignedint));
-	}
-}
 void unsignedint::And(variable *where, variable *what){
 	error_conditional(!what, "in unsignedint::And what is NULL");
 
@@ -98,27 +54,6 @@ void unsignedint::Xor(variable *where, variable *what){
 		new (where) unsignedint("", (unsigned int) (value.unsignedint ^ what->value.unsignedint));
 	}
 }
-void unsignedint::Inc(variable *where){
-	debug("unsignedint::Inc");
-	if(where == this || !where){
-		debug("unsignedint::Inc where == this");
-		value.unsignedint++;
-	}else{
-		debug("unsignedint::Inc where != this");
-		new (where) unsignedint("",  value.unsignedint + 1);
-	}
-}
-
-void unsignedint::Dec(variable *where){
-	debug("unsignedint::Dec");
-	if(where == this || !where){
-		debug("unsignedint::Dec where == this");
-		value.unsignedint--;
-	}else{
-		debug("unsignedint::Dec where != this");
-		new (where) unsignedint("", value.unsignedint - 1);
-	}
-}
 void unsignedint::Neg(variable *where){
 	debug("unsignedint::Neg");
 	if(where == this || !where){
@@ -136,3 +71,137 @@ void unsignedint::Equal(variable *what){
 
 	value.unsignedint = what->value.unsignedint;
 }
+
+#include <new>
+#include <float.h>
+#include <cmath>
+#include <limits.h>
+
+void check_plus_overflow(unsigned int v1,unsigned int v2, unsigned int &where){ // returns 0 if no overflow
+	if(v1 + v2 < v1 || v1 + v2 < v2){
+		where = UINT_MAX;
+		return;
+	}
+	where = v1 + v2;
+}
+
+void check_mul_overflow(unsigned int v1,unsigned int v2,unsigned int &where){ 
+	if(v1 > 0 && v2 > 0 && (v1 * v2 < v1 || v1 * v2 < v2)){
+		where = UINT_MAX;
+		return;
+	}
+	where = v1 * v2;
+}
+
+void check_divide_overflow(unsigned int v1, unsigned int v2, unsigned int &where){
+	if(v2 < 1 && v1 >= 1 && (v1 / v2) < v1){
+		where = UINT_MAX;
+		return;
+	}
+	where = v1 / v2;
+}
+
+void check_minus_overflow(unsigned int v1, unsigned int v2, unsigned int &where){
+	if(v2 > v1){
+		where = 0;
+		return;
+	}
+	where = v1 - v2;
+}
+
+
+
+void unsignedint::Plus(variable *where, variable *what){
+	error_conditional(!what, "in unsignedint::Plus what is NULL");
+
+	unsigned int new_value;
+	check_plus_overflow(value.unsignedint, what->value.unsignedint, new_value);
+
+	if(where == this || !where){
+		debug("unsignedint::Plus where == this");
+		
+		value.unsignedint = new_value;
+	}else{
+		debug("unsignedint::Plus where != this");
+		new (where) unsignedint("",  new_value);
+	}
+}
+
+void unsignedint::Minus(variable *where, variable *what){
+	error_conditional(!what, "in unsignedint::Minus what is NULL");
+
+	unsigned int new_value;
+	check_minus_overflow(value.unsignedint, what->value.unsignedint, new_value);
+
+	if(where == this || !where){
+		debug("unsignedint::Plus where == this");
+		
+		value.unsignedint = new_value;
+	}else{
+		debug("unsignedint::Plus where != this");
+		new (where) unsignedint("",  new_value);
+	}
+}
+
+void unsignedint::Times(variable *where, variable *what){
+	error_conditional(!what, "in unsignedint::Times what is NULL");
+
+	unsigned int new_value;
+	check_mul_overflow(value.unsignedint, what->value.unsignedint, new_value);
+
+	if(where == this || !where){
+		debug("unsignedint::Plus where == this");
+		
+		value.unsignedint = new_value;
+	}else{
+		debug("unsignedint::Plus where != this");
+		new (where) unsignedint("",  new_value);
+	}
+}
+
+void unsignedint::Divide(variable *where, variable *what){
+	error_conditional(!what, "in unsignedint::Divide what is NULL");
+
+	unsigned int new_value;
+	check_divide_overflow(value.unsignedint, what->value.unsignedint, new_value);
+
+	if(where == this || !where){
+		debug("unsignedint::Plus where == this");
+		
+		value.unsignedint = new_value;
+	}else{
+		debug("unsignedint::Plus where != this");
+		new (where) unsignedint("",  new_value);
+	}
+}
+
+void unsignedint::Inc(variable *where){
+	debug("unsignedint::Inc");
+	if(where == this || !where){
+		debug("unsignedint::Inc where == this");
+		if(value.unsignedint != UINT_MAX)
+			value.unsignedint++;
+	}else{
+		debug("unsignedint::Inc where != this");
+		if(value.unsignedint != UINT_MAX)
+			new (where) unsignedint("",  (value.unsignedint) + 1);
+		else
+			new (where) unsignedint("",  (value.unsignedint));
+	}
+}
+void unsignedint::Dec(variable *where){
+	debug("unsignedint::Dec");
+	if(where == this || !where){
+		debug("unsignedint::Dec where == this");
+		if(value.unsignedint != 0)
+			value.unsignedint--;
+	}else{
+		debug("unsignedint::Dec where != this");
+		if(value.unsignedint != 0)
+			new (where) unsignedint("",  (value.unsignedint) - 1);
+		else
+			new (where) unsignedint("",  (value.unsignedint));
+	}
+}
+
+

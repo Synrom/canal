@@ -903,6 +903,30 @@ variable/clone.cpp.s:
 	cd /home/synrom/lego/canal && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/struct.dir/build.make src/CMakeFiles/struct.dir/variable/clone.cpp.s
 .PHONY : variable/clone.cpp.s
 
+variable/cloneMax.o: variable/cloneMax.cpp.o
+.PHONY : variable/cloneMax.o
+
+# target to build an object file
+variable/cloneMax.cpp.o:
+	cd /home/synrom/lego/canal && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/struct.dir/build.make src/CMakeFiles/struct.dir/variable/cloneMax.cpp.o
+.PHONY : variable/cloneMax.cpp.o
+
+variable/cloneMax.i: variable/cloneMax.cpp.i
+.PHONY : variable/cloneMax.i
+
+# target to preprocess a source file
+variable/cloneMax.cpp.i:
+	cd /home/synrom/lego/canal && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/struct.dir/build.make src/CMakeFiles/struct.dir/variable/cloneMax.cpp.i
+.PHONY : variable/cloneMax.cpp.i
+
+variable/cloneMax.s: variable/cloneMax.cpp.s
+.PHONY : variable/cloneMax.s
+
+# target to generate assembly for a file
+variable/cloneMax.cpp.s:
+	cd /home/synrom/lego/canal && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/struct.dir/build.make src/CMakeFiles/struct.dir/variable/cloneMax.cpp.s
+.PHONY : variable/cloneMax.cpp.s
+
 variable/comperator.o: variable/comperator.cpp.o
 .PHONY : variable/comperator.o
 
@@ -1412,6 +1436,9 @@ help:
 	@echo "... variable/clone.o"
 	@echo "... variable/clone.i"
 	@echo "... variable/clone.s"
+	@echo "... variable/cloneMax.o"
+	@echo "... variable/cloneMax.i"
+	@echo "... variable/cloneMax.s"
 	@echo "... variable/comperator.o"
 	@echo "... variable/comperator.i"
 	@echo "... variable/comperator.s"

@@ -19,6 +19,7 @@ list(APPEND VarFiles
 	"variable/print.cpp"
 	"variable/comperator.cpp"
 	"variable/clone.cpp"
+	"variable/cloneMax.cpp"
 )
 
 
