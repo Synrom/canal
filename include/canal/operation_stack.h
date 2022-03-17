@@ -37,6 +37,7 @@ public:
 
 	using iterator = operation *;
 	using rope = unsigned int;
+	using inserter = unsigned int;
 
 	void print();
 	void print_simple();
@@ -52,6 +53,11 @@ public:
 	void add_rope();
 	void down_rope();
 	void up_rope();
+
+	void init_inserter();
+	template<typename T>
+	void inserter_push(const T &); 
+
 
 
 	operation *get_latest_added_operation();
@@ -87,6 +93,7 @@ private:
 	operation *current;
 	std::vector<std::vector<rope>> ropes;
 	rope &get_base_rope(rope , int );
+	std::vector<inserter> inserts;
 
 	iterator begin();
 	iterator end();

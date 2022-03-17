@@ -1,6 +1,7 @@
-- Arrays bei VarDecl hinzufügen
-- ArraySubscript Operation implementieren
-- Shl_shr Overflow safe machen
+- IfStmnt Handler 
+	-> last_rope handler fuer jeweils andere Seite hinzufuegen
+	-> reversed_term_analyzer implementieren
+- Float Literals
 
 
 
@@ -8,10 +9,8 @@
 
 weite Zukunft:
 IfStmntConditionHandler:
-	> rechts nur variable wird zu = (umkehren hier schwer), ansonsten dump_handler
-	< link nur variable wird zu = (ohne umkehren zum Glück haha), ansonsten dump_handler
-	== wird zu =
-	!= ignorieren
-	
+
+reversed_term_analyzer:	
+	-> Bn handelt immer den LHS
 
 

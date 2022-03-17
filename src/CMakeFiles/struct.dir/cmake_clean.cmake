@@ -7,6 +7,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/struct.dir/analyzer/function_analyzer.cpp.o.d"
   "CMakeFiles/struct.dir/analyzer/function_finder.cpp.o"
   "CMakeFiles/struct.dir/analyzer/function_finder.cpp.o.d"
+  "CMakeFiles/struct.dir/analyzer/if_stmt_analyzer.cpp.o"
+  "CMakeFiles/struct.dir/analyzer/if_stmt_analyzer.cpp.o.d"
   "CMakeFiles/struct.dir/container/vectors.cpp.o"
   "CMakeFiles/struct.dir/container/vectors.cpp.o.d"
   "CMakeFiles/struct.dir/debugger/debugger.cpp.o"

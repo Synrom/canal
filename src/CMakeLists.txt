@@ -53,6 +53,7 @@ list(APPEND AnalyzerFiles
 	"analyzer/function_analyzer.cpp"
 	"analyzer/classifiers.cpp"
 	"analyzer/dump_handler.cpp"
+	"analyzer/if_stmt_analyzer.cpp"
 )
 
 list(APPEND ContainerFiles

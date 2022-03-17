@@ -28,6 +28,16 @@ void canal_dump_AST_Handler::handle(){
 	Schedule.increase_child();
 }
 
+bool canal_dump_AST_Handler::VisitCompoundStmt(clang::CompoundStmt *comp){
+	handle();
+	return true;
+}
+
+bool canal_dump_AST_Handler::VisitArraySubscriptExpr(clang::ArraySubscriptExpr *e){
+	handle();
+	return true;
+}
+
 bool canal_dump_AST_Handler::VisitFunctionDecl(clang::FunctionDecl *f){
 	handle();
 	return true;

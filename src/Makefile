@@ -327,6 +327,30 @@ analyzer/function_finder.cpp.s:
 	cd /home/synrom/lego/canal && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/struct.dir/build.make src/CMakeFiles/struct.dir/analyzer/function_finder.cpp.s
 .PHONY : analyzer/function_finder.cpp.s
 
+analyzer/if_stmt_analyzer.o: analyzer/if_stmt_analyzer.cpp.o
+.PHONY : analyzer/if_stmt_analyzer.o
+
+# target to build an object file
+analyzer/if_stmt_analyzer.cpp.o:
+	cd /home/synrom/lego/canal && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/struct.dir/build.make src/CMakeFiles/struct.dir/analyzer/if_stmt_analyzer.cpp.o
+.PHONY : analyzer/if_stmt_analyzer.cpp.o
+
+analyzer/if_stmt_analyzer.i: analyzer/if_stmt_analyzer.cpp.i
+.PHONY : analyzer/if_stmt_analyzer.i
+
+# target to preprocess a source file
+analyzer/if_stmt_analyzer.cpp.i:
+	cd /home/synrom/lego/canal && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/struct.dir/build.make src/CMakeFiles/struct.dir/analyzer/if_stmt_analyzer.cpp.i
+.PHONY : analyzer/if_stmt_analyzer.cpp.i
+
+analyzer/if_stmt_analyzer.s: analyzer/if_stmt_analyzer.cpp.s
+.PHONY : analyzer/if_stmt_analyzer.s
+
+# target to generate assembly for a file
+analyzer/if_stmt_analyzer.cpp.s:
+	cd /home/synrom/lego/canal && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/struct.dir/build.make src/CMakeFiles/struct.dir/analyzer/if_stmt_analyzer.cpp.s
+.PHONY : analyzer/if_stmt_analyzer.cpp.s
+
 container/vectors.o: container/vectors.cpp.o
 .PHONY : container/vectors.o
 
@@ -1364,6 +1388,9 @@ help:
 	@echo "... analyzer/function_finder.o"
 	@echo "... analyzer/function_finder.i"
 	@echo "... analyzer/function_finder.s"
+	@echo "... analyzer/if_stmt_analyzer.o"
+	@echo "... analyzer/if_stmt_analyzer.i"
+	@echo "... analyzer/if_stmt_analyzer.s"
 	@echo "... container/vectors.o"
 	@echo "... container/vectors.i"
 	@echo "... container/vectors.s"

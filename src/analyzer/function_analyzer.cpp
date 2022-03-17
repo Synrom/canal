@@ -17,6 +17,22 @@
 
 extern root_scope global_scope;
 
+bool canal_AST_analyzer::VisitCompoundStmt(clang::CompoundStmt *comp){
+	if(!Schedule.look_up())
+		return true;
+	Schedule.increase_child();
+}
+
+
+bool canal_AST_analyzer::VisitArraySubscriptExpr(clang::ArraySubscriptExpr *e){
+	if(!Schedule.look_up())
+		return true;
+	Schedule.increase_child();
+	current_function->operations.insert_all_ropes(Access(*current_function));
+	current_function->operations.insert_all_ropes(Add(*current_function));
+	return true;
+}
+
 bool canal_AST_analyzer::VisitIfStmt(clang::IfStmt *if_stmnt){
 	if(!Schedule.look_up())
 		return true;
@@ -26,23 +42,9 @@ bool canal_AST_analyzer::VisitIfStmt(clang::IfStmt *if_stmnt){
 	canal_IfStmnt_classifier IfStmntClassifier(context);
 	IfStmntClassifier.TraverseStmt(if_stmnt);
 	info("switch count of ifstmnt classifier is %u",IfStmntClassifier.getSwitchCount());
-	for(unsigned int i = 0;i < IfStmntClassifier.getCount();i++){
-		printf("IfStmntClassifier classifies on position %d ",i);
-		switch(IfStmntClassifier.getType(i)){
-			case CodeClassifier::mixed:
-				printf("mixed\n");
-				break;
-			case CodeClassifier::onlyDecrease:
-				printf("decrease\n");
-				break;
-			case CodeClassifier::onlyIncrease:
-				printf("increase\n");
-				break;
-		}
-	}
 
-	canal_dump_AST_Handler dumpHandler(context,&Schedule);
-	dumpHandler.TraverseStmt(if_stmnt);
+	canal_IfStmt_analyzer ifAnalyzer(context,&Schedule,IfStmntClassifier.getType(),IfStmntClassifier.getCount());
+	ifAnalyzer.TraverseStmt(if_stmnt);
 
 
 
@@ -392,6 +394,58 @@ void canal_AST_analyzer::addVar(const std::string &name, std::string &type){
 		}else{
 			warning("type %s is not implemented yet in the analyzer",type.c_str());
 		}
+	}else if(type.back() == ']'){
+		unsigned int size;
+		int res;	
+
+		if((res = sscanf(type.substr(type.find_first_of('[')).c_str(), "[%u]",&size)) != 1){
+			error("couldnt extract size of %s to %s correctly res = %d",type.c_str(),type.substr(type.find_first_of('[')).c_str(),res);
+		}
+
+		if(!type.compare(0,6,"double")){
+			current_function->current_vstance->add_var(name,variable::_double, size, sizeof(double));
+			current_type = variable::pointer;
+		}else if(!type.compare(0,5,"float")){
+			current_function->current_vstance->add_var(name,variable::_float, size, sizeof(float));
+			current_type = variable::pointer;
+		}else if(!type.compare(0,11,"long double")){
+			current_function->current_vstance->add_var(name,variable::longdouble, size, sizeof(long double));
+			current_type = variable::pointer;
+		}else if(!type.compare(0,11,"signed char")){
+			current_function->current_vstance->add_var(name,variable::signedchar, size, sizeof(signed char));
+			current_type = variable::pointer;
+		}else if(!type.compare(0,3,"int")){
+			current_function->current_vstance->add_var(name,variable::signedint, size, sizeof(int));
+			current_type = variable::pointer;
+		}else if(!type.compare(0,4,"long")){
+			current_function->current_vstance->add_var(name,variable::signedlong, size, sizeof(long));
+			current_type = variable::pointer;
+		}else if(!type.compare(0,9,"long long")){
+			current_function->current_vstance->add_var(name,variable::signedlonglong, size, sizeof(long long));
+			current_type = variable::pointer;
+		}else if(!type.compare(0,5,"short")){
+			current_function->current_vstance->add_var(name,variable::signedshort, size, sizeof(short));
+			current_type = variable::pointer;
+		}else if(!type.compare(0,13,"unsigned char")){
+			current_function->current_vstance->add_var(name,variable::unsignedchar, size, sizeof(unsigned char));
+			current_type = variable::pointer;
+		}else if(!type.compare(0,12,"unsigned int")){
+			current_function->current_vstance->add_var(name,variable::unsignedint, size, sizeof(unsigned int));
+			current_type = variable::pointer;
+		}else if(!type.compare(0,13,"unsigned long")){
+			current_function->current_vstance->add_var(name,variable::unsignedlong, size, sizeof(unsigned long));
+			current_type = variable::pointer;
+		}else if(!type.compare(0,18,"unsigned long long")){
+			current_function->current_vstance->add_var(name,variable::unsignedlonglong, size, sizeof(unsigned long long));
+			current_type = variable::pointer;
+		}else if(!type.compare(0,14,"unsigned short")){
+			current_function->current_vstance->add_var(name,variable::unsignedshort, size, sizeof(unsigned short));
+			current_type = variable::pointer;
+		}else{
+			warning("type %s is not implemented yet in the analyzer",type.c_str());
+		}
+
+		
 	}else{
 		warning("type %s is not implemented yet in the analyzer",type.c_str());
 	}

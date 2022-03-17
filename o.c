@@ -18,6 +18,7 @@ int main(){
 	a = b << 15;
 	a = b >> 15;
 
+	unsigned char unsignedchar = 0x42;
 	signed char signedchar = 0x42;
 	signed short signedshort = -14;
 	unsigned short unsignedshort = 14;
@@ -70,11 +71,29 @@ int main(){
 
 	a = 50;
 	int *pa,*pb;
-	*(pa + 10) = a;
-	*pb = b;
-	*pa = *(pb + 20 * 2);
-	a = *(pb - 20);
 
+	float a_fl[1];
+	double a_dl[2];
+	double a_ldl[3];
+	unsigned char aunsignedchar[4];
+	signed char asignedchar[5];
+	signed short asignedshort[6];
+	unsigned short aunsignedshort[7];
+	signed int asignedint[8];
+	unsigned int aunsignedint[9];
+	signed long asignedlong[10];
+	unsigned long aunsignedlong[11];
+	signed long long asignedlonglong[12];
+	unsigned long long aunsignedlonglong[13];
+
+
+	a = aunsignedchar[2];
+
+	if(a + 10 * 50 <= 30 + 25){
+
+
+	}else if(10 - a * (-10) >= 50){
+	}
 
 	return 0;
 }

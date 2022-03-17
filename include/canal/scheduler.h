@@ -4,7 +4,6 @@
 
 class scheduler{
 public:
-	void increase();
 	void increase_child();
 	bool look_up();
 
@@ -20,5 +19,6 @@ public:
 private:
 	unsigned int count{0};
 	void decrease();
+	void increase();
 	scheduler *child{NULL};
 };

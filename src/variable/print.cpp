@@ -54,3 +54,8 @@ void variable::print(){
 	printf("\n");
 
 }
+
+void pointer::print(){
+	printf("%s = ",name.c_str());
+	printf("(size: %u, capacity: %u, position: %llu)\n",size,capacity,value.unsignedlonglong);
+}

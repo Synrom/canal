@@ -62,7 +62,7 @@ public:
 	variable(const std::string &);
 	virtual ~variable();
 	
-	void print();
+	virtual void print();
 
 	
 	virtual void Plus(variable *,variable *) = 0;
@@ -444,7 +444,9 @@ public:
 	bool isBigger(variable *);
 	bool isEqual(variable *);
 	void clone(variable *);
+	void print();
 	static void cloneMax(variable *);
+
 };
 
 void check_mul_overflow(signed long long, signed long long, signed long long &);

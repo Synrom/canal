@@ -643,10 +643,24 @@ src/CMakeFiles/struct.dir/analyzer/dump_handler.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/struct.dir/analyzer/dump_handler.cpp.s"
 	cd /home/synrom/lego/canal/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/synrom/lego/canal/src/analyzer/dump_handler.cpp -o CMakeFiles/struct.dir/analyzer/dump_handler.cpp.s
 
+src/CMakeFiles/struct.dir/analyzer/if_stmt_analyzer.cpp.o: src/CMakeFiles/struct.dir/flags.make
+src/CMakeFiles/struct.dir/analyzer/if_stmt_analyzer.cpp.o: src/analyzer/if_stmt_analyzer.cpp
+src/CMakeFiles/struct.dir/analyzer/if_stmt_analyzer.cpp.o: src/CMakeFiles/struct.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/synrom/lego/canal/CMakeFiles --progress-num=$(CMAKE_PROGRESS_42) "Building CXX object src/CMakeFiles/struct.dir/analyzer/if_stmt_analyzer.cpp.o"
+	cd /home/synrom/lego/canal/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/CMakeFiles/struct.dir/analyzer/if_stmt_analyzer.cpp.o -MF CMakeFiles/struct.dir/analyzer/if_stmt_analyzer.cpp.o.d -o CMakeFiles/struct.dir/analyzer/if_stmt_analyzer.cpp.o -c /home/synrom/lego/canal/src/analyzer/if_stmt_analyzer.cpp
+
+src/CMakeFiles/struct.dir/analyzer/if_stmt_analyzer.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/struct.dir/analyzer/if_stmt_analyzer.cpp.i"
+	cd /home/synrom/lego/canal/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/synrom/lego/canal/src/analyzer/if_stmt_analyzer.cpp > CMakeFiles/struct.dir/analyzer/if_stmt_analyzer.cpp.i
+
+src/CMakeFiles/struct.dir/analyzer/if_stmt_analyzer.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/struct.dir/analyzer/if_stmt_analyzer.cpp.s"
+	cd /home/synrom/lego/canal/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/synrom/lego/canal/src/analyzer/if_stmt_analyzer.cpp -o CMakeFiles/struct.dir/analyzer/if_stmt_analyzer.cpp.s
+
 src/CMakeFiles/struct.dir/container/vectors.cpp.o: src/CMakeFiles/struct.dir/flags.make
 src/CMakeFiles/struct.dir/container/vectors.cpp.o: src/container/vectors.cpp
 src/CMakeFiles/struct.dir/container/vectors.cpp.o: src/CMakeFiles/struct.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/synrom/lego/canal/CMakeFiles --progress-num=$(CMAKE_PROGRESS_42) "Building CXX object src/CMakeFiles/struct.dir/container/vectors.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/synrom/lego/canal/CMakeFiles --progress-num=$(CMAKE_PROGRESS_43) "Building CXX object src/CMakeFiles/struct.dir/container/vectors.cpp.o"
 	cd /home/synrom/lego/canal/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/CMakeFiles/struct.dir/container/vectors.cpp.o -MF CMakeFiles/struct.dir/container/vectors.cpp.o.d -o CMakeFiles/struct.dir/container/vectors.cpp.o -c /home/synrom/lego/canal/src/container/vectors.cpp
 
 src/CMakeFiles/struct.dir/container/vectors.cpp.i: cmake_force
@@ -660,7 +674,7 @@ src/CMakeFiles/struct.dir/container/vectors.cpp.s: cmake_force
 src/CMakeFiles/struct.dir/result/result.cpp.o: src/CMakeFiles/struct.dir/flags.make
 src/CMakeFiles/struct.dir/result/result.cpp.o: src/result/result.cpp
 src/CMakeFiles/struct.dir/result/result.cpp.o: src/CMakeFiles/struct.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/synrom/lego/canal/CMakeFiles --progress-num=$(CMAKE_PROGRESS_43) "Building CXX object src/CMakeFiles/struct.dir/result/result.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/synrom/lego/canal/CMakeFiles --progress-num=$(CMAKE_PROGRESS_44) "Building CXX object src/CMakeFiles/struct.dir/result/result.cpp.o"
 	cd /home/synrom/lego/canal/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/CMakeFiles/struct.dir/result/result.cpp.o -MF CMakeFiles/struct.dir/result/result.cpp.o.d -o CMakeFiles/struct.dir/result/result.cpp.o -c /home/synrom/lego/canal/src/result/result.cpp
 
 src/CMakeFiles/struct.dir/result/result.cpp.i: cmake_force
@@ -674,7 +688,7 @@ src/CMakeFiles/struct.dir/result/result.cpp.s: cmake_force
 src/CMakeFiles/struct.dir/result/locals.cpp.o: src/CMakeFiles/struct.dir/flags.make
 src/CMakeFiles/struct.dir/result/locals.cpp.o: src/result/locals.cpp
 src/CMakeFiles/struct.dir/result/locals.cpp.o: src/CMakeFiles/struct.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/synrom/lego/canal/CMakeFiles --progress-num=$(CMAKE_PROGRESS_44) "Building CXX object src/CMakeFiles/struct.dir/result/locals.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/synrom/lego/canal/CMakeFiles --progress-num=$(CMAKE_PROGRESS_45) "Building CXX object src/CMakeFiles/struct.dir/result/locals.cpp.o"
 	cd /home/synrom/lego/canal/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/CMakeFiles/struct.dir/result/locals.cpp.o -MF CMakeFiles/struct.dir/result/locals.cpp.o.d -o CMakeFiles/struct.dir/result/locals.cpp.o -c /home/synrom/lego/canal/src/result/locals.cpp
 
 src/CMakeFiles/struct.dir/result/locals.cpp.i: cmake_force
@@ -688,7 +702,7 @@ src/CMakeFiles/struct.dir/result/locals.cpp.s: cmake_force
 src/CMakeFiles/struct.dir/result/identifiers.cpp.o: src/CMakeFiles/struct.dir/flags.make
 src/CMakeFiles/struct.dir/result/identifiers.cpp.o: src/result/identifiers.cpp
 src/CMakeFiles/struct.dir/result/identifiers.cpp.o: src/CMakeFiles/struct.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/synrom/lego/canal/CMakeFiles --progress-num=$(CMAKE_PROGRESS_45) "Building CXX object src/CMakeFiles/struct.dir/result/identifiers.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/synrom/lego/canal/CMakeFiles --progress-num=$(CMAKE_PROGRESS_46) "Building CXX object src/CMakeFiles/struct.dir/result/identifiers.cpp.o"
 	cd /home/synrom/lego/canal/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/CMakeFiles/struct.dir/result/identifiers.cpp.o -MF CMakeFiles/struct.dir/result/identifiers.cpp.o.d -o CMakeFiles/struct.dir/result/identifiers.cpp.o -c /home/synrom/lego/canal/src/result/identifiers.cpp
 
 src/CMakeFiles/struct.dir/result/identifiers.cpp.i: cmake_force
@@ -702,7 +716,7 @@ src/CMakeFiles/struct.dir/result/identifiers.cpp.s: cmake_force
 src/CMakeFiles/struct.dir/scheduler/scheduler.cpp.o: src/CMakeFiles/struct.dir/flags.make
 src/CMakeFiles/struct.dir/scheduler/scheduler.cpp.o: src/scheduler/scheduler.cpp
 src/CMakeFiles/struct.dir/scheduler/scheduler.cpp.o: src/CMakeFiles/struct.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/synrom/lego/canal/CMakeFiles --progress-num=$(CMAKE_PROGRESS_46) "Building CXX object src/CMakeFiles/struct.dir/scheduler/scheduler.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/synrom/lego/canal/CMakeFiles --progress-num=$(CMAKE_PROGRESS_47) "Building CXX object src/CMakeFiles/struct.dir/scheduler/scheduler.cpp.o"
 	cd /home/synrom/lego/canal/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/CMakeFiles/struct.dir/scheduler/scheduler.cpp.o -MF CMakeFiles/struct.dir/scheduler/scheduler.cpp.o.d -o CMakeFiles/struct.dir/scheduler/scheduler.cpp.o -c /home/synrom/lego/canal/src/scheduler/scheduler.cpp
 
 src/CMakeFiles/struct.dir/scheduler/scheduler.cpp.i: cmake_force
@@ -756,6 +770,7 @@ struct_OBJECTS = \
 "CMakeFiles/struct.dir/analyzer/function_analyzer.cpp.o" \
 "CMakeFiles/struct.dir/analyzer/classifiers.cpp.o" \
 "CMakeFiles/struct.dir/analyzer/dump_handler.cpp.o" \
+"CMakeFiles/struct.dir/analyzer/if_stmt_analyzer.cpp.o" \
 "CMakeFiles/struct.dir/container/vectors.cpp.o" \
 "CMakeFiles/struct.dir/result/result.cpp.o" \
 "CMakeFiles/struct.dir/result/locals.cpp.o" \
@@ -806,6 +821,7 @@ src/libstruct.a: src/CMakeFiles/struct.dir/analyzer/function_finder.cpp.o
 src/libstruct.a: src/CMakeFiles/struct.dir/analyzer/function_analyzer.cpp.o
 src/libstruct.a: src/CMakeFiles/struct.dir/analyzer/classifiers.cpp.o
 src/libstruct.a: src/CMakeFiles/struct.dir/analyzer/dump_handler.cpp.o
+src/libstruct.a: src/CMakeFiles/struct.dir/analyzer/if_stmt_analyzer.cpp.o
 src/libstruct.a: src/CMakeFiles/struct.dir/container/vectors.cpp.o
 src/libstruct.a: src/CMakeFiles/struct.dir/result/result.cpp.o
 src/libstruct.a: src/CMakeFiles/struct.dir/result/locals.cpp.o
@@ -813,7 +829,7 @@ src/libstruct.a: src/CMakeFiles/struct.dir/result/identifiers.cpp.o
 src/libstruct.a: src/CMakeFiles/struct.dir/scheduler/scheduler.cpp.o
 src/libstruct.a: src/CMakeFiles/struct.dir/build.make
 src/libstruct.a: src/CMakeFiles/struct.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/synrom/lego/canal/CMakeFiles --progress-num=$(CMAKE_PROGRESS_47) "Linking CXX static library libstruct.a"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/synrom/lego/canal/CMakeFiles --progress-num=$(CMAKE_PROGRESS_48) "Linking CXX static library libstruct.a"
 	cd /home/synrom/lego/canal/src && $(CMAKE_COMMAND) -P CMakeFiles/struct.dir/cmake_clean_target.cmake
 	cd /home/synrom/lego/canal/src && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/struct.dir/link.txt --verbose=$(VERBOSE)
 

@@ -24,6 +24,8 @@ enum CodeClassifier{
 	mixed,
 };
 
+
+
 class canal_dump_AST_Handler: public clang::RecursiveASTVisitor<canal_dump_AST_Handler>{
 public:
 	explicit canal_dump_AST_Handler(clang::ASTContext *, scheduler *);
@@ -38,13 +40,49 @@ public:
 	bool VisitCallExpr(clang::CallExpr *);
 	bool VisitReturnStmt(clang::ReturnStmt *);
 	bool VisitIfStmt(clang::IfStmt *);
+	bool VisitArraySubscriptExpr(clang::ArraySubscriptExpr *);
+	bool VisitCompoundStmt(clang::CompoundStmt *);
 
-private:
+protected:
 	clang::ASTContext *context{NULL};
 	scheduler Schedule;
 };
 
+
+class canal_IfStmt_analyzer: public canal_dump_AST_Handler {
+public:
+	explicit canal_IfStmt_analyzer(clang::ASTContext *, scheduler *, const std::vector<CodeClassifier> &,unsigned int, function *);
+
+	bool VisitBinaryOperator(clang::BinaryOperator *);
+	bool VisitIfStmt(clang::IfStmt *);
+	bool VisitCompoundStmt(clang::CompoundStmt *);
+private:
+	bool visitedIfBeforeCompound{false};
+	bool isFirstIf{true};
+	std::vector<CodeClassifier> classifier_type;
+	unsigned int current_classifier_position{0};
+	unsigned int switch_count{0};
+	function *current_function{NULL};
+
+};
+
 bool isAccessInStmt(clang::Stmt *,clang::ASTContext *);
+bool isExprJustVar(clang::Expr *);
+
+class canal_classify_term: public canal_dump_AST_Handler{
+public:
+	explicit canal_classify_term(clang::ASTContext *);
+	bool VisitUnaryOperator(clang::UnaryOperator *);
+	bool VisitArraySubscriptExpr(clang::ArraySubscriptExpr *);
+	bool VisitDeclRefExpr(clang::DeclRefExpr *);
+	bool VisitBinaryOperator(clang::BinaryOperator *);
+	unsigned int vars();
+	unsigned int minus();
+private:
+	unsigned int var_count{0};
+	unsigned int minus_count{0};
+
+};
 
 class canal_Access_In_Expr: public clang::RecursiveASTVisitor<canal_Access_In_Expr>{
 public:
@@ -71,6 +109,7 @@ public:
 	bool VisitCompoundStmt(clang::CompoundStmt *);
 	bool VisitCallExpr(clang::CallExpr *);
 	bool VisitUnaryOperator(clang::UnaryOperator *);
+	bool VisitArraySubscriptExpr(clang::ArraySubscriptExpr *);
 	
 private:
 	CodeClassifier type{onlyDecrease};
@@ -85,6 +124,7 @@ public:
 	explicit canal_IfStmnt_classifier(clang::ASTContext*);
 	explicit canal_IfStmnt_classifier();
 	CodeClassifier getType(unsigned int);
+	std::vector<CodeClassifier> getType();
 	unsigned int getCount();
 	unsigned int getSwitchCount();
 
@@ -93,6 +133,7 @@ public:
 	bool VisitCompoundStmt(clang::CompoundStmt *);
 	bool VisitCallExpr(clang::CallExpr *);
 	bool VisitUnaryOperator(clang::UnaryOperator *);
+	bool VisitArraySubscriptExpr(clang::ArraySubscriptExpr *);
 	
 	
 private:
@@ -119,6 +160,8 @@ public:
 	bool VisitCallExpr(clang::CallExpr *);
 	bool VisitReturnStmt(clang::ReturnStmt *);
 	bool VisitIfStmt(clang::IfStmt *);
+	bool VisitArraySubscriptExpr(clang::ArraySubscriptExpr *);
+	bool VisitCompoundStmt(clang::CompoundStmt *);
 private:
 	bool thisIsFollowupForAVarDecl { false };
 	bool thisIsFollowupOfUnaryOperator { false };
@@ -129,6 +172,39 @@ private:
 	variable::Types current_type;
 	void addVar(const std::string &,std::string &);
 	scheduler Schedule;
+};
+
+class canal_Term_last_rope_analyzer : public clang::RecursiveASTVisitor<canal_Term_last_rope_analyzer>{
+public:
+	explicit canal_Term_last_rope_analyzer(clang::ASTContext* ,function *,scheduler *);
+	bool VisitFunctionDecl(clang::FunctionDecl *);
+	bool VisitVarDecl(clang::VarDecl *);
+	bool VisitBinaryOperator(clang::BinaryOperator *);
+	bool VisitUnaryOperator(clang::UnaryOperator *);
+	bool VisitIntegerLiteral(clang::IntegerLiteral *);
+	bool VisitDeclRefExpr(clang::DeclRefExpr *);
+	bool VisitCallExpr(clang::CallExpr *);
+	bool VisitReturnStmt(clang::ReturnStmt *);
+	bool VisitIfStmt(clang::IfStmt *);
+	bool VisitArraySubscriptExpr(clang::ArraySubscriptExpr *);
+	bool VisitCompoundStmt(clang::CompoundStmt *);
+private:
+	bool thisIsFollowupForAVarDecl { false };
+	bool thisIsFollowupOfUnaryOperator { false };
+	bool thisIsFollowupOfaMinus { false };
+	bool thisIsFollowupOfaCall { false };
+	clang::ASTContext *context { NULL };
+	function *current_function { NULL };
+	variable::Types current_type;
+	void addVar(const std::string &,std::string &);
+	scheduler Schedule;
+};
+
+class canal_reversed_term_analyzer: public canal_Term_last_rope_analyzer{
+
+private:
+	bool thisIsFollowupOfAMinus{false};
+	bool thisIsFollowupOfATimes{false};
 };
 
 class canal_AST_consumer : public clang::ASTConsumer{

@@ -109,6 +109,24 @@ void operation_stack::add_rope(){
 		ropes.back().push_back(*rope_it);
 }
 
+void operation_stack::init_inserter(){
+	if(ropes.size() == 1){
+		inserts.push_back(ropes.back().back());
+		return;
+	}
+	for(auto rope_it = ropes[ropes.size() - 2].begin(); rope_it != ropes[ropes.size() - 2].end();rope_it++)
+		inserts.push_back(*rope_it);
+}
+
+template<typename T>
+void operation_stack::inserter_push(const T &value){
+	debug("inserting into inserter");
+	for(auto insert_iterator = inserts.rbegin();insert_iterator != inserts.rend();insert_iterator++){
+		insert(value,*insert_iterator);
+		*(insert_iterator)--;
+	}
+}
+
 
 operation_stack::operation_stack(){
 	debug("creating operation_stack");

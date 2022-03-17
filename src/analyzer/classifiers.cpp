@@ -16,6 +16,32 @@
 #include <clang/AST/OperationKinds.h>
 #include <llvm/Support/Casting.h>
 
+
+bool canal_Compound_classifier::VisitArraySubscriptExpr(clang::ArraySubscriptExpr *e){
+	if(!Schedule.look_up())
+		return true;
+	Schedule.increase_child();
+	if(visitedDecreasingOp){
+		type = CodeClassifier::mixed;	
+	}else{
+		type = CodeClassifier::onlyIncrease;
+	}
+	return true;
+}
+
+bool canal_IfStmnt_classifier::VisitArraySubscriptExpr(clang::ArraySubscriptExpr *e){
+	if(!Schedule.look_up())
+		return true;
+	Schedule.increase_child();
+	if(visitedDecreasingOp){
+		type.back() = CodeClassifier::mixed;
+	}else{
+		type.back() = CodeClassifier::onlyIncrease;
+	}
+		
+	return true;
+}
+
 canal_Access_In_Expr::canal_Access_In_Expr(clang::ASTContext *c): context(c){
 	debug("creating Access checker");
 }
@@ -105,6 +131,10 @@ unsigned int canal_IfStmnt_classifier::getCount(){
 
 CodeClassifier canal_IfStmnt_classifier::getType(unsigned int i){
 	return type.at(i);
+}
+
+std::vector<CodeClassifier> canal_IfStmnt_classifier::getType(){
+	return type;
 }
 
 bool canal_Compound_classifier::VisitCompoundStmt(clang::CompoundStmt *com_stmnt){
@@ -201,7 +231,7 @@ bool isVarSigned(clang::Expr *expr){
 }
 
 bool isVarinExpr(clang::Expr *expr){
-	if(llvm::dyn_cast<clang::ImplicitCastExpr>(expr))
+	if(llvm::dyn_cast<clang::CastExpr>(expr))
 		return true;
 	if(llvm::dyn_cast<clang::DeclRefExpr>(expr))
 		return true;
