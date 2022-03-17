@@ -203,8 +203,7 @@ private:
 class canal_reversed_term_analyzer: public canal_Term_last_rope_analyzer{
 
 private:
-	bool thisIsFollowupOfAMinus{false};
-	bool thisIsFollowupOfATimes{false};
+	clang::BinaryOperatorKind thisIsFollowupOf{clang::BinaryOperatorKind::BO_Add};
 };
 
 class canal_AST_consumer : public clang::ASTConsumer{

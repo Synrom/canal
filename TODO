@@ -1,5 +1,6 @@
 - IfStmnt Handler 
 	-> last_rope handler fuer jeweils andere Seite hinzufuegen
+	-> isUnaccessedVarInStmt implementieren
 	-> reversed_term_analyzer implementieren
 - Float Literals
 
